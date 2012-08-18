@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+Extension-Name: mapreduce
+Class-Manager: org.nlogo.extensions.mapreduce.Manager
+NetLogo-Extension-API-Version: 5.0
+

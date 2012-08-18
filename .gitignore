@@ -1,0 +1,6 @@
+*.java~
+*.scala~
+*.jar
+test.nlogo
+classes/
+
