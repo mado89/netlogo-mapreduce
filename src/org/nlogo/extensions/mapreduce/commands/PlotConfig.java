@@ -5,13 +5,14 @@ import org.nlogo.api.Context;
 import org.nlogo.api.DefaultCommand;
 import org.nlogo.api.ExtensionException;
 import org.nlogo.api.Syntax;
-import org.nlogo.extensions.mapreduce.Manager;
+
+import at.dobiasch.mapreduce.framework.FrameworkFactory;
 
 /**
  * 
  * @author Martin Dobiasch
  */
-public class Node extends DefaultCommand
+public class PlotConfig extends DefaultCommand
 {
 	public Syntax getSyntax()
 	{
@@ -20,6 +21,7 @@ public class Node extends DefaultCommand
 	
 	public void perform(Argument args[], Context context) throws ExtensionException
 	{
-		new at.dobiasch.mapreduce.Node();
+		String config= "" + FrameworkFactory.getInstance().getConfiguration();
+		throw new ExtensionException(config);
 	}
 }
