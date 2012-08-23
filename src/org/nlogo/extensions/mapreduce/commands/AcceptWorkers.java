@@ -10,7 +10,6 @@ import org.nlogo.api.LogoException;
 import org.nlogo.api.Syntax;
 import org.nlogo.extensions.mapreduce.Manager;
 
-import scala.collection.immutable.Stack;
 import at.dobiasch.mapreduce.framework.FrameworkFactory;
 
 /**
@@ -28,7 +27,7 @@ public class AcceptWorkers extends DefaultCommand
 	{
 		Manager.em.workspace().getHubNetManager().reset();
 		ArrayList<Object> list= new ArrayList<Object>();
-		list.add("CONFIG");
+		// list.add("CONFIG");
 		try
 		{
 			// Manager.em.workspace().getHubNetManager().setClientInterface("MAPREDUCE", list);
@@ -39,5 +38,6 @@ public class AcceptWorkers extends DefaultCommand
 		{
 			throw new ExtensionException(e);
 		}
+		FrameworkFactory.getInstance().setMaster(true);
 	}
 }
