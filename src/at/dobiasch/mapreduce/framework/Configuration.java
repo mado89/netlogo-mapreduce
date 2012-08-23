@@ -107,19 +107,7 @@ public class Configuration
 		Iterator<String> i = vals.iterator();
 		for(String key : keys)
 		{
-			if( key.equals("INDIR"))
-				this.indir= "" + i;
-			if( key.equals("OUTDIR"))
-				this.outdir= "" + i;
-			if( key.equals("MAPPER"))
-				this.mapper= "" + i;
-			if( key.equals("REDUCER"))
-				this.reducer= "" + i;
-			if( key.equals("MAPPERS"))
-				this.mappers= Integer.parseInt("" + i);
-			if( key.equals("REDUCERS"))
-				this.reducers= Integer.parseInt("" + i);
-			i.next();
+			this.setValue(key, i.next());
 		}
 	}
 	
@@ -135,5 +123,33 @@ public class Configuration
 		ret+= ",reducers: " + this.reducers;
 		ret+= "]";
 		return ret;
+	}
+
+	public void setValuesFromString(String valstring)
+	{
+		String[] vals= valstring.split(",");
+		int i;
+		for(i= 0; i < vals.length - 1; i++)
+		{
+			System.out.println(vals[i]);
+			String[] h= vals[i].split("=");
+			this.setValue(h[0], h[1]);
+		}
+	}
+	
+	public void setValue(String key, String value)
+	{
+		if( key.equals("INDIR"))
+			this.indir= "" + value;
+		if( key.equals("OUTDIR"))
+			this.outdir= "" + value;
+		if( key.equals("MAPPER"))
+			this.mapper= "" + value;
+		if( key.equals("REDUCER"))
+			this.reducer= "" + value;
+		if( key.equals("MAPPERS"))
+			this.mappers= Integer.parseInt("" + value);
+		if( key.equals("REDUCERS"))
+			this.reducers= Integer.parseInt("" + value);
 	}
 }

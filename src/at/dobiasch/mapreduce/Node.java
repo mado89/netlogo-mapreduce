@@ -96,27 +96,12 @@ public class Node
 					System.out.println("Message: " + message);
 					msg= message.toString();
 					//if( hubnet.getMessageTag().equals("CONFIG-START"))
-					if( msg.equalsIgnoreCase("Some(Text(CONFIG-START,TEXT))"))
+					if( msg.startsWith("Some(Text(CONFIG:"))
 					{
-						boolean endReached= false;
-						Map<String,String> fields= new HashMap<String,String>();
-						while( !endReached )
-						{
-							// hubnet.fetchMessage();
-							// if(hubnet.getMessageTag().equals("CONFIG-END"))
-							if(msg.equalsIgnoreCase("Some(Text(CONFIG-END,TEXT))"))
-								endReached= true;
-							else
-							{
-								String key, value;
-								// key= hubnet.getMessageTag();
-								// value= hubnet.getMessageSource();
-								// TODO: 
-								// fields.put(key, value);
-							}
-						}
-						FrameworkFactory.getInstance().getConfiguration().setValues(fields);
-						System.out.println("config send end");
+						FrameworkFactory.getInstance().getConfiguration().
+							setValuesFromString(msg.substring(19, msg.length() - 7));
+						System.out.println("Config recieved: " + 
+							FrameworkFactory.getInstance().getConfiguration());
 					}
 				}
 				Thread.sleep(100);

@@ -1,5 +1,7 @@
 package org.nlogo.extensions.mapreduce.commands;
 
+import java.io.File;
+
 import org.nlogo.api.Argument;
 import org.nlogo.api.Context;
 import org.nlogo.api.DefaultCommand;

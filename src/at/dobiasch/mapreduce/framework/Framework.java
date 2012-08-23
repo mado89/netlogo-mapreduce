@@ -55,7 +55,7 @@ public class Framework
 		// Create client set
 		scala.collection.Seq<String> clients= hubnet.clients().toSeq();
 		
-		// this.getConfiguration().setInputDirectory("asdf");
+		this.getConfiguration().setInputDirectory("asdf");
 		Map<String,String> fields= this.getConfiguration().getChangedFields();
 		if( fields.keySet().size() > 0 )
 		{		
