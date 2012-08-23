@@ -4,11 +4,11 @@ import org.nlogo.api.Argument;
 import org.nlogo.api.Context;
 import org.nlogo.api.DefaultCommand;
 import org.nlogo.api.ExtensionException;
+import org.nlogo.api.HubNetInterface;
 import org.nlogo.api.Syntax;
 import org.nlogo.extensions.mapreduce.Manager;
 
 import at.dobiasch.mapreduce.SingleNodeRun;
-import at.dobiasch.mapreduce.framework.Configuration;
 import at.dobiasch.mapreduce.framework.Framework;
 import at.dobiasch.mapreduce.framework.FrameworkFactory;
 
@@ -16,7 +16,7 @@ import at.dobiasch.mapreduce.framework.FrameworkFactory;
  * 
  * @author Martin Dobiasch
  */
-public class SingleNode extends DefaultCommand
+public class MapReduce extends DefaultCommand
 {
 	public Syntax getSyntax()
 	{
@@ -25,9 +25,15 @@ public class SingleNode extends DefaultCommand
 	
 	public void perform(Argument args[], Context context) throws ExtensionException
 	{
-		Framework framework= FrameworkFactory.getInstance();
-		
-		SingleNodeRun run= new SingleNodeRun(framework,Manager.getWorld(),Manager.em.workspace().getModelPath());
-		run.setup();
+		HubNetInterface hubnet = Manager.em.workspace().getHubNetManager();
+		Framework fw = FrameworkFactory.getInstance();
+		if( fw.getNNodes(hubnet) == 0 )
+		{
+			String world,model;
+			world= Manager.getWorld();
+			model= Manager.em.workspace().getModelPath();
+			SingleNodeRun sn= new SingleNodeRun(fw,world,model);
+			sn.setup();
+		}
 	}
 }

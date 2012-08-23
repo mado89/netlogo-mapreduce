@@ -60,14 +60,44 @@ public class Configuration
 		this.outdir = outdir;
 	}
 
-	public String getMapper()
+	public int getMappers()
 	{
-		return this.mapper;
+		return mappers;
 	}
 
+	public void setMappers(int mappers)
+	{
+		this.mappers = mappers;
+	}
+
+	public int getReducers()
+	{
+		return reducers;
+	}
+
+	public void setReducers(int reducers)
+	{
+		this.reducers = reducers;
+	}
+	
+	public String getMapper()
+	{
+		return mapper;
+	}
+
+	public void setMapper(String mapper)
+	{
+		this.mapper = mapper;
+	}
+	
 	public String getReducer()
 	{
-		return this.reducer;
+		return reducer;
+	}
+
+	public void setReducer(String reducer)
+	{
+		this.reducer = reducer;
 	}
 
 	/**

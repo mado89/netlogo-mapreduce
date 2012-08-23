@@ -4,10 +4,16 @@ import java.io.IOException;
 import java.io.StringReader;
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.concurrent.Callable;
+import java.util.concurrent.CompletionService;
+import java.util.concurrent.ExecutorCompletionService;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.concurrent.Semaphore;
 
 import org.nlogo.agent.Observer;
 import org.nlogo.api.CompilerException;
+import org.nlogo.api.ExtensionException;
 import org.nlogo.api.JobOwner;
 import org.nlogo.api.SimpleJobOwner;
 import org.nlogo.headless.HeadlessWorkspace;
@@ -44,40 +50,66 @@ public class WorkspaceBuffer
 	
 	private void createWorkspaces() throws IOException
 	{
+		// ExecutorService pool= Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
+		ExecutorService pool= Executors.newCachedThreadPool();
+		CompletionService<Object> complet= new ExecutorCompletionService<Object>(pool);
 		for(int i= 0; i < size + 1; i++)
 		{
-			HeadlessWorkspace ws= HeadlessWorkspace.newInstance();
-			
-			ws.open(model);
-			
-			StringReader sr = new StringReader(world);
-			
-			ws.importWorld(sr);
-			
-			Element e= new Element();
-			e.ws= ws;
-			e.owner= new SimpleJobOwner("MapRed", ws.world.mainRNG,Observer.class);
-			q.offer(e);
-			available.release();
+			complet.submit(new Callable<Object>()
+					{
+						public Object call() throws Exception
+						{
+							HeadlessWorkspace ws= HeadlessWorkspace.newInstance();
+							
+							ws.open(model);
+							
+							StringReader sr = new StringReader(world);
+							
+							ws.importWorld(sr);
+							
+							Element e= new Element();
+							e.ws= ws;
+							e.owner= new SimpleJobOwner("MapReduce", ws.world.mainRNG,Observer.class);
+							q.offer(e);
+							available.release();
+							System.out.println("WS opened");
+							return null;
+						}
+				
+					}
+			);
+		}
+		try
+		{
+			pool.shutdown();
+			for(int l= 0; l < size; l++)
+				complet.take();
+		}catch(InterruptedException e)
+		{
+			// throw new ExtensionException( e );
 		}
 	}
 	
 	public void compileComands(String map, String reduce) throws CompilerException
 	{
+		int i= 0;
 		for(Element e : q)
 		{
-			scala.Option<String> x = scala.Option.apply(null);
+			e.map= e.ws.compileCommands(map);
+			/*scala.Option<String> x = scala.Option.apply(null);
 			CompilerResults res= e.ws.compiler().compileMoreCode(
 				"to __evaluator [] __observercode " + map + " __key __value\n__done end", x, 
 				e.ws.world.program(), e.ws.getProcedures(), e.ws.getExtensionManager());
 			res.head().init(e.ws);
-			e.map= res.head();
+			e.map= res.head(); */
 			
-			res= e.ws.compiler().compileMoreCode(
+			/*res= e.ws.compiler().compileMoreCode(
 				"to __evaluator [] __observercode " + reduce + " __key __value\n__done end", x, 
 				e.ws.world.program(), e.ws.getProcedures(), e.ws.getExtensionManager());
 			res.head().init(e.ws);
-			e.reduce= res.head();
+			e.reduce= res.head();*/
+			e.reduce= e.ws.compileCommands(reduce);
+			System.out.println(++i + "Workspaces compiled");
 		}
 	}
 	

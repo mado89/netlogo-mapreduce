@@ -80,4 +80,14 @@ public class Framework
 			}
 		}
 	}
+	
+	/**
+	 * Get the Number of connected clients
+	 * @param hubnet Reference to HubNetInterface
+	 * @return Number of connected clients
+	 */
+	public int getNNodes(HubNetInterface hubnet)
+	{
+		return hubnet.clients().size();
+	}
 }
