@@ -32,6 +32,7 @@ public class Test extends DefaultCommand
 	
 	public void perform(Argument args[], Context context) throws ExtensionException
 	{
+		System.out.println("TEST");
 		Framework fw= FrameworkFactory.getInstance();
 		fw.getConfiguration().setInputDirectory("asdf");
 		Map<String,String> fields= fw.getConfiguration().getChangedFields();
@@ -43,22 +44,10 @@ public class Test extends DefaultCommand
 			// Create client set
 			scala.collection.Seq<String> clients= hubnet.clients().toSeq();
 			
-			// Initiate Transfer of configuration
-			Manager.em.workspace().getHubNetManager().broadcast("CONFIG-START");
+			System.out.println(clients);
+			System.out.println(fields);
 			
-			Set<String> keys= fields.keySet();
-			Collection<String> vals= fields.values();
-			Iterator<String> i = vals.iterator();
-			
-			for(String key : keys)
-			{
-				// hubnet.send(clients, key, i);
-				// hubnet.broadcast(key,i);
-				i.next();
-			}
-			
-			// End Transfer of configuration
-			Manager.em.workspace().getHubNetManager().broadcast("CONFIG-END");
+			hubnet.send(clients, "CONFIG", fields);
 		} catch (LogoException e) {
 			throw new ExtensionException(e);
 		}
