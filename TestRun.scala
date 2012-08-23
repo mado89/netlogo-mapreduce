@@ -7,13 +7,25 @@ object TestRun
 {
   def main(args: Array[String])
   {
-    val workspace1 = HeadlessWorkspace.newInstance
+    val workspace = HeadlessWorkspace.newInstance
+    workspace.open("/home/martin/DA/mapreduce/test.nlogo")
+    workspace.command("server")
+    val server= new Thread(new Runnable {
+      def run()
+      {
+        Thread.sleep(100)
+	workspace.command("mapreduce:test")
+      }
+    })
+        
     val workspace2 = HeadlessWorkspace.newInstance
-    workspace1.open("/home/martin/DA/mapreduce/test.nlogo")
     workspace2.open("/home/martin/DA/mapreduce/test.nlogo")
-    workspace1.command("server")
+    server.start
     workspace2.command("client")
     // workspace1.command("mapreduce:test")
+    // wait { 
+    //   workspace1.command("print \"test\"")
+    //  workspace1.command("mapreduce:test") }
     // workspace.dispose()
     /*println(args)
     val frame1= new javax.swing.JFrame
