@@ -10,6 +10,9 @@ import org.nlogo.extensions.mapreduce.commands.Node;
 import org.nlogo.extensions.mapreduce.commands.NodeParams;
 import org.nlogo.extensions.mapreduce.commands.PlotConfig;
 import org.nlogo.extensions.mapreduce.commands.Test;
+import org.nlogo.extensions.mapreduce.commands.config.InputDir;
+import org.nlogo.extensions.mapreduce.commands.config.Mapper;
+import org.nlogo.extensions.mapreduce.commands.config.OutDir;
 
 /**
  * Manager Class for the extension
@@ -87,6 +90,11 @@ public class Manager extends org.nlogo.api.DefaultClassManager
 		manager.addPrimitive("acceptworkers", new AcceptWorkers());
 		manager.addPrimitive("test", new Test());
 		manager.addPrimitive("mapreduce", new MapReduce());
+		
+		manager.addPrimitive("config.input", new InputDir());
+		manager.addPrimitive("config.output", new OutDir());
+		manager.addPrimitive("config.mapper", new Mapper());
+		manager.addPrimitive("config.reducer", new Reducer());
 		
 		manager.addPrimitive("__print.config", new PlotConfig());
 	}
