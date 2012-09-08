@@ -13,6 +13,7 @@ import org.nlogo.extensions.mapreduce.commands.Test;
 import org.nlogo.extensions.mapreduce.commands.config.InputDir;
 import org.nlogo.extensions.mapreduce.commands.config.Mapper;
 import org.nlogo.extensions.mapreduce.commands.config.OutDir;
+import org.nlogo.extensions.mapreduce.commands.config.Reducer;
 
 /**
  * Manager Class for the extension
