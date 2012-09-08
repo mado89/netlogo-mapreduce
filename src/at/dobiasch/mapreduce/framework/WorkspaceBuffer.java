@@ -93,8 +93,10 @@ public class WorkspaceBuffer
 	public void compileComands(String map, String reduce) throws CompilerException
 	{
 		int i= 0;
-		for(Element e : q)
+		// for(Element e : q)
+		for(i= 0; i < q.size(); i++)
 		{
+			Element e= q.poll();
 			e.map= e.ws.compileCommands(map);
 			/*scala.Option<String> x = scala.Option.apply(null);
 			CompilerResults res= e.ws.compiler().compileMoreCode(
@@ -109,7 +111,8 @@ public class WorkspaceBuffer
 			res.head().init(e.ws);
 			e.reduce= res.head();*/
 			e.reduce= e.ws.compileCommands(reduce);
-			System.out.println(++i + "Workspaces compiled");
+			System.out.println((i+1) + " Workspaces compiled");
+			q.add(e);
 		}
 	}
 	
