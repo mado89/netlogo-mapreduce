@@ -13,7 +13,7 @@ endif
 JAVAC = $(JAVA_HOME)/bin/javac
 
 
-SRCS=$(wildcard src/org/nlogo/extensions/mapreduce/*.java src/org/nlogo/extensions/mapreduce/commands/*.java)
+SRCS=$(wildcard src/org/nlogo/extensions/mapreduce/*.java src/org/nlogo/extensions/mapreduce/commands/*.java src/org/nlogo/extensions/mapreduce/commands/config/*.java)
 SRC2=$(wildcard src/at/dobiasch/mapreduce/*.java src/at/dobiasch/mapreduce/framework/*.java)
 SRCSLIB=$(wildcard client/org/nlogo/*.scala)
 
