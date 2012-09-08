@@ -4,6 +4,8 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
@@ -25,28 +27,48 @@ public class ParallelPartitioner implements ICheckAndPartition
 	private ExecutorService pool;
 	private CompletionService<Object> complet;
 	
+	private Class partitioner= ParallelLinePartitioner.class;
+	private Constructor<BaseParallelPartitioner> constr;
+	
 	private int jobCount;
+
+	private int blocksize;
 	
 	@Override
-	public void init(String sysdir)
+	public void init(String sysdir, int blocksize) throws SecurityException, NoSuchMethodException
 	{
+		this.blocksize= blocksize;
+		
 		files= new HashMap<String,String>();
 		
 		// TODO: maybe find a better number of threads
 		pool= Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
 		complet= new ExecutorCompletionService<Object>(pool);
 		jobCount= 0;
+		
+		@SuppressWarnings("rawtypes")
+		Class[] ctorArgs1 = new Class[3];
+		ctorArgs1[0] = String.class;
+		ctorArgs1[1] = String.class;
+		ctorArgs1[2] = Integer.class;
+        constr= partitioner.getConstructor(ctorArgs1);
 	}
 	
 	@Override
 	public void addFile(String path)
 	{
 		try {
-			complet.submit( new BaseParallelPartitioner(path, "/tmp") );
-		} catch (NoSuchAlgorithmException e) {
+			complet.submit( constr.newInstance(path, "/tmp", blocksize) );
+		} catch (IllegalArgumentException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} catch (IOException e) {
+		} catch (InstantiationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (InvocationTargetException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

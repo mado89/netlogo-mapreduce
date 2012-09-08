@@ -17,22 +17,27 @@ public class BaseParallelPartitioner implements Callable<Object>
 	private String checksum;
 	
 	protected int position;
+	protected long filesize;
+	protected int blocksize;
 	
 	protected InputStream is;
 	protected MessageDigest complete;
 	
-	private BufferedWriter out;
+	protected BufferedWriter out;
 	
-	public BaseParallelPartitioner(String path, String sysdir) throws NoSuchAlgorithmException, IOException
+	public BaseParallelPartitioner(String path, String sysdir, Integer blocksize)
+			throws NoSuchAlgorithmException, IOException
 	{
 		this.path= path;
 		this.checksum= "";
+		this.blocksize= blocksize;
 		
 		is= new FileInputStream(path);
 		complete= MessageDigest.getInstance("SHA1");
 		
 		File file;
 		file= new File(path);
+		filesize= file.length();
 		file= new File(sysdir + "/" + file.getName() + ".partition");
 		out= new BufferedWriter(new FileWriter(file));
 	}
@@ -41,23 +46,18 @@ public class BaseParallelPartitioner implements Callable<Object>
 	{
 		try
 		{
-			
 			do
 			{
 				read();
-				update();
 				if( split() )
 					writePartition();
+				update();
 			} while (doRead());
 			is.close();
 			
 			byte[] b= complete.digest();
 			
-			checksum= "";
-			for (int i=0; i < b.length; i++)
-			{
-				checksum += Integer.toString( ( b[i] & 0xff ) + 0x100, 16).substring( 1 );
-			}
+			checksum= convToHex(b);
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -69,8 +69,33 @@ public class BaseParallelPartitioner implements Callable<Object>
 		String[] ret= new String[2];
 		ret[0]= path;
 		ret[1]= checksum;
+		
+		try {
+			out.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		return ret;
 	}
+	
+	private static String convToHex(byte[] data)
+	{
+        StringBuilder buf = new StringBuilder();
+        for (int i = 0; i < data.length; i++) {
+            int halfbyte = (data[i] >>> 4) & 0x0F;
+            int two_halfs = 0;
+            do {
+                if ((0 <= halfbyte) && (halfbyte <= 9))
+                    buf.append((char) ('0' + halfbyte));
+                else
+                	buf.append((char) ('a' + (halfbyte - 10)));
+                halfbyte = data[i] & 0x0F;
+            } while(two_halfs++ < 1);
+        }
+        return buf.toString();
+    }
 	
 	protected Object read()
 	{

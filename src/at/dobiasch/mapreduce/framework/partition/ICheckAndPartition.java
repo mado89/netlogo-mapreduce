@@ -9,8 +9,10 @@ public interface ICheckAndPartition
 	/**
 	 * Init the Checker and Partitioner
 	 * @param sysdir Path to the dir where the framework can store the system files
+	 * @throws NoSuchMethodException 
+	 * @throws SecurityException 
 	 */
-	public void init(String sysdir);
+	public void init(String sysdir, int blocksize) throws Exception;
 	
 	/**
 	 * Add a File
