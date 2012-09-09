@@ -52,6 +52,7 @@ public class BaseParallelPartitioner implements Callable<Object>
 	{
 		try
 		{
+			writePartition();
 			do
 			{
 				read();
@@ -77,7 +78,7 @@ public class BaseParallelPartitioner implements Callable<Object>
 		ret.key= path;
 		ret.checksum= checksum;
 		ret.partitionfile= this.partfn;
-		ret.numpartitions= this.partitions + 1;
+		ret.numpartitions= this.partitions;
 		
 		try {
 			out.close();
