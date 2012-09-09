@@ -21,7 +21,8 @@ import at.dobiasch.mapreduce.framework.FrameworkException;
 
 public class ParallelPartitioner implements ICheckAndPartition
 {
-	private Map<String,String> files;
+	private Map<String,String> filesC;
+	private Map<String,CheckPartData> filesD;
 	// private boolean syncMapwait= false;
 	
 	private ExecutorService pool;
@@ -34,12 +35,16 @@ public class ParallelPartitioner implements ICheckAndPartition
 
 	private int blocksize;
 	
+	protected boolean check;
+	
 	@Override
 	public void init(String sysdir, int blocksize) throws SecurityException, NoSuchMethodException
 	{
 		this.blocksize= blocksize;
+		this.check= true;
 		
-		files= new HashMap<String,String>();
+		filesC= null;
+		filesD= null;
 		
 		// TODO: maybe find a better number of threads
 		pool= Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
@@ -78,14 +83,16 @@ public class ParallelPartitioner implements ICheckAndPartition
 	@Override
 	public Map<String, String> getChecksums() throws FrameworkException
 	{
+		filesC= new HashMap<String,String>();
+		
 		try
 		{
 			pool.shutdown();
 			for(int l= 0; l < jobCount; l++)
 			{
-				String ret[];
-				ret= (String[] ) complet.take().get();
-				files.put(ret[0], ret[1]);
+				CheckPartData ret;
+				ret= (CheckPartData ) complet.take().get();
+				filesC.put(ret.key, ret.checksum);
 			}
 		} catch(InterruptedException e) {
 			throw new FrameworkException( e.getMessage() );
@@ -93,6 +100,34 @@ public class ParallelPartitioner implements ICheckAndPartition
 			e.printStackTrace();
 		}
 		
-		return files;
+		return filesC;
+	}
+
+	@Override
+	public void setCheck(boolean check)
+	{
+		this.check= check;
+	}
+
+	@Override
+	public Map<String, CheckPartData> getData() throws FrameworkException
+	{
+		filesD= new HashMap<String,CheckPartData>();
+		try
+		{
+			pool.shutdown();
+			for(int l= 0; l < jobCount; l++)
+			{
+				CheckPartData ret;
+				ret= (CheckPartData ) complet.take().get();
+				filesD.put(ret.key, ret);
+			}
+		} catch(InterruptedException e) {
+			throw new FrameworkException( e.getMessage() );
+		} catch (ExecutionException e) {
+			e.printStackTrace();
+		}
+		
+		return filesD;
 	}
 }

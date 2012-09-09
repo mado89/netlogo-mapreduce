@@ -55,7 +55,8 @@ public class ParallelLinePartitioner extends BaseParallelPartitioner
 	
 	protected void writePartition() throws IOException
 	{
-		System.out.println(lines + " " + blocksize);
+		// System.out.println(lines + " " + blocksize);
 		out.write("" + position + "\n");
+		this.partitions ++ ;
 	}
 }

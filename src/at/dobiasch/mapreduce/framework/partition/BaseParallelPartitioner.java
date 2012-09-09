@@ -11,6 +11,8 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.concurrent.Callable;
 
+import at.dobiasch.mapreduce.framework.partition.ICheckAndPartition.CheckPartData;
+
 public class BaseParallelPartitioner implements Callable<Object>
 {
 	private String path;
@@ -19,6 +21,8 @@ public class BaseParallelPartitioner implements Callable<Object>
 	protected int position;
 	protected long filesize;
 	protected int blocksize;
+	protected int partitions;
+	protected String partfn;
 	
 	protected InputStream is;
 	protected MessageDigest complete;
@@ -31,6 +35,7 @@ public class BaseParallelPartitioner implements Callable<Object>
 		this.path= path;
 		this.checksum= "";
 		this.blocksize= blocksize;
+		this.partitions= 0;
 		
 		is= new FileInputStream(path);
 		complete= MessageDigest.getInstance("SHA1");
@@ -38,7 +43,8 @@ public class BaseParallelPartitioner implements Callable<Object>
 		File file;
 		file= new File(path);
 		filesize= file.length();
-		file= new File(sysdir + "/" + file.getName() + ".partition");
+		this.partfn= sysdir + "/" + file.getName() + ".partition";
+		file= new File(partfn);
 		out= new BufferedWriter(new FileWriter(file));
 	}
 	
@@ -66,9 +72,12 @@ public class BaseParallelPartitioner implements Callable<Object>
 			e.printStackTrace();
 		}
 		
-		String[] ret= new String[2];
-		ret[0]= path;
-		ret[1]= checksum;
+		CheckPartData ret= new CheckPartData();
+		// String[] ret= new String[2];
+		ret.key= path;
+		ret.checksum= checksum;
+		ret.partitionfile= this.partfn;
+		ret.numpartitions= this.partitions + 1;
 		
 		try {
 			out.close();
@@ -123,5 +132,6 @@ public class BaseParallelPartitioner implements Callable<Object>
 	protected void writePartition() throws IOException
 	{
 		out.write("" + position + "\n");
+		this.partitions ++ ;
 	}
 }
