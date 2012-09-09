@@ -16,8 +16,8 @@ public class Configuration
 	private static final String OUTDIR   = "output";
 	private static final String MAPPER   = "mapper";
 	private static final String REDUCER  = "reducer";
-	private static final int    MAPPERS  = Runtime.getRuntime().availableProcessors() * 100;
-	private static final int    REDUCERS = Runtime.getRuntime().availableProcessors() * 10;
+	private static final int    MAPPERS  = Runtime.getRuntime().availableProcessors() * 1;
+	private static final int    REDUCERS = Runtime.getRuntime().availableProcessors() * 1;
 	
 	public Configuration()
 	{

@@ -18,7 +18,9 @@ public class Values extends DefaultReporter
 	public Object report(Argument args[], Context context)
 			throws ExtensionException, LogoException
 	{
-		// TODO Auto-generated method stub
+		// elem.ws.world.setObserverVariableByName("mapreduce.values", list.toLogoList());
+		System.out.println("Agt id " + context.getAgent().id());
+		// context.getAgent().world();
 		return null;
 	}
 }
