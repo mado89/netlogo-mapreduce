@@ -12,10 +12,12 @@ public interface ICheckAndPartition
 		public String checksum;
 		public int    numpartitions;
 		public String partitionfile;
+		public long   lastpartitionend;
 		
 		public String toString()
 		{
-			return "[" + key + "," + checksum + "," + numpartitions + "," + partitionfile + "]";
+			return "[" + key + "," + checksum + "," + numpartitions + "," + 
+				partitionfile + "," + lastpartitionend + "]";
 		}
 	}
 	

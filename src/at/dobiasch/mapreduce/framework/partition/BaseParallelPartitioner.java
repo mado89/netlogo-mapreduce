@@ -79,6 +79,7 @@ public class BaseParallelPartitioner implements Callable<Object>
 		ret.checksum= checksum;
 		ret.partitionfile= this.partfn;
 		ret.numpartitions= this.partitions;
+		ret.lastpartitionend= this.filesize;
 		
 		try {
 			out.close();
