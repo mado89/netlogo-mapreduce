@@ -45,6 +45,7 @@ public class SingleNodeRun
 	public void setup() throws ExtensionException
 	{
 		System.out.println("Setting up");
+		// TODO: its assumed that working/system directory is created and write able
 		try
 		{
 			prepareInput();
@@ -148,6 +149,7 @@ public class SingleNodeRun
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		System.out.println("done");
+		fw.getTaskController().closeIntermediateFiles();
+		System.out.println("done mapping");
 	}
 }

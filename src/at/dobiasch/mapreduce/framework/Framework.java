@@ -15,12 +15,14 @@ public class Framework
 	private Configuration  config;
 	private boolean        masterp;
 	private TaskController controller;
+	private String         sysdir;
 	
 	public Framework()
 	{
 		this.config= new Configuration();
 		this.masterp= false;
-		this.controller= new TaskController();
+		sysdir= "/tmp";
+		this.controller= new TaskController(sysdir);
 	}
 	
 	public Configuration getConfiguration()
@@ -96,5 +98,10 @@ public class Framework
 	public TaskController getTaskController()
 	{
 		return controller;
+	}
+	
+	public String getSystemDir()
+	{
+		return sysdir; // TODO: not hardcoded is maybe better ...
 	}
 }
