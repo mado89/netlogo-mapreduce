@@ -2,10 +2,12 @@ package at.dobiasch.mapreduce;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FilenameFilter;
 import java.io.IOException;
 import java.util.Map;
+import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorCompletionService;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -145,11 +147,28 @@ public class SingleNodeRun
 			System.out.println("Jobs submitted wait for shutdown");
 			pool.shutdown();
 			for(int l= 0; l < i; l++)
-				complet.take();
+			{
+				System.out.println("Try to take " + l + " " + i);
+				if( (Boolean) complet.take().get() != true)
+				{
+					System.out.println("Something failed");
+				}
+			}
+			System.out.println("All taken");
 		} catch (InterruptedException e) {
+			System.out.println("Waiting for Map-Tasks was interruped");
+			e.printStackTrace();
+		} catch (ExecutionException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		fw.getTaskController().closeIntermediateFiles();
+		
+		try {
+			fw.getTaskController().closeIntermediateFiles();
+		} catch (IOException e) {
+			System.out.println("IO Except");
+			e.printStackTrace();
+		}
 		System.out.println("done mapping");
 	}
 }

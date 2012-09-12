@@ -95,11 +95,14 @@ public class TaskController
 	 */
 	public void emit(Workspace ws, String key, String value) throws IOException
 	{
+		System.out.println("emit <" + key + "," + value + ">");
 		if( maptasks.keySet().contains(ws) ) // emmited from a Map Task
 		{
+			// System.out.println("was map");
 			IntKeyVal h= intdata.get(key);
 			if( h == null ) // First value for this key
 			{
+				// System.out.println("First for " + key);
 				String fn;
 				MessageDigest md= null;
 				try {
@@ -109,9 +112,14 @@ public class TaskController
 				}
 				md.update(key.getBytes());
 				fn= sysdir + "/" + ChecksumHelper.convToHex(md.digest());
+				// System.out.println(fn);
 				h= new IntKeyVal(fn);
+				intdata.put(key, h);
 			}
+			
 			h.out.write(value + "\n");
+			
+			System.out.println("written");
 		}
 		else // emmited from an reducer
 		{
@@ -125,8 +133,10 @@ public class TaskController
 	 */
 	public void closeIntermediateFiles() throws IOException
 	{
+		System.out.println("close intermediate files" + intdata);
 		for(IntKeyVal h : intdata.values())
 		{
+			System.out.println("Closing " + h.fn);
 			h.out.close();
 		}
 	}

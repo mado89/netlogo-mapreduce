@@ -33,7 +33,7 @@ public class Emit extends DefaultCommand
 	    catch(LogoException e)
 	    {
 	      throw new ExtensionException( e.getMessage() ) ;
-	    }
+	    } 
 		
 		Workspace ws= ((org.nlogo.nvm.ExtensionContext) context).workspace();
 		TaskController controller= FrameworkFactory.getInstance().getTaskController();
