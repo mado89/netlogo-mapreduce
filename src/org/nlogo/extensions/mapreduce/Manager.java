@@ -5,6 +5,7 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 
 import org.nlogo.extensions.mapreduce.commands.AcceptWorkers;
+import org.nlogo.extensions.mapreduce.commands.Key;
 import org.nlogo.extensions.mapreduce.commands.MapReduce;
 import org.nlogo.extensions.mapreduce.commands.Node;
 import org.nlogo.extensions.mapreduce.commands.NodeParams;
@@ -96,6 +97,7 @@ public class Manager extends org.nlogo.api.DefaultClassManager
 		manager.addPrimitive("mapreduce", new MapReduce());
 		
 		manager.addPrimitive("values", new Values());
+		manager.addPrimitive("key", new Key());
 		
 		manager.addPrimitive("config.input", new InputDir());
 		manager.addPrimitive("config.output", new OutDir());
