@@ -16,6 +16,8 @@ import org.nlogo.extensions.mapreduce.commands.config.Mapper;
 import org.nlogo.extensions.mapreduce.commands.config.OutDir;
 import org.nlogo.extensions.mapreduce.commands.config.Reducer;
 
+import at.dobiasch.mapreduce.framework.FrameworkFactory;
+
 /**
  * Manager Class for the extension
  * @author Martin Dobiasch
@@ -111,6 +113,8 @@ public class Manager extends org.nlogo.api.DefaultClassManager
 		Manager.em= (org.nlogo.workspace.ExtensionManager) em;
 		Manager.world= new WorldSem();
 		Manager.world.fillIn();
+		
+		FrameworkFactory.getInstance();
 	}
 	
 	public static String getWorld()

@@ -1,15 +1,6 @@
 package at.dobiasch.mapreduce.framework;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.RandomAccessFile;
-import java.io.StringReader;
 import java.util.concurrent.Callable;
-
-import org.nlogo.api.AgentException;
-import org.nlogo.api.LogoException;
-import org.nlogo.api.LogoList;
-import org.nlogo.api.LogoListBuilder;
 
 public class MapRun implements Callable<Object>
 {
@@ -35,37 +26,25 @@ public class MapRun implements Callable<Object>
 		WorkspaceBuffer.Element elem= null;
 		try
 		{
-			// FileChannel fc = FileChannel.open(key, StandardOpenOption.READ);
-			RandomAccessFile in= new RandomAccessFile(key, "r");
-			byte[] b= new byte[(int) (partEnd - partStart)];
-			
-			in.seek(partStart);
-			in.read(b);
-			
-			elem= wb.get();
-			
-			LogoListBuilder list = new LogoListBuilder();
-			String[] vals= new String(b).split("\n");
-			b= null;
-			for(int i= 0; i < vals.length; i++)
-				list.add(vals[i]);
-			
-			System.out.println("set values " + ID);
+			// System.out.println("set values " + ID);
 			// elem.ws.world.observer().
 			// elem.ws.world.setObserverVariableByName("mapreduce.values", list.toLogoList());
 			
+			elem= wb.get();
+			FrameworkFactory.getInstance().getTaskController().addMap(elem.ws, ID, key, partStart, partEnd);
 			System.out.println("run compiled command");
 			elem.ws.runCompiledCommands(elem.owner, elem.map);
+			FrameworkFactory.getInstance().getTaskController().removeMap(elem.ws);
 			
 			wb.release(elem);
 			returned= true;
-		} catch (FileNotFoundException e) {
+		} /* catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} /* catch (AgentException e) {
+		} *//* catch (AgentException e) {
 			System.out.println(e.getMessage());
 			e.printStackTrace();
 		} catch (LogoException e) {

@@ -15,6 +15,7 @@ public class FrameworkFactory
         if (inst == null)
         {
         	inst = new Framework();
+        	System.out.println("new Framework");
         }
         return inst;
     }

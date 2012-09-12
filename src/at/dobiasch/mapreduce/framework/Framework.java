@@ -12,13 +12,15 @@ import org.nlogo.api.LogoException;
 
 public class Framework
 {
-	private Configuration config;
-	private boolean       masterp;
+	private Configuration  config;
+	private boolean        masterp;
+	private TaskController controller;
 	
 	public Framework()
 	{
 		this.config= new Configuration();
 		this.masterp= false;
+		this.controller= new TaskController();
 	}
 	
 	public Configuration getConfiguration()
@@ -89,5 +91,10 @@ public class Framework
 	public int getNNodes(HubNetInterface hubnet)
 	{
 		return hubnet.clients().size();
+	}
+	
+	public TaskController getTaskController()
+	{
+		return controller;
 	}
 }
