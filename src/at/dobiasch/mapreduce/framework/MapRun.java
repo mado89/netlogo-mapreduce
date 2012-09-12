@@ -32,8 +32,9 @@ public class MapRun implements Callable<Object>
 			
 			elem= wb.get();
 			FrameworkFactory.getInstance().getTaskController().addMap(elem.ws, ID, key, partStart, partEnd);
-			System.out.println("run compiled command");
+			System.out.println("run compiled command" + ID);
 			elem.ws.runCompiledCommands(elem.owner, elem.map);
+			System.out.println("done compiled command" + ID);
 			FrameworkFactory.getInstance().getTaskController().removeMap(elem.ws);
 			
 			wb.release(elem);

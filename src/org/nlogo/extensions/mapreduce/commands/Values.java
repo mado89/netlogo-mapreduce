@@ -32,7 +32,7 @@ public class Values extends DefaultReporter
 		TaskController.Data data= controller.getData(ws);
 		
 		// elem.ws.world.setObserverVariableByName("mapreduce.values", list.toLogoList());
-		System.out.println("Agt id " + context.getAgent().id());
+		// System.out.println("Agt id " + context.getAgent().id());
 		// context.getAgent().world();
 		
 		RandomAccessFile in;
@@ -52,7 +52,7 @@ public class Values extends DefaultReporter
 			
 			System.out.println("running " + data.ID + " " + data.start + " " + data.end);
 			
-			return list;
+			return list.toLogoList();
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 			throw new ExtensionException(e);
