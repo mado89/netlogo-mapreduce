@@ -53,7 +53,7 @@ public class WorkspaceBuffer
 		// ExecutorService pool= Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
 		ExecutorService pool= Executors.newCachedThreadPool();
 		CompletionService<Object> complet= new ExecutorCompletionService<Object>(pool);
-		for(int i= 0; i < size + 1; i++)
+		for(int i= 0; i < size; i++)
 		{
 			complet.submit(new Callable<Object>()
 					{
