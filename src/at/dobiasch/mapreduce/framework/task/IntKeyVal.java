@@ -27,18 +27,31 @@ public class IntKeyVal
 	public IntKeyVal(String fn) throws IOException
 	{
 		this.fn= fn;
-		out= new BufferedWriter(new FileWriter(new File(fn)));
+		out= new BufferedWriter(new FileWriter(new File(fn),false));
 		count= 0;
 	}
 	
-	public void writeValue(String value) throws IOException
+	public synchronized void writeValue(String value) throws IOException
 	{
+		if( out == null )
+			reopen();
 		out.write(value + "\n");
+		out.close();
+		out= null;
 		count++;
+	}
+	
+	public void reopen() throws IOException
+	{
+		out= new BufferedWriter(new FileWriter(new File(fn),true));
 	}
 	
 	public void close() throws IOException
 	{
-		out.close();
+		if( out != null )
+		{
+			out.close();
+			out= null;
+		}
 	}
 }

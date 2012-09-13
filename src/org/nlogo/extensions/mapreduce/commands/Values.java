@@ -44,6 +44,8 @@ public class Values extends DefaultReporter
 			in.seek(data.start);
 			in.read(b);
 			
+			in.close();
+			
 			LogoListBuilder list = new LogoListBuilder();
 			String[] vals= new String(b).split("\n");
 			b= null;

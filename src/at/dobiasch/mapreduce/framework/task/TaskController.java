@@ -76,6 +76,7 @@ public class TaskController
 		System.out.println("emit <" + key + "," + value + ">");
 		if( maptasks.keySet().contains(ws) ) // emmited from a Map Task
 		{
+			// TODO: should also maybe be synchronized
 			// System.out.println("was map");
 			IntKeyVal h= intdata.get(key);
 			if( h == null ) // First value for this key
@@ -111,11 +112,12 @@ public class TaskController
 	 */
 	public void closeIntermediateFiles() throws IOException
 	{
-		System.out.println("close intermediate files" + intdata);
+		System.out.println("close intermediate files");
 		for(IntKeyVal h : intdata.values())
 		{
-			System.out.println("Closing " + h.fn);
+			// System.out.println("Closing " + h.fn);
 			h.close();
 		}
+		System.out.println("closed");
 	}
 }
