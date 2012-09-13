@@ -1,5 +1,6 @@
 package at.dobiasch.mapreduce.framework.task;
 
+import java.io.FileWriter;
 import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -20,16 +21,31 @@ public class TaskController
 		public long ID;
 		public TaskType type;
 		public String src;
+		public String key;
 		public long start;
 		public long end;
+		public FileWriter dest;
 		
-		public Data(long iD, TaskType type, String src, long start, long end)
+		public Data(long ID, TaskType type, String src, String key, long start, long end)
 		{
-			ID = iD;
+			this.ID = ID;
 			this.type= type;
-			this.src = src;
+			this.src= src;
+			this.key= key;
 			this.start = start;
 			this.end = end;
+			this.dest= null;
+		}
+		
+		public Data(long ID, TaskType type, String src, String key, FileWriter dest, long end)
+		{
+			this.ID = ID;
+			this.type= type;
+			this.src= src;
+			this.key= key;
+			this.start = 0;
+			this.end = end;
+			this.dest= dest;
 		}
 	}
 		
@@ -56,7 +72,7 @@ public class TaskController
 	
 	public void addMap(HeadlessWorkspace ws, long ID, String src, long start, long end)
 	{
-		Data data= new Data(ID, TaskType.Map, src, start, end);
+		Data data= new Data(ID, TaskType.Map, src, src, start, end);
 		
 		synchronized( syncMap )
 		{
@@ -153,7 +169,7 @@ public class TaskController
 		}
 		if( data.type == TaskType.Map ) // emmited from a Map Task
 		{
-			System.out.println("was map");
+			// System.out.println("was map");
 			IntKeyVal h;
 			synchronized( syncInt ) // get Intermediate-Data access for the key 
 			{
@@ -239,11 +255,16 @@ public class TaskController
 	{
 		return intdata;
 	}
+	
+	public void setReduceOutput(FileWriter[] out)
+	{
+		
+	}
 
 	public void addReduce(HeadlessWorkspace ws, long ID, String key, String filename, 
 			long size)
 	{
-		Data data= new Data(ID, TaskType.Reduce, filename, 0, size);
+		Data data= new Data(ID, TaskType.Reduce, filename, key, 0, size);
 		
 		synchronized( syncMap )
 		{

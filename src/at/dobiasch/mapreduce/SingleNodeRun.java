@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.FilenameFilter;
 import java.io.IOException;
 import java.util.Iterator;
@@ -178,13 +179,14 @@ public class SingleNodeRun
 		System.out.println("done mapping");
 	}
 	
-	private void doReduce()
+	private void doReduce() throws IOException
 	{
 		Map<String,IntKeyVal> intdata= fw.getTaskController().getIntermediateData();
 		Iterator<IntKeyVal> vals= intdata.values().iterator();
 		Iterator<String> keys= intdata.keySet().iterator();
 		String key;
 		IntKeyVal value;
+		int i= 0;
 		
 		System.out.println("Begin Reducing");
 		
@@ -195,7 +197,15 @@ public class SingleNodeRun
 		this.pool= Executors.newFixedThreadPool(this.size);
 		this.complet= new ExecutorCompletionService<Object>(pool);
 		
-		int i= 0;
+		FileWriter[] out= new FileWriter[this.size];
+		for(i= 0; i < this.size; i++)
+		{
+			//TODO: format 0 --> 0000, 1 --> 0001
+			out[i]= new FileWriter("output-" + i);
+		}
+		fw.getTaskController().setReduceOutput(out);
+		
+		i= 0;
 		while(keys.hasNext())
 		{
 			key= keys.next();

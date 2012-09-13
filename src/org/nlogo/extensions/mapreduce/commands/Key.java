@@ -25,6 +25,6 @@ public class Key extends DefaultReporter
 		TaskController controller= FrameworkFactory.getInstance().getTaskController();
 		TaskController.Data data= controller.getData(ws);
 		
-		return data.src;
+		return data.key;
 	}
 }
