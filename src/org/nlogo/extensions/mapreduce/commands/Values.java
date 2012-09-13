@@ -14,7 +14,7 @@ import org.nlogo.api.Syntax;
 import org.nlogo.nvm.Workspace;
 
 import at.dobiasch.mapreduce.framework.FrameworkFactory;
-import at.dobiasch.mapreduce.framework.task.TaskController;
+import at.dobiasch.mapreduce.framework.TaskController;
 
 
 public class Values extends DefaultReporter

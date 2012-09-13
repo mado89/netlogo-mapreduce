@@ -1,13 +1,21 @@
 package at.dobiasch.mapreduce;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.swing.JFrame;
 
-import org.nlogo.BasicClient;
+import org.nlogo.api.HubNetInterface;
+import org.nlogo.api.LogoException;
 import org.nlogo.hubnet.client.LoginCallback;
 import org.nlogo.hubnet.client.LoginDialog;
 import org.nlogo.hubnet.protocol.Message;
+import org.nlogo.workspace.AbstractWorkspace;
+
+import org.nlogo.BasicClient;
 
 import scala.Option;
+
 import at.dobiasch.mapreduce.framework.FrameworkFactory;
 
 /**

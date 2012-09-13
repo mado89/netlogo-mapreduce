@@ -1,13 +1,13 @@
 package at.dobiasch.mapreduce.framework;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 
 import org.nlogo.api.HubNetInterface;
 import org.nlogo.api.LogoException;
-
-import at.dobiasch.mapreduce.framework.task.TaskController;
 
 
 public class Framework

@@ -1,9 +1,6 @@
-package at.dobiasch.mapreduce.framework.task;
+package at.dobiasch.mapreduce.framework;
 
 import java.util.concurrent.Callable;
-
-import at.dobiasch.mapreduce.framework.FrameworkFactory;
-import at.dobiasch.mapreduce.framework.WorkspaceBuffer;
 
 public class MapRun implements Callable<Object>
 {
