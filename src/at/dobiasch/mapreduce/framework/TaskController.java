@@ -12,6 +12,9 @@ import java.util.Map;
 import org.nlogo.headless.HeadlessWorkspace;
 import org.nlogo.nvm.Workspace;
 
+import at.dobiasch.mapreduce.framework.ChecksumHelper;
+import at.dobiasch.mapreduce.framework.SysFileHandler;
+
 public class TaskController
 {
 	public class Data
@@ -56,13 +59,13 @@ public class TaskController
 	// List of Keys to be reduced
 	Map<Workspace,Data> maptasks;
 	Map<String,IntKeyVal> intdata;
-	String sysdir;
+	SysFileHandler sysfileh;
 	
-	public TaskController(String sysdir)
+	public TaskController(SysFileHandler sysfileh)
 	{
 		maptasks= new HashMap<Workspace,Data>();
 		intdata= new HashMap<String,IntKeyVal>();
-		this.sysdir= sysdir;
+		this.sysfileh= sysfileh;
 	}
 	
 	public void addMap(HeadlessWorkspace ws, long ID, String src, long start, long end)
@@ -98,6 +101,7 @@ public class TaskController
 		System.out.println("emit <" + key + "," + value + ">");
 		if( maptasks.keySet().contains(ws) ) // emmited from a Map Task
 		{
+			// TODO: should also maybe be synchronized
 			// System.out.println("was map");
 			IntKeyVal h= intdata.get(key);
 			if( h == null ) // First value for this key
@@ -111,7 +115,7 @@ public class TaskController
 					e.printStackTrace();
 				}
 				md.update(key.getBytes());
-				fn= sysdir + "/" + ChecksumHelper.convToHex(md.digest());
+				fn= sysfileh.addFile(ChecksumHelper.convToHex(md.digest()) + ".int");
 				// System.out.println(fn);
 				h= new IntKeyVal(fn);
 				intdata.put(key, h);
@@ -133,11 +137,12 @@ public class TaskController
 	 */
 	public void closeIntermediateFiles() throws IOException
 	{
-		System.out.println("close intermediate files" + intdata);
+		System.out.println("close intermediate files");
 		for(IntKeyVal h : intdata.values())
 		{
-			System.out.println("Closing " + h.fn);
-			h.out.close();
+			// System.out.println("Closing " + h.fn);
+			h.close();
 		}
+		System.out.println("closed");
 	}
 }

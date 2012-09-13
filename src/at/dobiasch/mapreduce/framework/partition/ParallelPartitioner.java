@@ -1,16 +1,9 @@
 package at.dobiasch.mapreduce.framework.partition;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.Callable;
 import java.util.concurrent.CompletionService;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorCompletionService;
@@ -18,6 +11,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 import at.dobiasch.mapreduce.framework.FrameworkException;
+import at.dobiasch.mapreduce.framework.SysFileHandler;
 
 public class ParallelPartitioner implements ICheckAndPartition
 {
@@ -36,12 +30,14 @@ public class ParallelPartitioner implements ICheckAndPartition
 	private int blocksize;
 	
 	protected boolean check;
+	protected SysFileHandler sysfileh;
 	
 	@Override
-	public void init(String sysdir, int blocksize) throws SecurityException, NoSuchMethodException
+	public void init(SysFileHandler sysfileh, int blocksize) throws SecurityException, NoSuchMethodException
 	{
 		this.blocksize= blocksize;
 		this.check= true;
+		this.sysfileh= sysfileh;
 		
 		filesC= null;
 		filesD= null;
@@ -54,7 +50,7 @@ public class ParallelPartitioner implements ICheckAndPartition
 		@SuppressWarnings("rawtypes")
 		Class[] ctorArgs1 = new Class[3];
 		ctorArgs1[0] = String.class;
-		ctorArgs1[1] = String.class;
+		ctorArgs1[1] = SysFileHandler.class;
 		ctorArgs1[2] = Integer.class;
         constr= partitioner.getConstructor(ctorArgs1);
 	}
@@ -63,7 +59,7 @@ public class ParallelPartitioner implements ICheckAndPartition
 	public void addFile(String path)
 	{
 		try {
-			complet.submit( constr.newInstance(path, "/tmp", blocksize) );
+			complet.submit( constr.newInstance(path, sysfileh, blocksize) );
 		} catch (IllegalArgumentException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

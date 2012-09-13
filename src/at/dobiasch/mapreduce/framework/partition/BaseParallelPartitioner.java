@@ -12,6 +12,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.concurrent.Callable;
 
 import at.dobiasch.mapreduce.framework.ChecksumHelper;
+import at.dobiasch.mapreduce.framework.SysFileHandler;
 import at.dobiasch.mapreduce.framework.partition.ICheckAndPartition.CheckPartData;
 
 public class BaseParallelPartitioner implements Callable<Object>
@@ -30,7 +31,7 @@ public class BaseParallelPartitioner implements Callable<Object>
 	
 	protected BufferedWriter out;
 	
-	public BaseParallelPartitioner(String path, String sysdir, Integer blocksize)
+	public BaseParallelPartitioner(String path, SysFileHandler sysfileh, Integer blocksize)
 			throws NoSuchAlgorithmException, IOException
 	{
 		this.path= path;
@@ -44,7 +45,7 @@ public class BaseParallelPartitioner implements Callable<Object>
 		File file;
 		file= new File(path);
 		filesize= file.length();
-		this.partfn= sysdir + "/" + file.getName() + ".partition";
+		this.partfn= sysfileh.addFile(file.getName() + ".partition");
 		file= new File(partfn);
 		out= new BufferedWriter(new FileWriter(file));
 	}

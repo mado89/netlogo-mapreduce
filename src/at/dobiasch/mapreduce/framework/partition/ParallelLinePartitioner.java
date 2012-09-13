@@ -6,16 +6,18 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.security.NoSuchAlgorithmException;
 
+import at.dobiasch.mapreduce.framework.SysFileHandler;
+
 public class ParallelLinePartitioner extends BaseParallelPartitioner
 {
 	private BufferedReader in;
 	private String ret;
 	private int lines;
 	
-	public ParallelLinePartitioner(String path, String sysdir, Integer blocksize)
+	public ParallelLinePartitioner(String path, SysFileHandler sysfileh, Integer blocksize)
 			throws NoSuchAlgorithmException, IOException
 	{
-		super(path, sysdir,blocksize);
+		super(path, sysfileh,blocksize);
 		DataInputStream din= new DataInputStream(is);
 		in= new BufferedReader(new InputStreamReader(din));
 		lines= 0;

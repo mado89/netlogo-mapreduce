@@ -3,6 +3,7 @@ package at.dobiasch.mapreduce.framework.partition;
 import java.util.Map;
 
 import at.dobiasch.mapreduce.framework.FrameworkException;
+import at.dobiasch.mapreduce.framework.SysFileHandler;
 
 public interface ICheckAndPartition
 {
@@ -23,11 +24,11 @@ public interface ICheckAndPartition
 	
 	/**
 	 * Init the Checker and Partitioner
-	 * @param sysdir Path to the dir where the framework can store the system files
+	 * @param sysfileh
 	 * @throws NoSuchMethodException 
 	 * @throws SecurityException 
 	 */
-	public void init(String sysdir, int blocksize) throws Exception;
+	public void init(SysFileHandler sysfileh, int blocksize) throws Exception;
 	
 	/**
 	 * Set wheter checksums of the files should be built or not
