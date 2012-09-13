@@ -11,7 +11,7 @@ import org.nlogo.api.Syntax;
 import org.nlogo.nvm.Workspace;
 
 import at.dobiasch.mapreduce.framework.FrameworkFactory;
-import at.dobiasch.mapreduce.framework.TaskController;
+import at.dobiasch.mapreduce.framework.task.TaskController;
 
 public class Emit extends DefaultCommand
 {

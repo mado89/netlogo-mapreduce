@@ -2,7 +2,6 @@ package at.dobiasch.mapreduce;
 
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FilenameFilter;
 import java.io.IOException;
@@ -16,10 +15,10 @@ import org.nlogo.api.CompilerException;
 import org.nlogo.api.ExtensionException;
 
 import at.dobiasch.mapreduce.framework.Framework;
-import at.dobiasch.mapreduce.framework.MapRun;
 import at.dobiasch.mapreduce.framework.WorkspaceBuffer;
 import at.dobiasch.mapreduce.framework.partition.ICheckAndPartition;
 import at.dobiasch.mapreduce.framework.partition.ParallelPartitioner;
+import at.dobiasch.mapreduce.framework.task.MapRun;
 
 public class SingleNodeRun
 {
