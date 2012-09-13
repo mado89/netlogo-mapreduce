@@ -35,13 +35,13 @@ public class MapRun implements Callable<Object>
 			
 			elem= wb.get();
 			FrameworkFactory.getInstance().getTaskController().addMap(elem.ws, ID, key, partStart, partEnd);
-			System.out.println("run compiled command" + ID);
-			System.out.println(elem.ws.runCompiledCommands(elem.owner, elem.map));
+			// System.out.println("run compiled command" + ID);
+			elem.ws.runCompiledCommands(elem.owner, elem.map);
 			System.out.println("done compiled command" + ID);
 			FrameworkFactory.getInstance().getTaskController().removeMap(elem.ws);
 			
 			wb.release(elem);
-			System.out.println("Released WB");
+			// System.out.println("Released WB");
 			returned= true;
 		} /* catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block

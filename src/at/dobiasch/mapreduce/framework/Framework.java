@@ -22,7 +22,7 @@ public class Framework
 	{
 		this.config= new Configuration();
 		this.masterp= false;
-		sysfileh= new SysFileHandler("/tmp");
+		sysfileh= new SysFileHandler("/home/martin/DA/tmpdir");
 		this.controller= new TaskController(sysfileh);
 	}
 	

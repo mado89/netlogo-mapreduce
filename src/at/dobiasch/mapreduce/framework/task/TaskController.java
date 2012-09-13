@@ -73,7 +73,7 @@ public class TaskController
 	 */
 	public void emit(Workspace ws, String key, String value) throws IOException
 	{
-		System.out.println("emit <" + key + "," + value + ">");
+		// System.out.println("emit <" + key + "," + value + ">");
 		if( maptasks.keySet().contains(ws) ) // emmited from a Map Task
 		{
 			// TODO: should also maybe be synchronized
@@ -98,7 +98,7 @@ public class TaskController
 			
 			h.writeValue(value);
 			
-			System.out.println("written");
+			// System.out.println("written");
 		}
 		else // emmited from an reducer
 		{
