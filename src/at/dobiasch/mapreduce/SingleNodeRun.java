@@ -69,7 +69,7 @@ public class SingleNodeRun
 	private void prepareInput() throws Exception
 	{
 		ICheckAndPartition part= new ParallelPartitioner();
-		part.init("/tmp", 100);
+		part.init(fw.getSystemFileHandler(), 100);
 		part.setCheck(false);
 		
 		String indir= fw.getConfiguration().getInputDirectory();

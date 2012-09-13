@@ -10,6 +10,7 @@ import org.nlogo.headless.HeadlessWorkspace;
 import org.nlogo.nvm.Workspace;
 
 import at.dobiasch.mapreduce.framework.ChecksumHelper;
+import at.dobiasch.mapreduce.framework.SysFileHandler;
 
 public class TaskController
 {
@@ -33,13 +34,13 @@ public class TaskController
 	// List of Keys to be reduced
 	Map<Workspace,Data> maptasks;
 	Map<String,IntKeyVal> intdata;
-	String sysdir;
+	SysFileHandler sysfileh;
 	
-	public TaskController(String sysdir)
+	public TaskController(SysFileHandler sysfileh)
 	{
 		maptasks= new HashMap<Workspace,Data>();
 		intdata= new HashMap<String,IntKeyVal>();
-		this.sysdir= sysdir;
+		this.sysfileh= sysfileh;
 	}
 	
 	public void addMap(HeadlessWorkspace ws, long ID, String src, long start, long end)
@@ -88,7 +89,7 @@ public class TaskController
 					e.printStackTrace();
 				}
 				md.update(key.getBytes());
-				fn= sysdir + "/" + ChecksumHelper.convToHex(md.digest());
+				fn= sysfileh.addFile(ChecksumHelper.convToHex(md.digest()) + ".int");
 				// System.out.println(fn);
 				h= new IntKeyVal(fn);
 				intdata.put(key, h);
