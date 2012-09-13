@@ -52,7 +52,8 @@ public class Values extends DefaultReporter
 			for(int i= 0; i < vals.length; i++)
 				list.add(vals[i]);
 			
-			System.out.println("running " + data.ID + " " + data.start + " " + data.end);
+			System.out.println("running " + data.ID + " " + data.start + " " + data.end + " " + vals.length +
+					" '" + vals[0] + "'");
 			
 			return list.toLogoList();
 		} catch (FileNotFoundException e) {

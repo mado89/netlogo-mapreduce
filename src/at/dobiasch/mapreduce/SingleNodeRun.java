@@ -6,6 +6,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FilenameFilter;
 import java.io.IOException;
+import java.util.Iterator;
 import java.util.Map;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorCompletionService;
@@ -16,7 +17,9 @@ import org.nlogo.api.CompilerException;
 import org.nlogo.api.ExtensionException;
 
 import at.dobiasch.mapreduce.framework.Framework;
+import at.dobiasch.mapreduce.framework.task.IntKeyVal;
 import at.dobiasch.mapreduce.framework.task.MapRun;
+import at.dobiasch.mapreduce.framework.task.ReduceRun;
 import at.dobiasch.mapreduce.framework.WorkspaceBuffer;
 import at.dobiasch.mapreduce.framework.partition.ICheckAndPartition;
 import at.dobiasch.mapreduce.framework.partition.ParallelPartitioner;
@@ -46,6 +49,7 @@ public class SingleNodeRun
 	
 	public void setup() throws ExtensionException
 	{
+		// TODO: rename this --> setup does everything?
 		System.out.println("Setting up");
 		// TODO: its assumed that working/system directory is created and write able
 		try
@@ -53,6 +57,8 @@ public class SingleNodeRun
 			prepareInput();
 			prepareMapper();
 			doMap();
+			
+			doReduce();
 			
 		} catch (CompilerException e1){
 			throw new ExtensionException(e1);
@@ -171,4 +177,56 @@ public class SingleNodeRun
 		}
 		System.out.println("done mapping");
 	}
+	
+	private void doReduce()
+	{
+		Map<String,IntKeyVal> intdata= fw.getTaskController().getIntermediateData();
+		Iterator<IntKeyVal> vals= intdata.values().iterator();
+		Iterator<String> keys= intdata.keySet().iterator();
+		String key;
+		IntKeyVal value;
+		
+		System.out.println("Begin Reducing");
+		
+		// Resize the Buffer
+		this.size= fw.getConfiguration().getReducers();
+		wb.resize(this.size);
+		
+		this.pool= Executors.newFixedThreadPool(this.size);
+		this.complet= new ExecutorCompletionService<Object>(pool);
+		
+		int i= 0;
+		while(keys.hasNext())
+		{
+			key= keys.next();
+			value= vals.next();
+			this.complet.submit(new ReduceRun(i, key, value, wb));
+			System.out.println("Submitted " + i);
+			i++;
+		}
+		
+		try
+		{
+			System.out.println("Jobs submitted wait for shutdown");
+			this.pool.shutdown();
+			for(int l= 0; l < i; l++)
+			{
+				System.out.println("Try to take " + l + " " + i);
+				if( (Boolean) complet.take().get() != true)
+				{
+					System.out.println("Something failed");
+				}
+			}
+			System.out.println("All taken --> Reduce done");
+		} catch (InterruptedException e) {
+			System.out.println("Waiting for Reduce-Tasks was interruped");
+			e.printStackTrace();
+		} catch (ExecutionException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		System.out.println("Reducing ended");
+	}
+
 }

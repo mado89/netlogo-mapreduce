@@ -2,6 +2,7 @@ package at.dobiasch.mapreduce.framework.task;
 
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 
@@ -17,25 +18,33 @@ public class IntKeyVal
 	/**
 	 * The output file to write out the values
 	 */
-	private BufferedWriter out;
+	private FileOutputStream out;
 	
 	/**
 	 * Number of values for this key
 	 */
-	int count;
+	private int count;
+	
+	/**
+	 * Number of Bytes in the file
+	 */
+	private long fsize;
 	
 	public IntKeyVal(String fn) throws IOException
 	{
 		this.fn= fn;
-		out= new BufferedWriter(new FileWriter(new File(fn),false));
+		out= new FileOutputStream(fn,false);
 		count= 0;
+		fsize= 0;
 	}
 	
 	public synchronized void writeValue(String value) throws IOException
 	{
 		if( out == null )
 			reopen();
-		out.write(value + "\n");
+		byte[] b= (value + "\n").getBytes();
+		out.write(b);
+		fsize+= b.length;
 		out.close();
 		out= null;
 		count++;
@@ -43,7 +52,7 @@ public class IntKeyVal
 	
 	public void reopen() throws IOException
 	{
-		out= new BufferedWriter(new FileWriter(new File(fn),true));
+		out= new FileOutputStream(fn,true);
 	}
 	
 	public void close() throws IOException
@@ -53,5 +62,15 @@ public class IntKeyVal
 			out.close();
 			out= null;
 		}
+	}
+	
+	public int getCount()
+	{
+		return count;
+	}
+
+	public long getFileSize()
+	{
+		return fsize;
 	}
 }

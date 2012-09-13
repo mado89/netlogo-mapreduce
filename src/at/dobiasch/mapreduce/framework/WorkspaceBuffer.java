@@ -159,4 +159,10 @@ public class WorkspaceBuffer
 	{
 		q.offer(workspace);
 	}
+
+	public void resize(int size)
+	{
+		// TODO Auto-generated method stub
+		
+	}
 }

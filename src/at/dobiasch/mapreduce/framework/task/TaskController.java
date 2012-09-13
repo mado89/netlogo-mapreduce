@@ -11,19 +11,22 @@ import org.nlogo.nvm.Workspace;
 
 import at.dobiasch.mapreduce.framework.ChecksumHelper;
 import at.dobiasch.mapreduce.framework.SysFileHandler;
+import at.dobiasch.mapreduce.framework.TaskType;
 
 public class TaskController
 {
 	public class Data
 	{
 		public long ID;
+		public TaskType type;
 		public String src;
 		public long start;
 		public long end;
 		
-		public Data(long iD, String src, long start, long end)
+		public Data(long iD, TaskType type, String src, long start, long end)
 		{
 			ID = iD;
+			this.type= type;
 			this.src = src;
 			this.start = start;
 			this.end = end;
@@ -53,7 +56,7 @@ public class TaskController
 	
 	public void addMap(HeadlessWorkspace ws, long ID, String src, long start, long end)
 	{
-		Data data= new Data(ID, src, start, end);
+		Data data= new Data(ID, TaskType.Map, src, start, end);
 		
 		synchronized( syncMap )
 		{
@@ -130,7 +133,7 @@ public class TaskController
 	public void emit(Workspace ws, String key, String value) throws IOException
 	{
 		// System.out.println("emit <" + key + "," + value + ">");
-		boolean maptask;
+		Data data;
 		synchronized( syncMap )
 		{
 			while( syncMapwait )
@@ -143,13 +146,14 @@ public class TaskController
 				}
 			}
 			syncMapwait= true;
-			maptask= maptasks.keySet().contains(ws);
+			// maptask= maptasks.keySet().contains(ws);
+			data= maptasks.get(ws);
 			syncMapwait= false;
 			syncMap.notifyAll();
 		}
-		if( maptask ) // emmited from a Map Task
+		if( data.type == TaskType.Map ) // emmited from a Map Task
 		{
-			// System.out.println("was map");
+			System.out.println("was map");
 			IntKeyVal h;
 			synchronized( syncInt ) // get Intermediate-Data access for the key 
 			{
@@ -212,7 +216,7 @@ public class TaskController
 		}
 		else // emmited from an reducer
 		{
-			
+			System.out.println("Emit " + key + " " + value);
 		}
 	}
 	
@@ -229,5 +233,55 @@ public class TaskController
 			h.close();
 		}
 		System.out.println("closed");
+	}
+	
+	public Map<String,IntKeyVal> getIntermediateData()
+	{
+		return intdata;
+	}
+
+	public void addReduce(HeadlessWorkspace ws, long ID, String key, String filename, 
+			long size)
+	{
+		Data data= new Data(ID, TaskType.Reduce, filename, 0, size);
+		
+		synchronized( syncMap )
+		{
+			while( syncMapwait )
+			{
+				try
+				{
+					syncMap.wait();
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+			}
+			syncMapwait= true;
+			// System.out.println("Adding Map for " + ws + " " + this);
+			maptasks.put(ws, data);
+			// System.out.println("After add " + map);
+			syncMapwait= false;
+			syncMap.notifyAll();
+		}
+	}
+
+	public void removeReduce(HeadlessWorkspace ws)
+	{
+		synchronized( syncMap )
+		{
+			while( syncMapwait )
+			{
+				try
+				{
+					syncMap.wait();
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+			}
+			syncMapwait= true;
+			maptasks.remove(ws);
+			syncMapwait= false;
+			syncMap.notifyAll();
+		}
 	}
 }
