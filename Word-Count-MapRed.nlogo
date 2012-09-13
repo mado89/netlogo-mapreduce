@@ -47,9 +47,11 @@ end
 to word-count ; [key values]
   let sum# 0
   
-  foreach mapreduce:values [set sum# sum# + ?]
+  foreach mapreduce:values [
+    set sum# (sum# + read-from-string ?)
+  ]
   
-  ; mapred:emit key sum#
+  mapreduce:emit mapreduce:key (word sum#)
 end
 
 to wc
