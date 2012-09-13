@@ -1,8 +1,5 @@
-package at.dobiasch.mapreduce.framework;
+package at.dobiasch.mapreduce.framework.task;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -32,29 +29,7 @@ public class TaskController
 			this.end = end;
 		}
 	}
-	
-	/**
-	 * Helper-Datastructure for intermediate Key-value pairs
-	 */
-	private class IntKeyVal
-	{
-		/**
-		 * Filename
-		 */
-		public String fn;
-		/**
-		 * The output file to write out the values
-		 */
-		public BufferedWriter out;
 		
-		public IntKeyVal(String fn) throws IOException
-		{
-			this.fn= fn;
-			out= new BufferedWriter(new FileWriter(new File(fn)));
-		}
-		
-	}
-	
 	// List of Map Tasks
 	// List of Keys to be reduced
 	Map<Workspace,Data> maptasks;
@@ -121,7 +96,7 @@ public class TaskController
 				intdata.put(key, h);
 			}
 			
-			h.out.write(value + "\n");
+			h.writeValue(value);
 			
 			System.out.println("written");
 		}

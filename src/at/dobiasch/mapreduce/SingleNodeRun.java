@@ -16,7 +16,7 @@ import org.nlogo.api.CompilerException;
 import org.nlogo.api.ExtensionException;
 
 import at.dobiasch.mapreduce.framework.Framework;
-import at.dobiasch.mapreduce.framework.MapRun;
+import at.dobiasch.mapreduce.framework.task.MapRun;
 import at.dobiasch.mapreduce.framework.WorkspaceBuffer;
 import at.dobiasch.mapreduce.framework.partition.ICheckAndPartition;
 import at.dobiasch.mapreduce.framework.partition.ParallelPartitioner;
