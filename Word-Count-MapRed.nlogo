@@ -13,15 +13,23 @@ to-report split [ #string ] ; http://groups.yahoo.com/group/netlogo-users/messag
 end
 
 to read-file ; [file-name contents] ; Jeweils eine ganze Datei bearbeiten
-  foreach mapreduce:values
+  let x mapreduce:values
+  let file-name mapreduce:key
+  ; print x
+  foreach x
   [
-    foreach split ? ; Text lesen und zerteilen
-    [
-      ; show ?
-      ; mapred:emit ? 1 ; <wort, 1> Wort kommt aus split
-    ]
+     foreach split ? ; Text lesen und zerteilen
+     [
+       ; show ?
+       mapreduce:emit ? "1" ; <wort, 1> Wort kommt aus split
+     ]
   ]
-  ; show word file-name "done"
+  
+  ; let aa 0
+  ; repeat 10000000 [ set aa 12345678010 * 123489023809 ]
+  ; repeat 10000000 [ set aa 12345678010 * 123489023809 ]
+  
+  show word file-name "done"
 end
 
 
@@ -47,7 +55,7 @@ end
 to wc
   let words []
   
-  mapreduce:config.input "/home/martin/DA/prototype/input" ; Den gesamten Inhalt des Verzeichnisses bearbeiten
+  mapreduce:config.input "/home/martin/DA/input" ; Den gesamten Inhalt des Verzeichnisses bearbeiten
   mapreduce:config.output "" ; im aktuellen Verzeichnis ausgeben
   mapreduce:config.mapper "read-file"
   mapreduce:config.reducer "word-count"
