@@ -14,18 +14,20 @@ JAVAC = $(JAVA_HOME)/bin/javac
 
 
 SRCS=$(wildcard src/org/nlogo/extensions/mapreduce/*.java src/org/nlogo/extensions/mapreduce/commands/*.java src/org/nlogo/extensions/mapreduce/commands/config/*.java)
-SRC2=$(wildcard src/at/dobiasch/mapreduce/*.java src/at/dobiasch/mapreduce/framework/*.java src/at/dobiasch/mapreduce/framework/partition/*.java)
+SRC2=$(wildcard src/at/dobiasch/mapreduce/*.java src/at/dobiasch/mapreduce/framework/*.java src/at/dobiasch/mapreduce/framework/partition/*.java src/at/dobiasch/mapreduce/framework/task/*.java)
 SRCSLIB=$(wildcard client/org/nlogo/*.scala)
 
 mapreduce/mapreduce.jar: $(SRCS) manifest.txt mapreduce/framework.jar
 	mkdir -p classes
 	$(JAVAC) -g -encoding us-ascii -source 1.5 -target 1.5 -classpath $(NETLOGO)/NetLogo.jar:/usr/share/java/log4j-1.2.jar:mapreduce/framework.jar -d classes $(SRCS)
 	jar cmf manifest.txt mapreduce/mapreduce.jar -C classes .
+	rm -r classes
 
 mapreduce/framework.jar: $(SRC2) mapreduce/client-lib.jar
 	mkdir -p classes
 	$(JAVAC) -g -encoding us-ascii -source 1.5 -target 1.5 -classpath $(NETLOGO)/NetLogo.jar:/usr/share/java/log4j-1.2.jar:mapreduce/client-lib.jar -d classes $(SRC2)
 	jar cf mapreduce/framework.jar -C classes .
+	rm -r classes
 
 mapreduce/client-lib.jar:
 	mkdir -p tmp
