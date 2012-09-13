@@ -36,24 +36,63 @@ public class TaskController
 	Map<String,IntKeyVal> intdata;
 	SysFileHandler sysfileh;
 	
+	private Object syncMap;
+	private boolean syncMapwait;
+	private boolean syncIntwait;
+	private Object syncInt;
+	
 	public TaskController(SysFileHandler sysfileh)
 	{
 		maptasks= new HashMap<Workspace,Data>();
 		intdata= new HashMap<String,IntKeyVal>();
 		this.sysfileh= sysfileh;
+		syncIntwait= syncMapwait= false;
+		syncMap= new Object();
+		syncInt= new Object();
 	}
 	
 	public void addMap(HeadlessWorkspace ws, long ID, String src, long start, long end)
 	{
-		// System.out.println("Adding Map for " + ws + " " + this);
 		Data data= new Data(ID, src, start, end);
-		maptasks.put(ws, data);
-		// System.out.println("After add " + map);
+		
+		synchronized( syncMap )
+		{
+			while( syncMapwait )
+			{
+				try
+				{
+					syncMap.wait();
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+			}
+			syncMapwait= true;
+			// System.out.println("Adding Map for " + ws + " " + this);
+			maptasks.put(ws, data);
+			// System.out.println("After add " + map);
+			syncMapwait= false;
+			syncMap.notifyAll();
+		}
 	}
 	
 	public void removeMap(HeadlessWorkspace ws)
 	{
-		maptasks.remove(ws);
+		synchronized( syncMap )
+		{
+			while( syncMapwait )
+			{
+				try
+				{
+					syncMap.wait();
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+			}
+			syncMapwait= true;
+			maptasks.remove(ws);
+			syncMapwait= false;
+			syncMap.notifyAll();
+		}
 	}
 
 	public Data getData(Workspace ws)
@@ -61,7 +100,24 @@ public class TaskController
 		// System.out.println("Getting data for " + ws);
 		// System.out.println(" " + this);
 		// System.out.println(map);
-		return maptasks.get(ws);
+		Data ret;
+		synchronized( syncMap )
+		{
+			while( syncMapwait )
+			{
+				try
+				{
+					syncMap.wait();
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+			}
+			syncMapwait= true;
+			ret= maptasks.get(ws);
+			syncMapwait= false;
+			syncMap.notifyAll();
+		}
+		return ret;
 	}
 	
 	/**
@@ -74,11 +130,46 @@ public class TaskController
 	public void emit(Workspace ws, String key, String value) throws IOException
 	{
 		// System.out.println("emit <" + key + "," + value + ">");
-		if( maptasks.keySet().contains(ws) ) // emmited from a Map Task
+		boolean maptask;
+		synchronized( syncMap )
 		{
-			// TODO: should also maybe be synchronized
+			while( syncMapwait )
+			{
+				try
+				{
+					syncMap.wait();
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+			}
+			syncMapwait= true;
+			maptask= maptasks.keySet().contains(ws);
+			syncMapwait= false;
+			syncMap.notifyAll();
+		}
+		if( maptask ) // emmited from a Map Task
+		{
 			// System.out.println("was map");
-			IntKeyVal h= intdata.get(key);
+			IntKeyVal h;
+			synchronized( syncInt ) // get Intermediate-Data access for the key 
+			{
+				while( syncIntwait )
+				{
+					try
+					{
+						syncInt.wait();
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+				}
+				syncIntwait= true;
+				
+				h= intdata.get(key);
+				
+				syncIntwait= false;
+				syncInt.notifyAll();
+			}
+			
 			if( h == null ) // First value for this key
 			{
 				// System.out.println("First for " + key);
@@ -93,7 +184,26 @@ public class TaskController
 				fn= sysfileh.addFile(ChecksumHelper.convToHex(md.digest()) + ".int");
 				// System.out.println(fn);
 				h= new IntKeyVal(fn);
-				intdata.put(key, h);
+				
+				synchronized( syncInt )
+				{
+					while( syncIntwait )
+					{
+						try
+						{
+							syncInt.wait();
+						} catch (InterruptedException e) {
+							e.printStackTrace();
+						}
+					}
+					syncIntwait= true;
+					
+					intdata.put(key, h);
+					
+					syncIntwait= false;
+					syncInt.notifyAll();
+				}
+				
 			}
 			
 			h.writeValue(value);

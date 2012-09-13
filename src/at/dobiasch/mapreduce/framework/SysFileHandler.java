@@ -12,6 +12,8 @@ public class SysFileHandler
 {
 	private String sysdir;
 	private Map<String,String> files;
+	private Object syncFiles= new Object();
+	private boolean syncFileswait= false;
 	
 	public SysFileHandler(String sysdir)
 	{
@@ -21,13 +23,49 @@ public class SysFileHandler
 	
 	public String addFile(String fn)
 	{
-		files.put(fn, sysdir + "/" + fn);
-		return sysdir + "/" + fn;
+		String intfn= sysdir + "/" + fn;
+		synchronized( syncFiles ) // get Intermediate-Data access for the key 
+		{
+			while( syncFileswait )
+			{
+				try
+				{
+					syncFiles.wait();
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+			}
+			syncFileswait= true;
+			
+			files.put(fn, intfn);
+			
+			syncFileswait= false;
+			syncFiles.notifyAll();
+		}
+		
+		return intfn;
 	}
 	
 	public void removeFile(String fn)
 	{
-		files.remove(fn);
+		synchronized( syncFiles ) // get Intermediate-Data access for the key 
+		{
+			while( syncFileswait )
+			{
+				try
+				{
+					syncFiles.wait();
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+			}
+			syncFileswait= true;
+			
+			files.remove(fn);
+			
+			syncFileswait= false;
+			syncFiles.notifyAll();
+		}
 	}
 	
 	public void cleanSysDir()
