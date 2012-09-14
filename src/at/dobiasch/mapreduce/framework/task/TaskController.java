@@ -238,7 +238,7 @@ public class TaskController
 		else // emmited from an reducer
 		{
 			// System.out.println("Emit " + key + " " + value);
-			System.out.println("Emit '" + key + "'");
+			// System.out.println("Emit '" + key + "'");
 			data.dest.write(key + ": " + value + "\n");
 		}
 	}
