@@ -236,6 +236,11 @@ public class SingleNodeRun
 			e.printStackTrace();
 		}
 		
+		for(i= 0; i < this.size; i++)
+		{
+			out[i].close();
+		}
+		
 		System.out.println("Reducing ended");
 	}
 

@@ -50,7 +50,7 @@ public class Values extends DefaultReporter
 			String[] vals= new String(b).split("\n");
 			b= null;
 			for(int i= 0; i < vals.length; i++)
-				list.add(vals[i]);
+				list.add(vals[i].replaceAll("\\r|\\n", ""));
 			
 			// System.out.println("running " + data.ID + " " + data.start + " " + data.end + " " + vals.length);
 			

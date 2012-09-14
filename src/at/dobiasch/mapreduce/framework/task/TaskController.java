@@ -13,6 +13,8 @@ import org.nlogo.nvm.Workspace;
 import at.dobiasch.mapreduce.framework.ChecksumHelper;
 import at.dobiasch.mapreduce.framework.SysFileHandler;
 import at.dobiasch.mapreduce.framework.TaskType;
+import at.dobiasch.mapreduce.framework.partition.HashPartitioner;
+import at.dobiasch.mapreduce.framework.partition.IPartitioner;
 
 public class TaskController
 {
@@ -59,6 +61,8 @@ public class TaskController
 	private boolean syncMapwait;
 	private boolean syncIntwait;
 	private Object syncInt;
+	private FileWriter[] reduceout;
+	private IPartitioner part;
 	
 	public TaskController(SysFileHandler sysfileh)
 	{
@@ -68,6 +72,7 @@ public class TaskController
 		syncIntwait= syncMapwait= false;
 		syncMap= new Object();
 		syncInt= new Object();
+		this.part= new HashPartitioner();
 	}
 	
 	public void addMap(HeadlessWorkspace ws, long ID, String src, long start, long end)
@@ -232,7 +237,9 @@ public class TaskController
 		}
 		else // emmited from an reducer
 		{
-			System.out.println("Emit " + key + " " + value);
+			// System.out.println("Emit " + key + " " + value);
+			System.out.println("Emit '" + key + "'");
+			data.dest.write(key + ": " + value + "\n");
 		}
 	}
 	
@@ -258,13 +265,15 @@ public class TaskController
 	
 	public void setReduceOutput(FileWriter[] out)
 	{
-		
+		this.reduceout= out;
 	}
 
 	public void addReduce(HeadlessWorkspace ws, long ID, String key, String filename, 
 			long size)
 	{
-		Data data= new Data(ID, TaskType.Reduce, filename, key, 0, size);
+		FileWriter outf;
+		outf= this.reduceout[part.getPartition(key,null,4)];
+		Data data= new Data(ID, TaskType.Reduce, filename, key, outf, size);
 		
 		synchronized( syncMap )
 		{
