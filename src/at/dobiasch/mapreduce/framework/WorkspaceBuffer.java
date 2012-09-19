@@ -90,7 +90,25 @@ public class WorkspaceBuffer
 		}
 	}
 	
+	/**
+	 * If a parameter is null, the command is not compiled
+	 * @param map
+	 * @param reduce
+	 * @throws CompilerException
+	 */
 	public void compileComands(String map, String reduce) throws CompilerException
+	{
+		if( map != null && reduce != null )
+			this.compileCommandsAll(map, reduce);
+		else if( map != null && reduce == null )
+			this.compileCommandsMap(map);
+		else if( map == null && reduce != null )
+			this.compileCommandsReduce(reduce);
+		else
+			throw new CompilerException("Wrong call to MR-compilecommands", 0, 0, "Wrong call to MR-compilecommands");
+	}
+	
+	private void compileCommandsAll(String map, String reduce) throws CompilerException
 	{
 		int i= 0;
 		// for(Element e : q)
@@ -112,6 +130,32 @@ public class WorkspaceBuffer
 			e.reduce= res.head();*/
 			e.reduce= e.ws.compileCommands(reduce);
 			System.out.println((i+1) + " Workspaces compiled");
+			q.add(e);
+		}
+	}
+	
+	private void compileCommandsMap(String map) throws CompilerException
+	{
+		int i= 0;
+		// for(Element e : q)
+		for(i= 0; i < q.size(); i++)
+		{
+			Element e= q.poll();
+			e.map= e.ws.compileCommands(map);
+			
+			q.add(e);
+		}
+	}
+	
+	private void compileCommandsReduce(String reduce) throws CompilerException
+	{
+		int i= 0;
+		// for(Element e : q)
+		for(i= 0; i < q.size(); i++)
+		{
+			Element e= q.poll();
+			e.reduce= e.ws.compileCommands(reduce);
+			
 			q.add(e);
 		}
 	}

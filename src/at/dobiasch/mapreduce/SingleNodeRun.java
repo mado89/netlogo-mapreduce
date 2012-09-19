@@ -2,7 +2,6 @@ package at.dobiasch.mapreduce;
 
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.FilenameFilter;
@@ -19,9 +18,9 @@ import org.nlogo.api.ExtensionException;
 
 import at.dobiasch.mapreduce.framework.Framework;
 import at.dobiasch.mapreduce.framework.task.IntKeyVal;
-import at.dobiasch.mapreduce.framework.task.MapRun;
 import at.dobiasch.mapreduce.framework.task.ReduceRun;
 import at.dobiasch.mapreduce.framework.WorkspaceBuffer;
+import at.dobiasch.mapreduce.framework.controller.HostController;
 import at.dobiasch.mapreduce.framework.partition.ICheckAndPartition;
 import at.dobiasch.mapreduce.framework.partition.ParallelPartitioner;
 
@@ -36,36 +35,57 @@ public class SingleNodeRun
 	private ExecutorService pool;
 	private ExecutorCompletionService<Object> complet;
 	
-	/**
+	/*
 	 * Number of input splits ie number of mappers that has to be run
-	 */
-	private int ninpsplit;
+	 
+	private int ninpsplit;*/
+	private HostController controller;
 	
 	public SingleNodeRun(Framework fw, String world, String modelpath)
 	{
 		this.fw= fw;
+		this.fw.setMaster(true);
 		this.world= world;
 		this.modelpath= modelpath;
 	}
 	
 	public void setup() throws ExtensionException
 	{
-		// TODO: rename this --> setup does everything?
 		System.out.println("Setting up");
 		// TODO: its assumed that working/system directory is created and write able
+		
+		this.controller= new HostController( fw.getConfiguration().getMappers(),
+				fw.getConfiguration().getReducers(),
+				fw.getConfiguration().getMapper(), 
+				fw.getConfiguration().getReducer(),
+				fw.getSystemFileHandler(), 
+				this.world, this.modelpath);
+		
+		this.fw.setHostController(this.controller);
+		
 		try
 		{
 			prepareInput();
 			prepareMapper();
-			doMap();
-			
-			doReduce();
-			
-		} catch (CompilerException e1){
-			throw new ExtensionException(e1);
+		} catch (CompilerException e){
+			throw new ExtensionException(e);
 		} catch (IOException e) {
 			throw new ExtensionException(e);
 		} catch (Exception e) {
+			throw new ExtensionException(e);
+		}
+	}
+	
+	public void run() throws ExtensionException
+	{
+		try
+		{
+			doMap();
+			
+			doReduce();
+		} catch (IOException e) {
+			throw new ExtensionException(e);
+		} catch (CompilerException e) {
 			throw new ExtensionException(e);
 		}
 	}
@@ -104,25 +124,21 @@ public class SingleNodeRun
 		}
 		
 		indata= part.getData();
-		this.ninpsplit= 0;
+		/*this.ninpsplit= 0;
 		for(ICheckAndPartition.CheckPartData data : indata.values())
 		{
 			this.ninpsplit+= data.numpartitions;
-		}
+		}*/
 		
 		System.out.println(indata);
 	}
 	
 	private void prepareMapper() throws IOException, CompilerException
 	{
-		this.size= fw.getConfiguration().getMappers();
-		this.wb= new WorkspaceBuffer(size ,world, modelpath);
-		this.wb.compileComands(fw.getConfiguration().getMapper(), fw.getConfiguration().getReducer());
-		this.pool= Executors.newFixedThreadPool(this.size);
-		this.complet= new ExecutorCompletionService<Object>(pool);
+		this.controller.prepareMappingStage();
 	}
 	
-	private void doMap() throws IOException
+	private void doMap() throws IOException, ExtensionException
 	{
 		long partStart;
 		long partEnd;
@@ -138,50 +154,28 @@ public class SingleNodeRun
 			while((line= in.readLine()) != null)
 			{
 				partEnd= Integer.parseInt(line);
-				System.out.println(i + ": " + data.key + " " + partStart + " " + partEnd + " submit");
-				this.complet.submit(new MapRun(i, data.key, partStart, partEnd, wb));
+				this.controller.addMap(i, data.key, partStart, partEnd);
+				
 				i++;
 				partStart= partEnd;
 			}
 			partEnd= data.lastpartitionend;
-			System.out.println(i + ": " + data.key + " " + partStart + " " + partEnd + " submit");
-			this.complet.submit(new MapRun(i, data.key, partStart, partEnd, wb));
+			this.controller.addMap(i, data.key, partStart, partEnd);
 			i++;
 		}
 		
-		try
-		{
-			System.out.println("Jobs submitted wait for shutdown");
-			pool.shutdown();
-			for(int l= 0; l < i; l++)
-			{
-				System.out.println("Try to take " + l + " " + i);
-				if( (Boolean) complet.take().get() != true)
-				{
-					System.out.println("Something failed");
-				}
-			}
-			System.out.println("All taken");
-		} catch (InterruptedException e) {
-			System.out.println("Waiting for Map-Tasks was interruped");
-			e.printStackTrace();
-		} catch (ExecutionException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		boolean result= this.controller.waitForMappingStage();
+		if( result == false)
+			throw new ExtensionException("Mapping-Stage failed");
 		
-		try {
-			fw.getTaskController().closeIntermediateFiles();
-		} catch (IOException e) {
-			System.out.println("IO Except");
-			e.printStackTrace();
-		}
+		this.controller.finishMappingStage();
+		
 		System.out.println("done mapping");
 	}
 	
-	private void doReduce() throws IOException
+	private void doReduce() throws IOException, CompilerException
 	{
-		Map<String,IntKeyVal> intdata= fw.getTaskController().getIntermediateData();
+		Map<String,IntKeyVal> intdata= this.controller.getIntermediateData();
 		Iterator<IntKeyVal> vals= intdata.values().iterator();
 		Iterator<String> keys= intdata.keySet().iterator();
 		String key;
@@ -189,58 +183,18 @@ public class SingleNodeRun
 		int i= 0;
 		
 		System.out.println("Begin Reducing");
-		
-		// Resize the Buffer
-		this.size= fw.getConfiguration().getReducers();
-		wb.resize(this.size);
-		
-		this.pool= Executors.newFixedThreadPool(this.size);
-		this.complet= new ExecutorCompletionService<Object>(pool);
-		
-		FileWriter[] out= new FileWriter[this.size];
-		for(i= 0; i < this.size; i++)
-		{
-			//TODO: format 0 --> 0000, 1 --> 0001
-			out[i]= new FileWriter("output-" + i);
-		}
-		fw.getTaskController().setReduceOutput(out);
+		this.controller.prepareReduceStage();
 		
 		i= 0;
 		while(keys.hasNext())
 		{
 			key= keys.next();
 			value= vals.next();
-			this.complet.submit(new ReduceRun(i, key, value, wb));
-			System.out.println("Submitted " + i);
+			this.controller.addReduce(i, key, value);
 			i++;
 		}
 		
-		try
-		{
-			System.out.println("Jobs submitted wait for shutdown");
-			this.pool.shutdown();
-			for(int l= 0; l < i; l++)
-			{
-				System.out.println("Try to take " + l + " " + i);
-				if( (Boolean) complet.take().get() != true)
-				{
-					System.out.println("Something failed");
-				}
-			}
-			System.out.println("All taken --> Reduce done");
-		} catch (InterruptedException e) {
-			System.out.println("Waiting for Reduce-Tasks was interruped");
-			e.printStackTrace();
-		} catch (ExecutionException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		for(i= 0; i < this.size; i++)
-		{
-			out[i].close();
-		}
-		
+		this.controller.finishReduceStage();
 		System.out.println("Reducing ended");
 	}
 

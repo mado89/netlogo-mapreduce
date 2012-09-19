@@ -10,14 +10,12 @@ public class ReduceRun implements Callable<Object>
 	long ID;
 	String key;
 	IntKeyVal value;
-	WorkspaceBuffer wb;
 	
-	public ReduceRun(long ID, String key, IntKeyVal value, WorkspaceBuffer wb)
+	public ReduceRun(long ID, String key, IntKeyVal value)
 	{
 		this.ID= ID;
 		this.key= key;
 		this.value= value;
-		this.wb= wb;
 	}
 
 	@Override
@@ -27,15 +25,11 @@ public class ReduceRun implements Callable<Object>
 		WorkspaceBuffer.Element elem= null;
 		try
 		{
-			elem= wb.get();
-			FrameworkFactory.getInstance().getTaskController().addReduce(elem.ws, ID, key, value.fn, value.getFileSize());
+			elem= FrameworkFactory.getInstance().getTaskController().startReduceRun(ID, key, value.fn, value.getFileSize());
+			
 			
 			elem.ws.runCompiledCommands(elem.owner, elem.reduce);
-			System.out.println("done compiled command" + ID);
-			
-			FrameworkFactory.getInstance().getTaskController().removeReduce(elem.ws);
-			
-			wb.release(elem);
+			System.out.println("done compiled command " + ID);
 			
 			returned= true;
 		} catch (InterruptedException e) {
@@ -45,8 +39,7 @@ public class ReduceRun implements Callable<Object>
 			System.out.println(e.getMessage());
 			e.printStackTrace();
 		} finally {
-			if( !returned && elem != null )
-				wb.release(elem);
+			FrameworkFactory.getInstance().getTaskController().setReduceFinished(ID, returned, elem);
 		}
 		
 		return true;

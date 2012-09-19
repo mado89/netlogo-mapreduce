@@ -34,6 +34,7 @@ public class MapReduce extends DefaultCommand
 			model= Manager.em.workspace().getModelPath();
 			SingleNodeRun sn= new SingleNodeRun(fw,world,model);
 			sn.setup();
+			sn.run();
 		}
 	}
 }

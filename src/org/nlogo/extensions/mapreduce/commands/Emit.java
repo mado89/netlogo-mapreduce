@@ -11,7 +11,7 @@ import org.nlogo.api.Syntax;
 import org.nlogo.nvm.Workspace;
 
 import at.dobiasch.mapreduce.framework.FrameworkFactory;
-import at.dobiasch.mapreduce.framework.task.TaskController;
+import at.dobiasch.mapreduce.framework.controller.HostController;
 
 public class Emit extends DefaultCommand
 {
@@ -36,7 +36,7 @@ public class Emit extends DefaultCommand
 	    } 
 		
 		Workspace ws= ((org.nlogo.nvm.ExtensionContext) context).workspace();
-		TaskController controller= FrameworkFactory.getInstance().getTaskController();
+		HostController controller= FrameworkFactory.getInstance().getTaskController();
 		try
 		{
 			controller.emit(ws, key, value);

@@ -9,7 +9,8 @@ import org.nlogo.api.Syntax;
 import org.nlogo.nvm.Workspace;
 
 import at.dobiasch.mapreduce.framework.FrameworkFactory;
-import at.dobiasch.mapreduce.framework.task.TaskController;
+import at.dobiasch.mapreduce.framework.controller.Data;
+import at.dobiasch.mapreduce.framework.controller.HostController;
 
 public class Key extends DefaultReporter
 {
@@ -22,8 +23,8 @@ public class Key extends DefaultReporter
 			throws ExtensionException, LogoException
 	{
 		Workspace ws= ((org.nlogo.nvm.ExtensionContext) context).workspace();
-		TaskController controller= FrameworkFactory.getInstance().getTaskController();
-		TaskController.Data data= controller.getData(ws);
+		HostController controller= FrameworkFactory.getInstance().getTaskController();
+		Data data= controller.getData(ws);
 		
 		return data.key;
 	}

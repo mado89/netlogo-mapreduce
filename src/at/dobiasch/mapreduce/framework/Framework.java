@@ -7,14 +7,15 @@ import java.util.Map;
 import org.nlogo.api.HubNetInterface;
 import org.nlogo.api.LogoException;
 
-import at.dobiasch.mapreduce.framework.task.TaskController;
+import at.dobiasch.mapreduce.framework.controller.HostController;
+import at.dobiasch.mapreduce.framework.controller.HostTaskController;
 
 
 public class Framework
 {
 	private Configuration  config;
 	private boolean        masterp;
-	private TaskController controller;
+	private HostController controller;
 	// private String         sysdir;
 	private SysFileHandler sysfileh;
 	
@@ -23,7 +24,7 @@ public class Framework
 		this.config= new Configuration();
 		this.masterp= false;
 		sysfileh= new SysFileHandler("/home/martin/DA/tmpdir");
-		this.controller= new TaskController(sysfileh);
+		// this.controller= new HostTaskController(sysfileh);
 	}
 	
 	public Configuration getConfiguration()
@@ -96,7 +97,7 @@ public class Framework
 		return hubnet.clients().size();
 	}
 	
-	public TaskController getTaskController()
+	public HostController getTaskController()
 	{
 		return controller;
 	}
@@ -104,6 +105,11 @@ public class Framework
 	public SysFileHandler getSystemFileHandler()
 	{
 		return sysfileh;
+	}
+
+	public void setHostController(HostController controller)
+	{
+		this.controller= controller;
 	}
 	
 	/*public String getSystemDir()

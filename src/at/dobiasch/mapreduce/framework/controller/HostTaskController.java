@@ -1,4 +1,4 @@
-package at.dobiasch.mapreduce.framework.task;
+package at.dobiasch.mapreduce.framework.controller;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -15,42 +15,10 @@ import at.dobiasch.mapreduce.framework.SysFileHandler;
 import at.dobiasch.mapreduce.framework.TaskType;
 import at.dobiasch.mapreduce.framework.partition.HashPartitioner;
 import at.dobiasch.mapreduce.framework.partition.IPartitioner;
+import at.dobiasch.mapreduce.framework.task.IntKeyVal;
 
-public class TaskController
+public class HostTaskController
 {
-	public class Data
-	{
-		public long ID;
-		public TaskType type;
-		public String src;
-		public String key;
-		public long start;
-		public long end;
-		public FileWriter dest;
-		
-		public Data(long ID, TaskType type, String src, String key, long start, long end)
-		{
-			this.ID = ID;
-			this.type= type;
-			this.src= src;
-			this.key= key;
-			this.start = start;
-			this.end = end;
-			this.dest= null;
-		}
-		
-		public Data(long ID, TaskType type, String src, String key, FileWriter dest, long end)
-		{
-			this.ID = ID;
-			this.type= type;
-			this.src= src;
-			this.key= key;
-			this.start = 0;
-			this.end = end;
-			this.dest= dest;
-		}
-	}
-		
 	// List of Map Tasks
 	// List of Keys to be reduced
 	Map<Workspace,Data> maptasks;
@@ -64,7 +32,7 @@ public class TaskController
 	private FileWriter[] reduceout;
 	private IPartitioner part;
 	
-	public TaskController(SysFileHandler sysfileh)
+	public HostTaskController(SysFileHandler sysfileh)
 	{
 		maptasks= new HashMap<Workspace,Data>();
 		intdata= new HashMap<String,IntKeyVal>();
@@ -75,10 +43,9 @@ public class TaskController
 		this.part= new HashPartitioner();
 	}
 	
-	public void addMap(HeadlessWorkspace ws, long ID, String src, long start, long end)
+	public void addMap(HeadlessWorkspace ws, long ID, String key, long start, long end)
 	{
-		Data data= new Data(ID, TaskType.Map, src, src, start, end);
-		
+		Data data= new Data(ID, TaskType.Map, key, key, start, end);
 		synchronized( syncMap )
 		{
 			while( syncMapwait )
