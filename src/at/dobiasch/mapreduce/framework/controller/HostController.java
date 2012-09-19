@@ -175,7 +175,6 @@ public class HostController
 	{
 		WorkspaceBuffer.Element elem= wbred.get();
 		this.htc.addReduce(elem.ws, ID, key, filename, fileSize);
-		this.redtaskC++;
 		return elem;
 	}
 
@@ -219,6 +218,7 @@ public class HostController
 		{
 			this.out[i].close();
 		}
+		System.out.println("All reduce files are closed");
 	}
 
 	public void emit(Workspace ws, String key, String value) throws IOException

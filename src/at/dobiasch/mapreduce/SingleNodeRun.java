@@ -173,7 +173,7 @@ public class SingleNodeRun
 		System.out.println("done mapping");
 	}
 	
-	private void doReduce() throws IOException, CompilerException
+	private void doReduce() throws IOException, CompilerException, ExtensionException
 	{
 		Map<String,IntKeyVal> intdata= this.controller.getIntermediateData();
 		Iterator<IntKeyVal> vals= intdata.values().iterator();
@@ -193,6 +193,10 @@ public class SingleNodeRun
 			this.controller.addReduce(i, key, value);
 			i++;
 		}
+		
+		boolean result= this.controller.waitForReduceStage();
+		if( result == false)
+			throw new ExtensionException("Reduce-Stage failed");
 		
 		this.controller.finishReduceStage();
 		System.out.println("Reducing ended");

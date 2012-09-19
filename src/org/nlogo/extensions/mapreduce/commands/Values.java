@@ -52,7 +52,7 @@ public class Values extends DefaultReporter
 			for(int i= 0; i < vals.length; i++)
 				list.add(vals[i].replaceAll("\\r|\\n", ""));
 			
-			// System.out.println("running " + data.ID + " " + data.start + " " + data.end + " " + vals.length);
+			// System.out.println("running " + data.key + " " + data.start + " " + data.end + " " + vals.length);
 			
 			return list.toLogoList();
 		} catch (FileNotFoundException e) {

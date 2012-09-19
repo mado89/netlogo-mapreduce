@@ -136,9 +136,48 @@ public class HostTaskController
 			syncMapwait= true;
 			// maptask= maptasks.keySet().contains(ws);
 			data= maptasks.get(ws);
+			
+			if( data.type == TaskType.Map ) // emmited from a Map Task
+			{
+				// System.out.println("was map");
+				IntKeyVal h;
+				
+				h= intdata.get(key);
+				
+				if( h == null ) // First value for this key
+				{
+					// System.out.println("First for " + key);
+					String fn;
+					MessageDigest md= null;
+					try {
+						md = MessageDigest.getInstance("SHA1");
+					} catch (NoSuchAlgorithmException e) {
+						e.printStackTrace();
+					}
+					md.update(key.getBytes());
+					fn= sysfileh.addFile(ChecksumHelper.convToHex(md.digest()) + ".int");
+					// System.out.println(fn);
+					h= new IntKeyVal(fn);
+					intdata.put(key, h);
+					h.writeValue(value);
+				}
+				else
+				{
+					h.writeValue(value);
+				}
+			}
+			else // emmited from an reducer
+			{
+				//Sync not so important because every Reducer has its own file
+				// System.out.println("Emit " + key + " " + value);
+				// System.out.println("Emit '" + key + "'");
+				data.dest.write(key + ": " + value + "\n");
+			}
+			
 			syncMapwait= false;
 			syncMap.notifyAll();
 		}
+		/*
 		if( data.type == TaskType.Map ) // emmited from a Map Task
 		{
 			// System.out.println("was map");
@@ -191,23 +230,43 @@ public class HostTaskController
 					syncIntwait= true;
 					
 					intdata.put(key, h);
+					h.writeValue(value);
 					
 					syncIntwait= false;
 					syncInt.notifyAll();
 				}
-				
 			}
-			
-			h.writeValue(value);
+			else
+			{
+				synchronized( syncInt )
+				{
+					while( syncIntwait )
+					{
+						try
+						{
+							syncInt.wait();
+						} catch (InterruptedException e) {
+							e.printStackTrace();
+						}
+					}
+					syncIntwait= true;
+					
+					h.writeValue(value);
+					
+					syncIntwait= false;
+					syncInt.notifyAll();
+				}
+			}
 			
 			// System.out.println("written");
 		}
 		else // emmited from an reducer
 		{
+			//Sync not so important because every Reducer has its own file
 			// System.out.println("Emit " + key + " " + value);
 			// System.out.println("Emit '" + key + "'");
 			data.dest.write(key + ": " + value + "\n");
-		}
+		}*/
 	}
 	
 	/**

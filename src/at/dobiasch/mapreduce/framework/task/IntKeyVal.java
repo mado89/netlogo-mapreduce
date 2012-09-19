@@ -38,7 +38,7 @@ public class IntKeyVal
 		fsize= 0;
 	}
 	
-	public synchronized void writeValue(String value) throws IOException
+	public void writeValue(String value) throws IOException
 	{
 		if( out == null )
 			reopen();
