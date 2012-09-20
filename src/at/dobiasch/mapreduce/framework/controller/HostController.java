@@ -11,6 +11,8 @@ import java.util.concurrent.Executors;
 import org.nlogo.api.CompilerException;
 import org.nlogo.nvm.Workspace;
 
+import at.dobiasch.mapreduce.framework.RecordWriter;
+import at.dobiasch.mapreduce.framework.RecordWriterBuffer;
 import at.dobiasch.mapreduce.framework.SysFileHandler;
 import at.dobiasch.mapreduce.framework.WorkspaceBuffer;
 import at.dobiasch.mapreduce.framework.WorkspaceBuffer.Element;
@@ -37,6 +39,8 @@ public class HostController
 	
 	private HostTaskController htc;
 	private FileWriter[] out;
+	private SysFileHandler sysh;
+	private RecordWriterBuffer mapwriter;
 	
 	/**
 	 * 
@@ -56,6 +60,7 @@ public class HostController
 		this.redtaskC= 0;
 		this.world= world;
 		this.modelpath= modelpath;
+		this.sysh= sysh;
 		this.htc= new HostTaskController(sysh);
 	}
 	
@@ -65,6 +70,9 @@ public class HostController
 		this.wbmap.compileComands(mapper, null);
 		this.pool= Executors.newFixedThreadPool(this.mapc);
 		this.complet= new ExecutorCompletionService<Object>(pool);
+		
+		this.mapwriter= new RecordWriterBuffer(this.mapc, "map-%04d", this.sysh, " \t ");
+		this.htc.setMapperOutput(this.mapwriter);
 	}
 	
 	public void prepareReduceStage() throws IOException, CompilerException
@@ -74,13 +82,8 @@ public class HostController
 		this.pool= Executors.newFixedThreadPool(this.redc);
 		this.complet= new ExecutorCompletionService<Object>(pool);
 		
-		this.out= new FileWriter[this.redc];
-		for(int i= 0; i < this.redc; i++)
-		{
-			//TODO: format 0 --> 0000, 1 --> 0001
-			this.out[i]= new FileWriter(String.format("output-%04d", i));
-		}
-		this.htc.setReduceOutput(out);
+		this.mapwriter= new RecordWriterBuffer(this.mapc, "output-%04d", this.sysh, ": ");
+		this.htc.setReduceOutput(this.mapwriter);
 	}
 	
 	/**
@@ -121,7 +124,15 @@ public class HostController
 	
 	public void setMapFinished(long ID, boolean success, WorkspaceBuffer.Element elem)
 	{
+		try {
+			this.htc.removeMap(elem.ws, success);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		wbmap.release(elem);
+		
 	}
 	
 	public boolean waitForMappingStage()

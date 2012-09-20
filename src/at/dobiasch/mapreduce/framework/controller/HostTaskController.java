@@ -11,8 +11,11 @@ import org.nlogo.headless.HeadlessWorkspace;
 import org.nlogo.nvm.Workspace;
 
 import at.dobiasch.mapreduce.framework.ChecksumHelper;
+import at.dobiasch.mapreduce.framework.RecordWriter;
+import at.dobiasch.mapreduce.framework.RecordWriterBuffer;
 import at.dobiasch.mapreduce.framework.SysFileHandler;
 import at.dobiasch.mapreduce.framework.TaskType;
+import at.dobiasch.mapreduce.framework.WorkspaceBuffer.Element;
 import at.dobiasch.mapreduce.framework.partition.HashPartitioner;
 import at.dobiasch.mapreduce.framework.partition.IPartitioner;
 import at.dobiasch.mapreduce.framework.task.IntKeyVal;
@@ -29,7 +32,8 @@ public class HostTaskController
 	private boolean syncMapwait;
 	private boolean syncIntwait;
 	private Object syncInt;
-	private FileWriter[] reduceout;
+	private RecordWriterBuffer reduceout;
+	private RecordWriterBuffer mapout;
 	private IPartitioner part;
 	
 	public HostTaskController(SysFileHandler sysfileh)
@@ -43,9 +47,11 @@ public class HostTaskController
 		this.part= new HashPartitioner();
 	}
 	
-	public void addMap(HeadlessWorkspace ws, long ID, String key, long start, long end)
+	public void addMap(HeadlessWorkspace ws, long ID, String key, long start, long end) throws InterruptedException
 	{
-		Data data= new Data(ID, TaskType.Map, key, key, start, end);
+		// Data data= new Data(ID, TaskType.Map, key, key, start, end);
+		RecordWriter outf= this.mapout.get();
+		Data data= new Data(ID, TaskType.Map, key, key, start, end, outf);
 		synchronized( syncMap )
 		{
 			while( syncMapwait )
@@ -66,7 +72,7 @@ public class HostTaskController
 		}
 	}
 	
-	public void removeMap(HeadlessWorkspace ws)
+	public void removeMap(HeadlessWorkspace ws, boolean success) throws IOException
 	{
 		synchronized( syncMap )
 		{
@@ -80,6 +86,10 @@ public class HostTaskController
 				}
 			}
 			syncMapwait= true;
+			Data data= maptasks.get(ws);
+			if( success == false )
+				data.dest.removeSession();
+			this.mapout.put(data.dest);
 			maptasks.remove(ws);
 			syncMapwait= false;
 			syncMap.notifyAll();
@@ -137,136 +147,18 @@ public class HostTaskController
 			// maptask= maptasks.keySet().contains(ws);
 			data= maptasks.get(ws);
 			
-			if( data.type == TaskType.Map ) // emmited from a Map Task
-			{
-				// System.out.println("was map");
-				IntKeyVal h;
-				
-				h= intdata.get(key);
-				
-				if( h == null ) // First value for this key
-				{
-					// System.out.println("First for " + key);
-					String fn;
-					MessageDigest md= null;
-					try {
-						md = MessageDigest.getInstance("SHA1");
-					} catch (NoSuchAlgorithmException e) {
-						e.printStackTrace();
-					}
-					md.update(key.getBytes());
-					fn= sysfileh.addFile(ChecksumHelper.convToHex(md.digest()) + ".int");
-					// System.out.println(fn);
-					h= new IntKeyVal(fn);
-					intdata.put(key, h);
-					h.writeValue(value);
-				}
-				else
-				{
-					h.writeValue(value);
-				}
-			}
-			else // emmited from an reducer
-			{
-				//Sync not so important because every Reducer has its own file
-				// System.out.println("Emit " + key + " " + value);
-				// System.out.println("Emit '" + key + "'");
-				data.dest.write(key + ": " + value + "\n");
-			}
-			
 			syncMapwait= false;
 			syncMap.notifyAll();
 		}
-		/*
+			
 		if( data.type == TaskType.Map ) // emmited from a Map Task
 		{
-			// System.out.println("was map");
-			IntKeyVal h;
-			synchronized( syncInt ) // get Intermediate-Data access for the key 
-			{
-				while( syncIntwait )
-				{
-					try
-					{
-						syncInt.wait();
-					} catch (InterruptedException e) {
-						e.printStackTrace();
-					}
-				}
-				syncIntwait= true;
-				
-				h= intdata.get(key);
-				
-				syncIntwait= false;
-				syncInt.notifyAll();
-			}
-			
-			if( h == null ) // First value for this key
-			{
-				// System.out.println("First for " + key);
-				String fn;
-				MessageDigest md= null;
-				try {
-					md = MessageDigest.getInstance("SHA1");
-				} catch (NoSuchAlgorithmException e) {
-					e.printStackTrace();
-				}
-				md.update(key.getBytes());
-				fn= sysfileh.addFile(ChecksumHelper.convToHex(md.digest()) + ".int");
-				// System.out.println(fn);
-				h= new IntKeyVal(fn);
-				
-				synchronized( syncInt )
-				{
-					while( syncIntwait )
-					{
-						try
-						{
-							syncInt.wait();
-						} catch (InterruptedException e) {
-							e.printStackTrace();
-						}
-					}
-					syncIntwait= true;
-					
-					intdata.put(key, h);
-					h.writeValue(value);
-					
-					syncIntwait= false;
-					syncInt.notifyAll();
-				}
-			}
-			else
-			{
-				synchronized( syncInt )
-				{
-					while( syncIntwait )
-					{
-						try
-						{
-							syncInt.wait();
-						} catch (InterruptedException e) {
-							e.printStackTrace();
-						}
-					}
-					syncIntwait= true;
-					
-					h.writeValue(value);
-					
-					syncIntwait= false;
-					syncInt.notifyAll();
-				}
-			}
-			
-			// System.out.println("written");
+			data.dest.write(key, value);
 		}
 		else // emmited from an reducer
 		{
-			//Sync not so important because every Reducer has its own file
-			// System.out.println("Emit " + key + " " + value);
-			// System.out.println("Emit '" + key + "'");
-			data.dest.write(key + ": " + value + "\n");
-		}*/
+			data.dest.write(key, value);
+		}
 	}
 	
 	/**
@@ -289,16 +181,19 @@ public class HostTaskController
 		return intdata;
 	}
 	
-	public void setReduceOutput(FileWriter[] out)
+	public void setReduceOutput(RecordWriterBuffer out)
 	{
 		this.reduceout= out;
 	}
 
 	public void addReduce(HeadlessWorkspace ws, long ID, String key, String filename, 
-			long size)
+			long size) throws InterruptedException
 	{
-		FileWriter outf;
-		outf= this.reduceout[part.getPartition(key,null,4)];
+		// Here it is not necessary to use Partitioning!
+		// FileWriter outf;
+		// outf= this.reduceout[part.getPartition(key,null,4)];
+		RecordWriter outf= this.reduceout.get();
+		outf.startSession(ID);
 		Data data= new Data(ID, TaskType.Reduce, filename, key, outf, size);
 		
 		synchronized( syncMap )
@@ -335,9 +230,16 @@ public class HostTaskController
 				}
 			}
 			syncMapwait= true;
+			Data data= maptasks.get(ws);
+			this.reduceout.put(data.dest);
 			maptasks.remove(ws);
 			syncMapwait= false;
 			syncMap.notifyAll();
 		}
+	}
+
+	public void setMapperOutput(RecordWriterBuffer mapwriter)
+	{
+		this.mapout= mapwriter;
 	}
 }

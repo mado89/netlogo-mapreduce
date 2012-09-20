@@ -2,6 +2,7 @@ package at.dobiasch.mapreduce.framework.controller;
 
 import java.io.FileWriter;
 
+import at.dobiasch.mapreduce.framework.RecordWriter;
 import at.dobiasch.mapreduce.framework.TaskType;
 
 public class Data
@@ -12,9 +13,9 @@ public class Data
 	public String key;
 	public long start;
 	public long end;
-	public FileWriter dest;
+	public RecordWriter dest;
 	
-	public Data(long ID, TaskType type, String src, String key, long start, long end)
+	public Data(long ID, TaskType type, String src, String key, long start, long end, RecordWriter dest)
 	{
 		this.ID = ID;
 		this.type= type;
@@ -22,10 +23,10 @@ public class Data
 		this.key= key;
 		this.start = start;
 		this.end = end;
-		this.dest= null;
+		this.dest= dest;
 	}
 	
-	public Data(long ID, TaskType type, String src, String key, FileWriter dest, long end)
+	public Data(long ID, TaskType type, String src, String key, RecordWriter dest, long end)
 	{
 		this.ID = ID;
 		this.type= type;
