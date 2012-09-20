@@ -18,28 +18,40 @@ public class RecordWriterBuffer
 		{
 			q.add(new RecordWriter(sysh.addFile(String.format(template, i)),keyValueSeperator));
 		}
-		System.out.println(this + " added " + this.size + " files");
+		// System.out.println(this + " added " + this.size + " files");
 	}
 	
 	public RecordWriter get() throws InterruptedException
 	{
 		RecordWriter h= q.take();
-		System.out.println(this + " 1 file taken");
+		// System.out.println(this + " 1 file taken");
 		return h;
 	}
 	
 	public void put(RecordWriter writer)
 	{
-		System.out.println(this + " 1 file added");
+		// System.out.println(this + " 1 file added");
 		q.add(writer);
 	}
 	
-	public void closeAll() throws InterruptedException, IOException
+	public void closeAll()
 	{
 		for(int i= 0; i < this.size; i++)
 		{
-			RecordWriter w= this.q.take();
-			w.close();
+			try
+			{
+				RecordWriter w= this.q.take();
+				w.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
 		}
+	}
+
+	public boolean hasFiles()
+	{
+		return !this.q.isEmpty();
 	}
 }

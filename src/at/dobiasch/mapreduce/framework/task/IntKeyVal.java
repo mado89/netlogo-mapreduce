@@ -38,6 +38,13 @@ public class IntKeyVal
 		fsize= 0;
 	}
 	
+	/*public IntKeyVal(String fn, int count, long size)
+	{
+		this.fn= fn;
+		this.count= count;
+		this.fsize= size;
+	}*/
+	
 	public void writeValue(String value) throws IOException
 	{
 		if( out == null )

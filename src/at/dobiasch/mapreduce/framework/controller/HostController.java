@@ -41,6 +41,7 @@ public class HostController
 	private FileWriter[] out;
 	private SysFileHandler sysh;
 	private RecordWriterBuffer mapwriter;
+	private RecordWriterBuffer reducewriter;
 	
 	/**
 	 * 
@@ -82,8 +83,8 @@ public class HostController
 		this.pool= Executors.newFixedThreadPool(this.redc);
 		this.complet= new ExecutorCompletionService<Object>(pool);
 		
-		this.mapwriter= new RecordWriterBuffer(this.mapc, "output-%04d", this.sysh, ": ");
-		this.htc.setReduceOutput(this.mapwriter);
+		this.reducewriter= new RecordWriterBuffer(this.redc, "output-%04d", this.sysh, ": ");
+		this.htc.setReduceOutput(this.reducewriter);
 	}
 	
 	/**
@@ -162,13 +163,13 @@ public class HostController
 	}
 
 	public void finishMappingStage() {
-		try {
-			htc.closeIntermediateFiles();
+		// try {
+			// htc.closeIntermediateFiles();
 			wbmap.dispose();
-		} catch (IOException e) {
-			System.out.println("IO Except");
-			e.printStackTrace();
-		}
+		// } catch (IOException e) {
+		// 	System.out.println("IO Except");
+		// 	e.printStackTrace();
+		// }
 	}
 
 	public Map<String, IntKeyVal> getIntermediateData()
@@ -189,8 +190,9 @@ public class HostController
 		return elem;
 	}
 
-	public void setReduceFinished(long iD, boolean returned, Element elem)
+	public void setReduceFinished(long iD, boolean success, Element elem)
 	{
+		this.htc.removeReduce(elem.ws);
 		wbred.release(elem);
 	}
 	
@@ -225,10 +227,8 @@ public class HostController
 	
 	public void finishReduceStage() throws IOException
 	{
-		for(int i= 0; i < this.redc; i++)
-		{
-			this.out[i].close();
-		}
+		reducewriter.closeAll();
+		wbred.dispose();
 		System.out.println("All reduce files are closed");
 	}
 

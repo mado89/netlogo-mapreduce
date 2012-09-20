@@ -1,9 +1,9 @@
 package at.dobiasch.mapreduce.framework;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.io.UnsupportedEncodingException;
+import java.util.concurrent.ArrayBlockingQueue;
 
 public class RecordWriter
 {
@@ -11,7 +11,11 @@ public class RecordWriter
 	private boolean session;
 	private long sessStart;
 	private RandomAccessFile out;
+	private String filename;
+	
 	private final byte[] keyValueSeparator;
+	private Object sync= new Object();
+	private boolean syncwait= false;
 	
 	/*
 	 * Code and idea taken from apache hadoop
@@ -45,6 +49,7 @@ public class RecordWriter
 	{
 		this.out = new RandomAccessFile(filename, "rw");
 		this.out.seek(0);
+		this.filename= filename;
 		this.session= false;
 		this.sessStart= 0;
 		
@@ -54,6 +59,11 @@ public class RecordWriter
 			throw new IllegalArgumentException("can't find " + utf8
 					+ " encoding");
 		}
+	}
+	
+	public byte[] getKeyValueSeparator()
+	{
+		return keyValueSeparator;
 	}
 	
 	public void startSession(long ID)
@@ -78,19 +88,65 @@ public class RecordWriter
 	{
 		this.out.seek(this.sessStart);
 		this.out.setLength(this.sessStart);
-		
 	}
 	
-	public void write(String key, String value) throws IOException
+	public synchronized void write(String key, String value) throws IOException
 	{
-		this.out.write(key.getBytes(utf8));
-		this.out.write(keyValueSeparator);
-		this.out.write(value.getBytes(utf8));
-		this.out.write(newline);
+		byte[] k= key.getBytes(utf8);
+		byte[] v= value.getBytes(utf8);
+		boolean nullKey= (k.length == 0);
+		boolean nullValue= v.length == 0;
+		
+		/*synchronized( sync )
+		{
+			while( syncwait )
+			{
+				try
+				{
+					sync.wait();
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+			}
+			syncwait= true;*/
+			
+			if (!nullKey)
+				this.out.write(k);
+			else
+				System.out.println("Empty key");
+			
+			if (!(nullKey || nullValue))
+				this.out.write(keyValueSeparator);
+			else
+				System.out.println("Empty key --> no kVS");
+			
+			if (!nullValue)
+				this.out.write(v);
+			
+			this.out.write(newline);
+			/*
+			syncwait= false;
+			sync.notifyAll();
+		}*/
 	}
 	
 	public void close() throws IOException
 	{
 		this.out.close();
+	}
+	
+	public String getFilename()
+	{
+		return this.filename;
+	}
+	
+	public long getLength()
+	{
+		try {
+			return this.out.length();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return 0;
 	}
 }

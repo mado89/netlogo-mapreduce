@@ -11,6 +11,7 @@ import org.nlogo.headless.HeadlessWorkspace;
 import org.nlogo.nvm.Workspace;
 
 import at.dobiasch.mapreduce.framework.ChecksumHelper;
+import at.dobiasch.mapreduce.framework.RecordReader;
 import at.dobiasch.mapreduce.framework.RecordWriter;
 import at.dobiasch.mapreduce.framework.RecordWriterBuffer;
 import at.dobiasch.mapreduce.framework.SysFileHandler;
@@ -165,7 +166,7 @@ public class HostTaskController
 	 * Close all opened Files
 	 * @throws IOException 
 	 */
-	public void closeIntermediateFiles() throws IOException
+	private void closeIntermediateFiles() throws IOException
 	{
 		System.out.println("close intermediate files");
 		for(IntKeyVal h : intdata.values())
@@ -178,6 +179,54 @@ public class HostTaskController
 	
 	public Map<String,IntKeyVal> getIntermediateData()
 	{
+		// TODO: make this parallel
+		while(this.mapout.hasFiles() )
+		{
+			try {
+				RecordWriter w= this.mapout.get();
+				RecordReader r= new RecordReader(w);
+				System.out.println(w.getFilename());
+				while(r.hasRecordsLeft())
+				{
+					String[] rec= r.readRecord();
+					
+					IntKeyVal h;
+                    h= intdata.get(rec[0]);
+                    // System.out.println(w.getFilename());
+                    // System.out.println(r.recs);
+                    // System.out.println(rec[0] + " " + rec[1]);
+                    
+                    if( h == null )
+                    {
+						String fn;
+	                    MessageDigest md= null;
+	                    try {
+	                            md = MessageDigest.getInstance("SHA1");
+	                    } catch (NoSuchAlgorithmException e) {
+	                            e.printStackTrace();
+	                    }
+	                    md.update(rec[0].getBytes());
+	                    fn= sysfileh.addFile(ChecksumHelper.convToHex(md.digest()) + ".int");
+	                    // System.out.println(fn);
+	                    h= new IntKeyVal(fn);
+	                    intdata.put(rec[0], h);
+                    }
+                    
+                    h.writeValue(rec[1]);
+				}
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		try {
+			this.closeIntermediateFiles();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
 		return intdata;
 	}
 	
