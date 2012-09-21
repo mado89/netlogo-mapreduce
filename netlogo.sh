@@ -8,5 +8,5 @@ cd "`dirname "$0"`"             # the copious quoting is for handling paths with
 # -jar NetLogo.jar              specify main jar
 # "$@"                          pass along any command line arguments
 CP="$CLASSPATH:/media/data/Uni/DA/netlogo-5.0/NetLogo.jar:/media/data/Uni/DA/mapreduce/mapreduce/framework.jar"
-java -cp $CP -Djava.library.path=./lib -Djava.ext.dirs= -XX:MaxPermSize=128m -Xmx1024m -Dfile.encoding=UTF-8 org.nlogo.app.App "$@"
+/usr/lib/jvm/java-6-sun-1.6.0.26/bin/java -cp $CP -Djava.library.path=./lib -Djava.ext.dirs= -XX:MaxPermSize=128m -Xmx1024m -Dfile.encoding=UTF-8 org.nlogo.app.App "$@"
 
