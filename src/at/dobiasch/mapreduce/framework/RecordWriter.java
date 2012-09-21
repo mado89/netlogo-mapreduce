@@ -112,13 +112,13 @@ public class RecordWriter
 			
 			if (!nullKey)
 				this.out.write(k);
-			else
-				System.out.println("Empty key");
+			// else
+			// 	System.out.println("Empty key");
 			
 			if (!(nullKey || nullValue))
 				this.out.write(keyValueSeparator);
-			else
-				System.out.println("Empty key --> no kVS");
+			// else
+			// 	System.out.println("Empty key --> no kVS");
 			
 			if (!nullValue)
 				this.out.write(v);

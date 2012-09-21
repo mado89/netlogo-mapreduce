@@ -191,7 +191,12 @@ public class HostTaskController
 					String[] rec= r.readRecord();
 					
 					IntKeyVal h;
-                    h= intdata.get(rec[0]);
+					String key;
+					
+					key= rec[0];
+					if( key == null )
+						key= "";
+                    h= intdata.get(key);
                     // System.out.println(w.getFilename());
                     // System.out.println(r.recs);
                     // System.out.println(rec[0] + " " + rec[1]);
@@ -205,11 +210,11 @@ public class HostTaskController
 	                    } catch (NoSuchAlgorithmException e) {
 	                            e.printStackTrace();
 	                    }
-	                    md.update(rec[0].getBytes());
+	                    md.update(key.getBytes());
 	                    fn= sysfileh.addFile(ChecksumHelper.convToHex(md.digest()) + ".int");
 	                    // System.out.println(fn);
 	                    h= new IntKeyVal(fn);
-	                    intdata.put(rec[0], h);
+	                    intdata.put(key, h);
                     }
                     
                     h.writeValue(rec[1]);
