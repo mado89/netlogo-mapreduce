@@ -25,26 +25,22 @@ public class HostTaskController
 {
 	// List of Map Tasks
 	// List of Keys to be reduced
-	Map<Workspace,Data> maptasks;
+	Map<Workspace,Data> tasks;
 	Map<String,IntKeyVal> intdata;
 	SysFileHandler sysfileh;
 	
 	private Object syncMap;
 	private boolean syncMapwait;
-	private boolean syncIntwait;
-	private Object syncInt;
 	private RecordWriterBuffer reduceout;
 	private RecordWriterBuffer mapout;
 	private IPartitioner part;
 	
 	public HostTaskController(SysFileHandler sysfileh)
 	{
-		maptasks= new HashMap<Workspace,Data>();
+		tasks= new HashMap<Workspace,Data>();
 		intdata= new HashMap<String,IntKeyVal>();
 		this.sysfileh= sysfileh;
-		syncIntwait= syncMapwait= false;
 		syncMap= new Object();
-		syncInt= new Object();
 		this.part= new HashPartitioner();
 	}
 	
@@ -52,6 +48,7 @@ public class HostTaskController
 	{
 		// Data data= new Data(ID, TaskType.Map, key, key, start, end);
 		RecordWriter outf= this.mapout.get();
+		outf.startSession(ID);
 		Data data= new Data(ID, TaskType.Map, key, key, start, end, outf);
 		synchronized( syncMap )
 		{
@@ -66,7 +63,7 @@ public class HostTaskController
 			}
 			syncMapwait= true;
 			// System.out.println("Adding Map for " + ws + " " + this);
-			maptasks.put(ws, data);
+			tasks.put(ws, data);
 			// System.out.println("After add " + map);
 			syncMapwait= false;
 			syncMap.notifyAll();
@@ -87,14 +84,16 @@ public class HostTaskController
 				}
 			}
 			syncMapwait= true;
-			Data data= maptasks.get(ws);
+			Data data= tasks.get(ws);
 			if( success == false )
 			{
 				System.out.println("Maping failed: " + data.ID);
 				data.dest.removeSession();
 			}
+			else
+				data.dest.endSession();
 			this.mapout.put(data.dest);
-			maptasks.remove(ws);
+			tasks.remove(ws);
 			syncMapwait= false;
 			syncMap.notifyAll();
 		}
@@ -118,7 +117,7 @@ public class HostTaskController
 				}
 			}
 			syncMapwait= true;
-			ret= maptasks.get(ws);
+			ret= tasks.get(ws);
 			syncMapwait= false;
 			syncMap.notifyAll();
 		}
@@ -149,7 +148,7 @@ public class HostTaskController
 			}
 			syncMapwait= true;
 			// maptask= maptasks.keySet().contains(ws);
-			data= maptasks.get(ws);
+			data= tasks.get(ws);
 			
 			syncMapwait= false;
 			syncMap.notifyAll();
@@ -266,14 +265,14 @@ public class HostTaskController
 			}
 			syncMapwait= true;
 			// System.out.println("Adding Map for " + ws + " " + this);
-			maptasks.put(ws, data);
+			tasks.put(ws, data);
 			// System.out.println("After add " + map);
 			syncMapwait= false;
 			syncMap.notifyAll();
 		}
 	}
 
-	public void removeReduce(HeadlessWorkspace ws)
+	public void removeReduce(HeadlessWorkspace ws, boolean success) throws IOException
 	{
 		synchronized( syncMap )
 		{
@@ -287,9 +286,16 @@ public class HostTaskController
 				}
 			}
 			syncMapwait= true;
-			Data data= maptasks.get(ws);
+			Data data= tasks.get(ws);
+			if( success == false)
+			{
+				System.out.println("Reducer failed: " + data.ID);
+				data.dest.removeSession();
+			}
+			else
+				data.dest.endSession();
 			this.reduceout.put(data.dest);
-			maptasks.remove(ws);
+			tasks.remove(ws);
 			syncMapwait= false;
 			syncMap.notifyAll();
 		}

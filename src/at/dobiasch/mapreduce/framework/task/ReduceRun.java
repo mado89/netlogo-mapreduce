@@ -23,13 +23,14 @@ public class ReduceRun implements Callable<Object>
 	{
 		boolean returned= false;
 		WorkspaceBuffer.Element elem= null;
+		boolean excep= false;
 		try
 		{
 			elem= FrameworkFactory.getInstance().getTaskController().startReduceRun(ID, key, value.fn, value.getFileSize());
 			
-			
 			elem.ws.runCompiledCommands(elem.owner, elem.reduce);
-			System.out.println("done compiled command " + ID);
+			excep= elem.ws.lastLogoException() != null;
+			System.out.println("done compiled command " + ID + ": " + excep);
 			
 			returned= true;
 		} catch (InterruptedException e) {
@@ -39,7 +40,10 @@ public class ReduceRun implements Callable<Object>
 			System.out.println(e.getMessage());
 			e.printStackTrace();
 		} finally {
-			FrameworkFactory.getInstance().getTaskController().setReduceFinished(ID, returned, elem);
+			boolean suc = returned && !excep;
+			if( excep )
+				elem.ws.clearLastLogoException();
+			FrameworkFactory.getInstance().getTaskController().setReduceFinished(ID, returned, elem, key, value);
 		}
 		
 		return true;

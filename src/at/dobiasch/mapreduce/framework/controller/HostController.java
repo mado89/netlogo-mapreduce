@@ -204,10 +204,22 @@ public class HostController
 		return elem;
 	}
 
-	public void setReduceFinished(long iD, boolean success, Element elem)
+	public void setReduceFinished(long iD, boolean success, Element elem, String key, IntKeyVal value)
 	{
-		this.htc.removeReduce(elem.ws);
+		// this.htc.removeReduce(elem.ws);
+		// wbred.release(elem);
+		System.out.println("Reduce " + iD + "finished : " + success);
+		try {
+			this.htc.removeReduce(elem.ws, success);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
 		wbred.release(elem);
+		if( success == false )
+		{
+			this.addReduce(key, value);
+		}
 	}
 	
 	public boolean waitForReduceStage()
@@ -216,10 +228,11 @@ public class HostController
 		try
 		{
 			System.out.println("Jobs submitted wait for shutdown");
-			this.pool.shutdown();
+			// pool.shutdown();
+			// ---> don't shut down. Otherwise it could cause problems
 			for(int l= 0; l < this.redtaskC.getValue(); l++)
 			{
-				System.out.println("Try to take " + l + " " + this.redtaskC);
+				System.out.println("Try to take " + l + " " + this.redtaskC.getValue());
 				if( (Boolean) complet.take().get() != true)
 				{
 					System.out.println("Something failed");

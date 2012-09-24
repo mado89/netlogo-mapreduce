@@ -68,6 +68,8 @@ public class RecordWriter
 	
 	public void startSession(long ID)
 	{
+		if ( this.session == true )
+				throw new IllegalStateException("Session was allready started");
 		this.ID= ID;
 		this.session= true;
 	}
@@ -88,6 +90,7 @@ public class RecordWriter
 	{
 		this.out.seek(this.sessStart);
 		this.out.setLength(this.sessStart);
+		this.session= false;
 	}
 	
 	public synchronized void write(String key, String value) throws IOException
