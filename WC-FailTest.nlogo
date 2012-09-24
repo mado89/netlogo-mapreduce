@@ -4,6 +4,11 @@ to-report zero
   report 0
 end
 
+to fail
+  show word mapreduce:id " is failing"
+  let x 1 / zero
+end
+
 to-report split [ #string ] ; http://groups.yahoo.com/group/netlogo-users/message/6490
   let result [] ; return value
   loop ; exit when done
@@ -19,10 +24,8 @@ end
 to read-file ; [file-name contents] ; Jeweils eine ganze Datei bearbeiten
   let x mapreduce:values
   let file-name mapreduce:key
-  print mapreduce:id
-  if mapreduce:id = 2 [
-    show word "dividing by zero " mapreduce:key
-    set x 1 / zero ]
+  ; print mapreduce:id
+  if mapreduce:id mod 5 = 0 [ fail ]
   foreach x
   [
      foreach split ? ; Text lesen und zerteilen
@@ -53,6 +56,8 @@ end
 
 to word-count ; [key values]
   let sum# 0
+  
+  if mapreduce:id mod 5 = 0 [ fail ]
   
   foreach mapreduce:values [
     set sum# (sum# + read-from-string ?)
