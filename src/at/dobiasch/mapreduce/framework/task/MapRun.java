@@ -24,6 +24,7 @@ public class MapRun implements Callable<Object>
 	public Object call()
 	{
 		boolean returned= false;
+		boolean excep= false;
 		WorkspaceBuffer.Element elem= null;
 		try
 		{
@@ -31,14 +32,19 @@ public class MapRun implements Callable<Object>
 			
 			// System.out.println("run compiled command" + ID);
 			elem.ws.runCompiledCommands(elem.owner, elem.map);
-			System.out.println("done compiled command" + ID);
+			excep= elem.ws.lastLogoException() != null;
+			System.out.println("done compiled command " + ID + ": " + excep);
 			
 			returned= true;
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
+		} catch (RuntimeException e) {
+			e.printStackTrace();
+		} catch (InterruptedException e) {
 			e.printStackTrace();
 		} finally {
-			FrameworkFactory.getInstance().getTaskController().setMapFinished(ID, returned, elem);
+			boolean suc = returned && !excep;
+			if( excep )
+				elem.ws.clearLastLogoException();
+			FrameworkFactory.getInstance().getTaskController().setMapFinished(ID, suc, elem, key, partStart, partEnd);
 		}
 		
 		return true;

@@ -89,7 +89,10 @@ public class HostTaskController
 			syncMapwait= true;
 			Data data= maptasks.get(ws);
 			if( success == false )
+			{
+				System.out.println("Maping failed: " + data.ID);
 				data.dest.removeSession();
+			}
 			this.mapout.put(data.dest);
 			maptasks.remove(ws);
 			syncMapwait= false;

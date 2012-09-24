@@ -1,6 +1,5 @@
 package at.dobiasch.mapreduce.framework.controller;
 
-import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Map;
 import java.util.concurrent.ExecutionException;
@@ -11,7 +10,7 @@ import java.util.concurrent.Executors;
 import org.nlogo.api.CompilerException;
 import org.nlogo.nvm.Workspace;
 
-import at.dobiasch.mapreduce.framework.RecordWriter;
+import at.dobiasch.mapreduce.framework.Counter;
 import at.dobiasch.mapreduce.framework.RecordWriterBuffer;
 import at.dobiasch.mapreduce.framework.SysFileHandler;
 import at.dobiasch.mapreduce.framework.WorkspaceBuffer;
@@ -32,16 +31,16 @@ public class HostController
 	private String reducer;
 	private ExecutorService pool;
 	private ExecutorCompletionService<Object> complet;
-	private int maptaskC;
-	private int redtaskC;
+	private Counter maptaskC;
+	private Counter redtaskC;
 	private String world;
 	private String modelpath;
 	
 	private HostTaskController htc;
-	private FileWriter[] out;
 	private SysFileHandler sysh;
 	private RecordWriterBuffer mapwriter;
 	private RecordWriterBuffer reducewriter;
+	private int _ID;
 	
 	/**
 	 * 
@@ -57,8 +56,8 @@ public class HostController
 		this.redc= redc;
 		this.mapper= mapn;
 		this.reducer= redn;
-		this.maptaskC= 0;
-		this.redtaskC= 0;
+		this.maptaskC= new Counter();
+		this.redtaskC= new Counter();
 		this.world= world;
 		this.modelpath= modelpath;
 		this.sysh= sysh;
@@ -94,20 +93,30 @@ public class HostController
 	 * @param start
 	 * @param end
 	 */
-	public void addMap(long ID, String key, long start, long end)
+	public long addMap(String key, long start, long end)
 	{
+		long ID= getID();
 		System.out.println(ID + ": " + key + " " + start + " " + end + " submit");
 		
 		this.complet.submit(new MapRun(ID,key,start,end));
 		
-		this.maptaskC++;
+		this.maptaskC.add();
+		return ID;
 	}
 	
-	public void addReduce(long ID, String key, IntKeyVal value)
+	private synchronized long getID()
 	{
+		return this._ID++;
+	}
+
+	public long addReduce(String key, IntKeyVal value)
+	{
+		long ID= getID();
 		this.complet.submit(new ReduceRun(ID, key, value));
 		System.out.println("Submitted " + ID);
-		this.redtaskC++;
+		this.redtaskC.add();
+		
+		return ID;
 	}
 	
 	/**
@@ -123,8 +132,9 @@ public class HostController
 		return elem;
 	}
 	
-	public void setMapFinished(long ID, boolean success, WorkspaceBuffer.Element elem)
+	public void setMapFinished(long ID, boolean success, WorkspaceBuffer.Element elem, String key, long start, long end)
 	{
+		System.out.println("Map " + ID + "finished : " + success);
 		try {
 			this.htc.removeMap(elem.ws, success);
 		} catch (IOException e) {
@@ -133,18 +143,22 @@ public class HostController
 		}
 		
 		wbmap.release(elem);
-		
+		if( success == false )
+		{
+			this.addMap(key, start, end);
+		}
 	}
 	
 	public boolean waitForMappingStage()
 	{
 		try
 		{
-			System.out.println("Jobs submitted wait for shutdown");
-			pool.shutdown();
-			for(int l= 0; l < this.maptaskC; l++)
+			// System.out.println("Jobs submitted wait for shutdown");
+			// pool.shutdown();
+			// ---> don't shut down. Otherwise it could cause problems
+			for(int l= 0; l < this.maptaskC.getValue(); l++)
 			{
-				System.out.println("Try to take " + l + " " + this.maptaskC);
+				System.out.println("Try to take " + l + " " + this.maptaskC.getValue());
 				if( (Boolean) complet.take().get() != true)
 				{
 					System.out.println("Something failed");
@@ -203,7 +217,7 @@ public class HostController
 		{
 			System.out.println("Jobs submitted wait for shutdown");
 			this.pool.shutdown();
-			for(int l= 0; l < this.redtaskC; l++)
+			for(int l= 0; l < this.redtaskC.getValue(); l++)
 			{
 				System.out.println("Try to take " + l + " " + this.redtaskC);
 				if( (Boolean) complet.take().get() != true)

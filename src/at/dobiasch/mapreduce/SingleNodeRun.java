@@ -154,13 +154,13 @@ public class SingleNodeRun
 			while((line= in.readLine()) != null)
 			{
 				partEnd= Integer.parseInt(line);
-				this.controller.addMap(i, data.key, partStart, partEnd);
+				this.controller.addMap(data.key, partStart, partEnd);
 				
 				i++;
 				partStart= partEnd;
 			}
 			partEnd= data.lastpartitionend;
-			this.controller.addMap(i, data.key, partStart, partEnd);
+			this.controller.addMap(data.key, partStart, partEnd);
 			i++;
 		}
 		
@@ -190,7 +190,7 @@ public class SingleNodeRun
 		{
 			key= keys.next();
 			value= vals.next();
-			this.controller.addReduce(i, key, value);
+			this.controller.addReduce(key, value);
 			i++;
 		}
 		
