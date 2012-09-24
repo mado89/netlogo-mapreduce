@@ -43,7 +43,7 @@ public class ReduceRun implements Callable<Object>
 			boolean suc = returned && !excep;
 			if( excep )
 				elem.ws.clearLastLogoException();
-			FrameworkFactory.getInstance().getTaskController().setReduceFinished(ID, returned, elem, key, value);
+			FrameworkFactory.getInstance().getTaskController().setReduceFinished(ID, suc, elem, key, value);
 		}
 		
 		return true;
