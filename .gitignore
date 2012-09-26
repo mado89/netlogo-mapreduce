@@ -3,4 +3,10 @@
 *.jar
 classes/
 *.class
-
+*.xml~
+*.tar.gz
+*.log
+*.sh~
+cluster/hadoop/slaves
+cluster/hadoop/masters
+cluster/hadoop/hosts
