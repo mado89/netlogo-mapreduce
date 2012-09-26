@@ -15,10 +15,10 @@ master_preclone () {
 	if [ $VMR -eq "0" ]
 	then
 		#start machine
-		VBoxManage startvm $MASTER > /dev/null;
+		VBoxManage startvm $MASTER --type headless > /dev/null;
 		
-		echo "Waiting for startup";
-		while [ `VBoxManage showvminfo $MASTER --details --machinereadable | grep GuestAdditionsRunLevel | grep -o "[0-9]*"` -lt "2" ]; do
+		echo "Waiting for startup of $MASTER";
+		while [[ `VBoxManage showvminfo $MASTER --details --machinereadable | grep GuestAdditionsRunLevel | grep -o "[0-9]*"` -lt "2" ]]; do
 			# echo "Sleeping"
 			sleep 1;
 		done
@@ -28,7 +28,7 @@ master_preclone () {
 	
 	ssh root@$MASTERIP "rm /etc/udev/rules.d/70-persistent-net.rules; shutdown -h now"
 	#Waiting for shutdown
-	while [ `VBoxManage list runningvms | grep $MASTER | wc -l` -gt "0" ]; do
+	while [[ `VBoxManage list runningvms | grep $MASTER | wc -l` -gt "0" ]]; do
 		# echo "Sleeping"
 		sleep 1;
 	done
@@ -52,7 +52,7 @@ echo "Waiting for startup";
 # AAA=`VBoxManage showvminfo $NODE --details --machinereadable | grep GuestAdditionsRunLevel | grep -o "[0-9]*"`
 # echo $AAA
 sleep 2
-while [ `VBoxManage showvminfo $NODE --details --machinereadable | grep GuestAdditionsRunLevel | grep -o "[0-9]*"` -lt "2" ]; do
+while [[ `VBoxManage showvminfo $NODE --details --machinereadable | grep GuestAdditionsRunLevel | grep -o "[0-9]*"` -lt "2" ]]; do
 	# echo "Sleeping"
 	sleep 1;
 done
