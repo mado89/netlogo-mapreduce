@@ -6,6 +6,9 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.FilenameFilter;
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.concurrent.ExecutionException;
@@ -83,6 +86,8 @@ public class SingleNodeRun
 			doMap();
 			
 			doReduce();
+			
+			// doCollect();
 		} catch (IOException e) {
 			throw new ExtensionException(e);
 		} catch (CompilerException e) {
@@ -176,23 +181,30 @@ public class SingleNodeRun
 	private void doReduce() throws IOException, CompilerException, ExtensionException
 	{
 		Map<String,IntKeyVal> intdata= this.controller.getIntermediateData();
-		Iterator<IntKeyVal> vals= intdata.values().iterator();
-		Iterator<String> keys= intdata.keySet().iterator();
-		String key;
-		IntKeyVal value;
-		int i= 0;
+		// Iterator<IntKeyVal> vals= intdata.values().iterator();
+		// Iterator<String> keys= intdata.keySet().iterator();
+		String[] kk= new String[intdata.size()];
+		intdata.keySet().toArray(kk);
+		// String key;
+		// IntKeyVal value;
+		
+		System.out.println("Sorting");
+		Arrays.sort(kk);
 		
 		System.out.println("Begin Reducing");
 		this.controller.prepareReduceStage();
 		
-		i= 0;
+		for(int i= 0; i < kk.length; i++)
+		{
+			this.controller.addReduce(kk[i], intdata.get(kk[i]));
+		}
+		/*
 		while(keys.hasNext())
 		{
 			key= keys.next();
 			value= vals.next();
 			this.controller.addReduce(key, value);
-			i++;
-		}
+		}*/
 		
 		boolean result= this.controller.waitForReduceStage();
 		if( result == false)
@@ -202,4 +214,8 @@ public class SingleNodeRun
 		System.out.println("Reducing ended");
 	}
 
+	/*private void doCollect()
+	{
+		this.controller.mergeReduceOutput();
+	}*/
 }

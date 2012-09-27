@@ -16,6 +16,10 @@ public class IntKeyVal
 	 */
 	public String fn;
 	/**
+	 * Key
+	 */
+	public String key;
+	/**
 	 * The output file to write out the values
 	 */
 	private FileOutputStream out;
@@ -30,9 +34,10 @@ public class IntKeyVal
 	 */
 	private long fsize;
 	
-	public IntKeyVal(String fn) throws IOException
+	public IntKeyVal(String key, String fn) throws IOException
 	{
 		this.fn= fn;
+		this.key= key;
 		out= new FileOutputStream(fn,false);
 		count= 0;
 		fsize= 0;

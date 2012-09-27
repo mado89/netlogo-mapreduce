@@ -11,6 +11,8 @@ import org.nlogo.api.CompilerException;
 import org.nlogo.nvm.Workspace;
 
 import at.dobiasch.mapreduce.framework.Counter;
+import at.dobiasch.mapreduce.framework.RecordReader;
+import at.dobiasch.mapreduce.framework.RecordWriter;
 import at.dobiasch.mapreduce.framework.RecordWriterBuffer;
 import at.dobiasch.mapreduce.framework.SysFileHandler;
 import at.dobiasch.mapreduce.framework.WorkspaceBuffer;
@@ -71,7 +73,7 @@ public class HostController
 		this.pool= Executors.newFixedThreadPool(this.mapc);
 		this.complet= new ExecutorCompletionService<Object>(pool);
 		
-		this.mapwriter= new RecordWriterBuffer(this.mapc, "map-%04d", this.sysh, " \t ");
+		this.mapwriter= new RecordWriterBuffer(this.mapc + 2, "map-%04d", this.sysh, " \t ");
 		this.htc.setMapperOutput(this.mapwriter);
 	}
 	
@@ -267,5 +269,24 @@ public class HostController
 	public Data getData(Workspace ws)
 	{
 		return this.htc.getData(ws);
+	}
+
+	public void mergeReduceOutput() throws IOException, InterruptedException
+	{
+		// TODO: implement me
+		/*RecordReader in[];
+		RecordWriter out;
+		int size= this.reducewriter.getSize();
+		boolean recsleft= true;
+		
+		in= new RecordReader[size];
+		out= new RecordWriter("output.txt", this.reducewriter.getKeyValueSeperator());
+		for(int i= 0; i < size; i++)
+			in[i]= new RecordReader(this.reducewriter.get());
+		
+		while( recsleft )
+		{
+			in[i].
+		}*/
 	}
 }

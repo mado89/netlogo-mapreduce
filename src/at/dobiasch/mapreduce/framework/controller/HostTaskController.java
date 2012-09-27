@@ -215,7 +215,7 @@ public class HostTaskController
 	                    md.update(key.getBytes());
 	                    fn= sysfileh.addFile(ChecksumHelper.convToHex(md.digest()) + ".int");
 	                    // System.out.println(fn);
-	                    h= new IntKeyVal(fn);
+	                    h= new IntKeyVal(key,fn);
 	                    intdata.put(key, h);
                     }
                     
