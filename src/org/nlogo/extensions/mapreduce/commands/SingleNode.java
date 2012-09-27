@@ -8,7 +8,6 @@ import org.nlogo.api.Syntax;
 import org.nlogo.extensions.mapreduce.Manager;
 
 import at.dobiasch.mapreduce.SingleNodeRun;
-import at.dobiasch.mapreduce.framework.Configuration;
 import at.dobiasch.mapreduce.framework.Framework;
 import at.dobiasch.mapreduce.framework.FrameworkFactory;
 

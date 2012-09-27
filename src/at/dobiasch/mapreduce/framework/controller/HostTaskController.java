@@ -1,6 +1,5 @@
 package at.dobiasch.mapreduce.framework.controller;
 
-import java.io.FileWriter;
 import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -16,9 +15,6 @@ import at.dobiasch.mapreduce.framework.RecordWriter;
 import at.dobiasch.mapreduce.framework.RecordWriterBuffer;
 import at.dobiasch.mapreduce.framework.SysFileHandler;
 import at.dobiasch.mapreduce.framework.TaskType;
-import at.dobiasch.mapreduce.framework.WorkspaceBuffer.Element;
-import at.dobiasch.mapreduce.framework.partition.HashPartitioner;
-import at.dobiasch.mapreduce.framework.partition.IPartitioner;
 import at.dobiasch.mapreduce.framework.task.IntKeyVal;
 
 public class HostTaskController
@@ -33,7 +29,7 @@ public class HostTaskController
 	private boolean syncMapwait;
 	private RecordWriterBuffer reduceout;
 	private RecordWriterBuffer mapout;
-	private IPartitioner part;
+	// private IPartitioner part;
 	
 	public HostTaskController(SysFileHandler sysfileh)
 	{
@@ -41,7 +37,7 @@ public class HostTaskController
 		intdata= new HashMap<String,IntKeyVal>();
 		this.sysfileh= sysfileh;
 		syncMap= new Object();
-		this.part= new HashPartitioner();
+		// this.part= new HashPartitioner();
 	}
 	
 	public void addMap(HeadlessWorkspace ws, long ID, String key, long start, long end) throws InterruptedException

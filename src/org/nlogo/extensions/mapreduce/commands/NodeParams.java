@@ -6,7 +6,6 @@ import org.nlogo.api.DefaultCommand;
 import org.nlogo.api.ExtensionException;
 import org.nlogo.api.LogoException;
 import org.nlogo.api.Syntax;
-import org.nlogo.extensions.mapreduce.Manager;
 
 /**
  * 

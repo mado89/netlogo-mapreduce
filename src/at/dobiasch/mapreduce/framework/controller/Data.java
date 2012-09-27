@@ -1,7 +1,5 @@
 package at.dobiasch.mapreduce.framework.controller;
 
-import java.io.FileWriter;
-
 import at.dobiasch.mapreduce.framework.RecordWriter;
 import at.dobiasch.mapreduce.framework.TaskType;
 

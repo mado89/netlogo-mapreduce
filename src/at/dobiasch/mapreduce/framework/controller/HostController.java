@@ -11,8 +11,6 @@ import org.nlogo.api.CompilerException;
 import org.nlogo.nvm.Workspace;
 
 import at.dobiasch.mapreduce.framework.Counter;
-import at.dobiasch.mapreduce.framework.RecordReader;
-import at.dobiasch.mapreduce.framework.RecordWriter;
 import at.dobiasch.mapreduce.framework.RecordWriterBuffer;
 import at.dobiasch.mapreduce.framework.SysFileHandler;
 import at.dobiasch.mapreduce.framework.WorkspaceBuffer;

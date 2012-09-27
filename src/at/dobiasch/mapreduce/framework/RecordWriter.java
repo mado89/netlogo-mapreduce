@@ -3,19 +3,18 @@ package at.dobiasch.mapreduce.framework;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.io.UnsupportedEncodingException;
-import java.util.concurrent.ArrayBlockingQueue;
 
 public class RecordWriter
 {
-	private long ID;
+	// private long ID;
 	private boolean session;
 	private long sessStart;
 	private RandomAccessFile out;
 	private String filename;
 	
 	private final byte[] keyValueSeparator;
-	private Object sync= new Object();
-	private boolean syncwait= false;
+	// private Object sync= new Object();
+	// private boolean syncwait= false;
 	
 	/*
 	 * Code and idea taken from apache hadoop
@@ -66,11 +65,15 @@ public class RecordWriter
 		return keyValueSeparator;
 	}
 	
+	/**
+	 * 
+	 * @param ID at the current moment id can be ignored
+	 */
 	public void startSession(long ID)
 	{
 		if ( this.session == true )
 				throw new IllegalStateException("Session was allready started");
-		this.ID= ID;
+		// this.ID= ID;
 		this.session= true;
 	}
 	

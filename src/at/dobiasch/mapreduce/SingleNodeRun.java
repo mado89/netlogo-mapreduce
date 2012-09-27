@@ -3,29 +3,20 @@ package at.dobiasch.mapreduce;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.FilenameFilter;
 import java.io.IOException;
 import java.util.Arrays;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Iterator;
 import java.util.Map;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.ExecutorCompletionService;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 import org.nlogo.api.CompilerException;
 import org.nlogo.api.ExtensionException;
 
 import at.dobiasch.mapreduce.framework.Framework;
-import at.dobiasch.mapreduce.framework.task.IntKeyVal;
-import at.dobiasch.mapreduce.framework.task.ReduceRun;
 import at.dobiasch.mapreduce.framework.WorkspaceBuffer;
 import at.dobiasch.mapreduce.framework.controller.HostController;
 import at.dobiasch.mapreduce.framework.partition.ICheckAndPartition;
 import at.dobiasch.mapreduce.framework.partition.ParallelPartitioner;
+import at.dobiasch.mapreduce.framework.task.IntKeyVal;
 
 public class SingleNodeRun
 {
@@ -35,8 +26,6 @@ public class SingleNodeRun
 	WorkspaceBuffer wb;
 	Framework fw;
 	Map<String,ICheckAndPartition.CheckPartData> indata;
-	private ExecutorService pool;
-	private ExecutorCompletionService<Object> complet;
 	
 	/*
 	 * Number of input splits ie number of mappers that has to be run
@@ -147,7 +136,6 @@ public class SingleNodeRun
 	{
 		long partStart;
 		long partEnd;
-		int i= 0;
 		for(ICheckAndPartition.CheckPartData data : indata.values())
 		{
 			File file= new File(data.partitionfile);
@@ -161,12 +149,10 @@ public class SingleNodeRun
 				partEnd= Integer.parseInt(line);
 				this.controller.addMap(data.key, partStart, partEnd);
 				
-				i++;
 				partStart= partEnd;
 			}
 			partEnd= data.lastpartitionend;
 			this.controller.addMap(data.key, partStart, partEnd);
-			i++;
 		}
 		
 		boolean result= this.controller.waitForMappingStage();

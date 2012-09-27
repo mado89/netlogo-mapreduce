@@ -8,7 +8,6 @@ import org.nlogo.api.HubNetInterface;
 import org.nlogo.api.LogoException;
 
 import at.dobiasch.mapreduce.framework.controller.HostController;
-import at.dobiasch.mapreduce.framework.controller.HostTaskController;
 
 
 public class Framework
