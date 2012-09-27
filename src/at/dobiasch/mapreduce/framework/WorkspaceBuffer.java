@@ -2,8 +2,8 @@ package at.dobiasch.mapreduce.framework;
 
 import java.io.IOException;
 import java.io.StringReader;
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.Callable;
 import java.util.concurrent.CompletionService;
 import java.util.concurrent.ExecutorCompletionService;
@@ -13,11 +13,9 @@ import java.util.concurrent.Semaphore;
 
 import org.nlogo.agent.Observer;
 import org.nlogo.api.CompilerException;
-import org.nlogo.api.ExtensionException;
 import org.nlogo.api.JobOwner;
 import org.nlogo.api.SimpleJobOwner;
 import org.nlogo.headless.HeadlessWorkspace;
-import org.nlogo.nvm.CompilerResults;
 import org.nlogo.nvm.Procedure;
 
 public class WorkspaceBuffer
@@ -30,7 +28,7 @@ public class WorkspaceBuffer
 		public JobOwner owner;
 	}
 	
-	private Queue<Element> q;
+	private BlockingQueue<Element> q;
 	private Semaphore available;
 	private int size;
 	private String world;
@@ -39,7 +37,7 @@ public class WorkspaceBuffer
 	public WorkspaceBuffer(int size, String world, String model) throws IOException
 	{
 		available= new Semaphore(0);
-		q= new LinkedList<Element>(); 
+		q= new ArrayBlockingQueue<Element>(size); 
 		
 		this.size= size;
 		this.world= world;
@@ -70,7 +68,7 @@ public class WorkspaceBuffer
 							Element e= new Element();
 							e.ws= ws;
 							e.owner= new SimpleJobOwner("MapReduce", ws.world.mainRNG,Observer.class);
-							q.offer(e);
+							q.add(e);
 							available.release();
 							System.out.println("WS opened");
 							return null;
@@ -182,9 +180,10 @@ public class WorkspaceBuffer
 	public Element get() throws InterruptedException
 	{
 		// logger.debug("get: " + q.size());
-		available.acquire();
+		/*available.acquire();
 		
-		return hget();
+		return hget();*/
+		return q.take();
 	}
 	
 	protected synchronized Element hget()
@@ -195,18 +194,13 @@ public class WorkspaceBuffer
 	public void release(Element workspace)
 	{
 		// logger.debug("release: " + q.size());
-		hr(workspace);
-		available.release();
+		/*hr(workspace);
+		available.release();*/
+		q.add(workspace);
 	}
 	
 	protected synchronized void hr(Element workspace)
 	{
 		q.offer(workspace);
-	}
-
-	public void resize(int size)
-	{
-		// TODO Auto-generated method stub
-		
 	}
 }
