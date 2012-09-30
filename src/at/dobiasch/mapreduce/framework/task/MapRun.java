@@ -2,6 +2,8 @@ package at.dobiasch.mapreduce.framework.task;
 
 import java.util.concurrent.Callable;
 
+import org.nlogo.api.ExtensionException;
+
 import at.dobiasch.mapreduce.framework.FrameworkFactory;
 import at.dobiasch.mapreduce.framework.WorkspaceBuffer;
 
@@ -40,11 +42,18 @@ public class MapRun implements Callable<Object>
 			e.printStackTrace();
 		} catch (InterruptedException e) {
 			e.printStackTrace();
+		} catch (ExtensionException e) {
+			e.printStackTrace();
 		} finally {
 			boolean suc = returned && !excep;
 			if( excep )
 				elem.ws.clearLastLogoException();
-			FrameworkFactory.getInstance().getTaskController().setMapFinished(ID, suc, elem, key, partStart, partEnd);
+			try {
+				FrameworkFactory.getInstance().getTaskController().setMapFinished(ID, suc, elem, key, partStart, partEnd);
+			} catch (ExtensionException e) {
+				e.printStackTrace();
+				return false;
+			}
 		}
 		
 		return true;

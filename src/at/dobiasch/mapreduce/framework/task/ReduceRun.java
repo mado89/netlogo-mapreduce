@@ -2,6 +2,8 @@ package at.dobiasch.mapreduce.framework.task;
 
 import java.util.concurrent.Callable;
 
+import org.nlogo.api.ExtensionException;
+
 import at.dobiasch.mapreduce.framework.FrameworkFactory;
 import at.dobiasch.mapreduce.framework.WorkspaceBuffer;
 
@@ -43,7 +45,12 @@ public class ReduceRun implements Callable<Object>
 			boolean suc = returned && !excep;
 			if( excep )
 				elem.ws.clearLastLogoException();
-			FrameworkFactory.getInstance().getTaskController().setReduceFinished(ID, suc, elem, key, value);
+			try {
+				FrameworkFactory.getInstance().getTaskController().setReduceFinished(ID, suc, elem, key, value);
+			} catch (ExtensionException e) {
+				e.printStackTrace();
+				return false;
+			}
 		}
 		
 		return true;

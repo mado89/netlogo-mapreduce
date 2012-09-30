@@ -90,10 +90,7 @@ public class SingleNodeRun
 	 */
 	private void prepareInput() throws Exception
 	{
-		ICheckAndPartition part= new ParallelPartitioner();
-		part.init(fw.getSystemFileHandler(), 250);
-		part.setCheck(false);
-		
+		ICheckAndPartition part= fw.getNewPartitioner();
 		String indir= fw.getConfiguration().getInputDirectory();
 		File inputdir = new File(indir);
 		

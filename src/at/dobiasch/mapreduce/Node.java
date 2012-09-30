@@ -3,6 +3,7 @@ package at.dobiasch.mapreduce;
 import javax.swing.JFrame;
 
 import org.nlogo.BasicClient;
+import org.nlogo.api.ExtensionException;
 import org.nlogo.hubnet.client.LoginCallback;
 import org.nlogo.hubnet.client.LoginDialog;
 import org.nlogo.hubnet.protocol.Message;
@@ -29,7 +30,7 @@ public class Node
 		startIt();
 	}
 	
-	public Node(String user, String host, int port)
+	public Node(String user, String host, int port) throws ExtensionException
 	{
 		this.user= user;
 		this.host= host;
@@ -59,10 +60,14 @@ public class Node
 		this.user= user;
 		this.host= host;
 		this.port= port;
-		login();
+		try {
+			login();
+		} catch (ExtensionException e) {
+			e.printStackTrace();
+		}
 	}
 	
-	private void login()
+	private void login() throws ExtensionException
 	{
 		System.out.println(user + "," + host + "," + port);
 		this.client= BasicClient.create(this.user, "MAPREDUCE", this.host, this.port);
@@ -72,7 +77,7 @@ public class Node
 		node();
 	}
 	
-	private void node()
+	private void node() throws ExtensionException
 	{
 		boolean run= true;
 		while(run)

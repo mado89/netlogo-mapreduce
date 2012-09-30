@@ -1,5 +1,7 @@
 package at.dobiasch.mapreduce.framework;
 
+import org.nlogo.api.ExtensionException;
+
 
 public class FrameworkFactory
 {
@@ -10,7 +12,7 @@ public class FrameworkFactory
 		
 	}
 	
-	public static synchronized Framework getInstance()
+	public static synchronized Framework getInstance() throws ExtensionException
 	{
         if (inst == null)
         {

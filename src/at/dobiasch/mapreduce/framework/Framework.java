@@ -4,10 +4,15 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.Map;
 
+import org.nlogo.api.ExtensionException;
 import org.nlogo.api.HubNetInterface;
 import org.nlogo.api.LogoException;
 
 import at.dobiasch.mapreduce.framework.controller.HostController;
+import at.dobiasch.mapreduce.framework.inputparser.IInputParser;
+import at.dobiasch.mapreduce.framework.inputparser.TextInputFormat;
+import at.dobiasch.mapreduce.framework.partition.ICheckAndPartition;
+import at.dobiasch.mapreduce.framework.partition.ParallelPartitioner;
 
 
 public class Framework
@@ -17,13 +22,16 @@ public class Framework
 	private HostController controller;
 	// private String         sysdir;
 	private SysFileHandler sysfileh;
+	private IInputParser   inp;
 	
-	public Framework()
+	public Framework() throws ExtensionException
 	{
 		this.config= new Configuration();
 		this.masterp= false;
 		sysfileh= new SysFileHandler("/home/martin/DA/tmpdir");
-		// this.controller= new HostTaskController(sysfileh);
+		
+		this.inp= new TextInputFormat();
+		this.inp.init("\n");
 	}
 	
 	public Configuration getConfiguration()
@@ -109,6 +117,21 @@ public class Framework
 	public void setHostController(HostController controller)
 	{
 		this.controller= controller;
+	}
+
+	public ICheckAndPartition getNewPartitioner() throws Exception
+	{
+		ICheckAndPartition part= new ParallelPartitioner();
+		part.init(this.getSystemFileHandler(), 1); //TODO: hadoop seems to add a task for every line
+		part.setCheck(false);
+		return part;
+	}
+
+	public IInputParser newInputParser()
+	{ //TODO: new ... maybe a wrong leading
+		this.inp= this.config.getParser();
+		
+		return this.inp; //.createParser(data);
 	}
 	
 	/*public String getSystemDir()

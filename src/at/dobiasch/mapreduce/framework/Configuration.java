@@ -6,11 +6,18 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 
+import org.nlogo.api.ExtensionException;
+
+import at.dobiasch.mapreduce.framework.inputparser.IInputParser;
+
 public class Configuration
 {
 	private String indir, outdir;
 	private String mapper, reducer;
 	private int mappers, reducers;
+	private String parser;
+	private String valsep;
+	private IInputParser inp;
 	
 	private static final String INDIR    = "input";
 	private static final String OUTDIR   = "output";
@@ -18,8 +25,10 @@ public class Configuration
 	private static final String REDUCER  = "reducer";
 	private static final int    MAPPERS  = Runtime.getRuntime().availableProcessors() * 2;
 	private static final int    REDUCERS = 1;
+	private static final String PARSER   = "at.dobiasch.mapreduce.framework.inputparser.TextInputFormat";
+	private static final String VALSEP  = "\n";
 	
-	public Configuration()
+	public Configuration() throws ExtensionException
 	{
 		indir= INDIR;
 		outdir= OUTDIR;
@@ -27,6 +36,8 @@ public class Configuration
 		reducer= REDUCER;
 		mappers= MAPPERS;
 		reducers= REDUCERS;
+		valsep= VALSEP;
+		this.setParser(PARSER);
 	}
 	
 	public String getInputDirectory()
@@ -122,6 +133,8 @@ public class Configuration
 			map.put("MAPPERS", "" + this.mappers);
 		if( this.reducers != REDUCERS )
 			map.put("REDUCERS", "" + this.reducers);
+		if( this.parser != PARSER )
+			map.put("PARSER", "" + this.parser);
 		
 		return map;
 	}
@@ -129,8 +142,9 @@ public class Configuration
 	/**
 	 * All values in the Map fields. Values not included in the map won't be included in any changes
 	 * @param fields
+	 * @throws ExtensionException 
 	 */
-	public void setValues(Map<String,String> fields)
+	public void setValues(Map<String,String> fields) throws ExtensionException
 	{
 		Set<String> keys= fields.keySet();
 		Collection<String> vals= fields.values();
@@ -151,11 +165,12 @@ public class Configuration
 		ret+= ",reducer: " + this.reducer;
 		ret+= ",mappers: " + this.mappers;
 		ret+= ",reducers: " + this.reducers;
+		ret+= ",parser: " + this.parser;
 		ret+= "]";
 		return ret;
 	}
 
-	public void setValuesFromString(String valstring)
+	public void setValuesFromString(String valstring) throws ExtensionException
 	{
 		String[] vals= valstring.split(",");
 		int i;
@@ -167,7 +182,7 @@ public class Configuration
 		}
 	}
 	
-	public void setValue(String key, String value)
+	public void setValue(String key, String value) throws ExtensionException
 	{
 		if( key.equals("INDIR"))
 			this.indir= "" + value;
@@ -181,5 +196,33 @@ public class Configuration
 			this.mappers= Integer.parseInt("" + value);
 		if( key.equals("REDUCERS"))
 			this.reducers= Integer.parseInt("" + value);
+		if( key.equals("PARSER"))
+			this.setParser(value);
+	}
+	
+	public void setParser(String parser) throws ExtensionException
+	{
+		this.parser= parser;
+		@SuppressWarnings("rawtypes") //TODO: maybe make this better
+		Class clazz;
+		try {
+			clazz = Class.forName(this.parser);
+			this.inp= (IInputParser) clazz.newInstance();
+			this.inp.init(this.valsep);
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+			throw new ExtensionException("Can't load" + this.parser + " (ClassNotFound)");
+		} catch (InstantiationException e) {
+			e.printStackTrace();
+			throw new ExtensionException("Can't load" + this.parser + " (InstantiationException)");
+		} catch (IllegalAccessException e) {
+			e.printStackTrace();
+			throw new ExtensionException("Can't load" + this.parser + " (IllegalAccessException)");
+		}
+	}
+
+	public IInputParser getParser()
+	{
+		return this.inp;
 	}
 }
