@@ -8,8 +8,6 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 import org.nlogo.api.CompilerException;
-import org.nlogo.headless.HeadlessWorkspace;
-import org.nlogo.nvm.Workspace;
 import org.nlogo.workspace.AbstractWorkspace;
 
 import at.dobiasch.mapreduce.framework.Counter;

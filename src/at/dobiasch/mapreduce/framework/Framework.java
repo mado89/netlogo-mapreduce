@@ -10,7 +10,6 @@ import org.nlogo.api.LogoException;
 
 import at.dobiasch.mapreduce.framework.controller.HostController;
 import at.dobiasch.mapreduce.framework.inputparser.IInputParser;
-import at.dobiasch.mapreduce.framework.inputparser.TextInputFormat;
 import at.dobiasch.mapreduce.framework.partition.ICheckAndPartition;
 import at.dobiasch.mapreduce.framework.partition.ParallelPartitioner;
 
