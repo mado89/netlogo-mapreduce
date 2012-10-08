@@ -30,8 +30,9 @@ public class Framework
 		this.masterp= false;
 		sysfileh= new SysFileHandler("/home/martin/DA/tmpdir");
 		
-		this.inp= new TextInputFormat();
-		this.inp.init("\n");
+		// Don't initialize Inputparser here. Config will change reference won't be updated
+		// this.inp= new TextInputFormat();
+		// this.inp.init(this.config.getValueSeperator());
 	}
 	
 	public Configuration getConfiguration()

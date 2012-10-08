@@ -37,7 +37,7 @@ public class Configuration
 		mappers= MAPPERS;
 		reducers= REDUCERS;
 		valsep= VALSEP;
-		this.setParser(PARSER);
+		this.setInputParser(PARSER);
 	}
 	
 	public String getInputDirectory()
@@ -111,6 +111,17 @@ public class Configuration
 		this.reducer = reducer;
 	}
 
+	public String getValueSeperator()
+	{
+		return valsep;
+	}
+	
+	public void setValueSeperator(String seperator)
+	{
+		this.valsep= seperator;
+		this.inp.init(this.valsep);
+	}
+	
 	/**
 	 * Returns a map with changed values. 
 	 * This map can be used to for setValues
@@ -135,6 +146,8 @@ public class Configuration
 			map.put("REDUCERS", "" + this.reducers);
 		if( this.parser != PARSER )
 			map.put("PARSER", "" + this.parser);
+		if( this.valsep != VALSEP )
+			map.put("VALSEP", this.valsep);
 		
 		return map;
 	}
@@ -197,12 +210,15 @@ public class Configuration
 		if( key.equals("REDUCERS"))
 			this.reducers= Integer.parseInt("" + value);
 		if( key.equals("PARSER"))
-			this.setParser(value);
+			this.setInputParser(value);
+		if( key.equals("VALSEP"))
+			this.setValueSeperator(value);
 	}
 	
-	public void setParser(String parser) throws ExtensionException
+	
+	public void setInputParser(String classname) throws ExtensionException
 	{
-		this.parser= parser;
+		this.parser= classname;
 		@SuppressWarnings("rawtypes") //TODO: maybe make this better
 		Class clazz;
 		try {

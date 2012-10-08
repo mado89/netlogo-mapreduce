@@ -16,9 +16,11 @@ import org.nlogo.extensions.mapreduce.commands.PlotConfig;
 import org.nlogo.extensions.mapreduce.commands.Test;
 import org.nlogo.extensions.mapreduce.commands.Values;
 import org.nlogo.extensions.mapreduce.commands.config.InputDir;
+import org.nlogo.extensions.mapreduce.commands.config.InputFormat;
 import org.nlogo.extensions.mapreduce.commands.config.Mapper;
 import org.nlogo.extensions.mapreduce.commands.config.OutDir;
 import org.nlogo.extensions.mapreduce.commands.config.Reducer;
+import org.nlogo.extensions.mapreduce.commands.config.ValueSeperator;
 
 import at.dobiasch.mapreduce.framework.FrameworkFactory;
 
@@ -110,6 +112,8 @@ public class Manager extends org.nlogo.api.DefaultClassManager
 		manager.addPrimitive("config.output", new OutDir());
 		manager.addPrimitive("config.mapper", new Mapper());
 		manager.addPrimitive("config.reducer", new Reducer());
+		manager.addPrimitive("config.inputformat", new InputFormat());
+		manager.addPrimitive("config.valueseperator", new ValueSeperator());
 		
 		manager.addPrimitive("__print.config", new PlotConfig());
 		

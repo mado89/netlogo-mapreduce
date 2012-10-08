@@ -39,10 +39,17 @@ public class KeyValueInputFormat implements IInputParser
 			LogoListBuilder list = new LogoListBuilder();
 			String h= new String(b);
 			int split= h.indexOf(this.sep);
-			
-			this.key= h.substring(0, split);
-			
-			split+= this.sep.length();
+			// System.out.println(h.replaceAll("\\r|\\n", "") + " '" + sep + "'");
+			if( split != -1 )
+			{
+				this.key= h.substring(0, split);
+				split+= this.sep.length();
+			}
+			else
+			{
+				this.key= "";
+				split= 0;
+			}
 			
 			list.add(h.substring(split).replaceAll("\\r|\\n", ""));
 			
