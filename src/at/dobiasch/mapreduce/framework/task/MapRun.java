@@ -33,9 +33,11 @@ public class MapRun implements Callable<Object>
 			elem= FrameworkFactory.getInstance().getTaskController().startMapRun(ID, key, partStart, partEnd);
 			
 			// System.out.println("run compiled command" + ID);
+			elem.ws.runCompiledCommands(elem.owner, elem.read);
 			elem.ws.runCompiledCommands(elem.owner, elem.map);
+			// elem.ws.runCompiledCommands(elem.owner, elem.clean);
 			excep= elem.ws.lastLogoException() != null;
-			System.out.println("done compiled command " + ID + ": " + excep);
+			// System.out.println("done compiled command " + ID + ": " + excep);
 			
 			returned= true;
 		} catch (RuntimeException e) {
@@ -47,7 +49,10 @@ public class MapRun implements Callable<Object>
 		} finally {
 			boolean suc = returned && !excep;
 			if( excep )
+			{
+				System.out.println(elem.ws.lastLogoException().getMessage());
 				elem.ws.clearLastLogoException();
+			}
 			try {
 				FrameworkFactory.getInstance().getTaskController().setMapFinished(ID, suc, elem, key, partStart, partEnd);
 			} catch (ExtensionException e) {

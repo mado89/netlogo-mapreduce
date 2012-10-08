@@ -30,7 +30,10 @@ public class ReduceRun implements Callable<Object>
 		{
 			elem= FrameworkFactory.getInstance().getTaskController().startReduceRun(ID, key, value.fn, value.getFileSize());
 			
+			elem.ws.runCompiledCommands(elem.owner, elem.read);
 			elem.ws.runCompiledCommands(elem.owner, elem.reduce);
+			// elem.ws.runCompiledCommands(elem.owner, elem.clean);
+			
 			excep= elem.ws.lastLogoException() != null;
 			System.out.println("done compiled command " + ID + ": " + excep);
 			

@@ -58,9 +58,9 @@ public class BaseParallelPartitioner implements Callable<Object>
 			do
 			{
 				read();
+				update();
 				if( split() )
 					writePartition();
-				update();
 			} while (doRead());
 			is.close();
 			

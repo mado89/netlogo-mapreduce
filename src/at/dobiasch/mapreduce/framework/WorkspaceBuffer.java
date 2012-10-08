@@ -25,6 +25,8 @@ public class WorkspaceBuffer
 		public HeadlessWorkspace ws;
 		public Procedure map;
 		public Procedure reduce;
+		public Procedure read;
+		// public Procedure clean;
 		public JobOwner owner;
 	}
 	
@@ -127,6 +129,9 @@ public class WorkspaceBuffer
 			res.head().init(e.ws);
 			e.reduce= res.head();*/
 			e.reduce= e.ws.compileCommands(reduce);
+			
+			compileHelperCommands(e);
+			
 			System.out.println((i+1) + " Workspaces compiled");
 			q.add(e);
 		}
@@ -141,6 +146,8 @@ public class WorkspaceBuffer
 			Element e= q.poll();
 			e.map= e.ws.compileCommands(map);
 			
+			compileHelperCommands(e);
+			
 			q.add(e);
 		}
 	}
@@ -154,8 +161,16 @@ public class WorkspaceBuffer
 			Element e= q.poll();
 			e.reduce= e.ws.compileCommands(reduce);
 			
+			compileHelperCommands(e);
+			
 			q.add(e);
 		}
+	}
+	
+	private void compileHelperCommands(Element e) throws CompilerException
+	{
+		e.read= e.ws.compileCommands("mapreduce:__parseinput");
+		// e.clean= e.ws.compileCommands("mapreduce:__cleanuptaskdata");
 	}
 	
 	/**

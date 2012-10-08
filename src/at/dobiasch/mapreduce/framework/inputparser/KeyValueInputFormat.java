@@ -10,7 +10,7 @@ import org.nlogo.api.LogoListBuilder;
 
 import at.dobiasch.mapreduce.framework.controller.Data;
 
-public class TextInputFormat implements IInputParser
+public class KeyValueInputFormat implements IInputParser
 {
 	private String sep;
 	private LogoList vals;
@@ -37,18 +37,18 @@ public class TextInputFormat implements IInputParser
 			in.close();
 			
 			LogoListBuilder list = new LogoListBuilder();
-			// System.out.println(data.ID + " " + new String(b));
-			String[] vals= new String(b).split(sep);
-			b= null;
-			for(int i= 0; i < vals.length; i++)
-				list.add(vals[i].replaceAll("\\r|\\n", ""));
+			String h= new String(b);
+			int split= h.indexOf(this.sep);
 			
-			// if( vals.length > 0)
-			// 	System.out.println(data.ID + ": " + data.src + " " + data.start + " " + data + " " + vals[0].replaceAll("\\r|\\n", ""));
+			this.key= h.substring(0, split);
+			
+			split+= this.sep.length();
+			
+			list.add(h.substring(split).replaceAll("\\r|\\n", ""));
+			
 			// System.out.println("running " + data.key + " " + data.start + " " + data.end + " " + vals.length);
 			
 			this.vals= list.toLogoList();
-			this.key= "" + data.start;
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 			throw new ExtensionException(e);
@@ -73,7 +73,7 @@ public class TextInputFormat implements IInputParser
 	@Override
 	public IInputParser newInstance()
 	{
-		TextInputFormat parser= new TextInputFormat();
+		KeyValueInputFormat parser= new KeyValueInputFormat();
 		parser.init(this.sep);
 		return parser;
 	}	

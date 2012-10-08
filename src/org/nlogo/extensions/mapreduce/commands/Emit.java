@@ -8,7 +8,7 @@ import org.nlogo.api.DefaultCommand;
 import org.nlogo.api.ExtensionException;
 import org.nlogo.api.LogoException;
 import org.nlogo.api.Syntax;
-import org.nlogo.nvm.Workspace;
+import org.nlogo.workspace.AbstractWorkspace;
 
 import at.dobiasch.mapreduce.framework.FrameworkFactory;
 import at.dobiasch.mapreduce.framework.controller.HostController;
@@ -35,7 +35,7 @@ public class Emit extends DefaultCommand
 	      throw new ExtensionException( e.getMessage() ) ;
 	    } 
 		
-		Workspace ws= ((org.nlogo.nvm.ExtensionContext) context).workspace();
+		AbstractWorkspace ws= (AbstractWorkspace) ((org.nlogo.nvm.ExtensionContext) context).workspace();
 		HostController controller= FrameworkFactory.getInstance().getTaskController();
 		try
 		{

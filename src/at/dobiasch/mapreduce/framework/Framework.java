@@ -128,8 +128,8 @@ public class Framework
 	}
 
 	public IInputParser newInputParser()
-	{ //TODO: new ... maybe a wrong leading
-		this.inp= this.config.getParser();
+	{
+		this.inp= this.config.getParser().newInstance();
 		
 		return this.inp; //.createParser(data);
 	}

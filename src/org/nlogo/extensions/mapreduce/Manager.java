@@ -11,6 +11,7 @@ import org.nlogo.extensions.mapreduce.commands.Key;
 import org.nlogo.extensions.mapreduce.commands.MapReduce;
 import org.nlogo.extensions.mapreduce.commands.Node;
 import org.nlogo.extensions.mapreduce.commands.NodeParams;
+import org.nlogo.extensions.mapreduce.commands.ParseInput;
 import org.nlogo.extensions.mapreduce.commands.PlotConfig;
 import org.nlogo.extensions.mapreduce.commands.Test;
 import org.nlogo.extensions.mapreduce.commands.Values;
@@ -29,6 +30,8 @@ public class Manager extends org.nlogo.api.DefaultClassManager
 {
 	public static org.nlogo.workspace.ExtensionManager em;
 	private static WorldSem world;
+	// private static String key;
+	// private static LogoList values;
 	
 	/**
 	 * A helper class to get the world from the workspace
@@ -109,6 +112,8 @@ public class Manager extends org.nlogo.api.DefaultClassManager
 		manager.addPrimitive("config.reducer", new Reducer());
 		
 		manager.addPrimitive("__print.config", new PlotConfig());
+		
+		manager.addPrimitive("__parseinput", new ParseInput());
 	}
 	
 	/**
@@ -127,4 +132,30 @@ public class Manager extends org.nlogo.api.DefaultClassManager
 	{
 		return Manager.world.getWorld();
 	}
+	
+	/*public static void setTaskData(String key, LogoList values)
+	{
+		Manager.key= key;
+		Manager.values= values;
+		System.out.println("set vals");
+	}
+	
+	public static void cleanupTaskData()
+	{
+		Manager.key= null;
+		Manager.values= null;
+		System.out.println("clean up");
+	}
+	
+	public static String getKey()
+	{
+		System.out.println("get key " + key);
+		return Manager.key;
+	}
+	
+	public static LogoList getValues()
+	{
+		System.out.println("get vals " + values);
+		return Manager.values;
+	}*/
 }

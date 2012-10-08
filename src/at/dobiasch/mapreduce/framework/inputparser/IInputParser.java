@@ -11,5 +11,10 @@ public interface IInputParser
 	
 	// public IInputParser createParser(Data data);
 	
-	public LogoList parseInput(Data data) throws ExtensionException;
+	public void parseInput(Data data) throws ExtensionException;
+	
+	public LogoList getValues();
+	public String   getKey();
+
+	public IInputParser newInstance();
 }

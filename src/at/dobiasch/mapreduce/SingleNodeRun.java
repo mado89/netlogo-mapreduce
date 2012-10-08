@@ -6,6 +6,7 @@ import java.io.FileReader;
 import java.io.FilenameFilter;
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.Map;
 
 import org.nlogo.api.CompilerException;
@@ -15,7 +16,6 @@ import at.dobiasch.mapreduce.framework.Framework;
 import at.dobiasch.mapreduce.framework.WorkspaceBuffer;
 import at.dobiasch.mapreduce.framework.controller.HostController;
 import at.dobiasch.mapreduce.framework.partition.ICheckAndPartition;
-import at.dobiasch.mapreduce.framework.partition.ParallelPartitioner;
 import at.dobiasch.mapreduce.framework.task.IntKeyVal;
 
 public class SingleNodeRun

@@ -6,8 +6,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.nlogo.headless.HeadlessWorkspace;
-import org.nlogo.nvm.Workspace;
+import org.nlogo.workspace.AbstractWorkspace;
 
 import at.dobiasch.mapreduce.framework.ChecksumHelper;
 import at.dobiasch.mapreduce.framework.RecordReader;
@@ -21,102 +20,133 @@ public class HostTaskController
 {
 	// List of Map Tasks
 	// List of Keys to be reduced
-	Map<Workspace,Data> tasks;
+	private class TaskManager
+	{
+		Map<AbstractWorkspace,Data> tasks;
+		private Object syncMap;
+		private boolean syncMapwait;
+		
+		public TaskManager()
+		{
+			tasks= new HashMap<AbstractWorkspace,Data>();
+			syncMap= new Object();
+			syncMapwait= false;
+		}
+
+		public void addTaskByWorkspace(AbstractWorkspace ws, Data data)
+		{
+			// System.out.println("TM: " + ws + " " + data);
+			synchronized( syncMap )
+			{
+				while( syncMapwait )
+				{
+					try
+					{
+						syncMap.wait();
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+				}
+				syncMapwait= true;
+				// System.out.println("Adding Map for " + ws + " " + this);
+				tasks.put(ws, data);
+				// System.out.println("After add " + map);
+				syncMapwait= false;
+				syncMap.notifyAll();
+			}
+		}
+
+		public Data getTaskDataByWorkspace(AbstractWorkspace ws)
+		{
+			Data data= null;
+			
+			synchronized( syncMap )
+			{
+				while( syncMapwait )
+				{
+					try
+					{
+						syncMap.wait();
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+				}
+				syncMapwait= true;
+				data= tasks.get(ws);
+				syncMapwait= false;
+				syncMap.notifyAll();
+			}
+			
+			return data;
+		}
+
+		public void removeTaskByWorkspace(AbstractWorkspace ws)
+		{
+			synchronized( syncMap )
+			{
+				while( syncMapwait )
+				{
+					try
+					{
+						syncMap.wait();
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+				}
+				syncMapwait= true;
+				tasks.remove(ws);
+				syncMapwait= false;
+				syncMap.notifyAll();
+			}
+		}
+	}
+	
+	
+	TaskManager tasks;
 	Map<String,IntKeyVal> intdata;
 	SysFileHandler sysfileh;
 	
-	private Object syncMap;
-	private boolean syncMapwait;
 	private RecordWriterBuffer reduceout;
 	private RecordWriterBuffer mapout;
 	// private IPartitioner part;
 	
 	public HostTaskController(SysFileHandler sysfileh)
 	{
-		tasks= new HashMap<Workspace,Data>();
+		tasks= new TaskManager();
 		intdata= new HashMap<String,IntKeyVal>();
 		this.sysfileh= sysfileh;
-		syncMap= new Object();
 		// this.part= new HashPartitioner();
 	}
 	
-	public void addMap(HeadlessWorkspace ws, long ID, String key, long start, long end) throws InterruptedException
+	public void addMap(AbstractWorkspace ws, long ID, String key, long start, long end) throws InterruptedException
 	{
 		// Data data= new Data(ID, TaskType.Map, key, key, start, end);
 		RecordWriter outf= this.mapout.get();
 		outf.startSession(ID);
 		Data data= new Data(ID, TaskType.Map, key, key, start, end, outf);
-		synchronized( syncMap )
-		{
-			while( syncMapwait )
-			{
-				try
-				{
-					syncMap.wait();
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
-			}
-			syncMapwait= true;
-			// System.out.println("Adding Map for " + ws + " " + this);
-			tasks.put(ws, data);
-			// System.out.println("After add " + map);
-			syncMapwait= false;
-			syncMap.notifyAll();
-		}
+		tasks.addTaskByWorkspace(ws, data);
 	}
 	
-	public void removeMap(HeadlessWorkspace ws, boolean success) throws IOException
+	public void removeMap(AbstractWorkspace ws, boolean success) throws IOException
 	{
-		synchronized( syncMap )
+		Data data= tasks.getTaskDataByWorkspace(ws);
+		if( success == false )
 		{
-			while( syncMapwait )
-			{
-				try
-				{
-					syncMap.wait();
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
-			}
-			syncMapwait= true;
-			Data data= tasks.get(ws);
-			if( success == false )
-			{
-				System.out.println("Maping failed: " + data.ID);
-				data.dest.removeSession();
-			}
-			else
-				data.dest.endSession();
-			this.mapout.put(data.dest);
-			tasks.remove(ws);
-			syncMapwait= false;
-			syncMap.notifyAll();
+			System.out.println("Maping failed: " + data.ID);
+			data.dest.removeSession();
 		}
+		else
+			data.dest.endSession();
+		this.mapout.put(data.dest);
+		tasks.removeTaskByWorkspace(ws);
 	}
 
-	public Data getData(Workspace ws)
+	public Data getData(AbstractWorkspace ws)
 	{
 		// System.out.println("Getting data for " + ws);
 		// System.out.println(" " + this);
 		// System.out.println(map);
-		Data ret;
-		synchronized( syncMap )
-		{
-			while( syncMapwait )
-			{
-				try
-				{
-					syncMap.wait();
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
-			}
-			syncMapwait= true;
-			ret= tasks.get(ws);
-			syncMapwait= false;
-			syncMap.notifyAll();
-		}
+		Data ret= tasks.getTaskDataByWorkspace(ws);
 		return ret;
 	}
 	
@@ -127,33 +157,17 @@ public class HostTaskController
 	 * @param value
 	 * @throws IOException 
 	 */
-	public void emit(Workspace ws, String key, String value) throws IOException
+	public void emit(AbstractWorkspace ws, String key, String value) throws IOException
 	{
 		// System.out.println("emit <" + key + "," + value + ">");
 		Data data;
-		synchronized( syncMap )
-		{
-			while( syncMapwait )
-			{
-				try
-				{
-					syncMap.wait();
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
-			}
-			syncMapwait= true;
-			// maptask= maptasks.keySet().contains(ws);
-			data= tasks.get(ws);
-			
-			syncMapwait= false;
-			syncMap.notifyAll();
-		}
-			
+		data= tasks.getTaskDataByWorkspace(ws);
+		
+		// System.out.println("emit " + data.ID + " <" + key + "," + value + ">" + data.src + data.start);	
 		if( data.type == TaskType.Map ) // emmited from a Map Task
 		{
 			data.dest.write(key, value);
-		}
+		}			
 		else // emmited from an reducer
 		{
 			data.dest.write(key, value);
@@ -210,11 +224,12 @@ public class HostTaskController
 	                    }
 	                    md.update(key.getBytes());
 	                    fn= sysfileh.addFile(ChecksumHelper.convToHex(md.digest()) + ".int");
-	                    // System.out.println(fn);
+	                    // System.out.println("New Key: " + key + fn);
 	                    h= new IntKeyVal(key,fn);
 	                    intdata.put(key, h);
                     }
                     
+                    // System.out.println("Write " + key + " to " + h.fn);
                     h.writeValue(rec[1]);
 				}
 			} catch (InterruptedException e) {
@@ -238,7 +253,7 @@ public class HostTaskController
 		this.reduceout= out;
 	}
 
-	public void addReduce(HeadlessWorkspace ws, long ID, String key, String filename, 
+	public void addReduce(AbstractWorkspace ws, long ID, String key, String filename, 
 			long size) throws InterruptedException
 	{
 		// Here it is not necessary to use Partitioning!
@@ -248,53 +263,22 @@ public class HostTaskController
 		outf.startSession(ID);
 		Data data= new Data(ID, TaskType.Reduce, filename, key, outf, size);
 		
-		synchronized( syncMap )
-		{
-			while( syncMapwait )
-			{
-				try
-				{
-					syncMap.wait();
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
-			}
-			syncMapwait= true;
-			// System.out.println("Adding Map for " + ws + " " + this);
-			tasks.put(ws, data);
-			// System.out.println("After add " + map);
-			syncMapwait= false;
-			syncMap.notifyAll();
-		}
+		tasks.addTaskByWorkspace(ws, data);
 	}
 
-	public void removeReduce(HeadlessWorkspace ws, boolean success) throws IOException
+	public void removeReduce(AbstractWorkspace ws, boolean success) throws IOException
 	{
-		synchronized( syncMap )
+		Data data;
+		data= tasks.getTaskDataByWorkspace(ws);
+		if( success == false)
 		{
-			while( syncMapwait )
-			{
-				try
-				{
-					syncMap.wait();
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
-			}
-			syncMapwait= true;
-			Data data= tasks.get(ws);
-			if( success == false)
-			{
-				System.out.println("Reducer failed: " + data.ID);
-				data.dest.removeSession();
-			}
-			else
-				data.dest.endSession();
-			this.reduceout.put(data.dest);
-			tasks.remove(ws);
-			syncMapwait= false;
-			syncMap.notifyAll();
+			System.out.println("Reducer failed: " + data.ID);
+			data.dest.removeSession();
 		}
+		else
+			data.dest.endSession();
+		this.reduceout.put(data.dest);
+		tasks.removeTaskByWorkspace(ws);
 	}
 
 	public void setMapperOutput(RecordWriterBuffer mapwriter)

@@ -8,7 +8,9 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 import org.nlogo.api.CompilerException;
+import org.nlogo.headless.HeadlessWorkspace;
 import org.nlogo.nvm.Workspace;
+import org.nlogo.workspace.AbstractWorkspace;
 
 import at.dobiasch.mapreduce.framework.Counter;
 import at.dobiasch.mapreduce.framework.RecordWriterBuffer;
@@ -134,7 +136,7 @@ public class HostController
 	
 	public void setMapFinished(long ID, boolean success, WorkspaceBuffer.Element elem, String key, long start, long end)
 	{
-		System.out.println("Map " + ID + "finished : " + success);
+		// System.out.println("Map " + ID + "finished : " + success);
 		try {
 			this.htc.removeMap(elem.ws, success);
 		} catch (IOException e) {
@@ -259,12 +261,12 @@ public class HostController
 		System.out.println("All reduce files are closed");
 	}
 
-	public void emit(Workspace ws, String key, String value) throws IOException
+	public void emit(AbstractWorkspace ws, String key, String value) throws IOException
 	{
 		this.htc.emit(ws, key, value);
 	}
 
-	public Data getData(Workspace ws)
+	public Data getData(AbstractWorkspace ws)
 	{
 		return this.htc.getData(ws);
 	}
