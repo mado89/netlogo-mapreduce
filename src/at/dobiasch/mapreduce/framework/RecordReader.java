@@ -4,14 +4,19 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class RecordReader
 {
 	private RandomAccessFile in;
 	private String filename;
 	private long fsize;
+	private boolean sessinfo;
 	
-	public int recs;
+	private int recs;
+	
+	private List<String[]> read;
 	
 	private static final String utf8 = "UTF-8";
 	private final String keyValueSeparator;
@@ -32,6 +37,7 @@ public class RecordReader
 	{
 		this.filename= writer.getFilename();
 		this.fsize= writer.getLength(); // TODO: soll gehen auch wenn file zu ist
+		this.sessinfo= writer.isWritingSessionInfo();
 		if( writer.isOpen() )
 			writer.close();
 		this.keyValueSeparator= new String(writer.getKeyValueSeparator(), utf8);
@@ -42,6 +48,7 @@ public class RecordReader
 			e.printStackTrace();
 		}
 		recs= 0;
+		this.read= new ArrayList<String[]>();
 	}
 
 	public boolean hasRecordsLeft()
@@ -56,12 +63,6 @@ public class RecordReader
 
 	public String[] readRecord()
 	{
-		/*
-		this.out.write(key.getBytes(utf8));
-		this.out.write(keyValueSeparator);
-		this.out.write(value.getBytes(utf8));
-		this.out.write(newline);
-		 */
 		// Create a large buffer
 		byte[] buffer= new byte[10000];
 		int i= 0;
@@ -78,7 +79,26 @@ public class RecordReader
 			// int splitpos= h.indexOf(keyValueSeparator);
 			// System.out.println(h);
 			String[] ret= h.split(keyValueSeparator);
-			if(ret.length < 2)
+			if( this.sessinfo )
+			{
+				if(ret.length < 3)
+				{
+					String[] reth= new String[3];
+					reth[0]= null;
+					reth[1]= ret[1];
+					reth[2]= ret[0];
+					ret= reth;
+				}
+				else
+				{
+					String tmp;
+					tmp= ret[0];
+					for(i= 1; i < ret.length; i++)
+						ret[i-1]= ret[i];
+					ret[ret.length-1]= tmp;
+				}
+			}
+			else if(ret.length < 2)
 			{
 				String[] reth= new String[2];
 				reth[0]= null;
@@ -94,6 +114,71 @@ public class RecordReader
 			e.printStackTrace();
 		}
 		return null;
+	}
+	
+	public List<String[]> readSession()
+	{
+		if( this.sessinfo == false)
+			throw new UnsupportedOperationException("Can't read Session from a file without session info");
+		
+		List<String[]> ret= null;
+		String ses;
+		
+		if( hasRecordsLeft() )
+		{
+			String[] rec= readRecord();
+			boolean loop;
+			
+			ses= rec[rec.length-1];
+			if( read.size() > 0)
+			{
+				String[] h= read.get(0);
+				if( ses.equals(h[h.length-1]))
+				{
+					read.add(rec);
+					loop= true;
+				}
+				else
+				{
+					loop= false;
+					ret= read;
+					read= new ArrayList<String[]>();
+					read.add(rec);
+				}
+			}
+			else
+			{
+				loop= true;
+				read.add(rec);
+			}
+			
+			while( hasRecordsLeft() && loop)
+			{
+				rec= readRecord();
+				if( ses.equals(rec[rec.length-1]))
+				{
+					read.add(rec);
+					loop= true;
+				}
+				else
+				{
+					loop= false;
+					ret= read;
+					read= new ArrayList<String[]>();
+					read.add(rec);
+				}
+			}
+		}
+		else
+		{
+			if( read.size() > 0 )
+			{
+				ret= read;
+				read= new ArrayList<String[]>();
+			}
+		}
+		
+		return ret;
 	}
 
 	public void close() throws IOException {

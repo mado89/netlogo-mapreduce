@@ -2,6 +2,7 @@ package at.dobiasch.mapreduce.framework.controller;
 
 import java.io.IOException;
 import java.lang.reflect.Array;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutionException;
@@ -103,7 +104,10 @@ public class HostController
 			ExecutorService pool= Executors.newFixedThreadPool(1);
 			this.redpool[i]= pool;
 			this.redcomplet[i]= new ExecutorCompletionService<Object>(pool);
-			reducewriter.put(i, new RecordWriter(sysh.addFile(String.format("output-%04d", i)), ": "));
+			RecordWriter w;
+			w= new RecordWriter(sysh.addFile(String.format("output-%04d", i)), ": ");
+			w.writeSessionInfo(true);
+			reducewriter.put(i, w);
 		}
 		// this.reducewriter= new RecordWriterBuffer(this.redc, "output-%04d", this.sysh, ": ");
 		this.htc.setReduceOutput(this.reducewriter);
@@ -396,12 +400,16 @@ public class HostController
 		{
 			String[] h= in.readRecord();
 			int f= Integer.parseInt(h[1]);
-			String[] rec= reader[f].readRecord();
+			List<String[]> recs= reader[f].readSession();
+			// String[] rec= reader[f].readRecord();
 			// if( ( h[0] == null && rec[0] != null ) || (h[0] != null && !h[0].equals(rec[0])) )
 			// 	System.out.println("ungleich: '" + h[0] + "' '" + rec[0] + "' " + f);
 			// else
-			System.out.println("Write: (" + h[0] + "/" + rec[0] + "): " + rec[1] + " " + i + " " + f);
-			out.write(rec[0], rec[1]);
+			for(String[] rec : recs)
+			{
+				System.out.println("Write: (" + h[0] + "/" + rec[0] + "): " + rec[1] + " " + i + " " + f);
+				out.write(rec[0], rec[1]);
+			}
 			i++;
 		}
 

@@ -145,7 +145,9 @@ public class SingleNodeRun
 			while((line= in.readLine()) != null)
 			{
 				partEnd= Integer.parseInt(line);
-				this.controller.addMap(data.key, partStart, partEnd);
+				// don't add an empty task
+				if( partStart < partEnd )
+					this.controller.addMap(data.key, partStart, partEnd);
 				
 				partStart= partEnd;
 			}

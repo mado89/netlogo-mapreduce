@@ -6,11 +6,12 @@ import java.io.UnsupportedEncodingException;
 
 public class RecordWriter
 {
-	// private long ID;
+	private long sID;
 	private boolean session;
 	private long sessStart;
 	private RandomAccessFile out;
 	private String filename;
+	private boolean sessw; // write out session information
 	
 	private final byte[] keyValueSeparator;
 	private boolean opened;
@@ -46,6 +47,7 @@ public class RecordWriter
 					+ " encoding");
 		}
 		// this.debug=false;
+		this.sessw= false;
 	}
 	
 	public RecordWriter(String filename, String keyValueSeparator) throws IOException
@@ -65,6 +67,7 @@ public class RecordWriter
 					+ " encoding");
 		}
 		// this.debug= false;
+		this.sessw= false;
 	}
 	
 	/*public RecordWriter(String filename, String keyValueSeparator, boolean debug) throws IOException
@@ -84,6 +87,7 @@ public class RecordWriter
 					+ " encoding");
 		}
 		this.debug= debug;
+		this.sessw= false;
 	}*/
 
 	public byte[] getKeyValueSeparator()
@@ -99,7 +103,7 @@ public class RecordWriter
 	{
 		if ( this.session == true )
 				throw new IllegalStateException("Session was allready started");
-		// this.ID= ID;
+		this.sID= ID;
 		this.session= true;
 	}
 	
@@ -108,6 +112,16 @@ public class RecordWriter
 		this.session= false;
 		
 		this.sessStart= this.out.getFilePointer();
+	}
+	
+	public void writeSessionInfo(boolean write)
+	{
+		this.sessw= write;
+	}
+	
+	public boolean isWritingSessionInfo()
+	{
+		return this.sessw;
 	}
 	
 	/**
@@ -158,6 +172,12 @@ public class RecordWriter
 				}
 			}
 			syncwait= true;*/
+			
+			if( this.sessw )
+			{
+				this.out.writeLong(sID);
+				this.out.write(keyValueSeparator);
+			}
 			
 			if (!nullKey)
 				this.out.write(k);
