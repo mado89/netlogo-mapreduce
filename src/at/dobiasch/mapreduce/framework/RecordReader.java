@@ -31,8 +31,9 @@ public class RecordReader
 	public RecordReader(RecordWriter writer) throws IOException
 	{
 		this.filename= writer.getFilename();
-		this.fsize= writer.getLength();
-		writer.close();
+		this.fsize= writer.getLength(); // TODO: soll gehen auch wenn file zu ist
+		if( writer.isOpen() )
+			writer.close();
 		this.keyValueSeparator= new String(writer.getKeyValueSeparator(), utf8);
 		try {
 			this.in= new RandomAccessFile(filename, "rw");
@@ -93,5 +94,9 @@ public class RecordReader
 			e.printStackTrace();
 		}
 		return null;
+	}
+
+	public void close() throws IOException {
+		this.in.close();
 	}
 }
