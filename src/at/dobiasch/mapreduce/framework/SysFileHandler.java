@@ -21,6 +21,11 @@ public class SysFileHandler
 		this.files= new HashMap<String,String>();
 	}
 	
+	/**
+	 * Add a file to the filemanagement
+	 * @param fn
+	 * @return a filename
+	 */
 	public String addFile(String fn)
 	{
 		String intfn= sysdir + "/" + fn;
@@ -71,5 +76,9 @@ public class SysFileHandler
 	public void cleanSysDir()
 	{
 		// TODO
+	}
+
+	public String getFile(String fn) {
+		return sysdir + "/" + fn;
 	}
 }

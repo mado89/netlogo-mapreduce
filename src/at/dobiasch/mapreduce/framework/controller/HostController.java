@@ -1,20 +1,28 @@
 package at.dobiasch.mapreduce.framework.controller;
 
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorCompletionService;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+import java.util.concurrent.TimeUnit;
 
 import org.nlogo.api.CompilerException;
 import org.nlogo.workspace.AbstractWorkspace;
 
 import at.dobiasch.mapreduce.framework.Counter;
+import at.dobiasch.mapreduce.framework.RecordReader;
+import at.dobiasch.mapreduce.framework.RecordWriter;
 import at.dobiasch.mapreduce.framework.RecordWriterBuffer;
 import at.dobiasch.mapreduce.framework.SysFileHandler;
 import at.dobiasch.mapreduce.framework.WorkspaceBuffer;
 import at.dobiasch.mapreduce.framework.WorkspaceBuffer.Element;
+import at.dobiasch.mapreduce.framework.partition.HashPartitioner;
+import at.dobiasch.mapreduce.framework.partition.IPartitioner;
 import at.dobiasch.mapreduce.framework.task.IntKeyVal;
 import at.dobiasch.mapreduce.framework.task.MapRun;
 import at.dobiasch.mapreduce.framework.task.ReduceRun;
@@ -31,6 +39,8 @@ public class HostController
 	private String reducer;
 	private ExecutorService pool;
 	private ExecutorCompletionService<Object> complet;
+	private ExecutorService redpool[];
+	private ExecutorCompletionService<Object> redcomplet[];
 	private Counter maptaskC;
 	private Counter redtaskC;
 	private String world;
@@ -39,8 +49,9 @@ public class HostController
 	private HostTaskController htc;
 	private SysFileHandler sysh;
 	private RecordWriterBuffer mapwriter;
-	private RecordWriterBuffer reducewriter;
+	private ConcurrentHashMap<Integer, RecordWriter> reducewriter;
 	private int _ID;
+	private RecordWriter redparts;
 	
 	/**
 	 * 
@@ -75,15 +86,29 @@ public class HostController
 		this.htc.setMapperOutput(this.mapwriter);
 	}
 	
+	@SuppressWarnings("unchecked") //TODO: this is for redcomplet init ...
 	public void prepareReduceStage() throws IOException, CompilerException
 	{
 		this.wbred= new WorkspaceBuffer(this.mapc ,world, modelpath);
 		this.wbred.compileComands(null, reducer);
-		this.pool= Executors.newFixedThreadPool(this.redc);
-		this.complet= new ExecutorCompletionService<Object>(pool);
+		// TODO: belows null assignments are only for debugging, remove them
+		this.complet= null;
+		this.pool= null;
+		this.redpool= new ExecutorService[this.redc];
+		this.redcomplet= (ExecutorCompletionService<Object>[]) Array.newInstance(ExecutorCompletionService.class, this.redc); // new ExecutorCompletionService<Object>[this.redc];
 		
-		this.reducewriter= new RecordWriterBuffer(this.redc, "output-%04d", this.sysh, ": ");
+		reducewriter= new ConcurrentHashMap<Integer,RecordWriter>();
+		for(int i= 0; i < this.redc; i++)
+		{
+			ExecutorService pool= Executors.newFixedThreadPool(1);
+			this.redpool[i]= pool;
+			this.redcomplet[i]= new ExecutorCompletionService<Object>(pool);
+			reducewriter.put(i, new RecordWriter(sysh.addFile(String.format("output-%04d", i)), ": "));
+		}
+		// this.reducewriter= new RecordWriterBuffer(this.redc, "output-%04d", this.sysh, ": ");
 		this.htc.setReduceOutput(this.reducewriter);
+		// this.redparts= new HashMap<String,Integer>();
+		this.redparts= new RecordWriter(sysh.addFile("keyparts.rec"),": ");
 	}
 	
 	/**
@@ -112,9 +137,18 @@ public class HostController
 	public long addReduce(String key, IntKeyVal value)
 	{
 		long ID= getID();
-		this.complet.submit(new ReduceRun(ID, key, value));
-		System.out.println("Submitted " + ID);
+		IPartitioner part= new HashPartitioner();
+		int p= part.getPartition(key, null, this.redc);
+		this.redcomplet[p].submit(new ReduceRun(ID, key, value,p));
+		System.out.println("Submitted " + ID + " " + p);
 		this.redtaskC.add();
+		
+		// this.redparts.put(key, p);
+		try {
+			this.redparts.write(key, "" + p);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		
 		return ID;
 	}
@@ -194,13 +228,14 @@ public class HostController
 	/**
 	 * 
 	 * @param ID the ID of the task to start
+	 * @param partition 
 	 * @return a workspace in which the map-task can run
 	 * @throws InterruptedException 
 	 */
-	public Element startReduceRun(long ID, String key, String filename, long fileSize) throws InterruptedException
+	public Element startReduceRun(long ID, String key, String filename, long fileSize, int partition) throws InterruptedException
 	{
 		WorkspaceBuffer.Element elem= wbred.get();
-		this.htc.addReduce(elem.ws, ID, key, filename, fileSize);
+		this.htc.addReduce(elem.ws, ID, key, filename, fileSize,partition);
 		return elem;
 	}
 
@@ -212,6 +247,7 @@ public class HostController
 		try {
 			this.htc.removeReduce(elem.ws, success);
 		} catch (IOException e) {
+			System.out.println(iD);
 			e.printStackTrace();
 		}
 		
@@ -220,31 +256,96 @@ public class HostController
 		{
 			this.addReduce(key, value);
 		}
+		
+		// TODO: fuer den ultimate fail eines reduce tasks: 
+		// auch beachten: redparts muss adaptiert werden
 	}
 	
 	public boolean waitForReduceStage()
 	{
+		class Waiter extends Thread
+		{
+			ExecutorCompletionService<Object> comps;
+			Counter collected;
+			boolean fail;
+			
+			public Waiter(ExecutorCompletionService<Object> comps, Counter collected)
+			{
+				super();
+				this.comps= comps;
+				this.collected= collected;
+				this.fail= false;
+			}
+			
+			public void run()
+			{
+				try
+				{
+					/*while(collected.getValue() < redtaskC.getValue())
+					{
+						if( (Boolean) comps.take().get() != true)
+						{
+							System.out.println("Something failed");
+						}
+						collected.add();
+					}*/
+					while(collected.getValue() < redtaskC.getValue())
+					{
+						Future<Object> f= comps.poll(1, TimeUnit.SECONDS);
+						if( f != null )
+						{
+							if( (Boolean) f.get() != true)
+							{
+								System.out.println("Something failed");
+							}
+							collected.add();
+						}
+					}
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+					this.fail= true;
+				} catch (ExecutionException e) {
+					e.printStackTrace();
+					this.fail= true;
+				}
+			}
+
+			public boolean fail()
+			{
+				return this.fail;
+			}
+		}
 		
 		try
 		{
 			System.out.println("Jobs submitted wait for shutdown");
 			// pool.shutdown();
 			// ---> don't shut down. Otherwise it could cause problems
-			for(int l= 0; l < this.redtaskC.getValue(); l++)
+			Counter rc= new Counter();
+			Thread[] t= new Thread[this.redc];
+			// for(int l= 0; l < this.redtaskC.getValue(); l++)
+			for(int l= 0; l < this.redc; l++)
 			{
-				System.out.println("Try to take " + l + " " + this.redtaskC.getValue());
+				t[l]= new Waiter(this.redcomplet[l], rc);
+				t[l].start();
+				/*System.out.println("Try to take " + l + " " + this.redtaskC.getValue());
 				if( (Boolean) complet.take().get() != true)
 				{
 					System.out.println("Something failed");
-				}
+				}*/
+			}
+			for(int l = 0; l < this.redc; l++)
+			{
+		        t[l].join();
+		        if( ((Waiter)t[l]).fail() )
+		        {
+		        	System.out.println("Error, waiting for reducers failed");
+		        	break;
+		        }
 			}
 			System.out.println("All taken --> Reduce done");
 		} catch (InterruptedException e) {
 			System.out.println("Waiting for Reduce-Tasks was interruped");
-			e.printStackTrace();
-			return false;
-		} catch (ExecutionException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return false;
 		}
@@ -254,7 +355,14 @@ public class HostController
 	
 	public void finishReduceStage() throws IOException
 	{
-		reducewriter.closeAll();
+		System.out.println("finish reduce stage");
+		// reducewriter.closeAll();
+		/*for(int i= 0; i < this.redc; i++)
+		{
+			RecordWriter w= reducewriter.get(i);
+			if( w.isOpen() )
+				w.close();
+		}*/
 		wbred.dispose();
 		System.out.println("All reduce files are closed");
 	}
@@ -269,22 +377,36 @@ public class HostController
 		return this.htc.getData(ws);
 	}
 
-	public void mergeReduceOutput() throws IOException, InterruptedException
+	public void mergeReduceOutput(String fn) throws IOException, InterruptedException
 	{
-		// TODO: implement me
-		/*RecordReader in[];
+		RecordReader[] reader;
 		RecordWriter out;
-		int size= this.reducewriter.getSize();
-		boolean recsleft= true;
+		RecordReader in;
+		int i;
 		
-		in= new RecordReader[size];
-		out= new RecordWriter("output.txt", this.reducewriter.getKeyValueSeperator());
-		for(int i= 0; i < size; i++)
-			in[i]= new RecordReader(this.reducewriter.get());
+		reader= new RecordReader[this.redc];
+		out= new RecordWriter(fn, ": ");
+		in= new RecordReader(this.redparts);
 		
-		while( recsleft )
+		for(i= 0; i < this.redc; i++)
+			reader[i]= new RecordReader(reducewriter.get(i));
+		
+		i= 0;
+		while(in.hasRecordsLeft())
 		{
-			in[i].
-		}*/
+			String[] h= in.readRecord();
+			int f= Integer.parseInt(h[1]);
+			String[] rec= reader[f].readRecord();
+			// if( ( h[0] == null && rec[0] != null ) || (h[0] != null && !h[0].equals(rec[0])) )
+			// 	System.out.println("ungleich: '" + h[0] + "' '" + rec[0] + "' " + f);
+			// else
+			System.out.println("Write: (" + h[0] + "/" + rec[0] + "): " + rec[1] + " " + i + " " + f);
+			out.write(rec[0], rec[1]);
+			i++;
+		}
+
+		out.close();
+		for(i= 0; i < this.redc; i++)
+			reader[i].close();
 	}
 }

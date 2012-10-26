@@ -5,6 +5,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 import org.nlogo.workspace.AbstractWorkspace;
 
@@ -106,7 +107,7 @@ public class HostTaskController
 	Map<String,IntKeyVal> intdata;
 	SysFileHandler sysfileh;
 	
-	private RecordWriterBuffer reduceout;
+	private ConcurrentHashMap<Integer,RecordWriter> reduceout;
 	private RecordWriterBuffer mapout;
 	// private IPartitioner part;
 	
@@ -248,18 +249,18 @@ public class HostTaskController
 		return intdata;
 	}
 	
-	public void setReduceOutput(RecordWriterBuffer out)
+	public void setReduceOutput(ConcurrentHashMap<Integer,RecordWriter> out)
 	{
 		this.reduceout= out;
 	}
 
 	public void addReduce(AbstractWorkspace ws, long ID, String key, String filename, 
-			long size) throws InterruptedException
+			long size, int partitionNr) throws InterruptedException
 	{
 		// Here it is not necessary to use Partitioning!
 		// FileWriter outf;
 		// outf= this.reduceout[part.getPartition(key,null,4)];
-		RecordWriter outf= this.reduceout.get();
+		RecordWriter outf= this.reduceout.get(partitionNr);
 		outf.startSession(ID);
 		Data data= new Data(ID, TaskType.Reduce, filename, key, outf, size);
 		
@@ -277,7 +278,9 @@ public class HostTaskController
 		}
 		else
 			data.dest.endSession();
-		this.reduceout.put(data.dest);
+		// Not necessary any more since no buffer is used any more
+		// -- Martin 2012/10/16 
+		// this.reduceout.put(data.dest);
 		tasks.removeTaskByWorkspace(ws);
 	}
 

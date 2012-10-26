@@ -75,10 +75,12 @@ public class SingleNodeRun
 			
 			doReduce();
 			
-			// doCollect();
+			doCollect();
 		} catch (IOException e) {
 			throw new ExtensionException(e);
 		} catch (CompilerException e) {
+			throw new ExtensionException(e);
+		} catch (InterruptedException e) {
 			throw new ExtensionException(e);
 		}
 	}
@@ -196,8 +198,11 @@ public class SingleNodeRun
 		System.out.println("Reducing ended");
 	}
 
-	/*private void doCollect()
+	private void doCollect() throws IOException, InterruptedException
 	{
-		this.controller.mergeReduceOutput();
-	}*/
+		String fn;
+		System.out.println("Writing output");
+		fn= this.fw.getConfiguration().getOutputDirectory() + "output.txt";
+		this.controller.mergeReduceOutput(fn);
+	}
 }
