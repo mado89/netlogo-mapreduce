@@ -28,11 +28,11 @@ public class Emit extends DefaultCommand
 		try
 		{
 			key = args[0].getString();
-			value = args[1].getString();
+			value = args[0].get().toString(); //args[1].getString();
 	    }
 	    catch(LogoException e)
 	    {
-	      throw new ExtensionException( e.getMessage() ) ;
+	      throw new ExtensionException( "Emit: " + e.getMessage() ) ;
 	    } 
 		
 		AbstractWorkspace ws= (AbstractWorkspace) ((org.nlogo.nvm.ExtensionContext) context).workspace();

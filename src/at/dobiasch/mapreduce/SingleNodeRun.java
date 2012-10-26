@@ -150,7 +150,11 @@ public class SingleNodeRun
 				partStart= partEnd;
 			}
 			partEnd= data.lastpartitionend;
-			this.controller.addMap(data.key, partStart, partEnd);
+			
+			// Partitioning might have written last partition correct ;)
+			// so don't add an empty task
+			if( partStart < partEnd )
+				this.controller.addMap(data.key, partStart, partEnd);
 		}
 		
 		boolean result= this.controller.waitForMappingStage();
