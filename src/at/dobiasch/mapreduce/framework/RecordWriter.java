@@ -13,6 +13,8 @@ public class RecordWriter
 	private String filename;
 	
 	private final byte[] keyValueSeparator;
+	private boolean opened;
+	// private boolean debug;
 	// private Object sync= new Object();
 	// private boolean syncwait= false;
 	
@@ -35,6 +37,7 @@ public class RecordWriter
 		this.out.seek(pos);
 		this.session= false;
 		this.sessStart= 0;
+		this.opened= true;
 		
 		try {
 			this.keyValueSeparator = keyValueSeparator.getBytes(utf8);
@@ -42,15 +45,18 @@ public class RecordWriter
 			throw new IllegalArgumentException("can't find " + utf8
 					+ " encoding");
 		}
+		// this.debug=false;
 	}
 	
 	public RecordWriter(String filename, String keyValueSeparator) throws IOException
 	{
 		this.out = new RandomAccessFile(filename, "rw");
+		this.out.setLength(0);
 		this.out.seek(0);
 		this.filename= filename;
 		this.session= false;
 		this.sessStart= 0;
+		this.opened= true;
 		
 		try {
 			this.keyValueSeparator = keyValueSeparator.getBytes(utf8);
@@ -58,8 +64,28 @@ public class RecordWriter
 			throw new IllegalArgumentException("can't find " + utf8
 					+ " encoding");
 		}
+		// this.debug= false;
 	}
 	
+	/*public RecordWriter(String filename, String keyValueSeparator, boolean debug) throws IOException
+	{
+		this.out = new RandomAccessFile(filename, "rw");
+		this.out.seek(0);
+		this.out.setLength(0);
+		this.filename= filename;
+		this.session= false;
+		this.sessStart= 0;
+		this.opened= true;
+		
+		try {
+			this.keyValueSeparator = keyValueSeparator.getBytes(utf8);
+		} catch (UnsupportedEncodingException uee) {
+			throw new IllegalArgumentException("can't find " + utf8
+					+ " encoding");
+		}
+		this.debug= debug;
+	}*/
+
 	public byte[] getKeyValueSeparator()
 	{
 		return keyValueSeparator;
@@ -98,10 +124,27 @@ public class RecordWriter
 	
 	public synchronized void write(String key, String value) throws IOException
 	{
-		byte[] k= key.getBytes(utf8);
-		byte[] v= value.getBytes(utf8);
-		boolean nullKey= (k.length == 0);
-		boolean nullValue= v.length == 0;
+		byte[] k= null;
+		byte[] v= null;
+		boolean nullKey, nullValue;
+		
+		// if( debug )
+		// 	System.out.println("Write " + filename + " " + key + " " + value);
+		
+		if( key != null )
+		{
+			k= key.getBytes(utf8);
+			nullKey= (k.length == 0);
+		}
+		else
+			nullKey= true;
+		if( value != null )
+		{
+			v= value.getBytes(utf8);
+			nullValue= v.length == 0;
+		}
+		else
+			nullValue= true;
 		
 		/*synchronized( sync )
 		{
@@ -139,6 +182,7 @@ public class RecordWriter
 	public void close() throws IOException
 	{
 		this.out.close();
+		this.opened= false;
 	}
 	
 	public String getFilename()
@@ -154,5 +198,9 @@ public class RecordWriter
 			e.printStackTrace();
 		}
 		return 0;
+	}
+
+	public boolean isOpen() {
+		return this.opened;
 	}
 }
