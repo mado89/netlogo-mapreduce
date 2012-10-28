@@ -208,7 +208,10 @@ public class SingleNodeRun
 	{
 		String fn;
 		System.out.println("Writing output");
-		fn= this.fw.getConfiguration().getOutputDirectory() + "output.txt";
+		fn= this.fw.getConfiguration().getOutputDirectory();
+		if( !fn.endsWith("" + File.separatorChar)) //TODO: make it work for OS-Problems \\ on linux
+			fn+= File.separatorChar;
+		fn+= "output.txt";
 		this.controller.mergeReduceOutput(fn);
 	}
 }
