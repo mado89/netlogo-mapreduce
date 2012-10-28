@@ -27,11 +27,11 @@ def buildStrings(count):
 		strings.append(s)
 		counts[s]= 0
 
-createFiles(10)
-buildStrings(20)
+createFiles(5)
+buildStrings(5)
 for string in strings:
-	for i in range(1, random.randint(5,100)):
-		write(10,string)
-closeFiles(10)
+	for i in range(1, random.randint(5,20)):
+		write(5,string)
+closeFiles(5)
 for x in counts:
 	print "" + x + ": " + str(counts[x])

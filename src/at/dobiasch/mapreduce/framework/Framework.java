@@ -27,7 +27,7 @@ public class Framework
 	{
 		this.config= new Configuration();
 		this.masterp= false;
-		sysfileh= new SysFileHandler("/home/martin/DA/tmpdir");
+		sysfileh= new SysFileHandler("./tmpdir/");
 		
 		// Don't initialize Inputparser here. Config will change reference won't be updated
 		// this.inp= new TextInputFormat();

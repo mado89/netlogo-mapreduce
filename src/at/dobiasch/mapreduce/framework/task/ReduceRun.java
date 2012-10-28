@@ -12,12 +12,14 @@ public class ReduceRun implements Callable<Object>
 	long ID;
 	String key;
 	IntKeyVal value;
+	int partition;
 	
-	public ReduceRun(long ID, String key, IntKeyVal value)
+	public ReduceRun(long ID, String key, IntKeyVal value, int partition)
 	{
 		this.ID= ID;
 		this.key= key;
 		this.value= value;
+		this.partition= partition;
 	}
 
 	@Override
@@ -28,7 +30,7 @@ public class ReduceRun implements Callable<Object>
 		boolean excep= false;
 		try
 		{
-			elem= FrameworkFactory.getInstance().getTaskController().startReduceRun(ID, key, value.fn, value.getFileSize());
+			elem= FrameworkFactory.getInstance().getTaskController().startReduceRun(ID, key, value.fn, value.getFileSize(),partition);
 			
 			elem.ws.runCompiledCommands(elem.owner, elem.read);
 			elem.ws.runCompiledCommands(elem.owner, elem.reduce);
@@ -46,6 +48,7 @@ public class ReduceRun implements Callable<Object>
 			e.printStackTrace();
 		} finally {
 			boolean suc = returned && !excep;
+			// System.out.println(this.ID + " returned" + returned + " excep" + excep);
 			if( excep )
 				elem.ws.clearLastLogoException();
 			try {

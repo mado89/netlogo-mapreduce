@@ -75,10 +75,12 @@ public class SingleNodeRun
 			
 			doReduce();
 			
-			// doCollect();
+			doCollect();
 		} catch (IOException e) {
 			throw new ExtensionException(e);
 		} catch (CompilerException e) {
+			throw new ExtensionException(e);
+		} catch (InterruptedException e) {
 			throw new ExtensionException(e);
 		}
 	}
@@ -143,12 +145,18 @@ public class SingleNodeRun
 			while((line= in.readLine()) != null)
 			{
 				partEnd= Integer.parseInt(line);
-				this.controller.addMap(data.key, partStart, partEnd);
+				// don't add an empty task
+				if( partStart < partEnd )
+					this.controller.addMap(data.key, partStart, partEnd);
 				
 				partStart= partEnd;
 			}
 			partEnd= data.lastpartitionend;
-			this.controller.addMap(data.key, partStart, partEnd);
+			
+			// Partitioning might have written last partition correct ;)
+			// so don't add an empty task
+			if( partStart < partEnd )
+				this.controller.addMap(data.key, partStart, partEnd);
 		}
 		
 		boolean result= this.controller.waitForMappingStage();
@@ -196,8 +204,14 @@ public class SingleNodeRun
 		System.out.println("Reducing ended");
 	}
 
-	/*private void doCollect()
+	private void doCollect() throws IOException, InterruptedException
 	{
-		this.controller.mergeReduceOutput();
-	}*/
+		String fn;
+		System.out.println("Writing output");
+		fn= this.fw.getConfiguration().getOutputDirectory();
+		if( !fn.endsWith("" + File.separatorChar)) //TODO: make it work for OS-Problems \\ on linux
+			fn+= File.separatorChar;
+		fn+= "output.txt";
+		this.controller.mergeReduceOutput(fn);
+	}
 }
