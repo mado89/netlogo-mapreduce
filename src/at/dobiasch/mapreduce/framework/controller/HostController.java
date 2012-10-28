@@ -401,14 +401,19 @@ public class HostController
 			String[] h= in.readRecord();
 			int f= Integer.parseInt(h[1]);
 			List<String[]> recs= reader[f].readSession();
-			// String[] rec= reader[f].readRecord();
-			// if( ( h[0] == null && rec[0] != null ) || (h[0] != null && !h[0].equals(rec[0])) )
-			// 	System.out.println("ungleich: '" + h[0] + "' '" + rec[0] + "' " + f);
-			// else
-			for(String[] rec : recs)
+			
+			// Records can be empty when no data was written
+			if( recs != null )
 			{
-				System.out.println("Write: (" + h[0] + "/" + rec[0] + "): " + rec[1] + " " + i + " " + f);
-				out.write(rec[0], rec[1]);
+				for(String[] rec : recs)
+				{
+					if( rec[0] == null && rec[1] == null ) {}
+					else
+					{
+						System.out.println("Write: (" + h[0] + "/" + rec[0] + "): " + rec[1] + " " + i + " " + f);
+						out.write(rec[0], rec[1]);
+					}
+				}
 			}
 			i++;
 		}

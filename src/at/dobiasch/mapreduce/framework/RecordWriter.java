@@ -1,5 +1,6 @@
 package at.dobiasch.mapreduce.framework;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.io.UnsupportedEncodingException;
@@ -15,6 +16,7 @@ public class RecordWriter
 	
 	private final byte[] keyValueSeparator;
 	private boolean opened;
+	private int recsw;
 	// private boolean debug;
 	// private Object sync= new Object();
 	// private boolean syncwait= false;
@@ -52,6 +54,10 @@ public class RecordWriter
 	
 	public RecordWriter(String filename, String keyValueSeparator) throws IOException
 	{
+		File f= new File(filename);
+		File dir= f.getParentFile();
+		if( !dir.exists() )
+			dir.mkdirs();
 		this.out = new RandomAccessFile(filename, "rw");
 		this.out.setLength(0);
 		this.out.seek(0);
@@ -105,12 +111,16 @@ public class RecordWriter
 				throw new IllegalStateException("Session was allready started");
 		this.sID= ID;
 		this.session= true;
+		this.recsw= 0;
 	}
 	
 	public void endSession() throws IOException
 	{
 		this.session= false;
 		
+		if( recsw == 0 && sessw )
+			this.write(null, null);
+		recsw= 0;
 		this.sessStart= this.out.getFilePointer();
 	}
 	
@@ -175,7 +185,7 @@ public class RecordWriter
 			
 			if( this.sessw )
 			{
-				this.out.writeLong(sID);
+				this.out.write(("" + sID).getBytes());
 				this.out.write(keyValueSeparator);
 			}
 			
@@ -197,6 +207,7 @@ public class RecordWriter
 			syncwait= false;
 			sync.notifyAll();
 		}*/
+		recsw++;
 	}
 	
 	public void close() throws IOException

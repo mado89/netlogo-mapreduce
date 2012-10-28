@@ -85,7 +85,7 @@ public class RecordReader
 				{
 					String[] reth= new String[3];
 					reth[0]= null;
-					reth[1]= ret[1];
+					reth[1]= ( ret.length == 2 ) ? ret[1] : null;
 					reth[2]= ret[0];
 					ret= reth;
 				}
