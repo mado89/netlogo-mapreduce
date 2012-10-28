@@ -1,5 +1,6 @@
 package at.dobiasch.mapreduce.framework;
 
+import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -18,6 +19,11 @@ public class SysFileHandler
 	public SysFileHandler(String sysdir)
 	{
 		this.sysdir= sysdir;
+		File f= new File(sysdir);
+		if( !f.exists() )
+			f.mkdirs();
+		if( this.sysdir.endsWith("/") )
+			this.sysdir= this.sysdir.substring(0, this.sysdir.length() - 1);
 		this.files= new HashMap<String,String>();
 	}
 	
