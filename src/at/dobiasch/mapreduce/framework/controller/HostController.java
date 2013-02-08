@@ -54,6 +54,12 @@ public class HostController
 	private int _ID;
 	private RecordWriter redparts;
 	
+	// Members for Progress
+	private Counter nMapTasks;
+	private Counter nMapTasksf;
+	private Counter nReduceTasks;
+	private Counter nReduceTasksf;
+	
 	/**
 	 * 
 	 * @param mapc Number of Mappers
@@ -74,6 +80,11 @@ public class HostController
 		this.modelpath= modelpath;
 		this.sysh= sysh;
 		this.htc= new HostTaskController(sysh);
+		
+		this.nMapTasks= new Counter();
+		this.nMapTasksf= new Counter();
+		this.nReduceTasks= new Counter();
+		this.nReduceTasksf= new Counter();
 	}
 	
 	public void prepareMappingStage() throws IOException, CompilerException
@@ -130,6 +141,9 @@ public class HostController
 		this.complet.submit(new MapRun(ID,key,start,end));
 		
 		this.maptaskC.add();
+		
+		this.nMapTasks.add();
+		
 		return ID;
 	}
 	
@@ -153,6 +167,8 @@ public class HostController
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		
+		this.nReduceTasks.add();
 		
 		return ID;
 	}
@@ -185,6 +201,8 @@ public class HostController
 		{
 			this.addMap(key, start, end);
 		}
+		
+		this.nMapTasksf.add();
 	}
 	
 	public boolean waitForMappingStage()
@@ -260,6 +278,8 @@ public class HostController
 		{
 			this.addReduce(key, value);
 		}
+		
+		this.nReduceTasksf.add();
 		
 		// TODO: fuer den ultimate fail eines reduce tasks: 
 		// auch beachten: redparts muss adaptiert werden
@@ -421,5 +441,37 @@ public class HostController
 		out.close();
 		for(i= 0; i < this.redc; i++)
 			reader[i].close();
+	}
+	
+	/**
+	 * Percentage of finished Map Tasks
+	 * 0 if no map tasks have been started
+	 * @return
+	 */
+	public synchronized double getMapProgress()
+	{
+		double a= nMapTasks.getValue();
+		double b= nMapTasksf.getValue();
+		
+		if( b > 0 )
+			return a / b;
+		else
+			return 0;
+	}
+	
+	/**
+	 * Percentage of finished Reduce Tasks
+	 * 0 if no reduce tasks have been started
+	 * @return
+	 */
+	public synchronized double getReduceProgress()
+	{
+		double a= nReduceTasks.getValue();
+		double b= nReduceTasksf.getValue();
+		
+		if( b > 0 )
+			return a / b;
+		else
+			return 0;
 	}
 }

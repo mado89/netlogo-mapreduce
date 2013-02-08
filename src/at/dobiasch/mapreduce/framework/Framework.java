@@ -8,6 +8,7 @@ import org.nlogo.api.ExtensionException;
 import org.nlogo.api.HubNetInterface;
 import org.nlogo.api.LogoException;
 
+import at.dobiasch.mapreduce.MapReduceRun;
 import at.dobiasch.mapreduce.framework.controller.HostController;
 import at.dobiasch.mapreduce.framework.inputparser.IInputParser;
 import at.dobiasch.mapreduce.framework.partition.ICheckAndPartition;
@@ -22,12 +23,15 @@ public class Framework
 	// private String         sysdir;
 	private SysFileHandler sysfileh;
 	private IInputParser   inp;
+	private MapReduceRun run;
 	
 	public Framework() throws ExtensionException
 	{
 		this.config= new Configuration();
 		this.masterp= false;
 		sysfileh= new SysFileHandler("./tmpdir/");
+		
+		this.run= null;
 		
 		// Don't initialize Inputparser here. Config will change reference won't be updated
 		// this.inp= new TextInputFormat();
@@ -132,6 +136,40 @@ public class Framework
 		this.inp= this.config.getParser().newInstance();
 		
 		return this.inp; //.createParser(data);
+	}
+
+	public void setRun(MapReduceRun run)
+	{
+		this.run= run;
+	}
+	
+	public boolean isRunning()
+	{
+		if( this.isMaster() )
+		{
+			if(this.run != null)
+				return this.run.isRunning();
+			else
+				return false;
+		}
+		else // TODO: implement me!
+			return false;
+	}
+
+	public double getMapProgress()
+	{
+		if( this.run != null )
+			return this.run.getMapProgress();
+		else
+			return 0;
+	}
+	
+	public double getReduceProgress()
+	{
+		if( this.run != null )
+			return this.run.getMapProgress();
+		else
+			return 0;
 	}
 	
 	/*public String getSystemDir()

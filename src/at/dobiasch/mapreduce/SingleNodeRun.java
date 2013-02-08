@@ -17,7 +17,7 @@ import at.dobiasch.mapreduce.framework.controller.HostController;
 import at.dobiasch.mapreduce.framework.partition.ICheckAndPartition;
 import at.dobiasch.mapreduce.framework.task.IntKeyVal;
 
-public class SingleNodeRun
+public class SingleNodeRun extends MapReduceRun
 {
 	String world;
 	String modelpath;
@@ -67,7 +67,7 @@ public class SingleNodeRun
 		}
 	}
 	
-	public void run() throws ExtensionException
+	protected void run() throws ExtensionException
 	{
 		try
 		{
@@ -213,5 +213,15 @@ public class SingleNodeRun
 			fn+= File.separatorChar;
 		fn+= "output.txt";
 		this.controller.mergeReduceOutput(fn);
+	}
+
+	@Override
+	public double getMapProgress() {
+		return this.controller.getMapProgress();
+	}
+
+	@Override
+	public double getReduceProgress() {
+		return this.controller.getReduceProgress();
 	}
 }
