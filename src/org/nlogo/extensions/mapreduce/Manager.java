@@ -8,11 +8,13 @@ import org.nlogo.extensions.mapreduce.commands.AcceptWorkers;
 import org.nlogo.extensions.mapreduce.commands.Emit;
 import org.nlogo.extensions.mapreduce.commands.ID;
 import org.nlogo.extensions.mapreduce.commands.Key;
+import org.nlogo.extensions.mapreduce.commands.MapProgress;
 import org.nlogo.extensions.mapreduce.commands.MapReduce;
 import org.nlogo.extensions.mapreduce.commands.Node;
 import org.nlogo.extensions.mapreduce.commands.NodeParams;
 import org.nlogo.extensions.mapreduce.commands.ParseInput;
 import org.nlogo.extensions.mapreduce.commands.PlotConfig;
+import org.nlogo.extensions.mapreduce.commands.ReduceProgress;
 import org.nlogo.extensions.mapreduce.commands.Test;
 import org.nlogo.extensions.mapreduce.commands.Values;
 import org.nlogo.extensions.mapreduce.commands.config.InputDir;
@@ -114,6 +116,9 @@ public class Manager extends org.nlogo.api.DefaultClassManager
 		manager.addPrimitive("config.reducer", new Reducer());
 		manager.addPrimitive("config.inputformat", new InputFormat());
 		manager.addPrimitive("config.valueseperator", new ValueSeperator());
+		
+		manager.addPrimitive("map-progress", new MapProgress());
+		manager.addPrimitive("reduce-progress", new ReduceProgress());
 		
 		manager.addPrimitive("__print.config", new PlotConfig());
 		
