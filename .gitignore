@@ -10,3 +10,6 @@ classes/
 cluster/hadoop/slaves
 cluster/hadoop/masters
 cluster/hadoop/hosts
+zstats/
+*.txt
+
