@@ -19,8 +19,14 @@ public abstract class MapReduceRun {
 
 		@Override
 		public Object call() throws Exception {
-			caller.run();
-			caller.setFinished();
+			try{
+				caller.run();
+				caller.setFinished();
+			} catch (Exception e) {
+				e.printStackTrace();
+				System.out.println(e.getMessage());
+				throw e;
+			}
 			return null;
 		}
 		

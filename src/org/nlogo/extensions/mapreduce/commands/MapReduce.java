@@ -8,6 +8,7 @@ import org.nlogo.api.HubNetInterface;
 import org.nlogo.api.Syntax;
 import org.nlogo.extensions.mapreduce.Manager;
 
+import at.dobiasch.mapreduce.MapReduceRun;
 import at.dobiasch.mapreduce.SingleNodeRun;
 import at.dobiasch.mapreduce.framework.Framework;
 import at.dobiasch.mapreduce.framework.FrameworkFactory;
@@ -32,9 +33,9 @@ public class MapReduce extends DefaultCommand
 			String world,model;
 			world= Manager.getWorld();
 			model= Manager.em.workspace().getModelPath();
-			SingleNodeRun sn= new SingleNodeRun(fw,world,model);
+			MapReduceRun sn= new SingleNodeRun(fw,world,model);
 			fw.setRun(sn);
-			sn.setup();
+			((SingleNodeRun) sn).setup();
 			sn.startRun();
 		}
 	}

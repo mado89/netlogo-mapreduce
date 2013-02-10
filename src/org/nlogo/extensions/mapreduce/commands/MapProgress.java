@@ -22,7 +22,8 @@ public class MapProgress extends DefaultReporter
 	{
 		Framework fw= FrameworkFactory.getInstance();
 		
-		long prog= Math.round(fw.getMapProgress() * 100);
+		double prog= Math.round(fw.getMapProgress() * 100);
+		
 		return prog;
 	}
 }

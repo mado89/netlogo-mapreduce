@@ -22,7 +22,8 @@ public class ReduceProgress extends DefaultReporter
 	{
 		Framework fw= FrameworkFactory.getInstance();
 		
-		long prog= Math.round(fw.getReduceProgress() * 100);
+		double prog= Math.round(fw.getReduceProgress() * 100);
+		
 		return prog;
 	}
 }

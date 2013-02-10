@@ -167,7 +167,7 @@ public class Framework
 	public double getReduceProgress()
 	{
 		if( this.run != null )
-			return this.run.getMapProgress();
+			return this.run.getReduceProgress();
 		else
 			return 0;
 	}
