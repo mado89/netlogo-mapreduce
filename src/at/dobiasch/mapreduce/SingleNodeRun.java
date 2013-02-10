@@ -209,7 +209,9 @@ public class SingleNodeRun extends MapReduceRun
 		String fn;
 		System.out.println("Writing output");
 		fn= this.fw.getConfiguration().getOutputDirectory();
-		if( !fn.endsWith("" + File.separatorChar)) //TODO: make it work for OS-Problems \\ on linux
+		if( fn.equals("") )
+			fn= "./"; // TODO: check if this works on windows
+		else if( !fn.endsWith("" + File.separatorChar) ) //TODO: make it work for OS-Problems \\ on linux
 			fn+= File.separatorChar;
 		fn+= "output.txt";
 		this.controller.mergeReduceOutput(fn);
