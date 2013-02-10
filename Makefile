@@ -17,6 +17,12 @@ SRCS=$(wildcard src/org/nlogo/extensions/mapreduce/*.java src/org/nlogo/extensio
 SRC2=$(wildcard src/at/dobiasch/mapreduce/*.java src/at/dobiasch/mapreduce/framework/*.java src/at/dobiasch/mapreduce/framework/partition/*.java src/at/dobiasch/mapreduce/framework/task/*.java src/at/dobiasch/mapreduce/framework/controller/*.java src/at/dobiasch/mapreduce/framework/inputparser/*.java)
 SRCSLIB=$(wildcard client/org/nlogo/*.scala)
 
+all: mapreduce/mapreduce.jar
+
+clean:
+	rm mapreduce/mapreduce.jar
+	rm mapreduce/framework.jar
+
 mapreduce/mapreduce.jar: $(SRCS) manifest.txt mapreduce/framework.jar
 	mkdir -p classes
 	$(JAVAC) -g -encoding us-ascii -source 1.5 -target 1.5 -classpath $(NETLOGO)/NetLogo.jar:/usr/share/java/log4j-1.2.jar:mapreduce/framework.jar -d classes $(SRCS)
