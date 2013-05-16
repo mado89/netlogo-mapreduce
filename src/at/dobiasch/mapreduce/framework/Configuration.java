@@ -135,11 +135,11 @@ public class Configuration
 		if(!this.indir.equals(INDIR))
 			map.put("INDIR", indir);
 		if(!this.outdir.equals(OUTDIR))
-			map.put("OUTDIR", indir);
+			map.put("OUTDIR", outdir);
 		if(!this.mapper.equals(MAPPER))
-			map.put("MAPPER", indir);
+			map.put("MAPPER", mapper);
 		if(!this.reducer.equals(REDUCER))
-			map.put("REDUCER", indir);
+			map.put("REDUCER", reducer);
 		if( this.mappers != MAPPERS )
 			map.put("MAPPERS", "" + this.mappers);
 		if( this.reducers != REDUCERS )
@@ -185,6 +185,7 @@ public class Configuration
 
 	public void setValuesFromString(String valstring) throws ExtensionException
 	{
+		System.out.println("setValuesFromString: " + valstring);
 		String[] vals= valstring.split(",");
 		int i;
 		for(i= 0; i < vals.length - 1; i++)

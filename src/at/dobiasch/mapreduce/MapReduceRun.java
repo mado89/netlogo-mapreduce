@@ -65,4 +65,7 @@ public abstract class MapReduceRun {
 	{
 		this.running= false;
 	}
+
+
+	public abstract void setup() throws ExtensionException;
 }

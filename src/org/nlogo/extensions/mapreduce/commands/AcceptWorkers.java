@@ -33,6 +33,7 @@ public class AcceptWorkers extends DefaultCommand
 			// Manager.em.workspace().getHubNetManager().setClientInterface("MAPREDUCE", list);
 			Manager.em.workspace().getHubNetManager().setClientInterface("MAPREDUCE", 
 				scala.collection.JavaConversions.collectionAsScalaIterable(list));
+			FrameworkFactory.getInstance().setMultiNode(true);
 		}
 		catch (LogoException e)
 		{

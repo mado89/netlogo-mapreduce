@@ -3,7 +3,6 @@ package at.dobiasch.mapreduce;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
-import java.io.FilenameFilter;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Map;
@@ -12,9 +11,10 @@ import org.nlogo.api.CompilerException;
 import org.nlogo.api.ExtensionException;
 
 import at.dobiasch.mapreduce.framework.Framework;
+import at.dobiasch.mapreduce.framework.InputChecker;
 import at.dobiasch.mapreduce.framework.WorkspaceBuffer;
 import at.dobiasch.mapreduce.framework.controller.HostController;
-import at.dobiasch.mapreduce.framework.partition.ICheckAndPartition;
+import at.dobiasch.mapreduce.framework.partition.CheckPartData;
 import at.dobiasch.mapreduce.framework.task.IntKeyVal;
 
 public class SingleNodeRun extends MapReduceRun
@@ -24,7 +24,7 @@ public class SingleNodeRun extends MapReduceRun
 	int size;
 	WorkspaceBuffer wb;
 	Framework fw;
-	Map<String,ICheckAndPartition.CheckPartData> indata;
+	CheckPartData indata;
 	
 	/*
 	 * Number of input splits ie number of mappers that has to be run
@@ -67,7 +67,7 @@ public class SingleNodeRun extends MapReduceRun
 		}
 	}
 	
-	protected void run() throws ExtensionException
+	public void run() throws ExtensionException
 	{
 		try
 		{
@@ -91,38 +91,9 @@ public class SingleNodeRun extends MapReduceRun
 	 */
 	private void prepareInput() throws Exception
 	{
-		ICheckAndPartition part= fw.getNewPartitioner();
-		String indir= fw.getConfiguration().getInputDirectory();
-		File inputdir = new File(indir);
-		
-		FilenameFilter filter = new FilenameFilter() {
-		    public boolean accept(File dir, String name) {
-		        return !name.startsWith(".");
-		    }
-		};
-
-		String[] children = inputdir.list(filter);
-		if (children == null)
-		{
-		    // Either dir does not exist or is not a directory
-		}
-		else
-		{
-		    for (int i=0; i<children.length; i++) {
-		        // Get filename of file or directory
-		    	System.out.println(children[i]);
-		        part.addFile(indir + "/" + children[i]);
-		    }
-		}
-		
-		indata= part.getData();
-		/*this.ninpsplit= 0;
-		for(ICheckAndPartition.CheckPartData data : indata.values())
-		{
-			this.ninpsplit+= data.numpartitions;
-		}*/
-		
-		System.out.println(indata);
+		InputChecker c= new InputChecker(fw);
+		c.check();
+		this.indata= c.getData();
 	}
 	
 	private void prepareMapper() throws IOException, CompilerException
@@ -134,7 +105,7 @@ public class SingleNodeRun extends MapReduceRun
 	{
 		long partStart;
 		long partEnd;
-		for(ICheckAndPartition.CheckPartData data : indata.values())
+		for(at.dobiasch.mapreduce.framework.partition.Data data : indata.values())
 		{
 			File file= new File(data.partitionfile);
 			BufferedReader in= new BufferedReader(new FileReader(file));
@@ -209,14 +180,12 @@ public class SingleNodeRun extends MapReduceRun
 		String fn;
 		System.out.println("Writing output");
 		fn= this.fw.getConfiguration().getOutputDirectory();
-		if( fn.equals("") )
-			fn= "./"; // TODO: check if this works on windows
-		else if( !fn.endsWith("" + File.separatorChar) ) //TODO: make it work for OS-Problems \\ on linux
+		if( !fn.equals("") && !fn.endsWith("" + File.separatorChar)) //TODO: make it work for OS-Problems \\ on linux
 			fn+= File.separatorChar;
 		fn+= "output.txt";
 		this.controller.mergeReduceOutput(fn);
 	}
-
+	
 	@Override
 	public double getMapProgress() {
 		return this.controller.getMapProgress();
@@ -226,4 +195,5 @@ public class SingleNodeRun extends MapReduceRun
 	public double getReduceProgress() {
 		return this.controller.getReduceProgress();
 	}
+
 }

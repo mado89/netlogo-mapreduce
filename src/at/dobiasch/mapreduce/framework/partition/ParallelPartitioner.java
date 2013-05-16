@@ -2,8 +2,6 @@ package at.dobiasch.mapreduce.framework.partition;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.concurrent.CompletionService;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorCompletionService;
@@ -15,8 +13,9 @@ import at.dobiasch.mapreduce.framework.SysFileHandler;
 
 public class ParallelPartitioner implements ICheckAndPartition
 {
-	private Map<String,String> filesC;
-	private Map<String,CheckPartData> filesD;
+	// private Map<String,String> filesC;
+	// private Map<String,CheckPartData> filesD;
+	private CheckPartData files;
 	// private boolean syncMapwait= false;
 	
 	private ExecutorService pool;
@@ -39,8 +38,9 @@ public class ParallelPartitioner implements ICheckAndPartition
 		this.check= true;
 		this.sysfileh= sysfileh;
 		
-		filesC= null;
-		filesD= null;
+		// filesC= null;
+		// filesD= null;
+		files= null;
 		
 		// TODO: maybe find a better number of threads
 		pool= Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
@@ -76,19 +76,20 @@ public class ParallelPartitioner implements ICheckAndPartition
 		jobCount++;
 	}
 	
-	@Override
-	public Map<String, String> getChecksums() throws FrameworkException
+	// @Override
+	/*public Map<String, String> getChecksums() throws FrameworkException
 	{
-		filesC= new HashMap<String,String>();
+		//filesC= new HashMap<String,String>();
+		files= new CheckPartData();
 		
 		try
 		{
 			pool.shutdown();
 			for(int l= 0; l < jobCount; l++)
 			{
-				CheckPartData ret;
-				ret= (CheckPartData ) complet.take().get();
-				filesC.put(ret.key, ret.checksum);
+				Data ret;
+				ret= (Data ) complet.take().get();
+				files.putChecksum(ret.key, ret.checksum);
 			}
 		} catch(InterruptedException e) {
 			throw new FrameworkException( e.getMessage() );
@@ -96,8 +97,8 @@ public class ParallelPartitioner implements ICheckAndPartition
 			e.printStackTrace();
 		}
 		
-		return filesC;
-	}
+		return files.getChecksums();
+	}*/
 
 	@Override
 	public void setCheck(boolean check)
@@ -106,17 +107,17 @@ public class ParallelPartitioner implements ICheckAndPartition
 	}
 
 	@Override
-	public Map<String, CheckPartData> getData() throws FrameworkException
+	public CheckPartData getData() throws FrameworkException
 	{
-		filesD= new HashMap<String,CheckPartData>();
+		files= new CheckPartData();
 		try
 		{
 			pool.shutdown();
 			for(int l= 0; l < jobCount; l++)
 			{
-				CheckPartData ret;
-				ret= (CheckPartData ) complet.take().get();
-				filesD.put(ret.key, ret);
+				Data ret;
+				ret= (Data ) complet.take().get();
+				files.put(ret.key, ret);
 			}
 		} catch(InterruptedException e) {
 			throw new FrameworkException( e.getMessage() );
@@ -124,6 +125,6 @@ public class ParallelPartitioner implements ICheckAndPartition
 			e.printStackTrace();
 		}
 		
-		return filesD;
+		return files;
 	}
 }

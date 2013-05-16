@@ -13,7 +13,6 @@ import java.util.concurrent.Callable;
 
 import at.dobiasch.mapreduce.framework.ChecksumHelper;
 import at.dobiasch.mapreduce.framework.SysFileHandler;
-import at.dobiasch.mapreduce.framework.partition.ICheckAndPartition.CheckPartData;
 
 public class BaseParallelPartitioner implements Callable<Object>
 {
@@ -75,7 +74,7 @@ public class BaseParallelPartitioner implements Callable<Object>
 			e.printStackTrace();
 		}
 		
-		CheckPartData ret= new CheckPartData();
+		Data ret= new Data();
 		// String[] ret= new String[2];
 		ret.key= path;
 		ret.checksum= checksum;

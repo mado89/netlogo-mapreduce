@@ -33,10 +33,14 @@ public class MapReduce extends DefaultCommand
 			String world,model;
 			world= Manager.getWorld();
 			model= Manager.em.workspace().getModelPath();
-			MapReduceRun sn= new SingleNodeRun(fw,world,model);
-			fw.setRun(sn);
-			((SingleNodeRun) sn).setup();
-			sn.startRun();
+			MapReduceRun run;
+			if( fw.isMultiNode() )
+				run= new SingleNodeRun(fw,world,model);
+			else
+				run= new SingleNodeRun(fw,world,model);
+			fw.setRun(run);
+			run.setup();
+			run.startRun();
 		}
 	}
 }

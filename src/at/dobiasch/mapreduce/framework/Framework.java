@@ -24,6 +24,7 @@ public class Framework
 	private SysFileHandler sysfileh;
 	private IInputParser   inp;
 	private MapReduceRun run;
+	private boolean        multinode;
 	
 	public Framework() throws ExtensionException
 	{
@@ -32,6 +33,7 @@ public class Framework
 		sysfileh= new SysFileHandler("./tmpdir/");
 		
 		this.run= null;
+		this.multinode= false;
 		
 		// Don't initialize Inputparser here. Config will change reference won't be updated
 		// this.inp= new TextInputFormat();
@@ -170,6 +172,14 @@ public class Framework
 			return this.run.getReduceProgress();
 		else
 			return 0;
+	}
+	
+	public boolean isMultiNode() {
+		return multinode;
+	}
+
+	public void setMultiNode(boolean b) {
+		this.multinode= b;
 	}
 	
 	/*public String getSystemDir()
