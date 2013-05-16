@@ -1,6 +1,7 @@
 package at.dobiasch.mapreduce.framework;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.io.UnsupportedEncodingException;
@@ -73,6 +74,38 @@ public class RecordWriter
 					+ " encoding");
 		}
 		// this.debug= false;
+		this.sessw= false;
+	}
+	
+	/**
+	 * Create a Writer from a reader, and closes the reader
+	 * @throws IOException 
+	 */
+	public RecordWriter(RecordReader reader) throws IOException
+	{
+		this.filename= reader.getFilename();
+		
+		reader.close();
+		
+		try {
+			this.keyValueSeparator = reader.getKeyValueSeparator().getBytes(utf8);
+		} catch (UnsupportedEncodingException uee) {
+			throw new IllegalArgumentException("can't find " + utf8
+					+ " encoding");
+		}
+		
+		try {
+			this.out= new RandomAccessFile(filename, "rw");
+		} catch (FileNotFoundException e) {
+			// This case should never happen since we create it from an existing one
+			e.printStackTrace();
+		}
+		this.out.setLength(0);
+		this.out.seek(0);
+		this.session= false;
+		this.sessStart= 0;
+		this.opened= true;
+		
 		this.sessw= false;
 	}
 	

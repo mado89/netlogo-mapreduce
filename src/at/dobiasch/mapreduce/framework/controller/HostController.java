@@ -16,6 +16,7 @@ import org.nlogo.api.CompilerException;
 import org.nlogo.workspace.AbstractWorkspace;
 
 import at.dobiasch.mapreduce.framework.Counter;
+import at.dobiasch.mapreduce.framework.MapOutWriter;
 import at.dobiasch.mapreduce.framework.RecordReader;
 import at.dobiasch.mapreduce.framework.RecordWriter;
 import at.dobiasch.mapreduce.framework.RecordWriterBuffer;
@@ -53,6 +54,8 @@ public class HostController
 	private ConcurrentHashMap<Integer, RecordWriter> reducewriter;
 	private int _ID;
 	private RecordWriter redparts;
+	MapOutWriter w;
+	MapOutWriter w2;
 	
 	// Members for Progress
 	private Counter nMapTasks;
@@ -96,6 +99,11 @@ public class HostController
 		
 		this.mapwriter= new RecordWriterBuffer(this.mapc + 2, "map-%04d", this.sysh, " \t ");
 		this.htc.setMapperOutput(this.mapwriter);
+		
+		w= new MapOutWriter(mapwriter, htc.intdata, htc.sysfileh);
+		w.start();
+		w2= new MapOutWriter(mapwriter, htc.intdata, htc.sysfileh);
+		w2.start();
 	}
 	
 	@SuppressWarnings("unchecked") //TODO: this is for redcomplet init ...
@@ -136,7 +144,7 @@ public class HostController
 	public long addMap(String key, long start, long end)
 	{
 		long ID= getID();
-		System.out.println(ID + ": " + key + " " + start + " " + end + " submit");
+		// System.out.println(ID + ": " + key + " " + start + " " + end + " submit");
 		
 		this.complet.submit(new MapRun(ID,key,start,end));
 		
@@ -212,15 +220,18 @@ public class HostController
 			// System.out.println("Jobs submitted wait for shutdown");
 			// pool.shutdown();
 			// ---> don't shut down. Otherwise it could cause problems
+			System.out.println("Start taking Map-Jobs");
 			for(int l= 0; l < this.maptaskC.getValue(); l++)
 			{
-				System.out.println("Try to take " + l + " " + this.maptaskC.getValue());
+				// System.out.println("Try to take " + l + " " + this.maptaskC.getValue());
 				if( (Boolean) complet.take().get() != true)
 				{
 					System.out.println("Something failed");
 				}
 			}
 			System.out.println("All taken");
+			w.setFinishUp();
+			w2.setFinishUp();
 		} catch (InterruptedException e) {
 			System.out.println("Waiting for Map-Tasks was interruped");
 			return false;
@@ -244,6 +255,13 @@ public class HostController
 
 	public Map<String, IntKeyVal> getIntermediateData()
 	{
+		try {
+			w.join();
+			w2.join();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return this.htc.getIntermediateData();
 	}
 

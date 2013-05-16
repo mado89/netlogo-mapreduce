@@ -184,4 +184,12 @@ public class RecordReader
 	public void close() throws IOException {
 		this.in.close();
 	}
+
+	public String getFilename() {
+		return this.filename;
+	}
+
+	public String getKeyValueSeparator() {
+		return this.keyValueSeparator;
+	}
 }
