@@ -57,7 +57,8 @@ public class RecordWriter
 	{
 		File f= new File(filename);
 		File dir= f.getParentFile();
-		if( !dir.exists() )
+		System.out.println("RecordWriter<init> " + filename + " " + f + " " + dir);
+		if( dir != null && !dir.exists() )
 			dir.mkdirs();
 		this.out = new RandomAccessFile(filename, "rw");
 		this.out.setLength(0);
