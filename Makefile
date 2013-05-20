@@ -14,7 +14,7 @@ JAVAC = $(JAVA_HOME)/bin/javac
 
 
 SRCS=$(wildcard src/org/nlogo/extensions/mapreduce/*.java src/org/nlogo/extensions/mapreduce/commands/*.java src/org/nlogo/extensions/mapreduce/commands/config/*.java)
-SRC2=$(wildcard src/at/dobiasch/mapreduce/*.java src/at/dobiasch/mapreduce/framework/*.java src/at/dobiasch/mapreduce/framework/partition/*.java src/at/dobiasch/mapreduce/framework/task/*.java src/at/dobiasch/mapreduce/framework/controller/*.java src/at/dobiasch/mapreduce/framework/inputparser/*.java)
+SRC2=$(wildcard src/at/dobiasch/mapreduce/*.java src/at/dobiasch/mapreduce/framework/*.java src/at/dobiasch/mapreduce/framework/partition/*.java src/at/dobiasch/mapreduce/framework/task/*.java src/at/dobiasch/mapreduce/framework/controller/*.java src/at/dobiasch/mapreduce/framework/inputparser/*.java src/at/dobiasch/mapreduce/framework/multi/*.java)
 SRCSLIB=$(wildcard client/org/nlogo/*.scala)
 
 all: mapreduce/mapreduce.jar

@@ -54,8 +54,6 @@ public class HostController
 	private ConcurrentHashMap<Integer, RecordWriter> reducewriter;
 	private int _ID;
 	private RecordWriter redparts;
-	MapOutWriter w;
-	MapOutWriter w2;
 	
 	// Members for Progress
 	private Counter nMapTasks;
@@ -98,12 +96,7 @@ public class HostController
 		this.complet= new ExecutorCompletionService<Object>(pool);
 		
 		this.mapwriter= new RecordWriterBuffer(this.mapc + 2, "map-%04d", this.sysh, " \t ");
-		this.htc.setMapperOutput(this.mapwriter);
-		
-		w= new MapOutWriter(mapwriter, htc.intdata, htc.sysfileh);
-		w.start();
-		w2= new MapOutWriter(mapwriter, htc.intdata, htc.sysfileh);
-		w2.start();
+        this.htc.setMapperOutput(this.mapwriter);
 	}
 	
 	@SuppressWarnings("unchecked") //TODO: this is for redcomplet init ...
@@ -230,8 +223,6 @@ public class HostController
 				}
 			}
 			System.out.println("All taken");
-			w.setFinishUp();
-			w2.setFinishUp();
 		} catch (InterruptedException e) {
 			System.out.println("Waiting for Map-Tasks was interruped");
 			return false;
@@ -255,13 +246,6 @@ public class HostController
 
 	public Map<String, IntKeyVal> getIntermediateData()
 	{
-		try {
-			w.join();
-			w2.join();
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 		return this.htc.getIntermediateData();
 	}
 

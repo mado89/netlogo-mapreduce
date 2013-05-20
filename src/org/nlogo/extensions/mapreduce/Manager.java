@@ -8,6 +8,7 @@ import org.nlogo.extensions.mapreduce.commands.AcceptWorkers;
 import org.nlogo.extensions.mapreduce.commands.Emit;
 import org.nlogo.extensions.mapreduce.commands.ID;
 import org.nlogo.extensions.mapreduce.commands.Key;
+import org.nlogo.extensions.mapreduce.commands.MRHubNetMgr;
 import org.nlogo.extensions.mapreduce.commands.MapProgress;
 import org.nlogo.extensions.mapreduce.commands.MapReduce;
 import org.nlogo.extensions.mapreduce.commands.Node;
@@ -125,6 +126,7 @@ public class Manager extends org.nlogo.api.DefaultClassManager
 		manager.addPrimitive("__print.config", new PlotConfig());
 		
 		manager.addPrimitive("__parseinput", new ParseInput());
+		manager.addPrimitive("__mrhubnetmgr", new MRHubNetMgr());
 	}
 	
 	/**

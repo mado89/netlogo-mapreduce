@@ -11,6 +11,7 @@ import org.nlogo.api.LogoException;
 import at.dobiasch.mapreduce.MapReduceRun;
 import at.dobiasch.mapreduce.framework.controller.HostController;
 import at.dobiasch.mapreduce.framework.inputparser.IInputParser;
+import at.dobiasch.mapreduce.framework.multi.MapRedHubNetManager;
 import at.dobiasch.mapreduce.framework.partition.ICheckAndPartition;
 import at.dobiasch.mapreduce.framework.partition.ParallelPartitioner;
 
@@ -25,6 +26,7 @@ public class Framework
 	private IInputParser   inp;
 	private MapReduceRun run;
 	private boolean        multinode;
+	private MapRedHubNetManager hubnetmgr;
 	
 	public Framework() throws ExtensionException
 	{
@@ -180,6 +182,18 @@ public class Framework
 
 	public void setMultiNode(boolean b) {
 		this.multinode= b;
+	}
+
+	public MapReduceRun getRun() {
+		return this.run;
+	}
+
+	public void setHubNetManager(MapRedHubNetManager manager) {
+		this.hubnetmgr= manager;	
+	}
+
+	public MapRedHubNetManager getHubNetManager() {
+		return this.hubnetmgr;
 	}
 	
 	/*public String getSystemDir()

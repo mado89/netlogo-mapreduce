@@ -1,8 +1,7 @@
 package org.nlogo.extensions.mapreduce.commands;
 
-import java.util.ArrayList;
-
 import org.nlogo.api.Argument;
+import org.nlogo.api.CompilerException;
 import org.nlogo.api.Context;
 import org.nlogo.api.DefaultCommand;
 import org.nlogo.api.ExtensionException;
@@ -11,6 +10,7 @@ import org.nlogo.api.Syntax;
 import org.nlogo.extensions.mapreduce.Manager;
 
 import at.dobiasch.mapreduce.framework.FrameworkFactory;
+import at.dobiasch.mapreduce.framework.multi.MapRedHubNetManager;
 
 /**
  * 
@@ -25,18 +25,22 @@ public class AcceptWorkers extends DefaultCommand
 	
 	public void perform(Argument args[], Context context) throws ExtensionException
 	{
-		Manager.em.workspace().getHubNetManager().reset();
-		ArrayList<Object> list= new ArrayList<Object>();
-		// list.add("CONFIG");
+		String model;
+		
 		try
 		{
-			// Manager.em.workspace().getHubNetManager().setClientInterface("MAPREDUCE", list);
-			Manager.em.workspace().getHubNetManager().setClientInterface("MAPREDUCE", 
-				scala.collection.JavaConversions.collectionAsScalaIterable(list));
+			System.out.println("Accept Workers");
+			model= Manager.em.workspace().getModelPath();
+			
+			MapRedHubNetManager manager= new MapRedHubNetManager(model);
+			
 			FrameworkFactory.getInstance().setMultiNode(true);
+			FrameworkFactory.getInstance().setHubNetManager(manager);
 		}
 		catch (LogoException e)
 		{
+			throw new ExtensionException(e);
+		} catch (CompilerException e) {
 			throw new ExtensionException(e);
 		}
 		FrameworkFactory.getInstance().setMaster(true);
