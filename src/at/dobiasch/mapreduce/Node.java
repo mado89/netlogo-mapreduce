@@ -90,7 +90,7 @@ public class Node
 				if( (message= this.client.nextMessage(0)) != null )
 				{
 					// hubnet.fetchMessage();
-					System.out.println("Message: " + message);
+					System.out.println("Message: " + message );
 					msg= message.toString();
 					//if( hubnet.getMessageTag().equals("CONFIG-START"))
 					if( msg.startsWith("Some(Text(CONFIG:"))
@@ -99,6 +99,8 @@ public class Node
 							setValuesFromString(msg.substring(19, msg.length() - 7));
 						System.out.println("Config recieved: " + 
 							FrameworkFactory.getInstance().getConfiguration());
+					} else if (msg.startsWith("Some(Text(")) {
+						// System.ou
 					}
 				}
 				Thread.sleep(100);

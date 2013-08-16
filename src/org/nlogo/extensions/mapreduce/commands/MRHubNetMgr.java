@@ -26,6 +26,17 @@ public class MRHubNetMgr extends DefaultCommand {
 	{
 		Framework fw= FrameworkFactory.getInstance();
 		HubNetInterface hubnet = Manager.em.workspace().getHubNetManager();
+		// TODO: tricky: run vlt ja noch garnicht gestartet
+		/*
+		 * Ist im Prinzip einfach: HubNetManager bekommt ein Signal wenn der Run da ist
+		 * dann wechselt er den State
+		 * hier brauch ich eine StateMachine (um mehrere runs hintereinander haben zu koennen)
+		 * Im 1. State werden nodes gesammelt
+		 * 1 -> 2 durch HubNetManager
+		 * 2. State: fuetter dem Run die Nodes (achtung node kann schon wieder weg sein)
+		 * 3. State: Lauschen auf neue nodes / nodes verlassen (run mitteilen)
+		 * 4. State: nodes fuer State 1 vorbereiten (run ist vorbei)
+		 */
 		MapReduceRun mrrun= fw.getRun();
 		if( mrrun.getClass() != MultiNodeRun.class)
 			throw new ExtensionException("Needed a MultiNodeRun but got a " + mrrun.getClass());

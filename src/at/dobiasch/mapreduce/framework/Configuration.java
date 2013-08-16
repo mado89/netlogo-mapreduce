@@ -39,6 +39,7 @@ public class Configuration
 		reducers= REDUCERS;
 		valsep= VALSEP;
 		accumulator= new Accumulator();
+		accumulator.set(0.0);
 		this.setInputParser(PARSER);
 	}
 	
@@ -201,7 +202,10 @@ public class Configuration
 		{
 			System.out.println(vals[i]);
 			String[] h= vals[i].split("=");
-			this.setValue(h[0], h[1]);
+			if( h.length > 1 )
+				this.setValue(h[0], h[1]);
+			else
+				this.setValue(h[0], "");
 		}
 	}
 	

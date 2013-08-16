@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import org.nlogo.agent.Observer;
 import org.nlogo.api.CompilerException;
+import org.nlogo.api.HubNetInterface;
 import org.nlogo.api.LogoException;
 import org.nlogo.api.SimpleJobOwner;
 import org.nlogo.headless.HeadlessWorkspace;
@@ -44,6 +45,15 @@ public class MapRedHubNetManager {
 		
 		mgr= ws.compileCommands("mapreduce:__mrhubnetmgr");
 		System.out.println("HubNet Manager initialized");
+	}
+	
+	public void broadcast(String message) throws LogoException {
+		ws.hubnetManager().broadcast(message);
+	}
+	
+	@Deprecated
+	public HubNetInterface getInterface() {
+		return ws.hubnetManager();
 	}
 	
 	public void start() {

@@ -71,6 +71,7 @@ public class Framework
 	 */
 	public void sendConfigToClients(HubNetInterface hubnet) throws FrameworkException
 	{
+		//TODO: this should be moved to the hubnetmanager
 		if( this.masterp == false) throw new FrameworkException("Must be master to send config");
 		
 		// Create client set

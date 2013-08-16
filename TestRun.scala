@@ -8,18 +8,21 @@ object TestRun
   def main(args: Array[String])
   {
     val workspace = HeadlessWorkspace.newInstance
-    workspace.open("/home/martin/DA/mapreduce/test.nlogo")
+    workspace.open("/home/martin/DA/mapreduce/WC-Distributed.nlogo")
     workspace.command("server")
     val server= new Thread(new Runnable {
       def run()
       {
-        Thread.sleep(100)
-	workspace.command("mapreduce:test")
+        //Thread.sleep(100)
+	//workspace.command("server")
+	Thread.sleep(3000)
+	println("Beginning MR")
+	workspace.command("wc")
       }
     })
         
     val workspace2 = HeadlessWorkspace.newInstance
-    workspace2.open("/home/martin/DA/mapreduce/test.nlogo")
+    workspace2.open("/home/martin/DA/mapreduce/WC-Distributed.nlogo")
     server.start
     workspace2.command("client")
     // workspace1.command("mapreduce:test")

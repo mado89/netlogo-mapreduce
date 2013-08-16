@@ -6,7 +6,6 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -16,11 +15,13 @@ import org.nlogo.api.ExtensionException;
 import org.nlogo.api.LogoException;
 
 import at.dobiasch.mapreduce.framework.Framework;
+import at.dobiasch.mapreduce.framework.FrameworkException;
 import at.dobiasch.mapreduce.framework.InputChecker;
 import at.dobiasch.mapreduce.framework.controller.HostController;
 import at.dobiasch.mapreduce.framework.multi.NodeManager;
 import at.dobiasch.mapreduce.framework.partition.CheckPartData;
 import at.dobiasch.mapreduce.framework.partition.Data;
+import at.dobiasch.mapreduce.framework.task.TaskManager;
 
 public class MultiNodeRun extends MapReduceRun
 {
@@ -32,9 +33,10 @@ public class MultiNodeRun extends MapReduceRun
 	private HashMap<Data, Integer> partIDs;
 	private String inpIDmsg;
 	private NodeManager nodes;
-	private Map<String,List<String>> nodetasks;
-	private Map<String,List<String>> tasknodes;
+	// private Map<String,List<String>> nodetasks;
+	// private Map<String,List<String>> tasknodes;
 	private long _id= 1;
+	private TaskManager taskmanager;
 	
 	private long getID() {
 		return _id++;
@@ -47,8 +49,8 @@ public class MultiNodeRun extends MapReduceRun
 		this.world= world;
 		this.modelpath= modelpath;
 		this.nodes= new NodeManager();
-		this.nodetasks= new HashMap<String,List<String>>();
-		this.tasknodes= new HashMap<String,List<String>>();
+		// this.nodetasks= new HashMap<String,List<String>>();
+		// this.tasknodes= new HashMap<String,List<String>>();
 	}
 	
 	public void setup() throws ExtensionException
@@ -69,7 +71,7 @@ public class MultiNodeRun extends MapReduceRun
 			prepareInput();
 			createInputIDs();
 			prepareLocalMapper();
-			startHubNetManager();
+			// startHubNetManager();
 		} catch (CompilerException e){
 			throw new ExtensionException(e);
 		} catch (IOException e) {
@@ -79,9 +81,10 @@ public class MultiNodeRun extends MapReduceRun
 		}
 	}
 
+	/*
 	private void startHubNetManager() throws CompilerException {
 		fw.getHubNetManager().start();
-	}
+	}*/
 
 	@Override
 	public double getMapProgress() {
@@ -98,6 +101,7 @@ public class MultiNodeRun extends MapReduceRun
 	@Override
 	protected void run() throws ExtensionException {
 		System.out.println("MultiNodeRun::run");
+		
 		doMap();
 			
 			// doCollect();
@@ -108,28 +112,25 @@ public class MultiNodeRun extends MapReduceRun
 	}
 	
 	private void doMap() throws ExtensionException{
+		try {
+			fw.sendConfigToClients(fw.getHubNetManager().getInterface());
+		} catch (FrameworkException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		createInitialMapShedule();
 	}
 
 	private void createInitialMapShedule() throws ExtensionException {
-		int tpn; // Tasks per node
-        
-        tpn= indata.getNumberOfPartitions() / ( nodes.size() + 1 );
-        
-        int tfn= 0; //tasks for node
-        String as= "MAP:";
         long partStart;
         long partEnd;
         int inpid;
-        String node;
         
-        Iterator<String> nn= nodes.iteratorNodeNames();
-        // System.out.println(nn);
+        taskmanager= new TaskManager();
         
-        if( nn.hasNext() )
-        	node= nn.next();
-        else
-        	node= null;
+        taskmanager.setNodes(nodes);
+        taskmanager.initMap(indata.getNumberOfPartitions(), controller);
         
         for(Data d : indata.values())
         {
@@ -149,12 +150,12 @@ public class MultiNodeRun extends MapReduceRun
                                 // don't add an empty task
                                 if( partStart < partEnd )
                                 {
-                                        // System.out.println(node);
-                                        // System.out.println(d);
-                                	System.out.println("Create Task: " + inpid + " " + node + " " + tfn + " " + partStart);
-                                        
-                                        // assignTask
-                                        tfn= assignMapTask(as, nn, tpn, getID(), node, partStart, partEnd, inpid, tfn);
+                                	// System.out.println(node);
+                                    // System.out.println(d);
+                                    
+                                	// assignTask
+                                	taskmanager.assignMapTask(getID(), partStart, partEnd, inpid, d.key);
+                                    // tfn= assignMapTask(as, nn, tpn, getID(), node, partStart, partEnd, inpid, tfn);
                                 }
                                 
                                 partStart= partEnd;
@@ -164,7 +165,8 @@ public class MultiNodeRun extends MapReduceRun
                         // don't add an empty task
                         if( partStart < partEnd )
                         {
-                        	tfn= assignMapTask(as, nn, tpn, getID(), node, partStart, partEnd, inpid, tfn);
+                        	taskmanager.assignMapTask(getID(), partStart, partEnd, inpid, d.key);
+                        	// tfn= assignMapTask(as, nn, tpn, getID(), node, partStart, partEnd, inpid, tfn);
                         }
                 } catch (FileNotFoundException e) {
                         e.printStackTrace();
@@ -176,47 +178,15 @@ public class MultiNodeRun extends MapReduceRun
         }
         
         // Send out assignment
-        System.out.println("Assignment created");
+        System.out.println("Assignment created: " + taskmanager.getMapAssignmentString());
+        try {
+        	fw.getHubNetManager().broadcast(taskmanager.getMapAssignmentString());
+		} catch (LogoException e) {
+			e.printStackTrace();
+			throw new ExtensionException(e);
+		}
 	}
 	
-	/**
-	 * Assign a Map-Task to a Node
-	 * @param as
-	 * @param nn
-	 * @param tpn
-	 * @param taskID
-	 * @param node
-	 * @param partStart
-	 * @param partEnd
-	 * @param inpid
-	 * @param tfn
-	 * @return new map-task-count for the current node
-	 */
-	private int assignMapTask(String as, Iterator<String> nn, int tpn, long taskID, String node, long partStart, long partEnd, int inpid, int tfn)
-	{
-		if( node == null )
-        {
-                // Local Map
-        }
-        else
-        {
-                as+= node + "-" + taskID + "-" + inpid + "-" + partStart + "-" + partEnd + ",";
-        }
-        
-        // Check if the maximum of tasks for this node is added
-        tfn++;
-        if( tfn == tpn )
-        {
-                if( nn.hasNext() )
-                        node= nn.next();
-                else
-                        node= null;
-                tfn= 0;
-        }
-        
-        return tfn;
-	}
-
 	/**
 	 * Check the input and create Partitions, and input ids
 	 * @throws Exception
@@ -259,26 +229,10 @@ public class MultiNodeRun extends MapReduceRun
 	}
 	
 	public void removeClient(String name) {
-		// Get the list of all Tasks assigned to the node
-		List<String> tasks= nodetasks.get(name);
+		// Tell TaskManger that node has failed
+		// TODO: this means reschedule
+		taskmanager.removeNode(name);
 		
 		nodes.removeClient(name);
-		
-		// Go over all tasks and set them to fail
-		for(String task : tasks)
-			failedTask(task);
-				
-		// Remove the node
-		nodetasks.remove(name);
-	}
-
-	private void failedTask(String task) {
-		List<String> nodes= tasknodes.get(task);
-		nodes.remove(task);
-		
-		// TODO: decide about reshedule
-		
-		if( nodes.size() == 0 )
-			tasknodes.remove(task);
 	}
 }
