@@ -7,7 +7,7 @@ ifeq ($(origin NETLOGO), undefined)
 endif
 
 ifeq ($(origin SCALA_HOME), undefined)
-  SCALA_HOME=../..
+  SCALA_HOME=/usr
 endif
 
 JAVAC = $(JAVA_HOME)/bin/javac
