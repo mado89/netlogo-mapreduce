@@ -18,6 +18,7 @@ public class Configuration
 	private String parser;
 	private String valsep;
 	private IInputParser inp;
+	private Accumulator accumulator;
 	
 	private static final String INDIR    = "input";
 	private static final String OUTDIR   = "output";
@@ -37,6 +38,7 @@ public class Configuration
 		mappers= MAPPERS;
 		reducers= REDUCERS;
 		valsep= VALSEP;
+		accumulator= new Accumulator();
 		this.setInputParser(PARSER);
 	}
 	
@@ -122,6 +124,11 @@ public class Configuration
 		this.inp.init(this.valsep);
 	}
 	
+	public void setAccumulator(Accumulator accumulator)
+	{
+		this.accumulator= accumulator;
+	}
+	
 	/**
 	 * Returns a map with changed values. 
 	 * This map can be used to for setValues
@@ -148,6 +155,7 @@ public class Configuration
 			map.put("PARSER", "" + this.parser);
 		if( this.valsep != VALSEP )
 			map.put("VALSEP", this.valsep);
+		map.put("ACCUMULATOR", this.accumulator.export());
 		
 		return map;
 	}
@@ -179,6 +187,7 @@ public class Configuration
 		ret+= ",mappers: " + this.mappers;
 		ret+= ",reducers: " + this.reducers;
 		ret+= ",parser: " + this.parser;
+		ret+= ",accumulator: " + this.accumulator;
 		ret+= "]";
 		return ret;
 	}
@@ -200,20 +209,22 @@ public class Configuration
 	{
 		if( key.equals("INDIR"))
 			this.indir= "" + value;
-		if( key.equals("OUTDIR"))
+		else if( key.equals("OUTDIR"))
 			this.outdir= "" + value;
-		if( key.equals("MAPPER"))
+		else if( key.equals("MAPPER"))
 			this.mapper= "" + value;
-		if( key.equals("REDUCER"))
+		else if( key.equals("REDUCER"))
 			this.reducer= "" + value;
-		if( key.equals("MAPPERS"))
+		else if( key.equals("MAPPERS"))
 			this.mappers= Integer.parseInt("" + value);
-		if( key.equals("REDUCERS"))
+		else if( key.equals("REDUCERS"))
 			this.reducers= Integer.parseInt("" + value);
-		if( key.equals("PARSER"))
+		else if( key.equals("PARSER"))
 			this.setInputParser(value);
-		if( key.equals("VALSEP"))
+		else if( key.equals("VALSEP"))
 			this.setValueSeperator(value);
+		else if( key.equals("ACCUMULATOR"))
+			this.accumulator.importValue(value);
 	}
 	
 	
@@ -241,5 +252,13 @@ public class Configuration
 	public IInputParser getParser()
 	{
 		return this.inp;
+	}
+
+	public Accumulator getAccumulator() {
+		return accumulator;
+	}
+
+	public void setAccumulatorFromObj(Object object) {
+		this.accumulator.set(object);
 	}
 }

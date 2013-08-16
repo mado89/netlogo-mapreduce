@@ -6,8 +6,9 @@ import java.io.RandomAccessFile;
 import java.util.concurrent.Callable;
 
 import org.nlogo.api.ExtensionException;
-import org.nlogo.api.LogoListBuilder;
 
+import at.dobiasch.mapreduce.framework.Accumulator;
+import at.dobiasch.mapreduce.framework.Framework;
 import at.dobiasch.mapreduce.framework.FrameworkFactory;
 import at.dobiasch.mapreduce.framework.WorkspaceBuffer;
 import at.dobiasch.mapreduce.framework.controller.Data;
@@ -36,7 +37,8 @@ public class ReduceRun implements Callable<Object>
 		boolean excep= false;
 		try
 		{
-			HostController controller= FrameworkFactory.getInstance().getTaskController();
+			Framework fw= FrameworkFactory.getInstance();
+			HostController controller= fw.getTaskController();
 			elem= controller.startReduceRun(ID, key, value.fn, value.getFileSize(),partition);
 			
 			// elem.ws.runCompiledCommands(elem.owner, elem.read);
@@ -57,16 +59,16 @@ public class ReduceRun implements Callable<Object>
 				String[] vals= new String(b).split("\n");
 				
 				System.out.println("read " + data.ID + " " + data.key + " " + vals[0].replaceAll("\\n","") + " " + vals.length);
-				String accum= "0";
+				Accumulator accum= fw.getConfiguration().getAccumulator().copy();
 				
 				for(int i= 0; i < vals.length; i++)
 				{
-					String cmd= controller.getReducer() + " \"" + data.key + "\" \"" + accum + "\" \"" + vals[i] + "\"";
+					String cmd= controller.getReducer() + " \"" + data.key + "\" " + accum.toLogo() + " \"" + vals[i] + "\"";
 					System.out.println(cmd);
 					Object o= elem.ws.report(cmd);
-					accum= o.toString();
+					accum.set(o);
 				}
-				controller.emit(elem.ws, data.key, accum);
+				controller.emit(elem.ws, data.key, accum.toString());
 			} catch (FileNotFoundException e) {
 				e.printStackTrace();
 				throw new ExtensionException(e);
@@ -80,7 +82,7 @@ public class ReduceRun implements Callable<Object>
 			
 			returned= true;
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
+			System.out.println(e.getMessage());
 			e.printStackTrace();
 		} catch (Exception e) {
 			System.out.println(e.getMessage());

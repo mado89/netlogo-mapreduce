@@ -45,7 +45,7 @@ to benchmark
 end
 
 to-report word-count-functional [key acum value]
-  report read-from-string acum + read-from-string value
+  report acum + read-from-string value
 end
 
 to word-count ; [key values]
@@ -69,7 +69,7 @@ to wc
   mapreduce:config.mapper "read-file"
   mapreduce:config.reducer "word-count-functional"
   ; mapred:mapreduce.local task read-file task word-count
-  mapreduce:mapreduce
+  mapreduce:mapreduce "read-file" "word-count-functional" 0
   print "mapreduce:mapreduce fertig"
   while [mapreduce:running?] [
    every 0.5 [
