@@ -44,6 +44,10 @@ to benchmark
   print result
 end
 
+to-report word-count-functional [key acum value]
+  report read-from-string acum + read-from-string value
+end
+
 to word-count ; [key values]
   let sum# 0
   
@@ -60,10 +64,10 @@ to wc
   
   reset-ticks
   
-  mapreduce:config.input "/home/martin/DA/input" ; Den gesamten Inhalt des Verzeichnisses bearbeiten
+  mapreduce:config.input "/home/martin/DA/input5" ; Den gesamten Inhalt des Verzeichnisses bearbeiten
   mapreduce:config.output "" ; im aktuellen Verzeichnis ausgeben
   mapreduce:config.mapper "read-file"
-  mapreduce:config.reducer "word-count"
+  mapreduce:config.reducer "word-count-functional"
   ; mapred:mapreduce.local task read-file task word-count
   mapreduce:mapreduce
   print "mapreduce:mapreduce fertig"

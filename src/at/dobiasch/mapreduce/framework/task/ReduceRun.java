@@ -1,11 +1,17 @@
 package at.dobiasch.mapreduce.framework.task;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.RandomAccessFile;
 import java.util.concurrent.Callable;
 
 import org.nlogo.api.ExtensionException;
+import org.nlogo.api.LogoListBuilder;
 
 import at.dobiasch.mapreduce.framework.FrameworkFactory;
 import at.dobiasch.mapreduce.framework.WorkspaceBuffer;
+import at.dobiasch.mapreduce.framework.controller.Data;
+import at.dobiasch.mapreduce.framework.controller.HostController;
 
 public class ReduceRun implements Callable<Object>
 {
@@ -30,11 +36,44 @@ public class ReduceRun implements Callable<Object>
 		boolean excep= false;
 		try
 		{
-			elem= FrameworkFactory.getInstance().getTaskController().startReduceRun(ID, key, value.fn, value.getFileSize(),partition);
+			HostController controller= FrameworkFactory.getInstance().getTaskController();
+			elem= controller.startReduceRun(ID, key, value.fn, value.getFileSize(),partition);
 			
-			elem.ws.runCompiledCommands(elem.owner, elem.read);
-			elem.ws.runCompiledCommands(elem.owner, elem.reduce);
+			// elem.ws.runCompiledCommands(elem.owner, elem.read);
+			// elem.ws.runCompiledCommands(elem.owner, elem.reduce);
 			// elem.ws.runCompiledCommands(elem.owner, elem.clean);
+			Data data= controller.getData(elem.ws);
+			
+			try
+			{
+				RandomAccessFile in = new RandomAccessFile(data.src, "r");
+				byte[] b= new byte[(int) (data.end - data.start)];
+				
+				in.seek(data.start);
+				in.read(b);
+				
+				in.close();
+				
+				String[] vals= new String(b).split("\n");
+				
+				System.out.println("read " + data.ID + " " + data.key + " " + vals[0].replaceAll("\\n","") + " " + vals.length);
+				String accum= "0";
+				
+				for(int i= 0; i < vals.length; i++)
+				{
+					String cmd= controller.getReducer() + " \"" + data.key + "\" \"" + accum + "\" \"" + vals[i] + "\"";
+					System.out.println(cmd);
+					Object o= elem.ws.report(cmd);
+					accum= o.toString();
+				}
+				controller.emit(elem.ws, data.key, accum);
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
+				throw new ExtensionException(e);
+			} catch (IOException e) {
+				e.printStackTrace();
+				throw new ExtensionException(e);
+			}
 			
 			excep= elem.ws.lastLogoException() != null;
 			System.out.println("done compiled command " + ID + ": " + excep);

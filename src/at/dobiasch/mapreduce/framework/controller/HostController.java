@@ -103,7 +103,7 @@ public class HostController
 	public void prepareReduceStage() throws IOException, CompilerException
 	{
 		this.wbred= new WorkspaceBuffer(this.mapc ,world, modelpath);
-		this.wbred.compileComands(null, reducer);
+		// this.wbred.compileComands(null, reducer);
 		// TODO: belows null assignments are only for debugging, remove them
 		this.complet= null;
 		this.pool= null;
@@ -443,6 +443,11 @@ public class HostController
 		out.close();
 		for(i= 0; i < this.redc; i++)
 			reader[i].close();
+	}
+	
+	public String getReducer()
+	{
+		return this.reducer;
 	}
 	
 	/**
