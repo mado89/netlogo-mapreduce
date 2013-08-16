@@ -66,8 +66,6 @@ to wc
   
   mapreduce:config.input "/home/martin/DA/input5" ; Den gesamten Inhalt des Verzeichnisses bearbeiten
   mapreduce:config.output "" ; im aktuellen Verzeichnis ausgeben
-  mapreduce:config.mapper "read-file"
-  mapreduce:config.reducer "word-count-functional"
   ; mapred:mapreduce.local task read-file task word-count
   mapreduce:mapreduce "read-file" "word-count-functional" 0
   print "mapreduce:mapreduce fertig"
@@ -85,11 +83,6 @@ to wc
   ;]
   print "done"
   tick
-  
-  ; mapred:inputdir "input"
-  ; mapred:outputdir ""
-  ; mapreduce:map.linewise true ; Die Dateien einlesen und fuer jede Zeile einen Map-Job starten
-  ; mapred:mapreduce task read-line task word-count
 end
 @#$#@#$#@
 GRAPHICS-WINDOW
