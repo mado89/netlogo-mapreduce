@@ -10,10 +10,19 @@ import org.nlogo.api.SimpleJobOwner;
 import org.nlogo.headless.HeadlessWorkspace;
 import org.nlogo.nvm.Procedure;
 
+import scala.collection.Iterable;
+
 public class MapRedHubNetManager {
 	private HeadlessWorkspace ws;
 	private SimpleJobOwner owner;
 	private Procedure mgr;
+	private int state= STATE_UNINIT;
+	
+	public final static int STATE_UNINIT= 0;
+	public final static int STATE_INIT= 1;
+	public final static int STATE_RUNSTARTED= 2;
+	public final static int STATE_RUN= 3;
+	public final static int STATE_RUNFINISHED= 4;
 	
 	private class HelperT extends Thread {
 		public HelperT() {
@@ -22,8 +31,13 @@ public class MapRedHubNetManager {
 		
 		public void run() {
 			System.out.println("Start MapRedHubNetManager");
+			state= STATE_INIT;
 			ws.runCompiledCommands(owner, mgr);
 		}
+	}
+	
+	public int getState() {
+		return this.state;
 	}
 	
 	public MapRedHubNetManager(String model) throws CompilerException, LogoException {
@@ -56,8 +70,23 @@ public class MapRedHubNetManager {
 		return ws.hubnetManager();
 	}
 	
+	public Iterable<String> getNodes()
+	{
+		return this.ws.hubnetManager().clients();
+	}
+	
 	public void start() {
 		new HelperT().start();
 		System.out.println("HubNetManager started");
+	}
+
+	public synchronized void doneFeeding() {
+		this.state= STATE_RUN;
+		notifyAll();
+	}
+
+	public synchronized void runStarted() {
+		this.state= STATE_RUNSTARTED;
+		notifyAll();
 	}
 }

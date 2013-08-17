@@ -18,6 +18,7 @@ import at.dobiasch.mapreduce.framework.Framework;
 import at.dobiasch.mapreduce.framework.FrameworkException;
 import at.dobiasch.mapreduce.framework.InputChecker;
 import at.dobiasch.mapreduce.framework.controller.HostController;
+import at.dobiasch.mapreduce.framework.multi.MapRedHubNetManager;
 import at.dobiasch.mapreduce.framework.multi.NodeManager;
 import at.dobiasch.mapreduce.framework.partition.CheckPartData;
 import at.dobiasch.mapreduce.framework.partition.Data;
@@ -101,6 +102,18 @@ public class MultiNodeRun extends MapReduceRun
 	@Override
 	protected void run() throws ExtensionException {
 		System.out.println("MultiNodeRun::run");
+		
+		MapRedHubNetManager mgr= this.fw.getHubNetManager();
+		mgr.runStarted();
+		synchronized( mgr ) {
+		while( mgr.getState() != MapRedHubNetManager.STATE_RUN )
+		{
+			try {
+				mgr.wait();
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		} }
 		
 		doMap();
 			
