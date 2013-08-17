@@ -1,21 +1,27 @@
 package at.dobiasch.mapreduce.framework.multi;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.Map;
 
-import org.nlogo.agent.Observer;
 import org.nlogo.api.CompilerException;
+import org.nlogo.api.ExtensionException;
 import org.nlogo.api.HubNetInterface;
 import org.nlogo.api.LogoException;
-import org.nlogo.api.SimpleJobOwner;
 import org.nlogo.headless.HeadlessWorkspace;
-import org.nlogo.nvm.Procedure;
+
+import at.dobiasch.mapreduce.MapReduceRun;
+import at.dobiasch.mapreduce.MultiNodeRun;
+import at.dobiasch.mapreduce.framework.Configuration;
+import at.dobiasch.mapreduce.framework.Framework;
+import at.dobiasch.mapreduce.framework.FrameworkException;
+import at.dobiasch.mapreduce.framework.FrameworkFactory;
 
 import scala.collection.Iterable;
 
 public class MapRedHubNetManager {
 	private HeadlessWorkspace ws;
-	private SimpleJobOwner owner;
-	private Procedure mgr;
 	private int state= STATE_UNINIT;
 	
 	public final static int STATE_UNINIT= 0;
@@ -25,14 +31,124 @@ public class MapRedHubNetManager {
 	public final static int STATE_RUNFINISHED= 4;
 	
 	private class HelperT extends Thread {
-		public HelperT() {
+		private HubNetInterface hubnet;
+		private MultiNodeRun run;
+		private Framework fw;
+		
+		public HelperT(HubNetInterface hubnet, Framework fw) {
 			super();
+			this.hubnet= hubnet;
+			this.fw= fw;
 		}
 		
 		public void run() {
 			System.out.println("Start MapRedHubNetManager");
 			state= STATE_INIT;
-			ws.runCompiledCommands(owner, mgr);
+			// ws.runCompiledCommands(owner, mgr);
+			
+			boolean runIt = true;
+
+			while (runIt) {
+				state= fw.getHubNetManager().getState();
+				System.out.println("Message loop " + state);
+				
+				try {
+				switch( state )
+				{
+					case MapRedHubNetManager.STATE_INIT: // do nothing
+						// idleFetch();
+						break;
+					case MapRedHubNetManager.STATE_RUNSTARTED:
+						prepareRun();
+						break;
+					case MapRedHubNetManager.STATE_RUN:
+						feedNodes();
+						break;
+					case MapRedHubNetManager.STATE_RUNFINISHED:
+						// TODO: what to do here?
+						break;
+				}
+				
+				Thread.sleep(500);
+				} catch (InterruptedException e) {
+	                e.printStackTrace();
+				} catch (ExtensionException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		
+		private void idleFetch() throws ExtensionException
+		{
+			try {
+				if (hubnet.messageWaiting())
+				{
+					hubnet.fetchMessage();
+					String name = hubnet.getMessageSource();
+
+					if (hubnet.enterMessage()) {
+						System.out.println("New Client " + name);
+					} else if (hubnet.exitMessage()) {
+						System.out.println("Client left " + name);
+					} else {
+						System.out.println("other message");
+					}
+				} else
+					System.out.println("No msg");
+			} catch (LogoException e) {
+				e.printStackTrace();
+				throw new ExtensionException(e);
+			}
+		}
+
+		private void prepareRun() throws ExtensionException
+		{
+			MapReduceRun mrrun= fw.getRun();
+			if( mrrun.getClass() != MultiNodeRun.class)
+				throw new ExtensionException("Needed a MultiNodeRun but got a " + mrrun.getClass());
+			run= (MultiNodeRun) mrrun;
+			
+			scala.collection.Iterator<String> it= hubnet.clients().iterator();
+			String node;
+			
+			System.out.println("Feeding nodes");
+			
+			while(it.hasNext())
+			{
+				node= it.next();
+				run.newClient(node);
+			}
+			
+			fw.getHubNetManager().doneFeeding();
+		}
+
+		private void feedNodes() throws ExtensionException
+		{
+	        try {
+	                if( hubnet.messageWaiting() )
+	                {
+	                        hubnet.fetchMessage();
+	                        if( hubnet.enterMessage() )
+	                        {
+	                        	System.out.println("New Client");
+	                            String name= hubnet.getMessageSource();
+	                            run.newClient(name);
+	                        }
+	                        else if( hubnet.exitMessage() )
+	                        {
+	                        	System.out.println("Client left");
+								String name = "xx";
+								run.removeClient(name);
+	                        }
+	                        else
+	                        {
+	                        	
+	                        }
+	                }
+	        } catch (LogoException e) {
+	                e.printStackTrace();
+	                throw new ExtensionException(e);
+	        }
 		}
 	}
 	
@@ -49,19 +165,14 @@ public class MapRedHubNetManager {
 		
 		ws.open(model);
 		
-		owner= new SimpleJobOwner("MapReduce", ws.world.mainRNG,Observer.class);
-		
 		// StartUp Hubnet
 		ws.getHubNetManager().reset();
 		ArrayList<Object> list= new ArrayList<Object>();
 		ws.getHubNetManager().setClientInterface("MAPREDUCE", 
 				scala.collection.JavaConversions.collectionAsScalaIterable(list));
-		
-		mgr= ws.compileCommands("mapreduce:__mrhubnetmgr");
-		System.out.println("HubNet Manager initialized");
 	}
 	
-	public void broadcast(String message) throws LogoException {
+	public synchronized void broadcast(String message) throws LogoException {
 		ws.hubnetManager().broadcast(message);
 	}
 	
@@ -70,13 +181,49 @@ public class MapRedHubNetManager {
 		return ws.hubnetManager();
 	}
 	
+	/**
+	 * Send the configuration to all clients
+	 * @param configuration 
+	 * @throws FrameworkException 
+	 */
+	public void sendConfigToClients(Configuration configuration)
+	{
+		HubNetInterface hubnet= ws.hubnetManager();
+		
+		// Create client set
+		scala.collection.Seq<String> clients= hubnet.clients().toSeq();
+		
+		Map<String,String> fields= configuration.getChangedFields();
+		if( fields.keySet().size() > 0 )
+		{		
+			System.out.println(clients);
+			System.out.println(fields);
+			
+			String config= "CONFIG: [";
+			Collection<String> vals= fields.values();
+			Iterator<String> it= vals.iterator();
+			for(String key : fields.keySet())
+			{
+				config+= key + "=" + it.next() + ",";
+			}
+			config+= "]";
+			
+			try
+			{
+				hubnet.broadcast(config);
+			} catch (LogoException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
 	public Iterable<String> getNodes()
 	{
 		return this.ws.hubnetManager().clients();
 	}
 	
-	public void start() {
-		new HelperT().start();
+	public void start() throws ExtensionException {
+		new HelperT(ws.getHubNetManager(), FrameworkFactory.getInstance()).start();
 		System.out.println("HubNetManager started");
 	}
 

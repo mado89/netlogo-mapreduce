@@ -25,13 +25,13 @@ public class Test extends DefaultCommand
 	public void perform(Argument args[], Context context) throws ExtensionException
 	{
 		System.out.println("TEST");
-		
-		try
+		throw new ExtensionException("Why do you call this?");
+		/*try
 		{
 			HubNetInterface hubnet = Manager.em.workspace().getHubNetManager();
 			FrameworkFactory.getInstance().sendConfigToClients(hubnet);
 		} catch (FrameworkException e) {
 			throw new ExtensionException(e);
-		}
+		}*/
 	}
 }

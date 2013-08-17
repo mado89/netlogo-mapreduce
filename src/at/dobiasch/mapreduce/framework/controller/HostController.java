@@ -128,7 +128,7 @@ public class HostController
 	}
 	
 	/**
-	 * 
+	 * Add a new Map-Task to the System
 	 * @param ID
 	 * @param key
 	 * @param start

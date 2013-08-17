@@ -5,6 +5,7 @@ import org.nlogo.api.Context;
 import org.nlogo.api.DefaultCommand;
 import org.nlogo.api.ExtensionException;
 import org.nlogo.api.Syntax;
+import org.nlogo.extensions.mapreduce.Manager;
 
 /**
  * 
@@ -19,6 +20,11 @@ public class Node extends DefaultCommand
 	
 	public void perform(Argument args[], Context context) throws ExtensionException
 	{
-		new at.dobiasch.mapreduce.Node();
+		
+		String world,model;
+		world= Manager.getWorld();
+		model= Manager.em.workspace().getModelPath();
+		
+		new at.dobiasch.mapreduce.Node(world, model);
 	}
 }

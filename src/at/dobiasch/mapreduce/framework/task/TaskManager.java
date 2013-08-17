@@ -36,7 +36,7 @@ public class TaskManager {
         {
         	cnode= nit.next();
         }
-        mapassignment= "";
+        mapassignment= "MAP:";
         this.controller= controller;
 	}
 

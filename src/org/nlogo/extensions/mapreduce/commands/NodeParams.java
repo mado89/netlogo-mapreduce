@@ -6,6 +6,7 @@ import org.nlogo.api.DefaultCommand;
 import org.nlogo.api.ExtensionException;
 import org.nlogo.api.LogoException;
 import org.nlogo.api.Syntax;
+import org.nlogo.extensions.mapreduce.Manager;
 
 /**
  * 
@@ -31,7 +32,10 @@ public class NodeParams extends DefaultCommand
 			throw new ExtensionException(e);
 		}
 		
+		String world,model;
+		world= Manager.getWorld();
+		model= Manager.em.workspace().getModelPath();
 		
-		new at.dobiasch.mapreduce.Node(name,host,port);
+		new at.dobiasch.mapreduce.Node(name,host,port,world,model);
 	}
 }

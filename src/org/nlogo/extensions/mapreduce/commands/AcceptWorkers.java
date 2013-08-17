@@ -33,10 +33,11 @@ public class AcceptWorkers extends DefaultCommand
 			model= Manager.em.workspace().getModelPath();
 			
 			MapRedHubNetManager manager= new MapRedHubNetManager(model);
-			manager.start();
 			
 			FrameworkFactory.getInstance().setMultiNode(true);
 			FrameworkFactory.getInstance().setHubNetManager(manager);
+			
+			manager.start();
 		}
 		catch (LogoException e)
 		{

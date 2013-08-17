@@ -31,7 +31,49 @@ public class MRHubNetMgr extends DefaultCommand {
 	}
 	
 	@Override
-	public void perform(Argument args[], Context context) throws ExtensionException
+	public void perform(Argument args[], Context context)
+			throws ExtensionException {
+		
+		fw = FrameworkFactory.getInstance();
+		hubnet = Manager.em.workspace().getHubNetManager();
+		/* MapReduceRun mrrun = fw.getRun();
+		if (mrrun.getClass() != MultiNodeRun.class)
+			throw new ExtensionException("Needed a MultiNodeRun but got a "
+					+ mrrun.getClass());
+		MultiNodeRun run = (MultiNodeRun) mrrun;*/
+		boolean runIt = true;
+
+		while (runIt) {
+			System.out.println("Message loop");
+			try {
+				if (hubnet.messageWaiting()) {
+					hubnet.fetchMessage();
+					if (hubnet.enterMessage()) {
+						System.out.println("New Client");
+						((MultiNodeRun) fw.getRun()).newClient("node");
+						fw.getHubNetManager().doneFeeding();
+						// run.newClient(name);
+					} else if (hubnet.exitMessage()) {
+						System.out.println("Client left");
+						String name = "xx";
+						// run.removeClient(name);
+					} else {
+
+					}
+				}
+				Thread.sleep(500);
+			} catch (LogoException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	// @Override
+	public void performNew(Argument args[], Context context) throws ExtensionException
 	{
 		fw= FrameworkFactory.getInstance();
 		hubnet= Manager.em.workspace().getHubNetManager();
@@ -58,6 +100,7 @@ public class MRHubNetMgr extends DefaultCommand {
 			switch( state )
 			{
 				case MapRedHubNetManager.STATE_INIT: // do nothing
+					idleFetch();
 					break;
 				case MapRedHubNetManager.STATE_RUNSTARTED:
 					prepareRun();
@@ -78,6 +121,34 @@ public class MRHubNetMgr extends DefaultCommand {
         }
 	}
 	
+	private void idleFetch() throws ExtensionException {
+		try {
+            if( hubnet.messageWaiting() )
+            {
+                    hubnet.fetchMessage();
+                    String name= hubnet.getMessageSource();
+                	
+                    if( hubnet.enterMessage() )
+                    {
+                    	System.out.println("New Client " + name);
+                    }
+                    else if( hubnet.exitMessage() )
+                    {
+                    	System.out.println("Client left " + name);
+                    }
+                    else
+                    {
+                    	System.out.println("other message");
+                    }
+            }
+            else
+            	System.out.println("No msg");
+    } catch (LogoException e) {
+            e.printStackTrace();
+            throw new ExtensionException(e);
+    }
+	}
+
 	private void prepareRun() throws ExtensionException
 	{
 		MapReduceRun mrrun= fw.getRun();
@@ -87,6 +158,8 @@ public class MRHubNetMgr extends DefaultCommand {
 		
 		scala.collection.Iterator<String> it= hubnet.clients().iterator();
 		String node;
+		
+		System.out.println("Feeding nodes");
 		
 		while(it.hasNext())
 		{

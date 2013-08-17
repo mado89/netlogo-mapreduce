@@ -125,12 +125,7 @@ public class MultiNodeRun extends MapReduceRun
 	}
 	
 	private void doMap() throws ExtensionException{
-		try {
-			fw.sendConfigToClients(fw.getHubNetManager().getInterface());
-		} catch (FrameworkException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		fw.getHubNetManager().sendConfigToClients(fw.getConfiguration());
 		
 		createInitialMapShedule();
 	}
@@ -230,6 +225,8 @@ public class MultiNodeRun extends MapReduceRun
 			inpIDmsg += e.getKey().key + ":" + e.getValue() + ",";
 		}
 		inpIDmsg = inpIDmsg.substring(0, inpIDmsg.length() - 1) + "]";
+		
+		fw.getHubNetManager().broadcast(inpIDmsg);
 	}
 	
 	private void prepareLocalMapper() throws IOException, CompilerException
