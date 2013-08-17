@@ -116,6 +116,8 @@ public class MultiNodeRun extends MapReduceRun
 		} }
 		
 		doMap();
+		
+		finishMapStage();
 			
 			// doCollect();
 			
@@ -128,6 +130,26 @@ public class MultiNodeRun extends MapReduceRun
 		fw.getHubNetManager().sendConfigToClients(fw.getConfiguration());
 		
 		createInitialMapShedule();
+		requestResults();
+	}
+
+	private void requestResults() throws ExtensionException {
+		try {
+			fw.getHubNetManager().broadcast("ASSIGNED");
+		} catch (LogoException e) {
+			e.printStackTrace();
+			throw new ExtensionException(e);
+		}
+	}
+	
+	private void finishMapStage() throws ExtensionException {
+		boolean result= this.controller.waitForMappingStage();
+		if( result == false)
+			throw new ExtensionException("Mapping-Stage failed");
+		
+		this.controller.finishMappingStage();
+		
+		System.out.println("done mapping");
 	}
 
 	private void createInitialMapShedule() throws ExtensionException {

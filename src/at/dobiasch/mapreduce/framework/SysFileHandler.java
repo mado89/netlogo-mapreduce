@@ -82,6 +82,7 @@ public class SysFileHandler
 	public void cleanSysDir()
 	{
 		// TODO
+		System.out.println("SysFileHandler::cleanSysDir");
 	}
 
 	public String getFile(String fn) {

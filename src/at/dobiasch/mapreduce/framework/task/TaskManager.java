@@ -48,7 +48,7 @@ public class TaskManager {
 		if( cnode != null )
 			mapassignment+= cnode + "-" + tID + "-" + inpid + "-" + partStart + "-" + partEnd + ",";
 		else
-			controller.addMap(fn, partStart, partEnd);
+			controller.addMap(controller.getID(), fn, partStart, partEnd);
 		
 		Task t;
 		if( !taskmap.containsKey(key) )

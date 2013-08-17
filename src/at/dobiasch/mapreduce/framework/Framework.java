@@ -32,7 +32,7 @@ public class Framework
 	{
 		this.config= new Configuration();
 		this.masterp= false;
-		sysfileh= new SysFileHandler("./tmpdir/");
+		sysfileh= new SysFileHandler("./tmpdir" + ((int)(Math.random() * 100))  + "/");
 		
 		this.run= null;
 		this.multinode= false;

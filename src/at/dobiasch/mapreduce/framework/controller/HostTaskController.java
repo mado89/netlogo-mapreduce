@@ -125,7 +125,7 @@ public class HostTaskController
 		RecordWriter outf= this.mapout.get();
 		outf.startSession(ID);
 		Data data= new Data(ID, TaskType.Map, key, key, start, end, outf);
-		System.out.println("HTC:addMap" + data);
+		// System.out.println("HTC:addMap " + data);
 		tasks.addTaskByWorkspace(ws, data);
 	}
 	

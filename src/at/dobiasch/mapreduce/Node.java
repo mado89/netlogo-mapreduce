@@ -1,6 +1,8 @@
 package at.dobiasch.mapreduce;
 
+import java.io.File;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -17,6 +19,7 @@ import scala.Option;
 import at.dobiasch.mapreduce.framework.Framework;
 import at.dobiasch.mapreduce.framework.FrameworkFactory;
 import at.dobiasch.mapreduce.framework.controller.HostController;
+import at.dobiasch.mapreduce.framework.task.IntKeyVal;
 
 /**
  * This is the main class for the Node
@@ -134,6 +137,22 @@ public class Node
 						mapAssignment(msg.substring(14, msg.length() - 7));
 					} else if (msg.startsWith("Some(Text(INPIDS:")) {
 						inputIDs(msg.substring(18, msg.length() - 8));
+					} else if (msg.startsWith("Some(Text(ASSIGNED")) {
+						try {
+							finishMapStage();
+						} catch (ExtensionException e) {
+							this.client.sendActivityCommand("failed-node", this.user);
+						}
+						try {
+							doReduce();
+							doCollect();
+						} catch (IOException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						} catch (CompilerException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
 					} else {
 						System.out.println("Message: " + message );
 					}
@@ -187,21 +206,21 @@ public class Node
 		int i;
 		for(i= 0; i < vals.length; i++)
 		{
-			System.out.println(vals[i]);
+			// System.out.println(vals[i]);
 			String[] h= vals[i].split(":");
 			this.inpids.put(Integer.parseInt(h[1]), h[0]);
 		}
 	}
 
 	private void mapAssignment(String assignment) {
-		System.out.println(assignment);
+		// System.out.println(assignment);
 		
 		String[] vals= assignment.split(",");
 		
 		int i;
 		for(i= 0; i < vals.length - 1; i++)
 		{
-			System.out.println(vals[i]);
+			// System.out.println(vals[i]);
 			
 			if( !vals[i].equals("") )
 			{
@@ -214,12 +233,66 @@ public class Node
 				// h[4] partEnd
 				if( h[0].equals(this.user) )
 				{
-					System.out.println("Controller: " + this.controller);
-					System.out.println("Inpid: " + this.inpids);
-					this.controller.addMap(this.inpids.get(Integer.parseInt(h[2])), 
+					// System.out.println("Controller: " + this.controller);
+					// System.out.println("Inpid: " + this.inpids);
+					this.controller.addMap(Long.parseLong(h[1]), this.inpids.get(Integer.parseInt(h[2])), 
 							Long.parseLong(h[3]), Long.parseLong(h[4]));
 				}
 			}
 		}
+	}
+	
+	private void finishMapStage() throws ExtensionException {
+		boolean result= this.controller.waitForMappingStage();
+		if( result == false)
+			throw new ExtensionException("Mapping-Stage failed");
+		
+		this.controller.finishMappingStage();
+		
+		System.out.println("done mapping");
+	}
+	
+	/**
+	 * Start the Reducing Stage
+	 * Wait for the end
+	 * @throws IOException
+	 * @throws CompilerException
+	 * @throws ExtensionException
+	 */
+	private void doReduce() throws IOException, CompilerException, ExtensionException
+	{
+		Map<String,IntKeyVal> intdata= this.controller.getIntermediateData();
+		String[] kk= new String[intdata.size()];
+		intdata.keySet().toArray(kk);
+		
+		System.out.println(this.user + ": Begin Reducing");
+		this.controller.prepareReduceStage();
+		
+		for(int i= 0; i < kk.length; i++)
+		{
+			this.controller.addReduce(this.controller.getID(), kk[i], intdata.get(kk[i]));
+		}
+				
+		boolean result= this.controller.waitForReduceStage();
+		if( result == false)
+			throw new ExtensionException("Reduce-Stage failed");
+		
+		this.controller.finishReduceStage();
+		System.out.println("Reducing ended");
+	}
+
+	/**
+	 * Collect the results of the reducers
+	 * Send it to the master
+	 * @throws IOException
+	 * @throws InterruptedException
+	 */
+	private void doCollect() throws IOException, InterruptedException
+	{
+		System.out.println("Writing output");
+		
+		String results= this.controller.mergeReduceOutput();
+		
+		this.client.sendActivityCommand("results", this.user + "-" + results);
 	}
 }

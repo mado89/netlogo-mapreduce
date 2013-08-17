@@ -118,7 +118,7 @@ public class SingleNodeRun extends MapReduceRun
 				partEnd= Integer.parseInt(line);
 				// don't add an empty task
 				if( partStart < partEnd )
-					this.controller.addMap(data.key, partStart, partEnd);
+					this.controller.addMap(this.controller.getID(), data.key, partStart, partEnd);
 				
 				partStart= partEnd;
 			}
@@ -127,7 +127,7 @@ public class SingleNodeRun extends MapReduceRun
 			// Partitioning might have written last partition correct ;)
 			// so don't add an empty task
 			if( partStart < partEnd )
-				this.controller.addMap(data.key, partStart, partEnd);
+				this.controller.addMap(this.controller.getID(), data.key, partStart, partEnd);
 		}
 		
 		boolean result= this.controller.waitForMappingStage();
@@ -157,7 +157,7 @@ public class SingleNodeRun extends MapReduceRun
 		
 		for(int i= 0; i < kk.length; i++)
 		{
-			this.controller.addReduce(kk[i], intdata.get(kk[i]));
+			this.controller.addReduce(this.controller.getID(), kk[i], intdata.get(kk[i]));
 		}
 		/*
 		while(keys.hasNext())

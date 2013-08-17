@@ -15,6 +15,8 @@ import java.util.concurrent.TimeUnit;
 import org.nlogo.api.CompilerException;
 import org.nlogo.workspace.AbstractWorkspace;
 
+import ch.randelshofer.quaqua.ext.base64.Base64;
+
 import at.dobiasch.mapreduce.framework.Counter;
 import at.dobiasch.mapreduce.framework.MapOutWriter;
 import at.dobiasch.mapreduce.framework.RecordReader;
@@ -134,9 +136,8 @@ public class HostController
 	 * @param start
 	 * @param end
 	 */
-	public long addMap(String key, long start, long end)
+	public long addMap(long ID, String key, long start, long end)
 	{
-		long ID= getID();
 		// System.out.println(ID + ": " + key + " " + start + " " + end + " submit");
 		
 		this.complet.submit(new MapRun(ID,key,start,end));
@@ -148,14 +149,13 @@ public class HostController
 		return ID;
 	}
 	
-	private synchronized long getID()
+	public synchronized long getID()
 	{
 		return this._ID++;
 	}
 
-	public long addReduce(String key, IntKeyVal value)
+	public long addReduce(long ID, String key, IntKeyVal value)
 	{
-		long ID= getID();
 		IPartitioner part= new HashPartitioner();
 		int p= part.getPartition(key, null, this.redc);
 		this.redcomplet[p].submit(new ReduceRun(ID, key, value,p));
@@ -200,7 +200,7 @@ public class HostController
 		wbmap.release(elem);
 		if( success == false )
 		{
-			this.addMap(key, start, end);
+			this.addMap(getID(), key, start, end);
 		}
 		
 		this.nMapTasksf.add();
@@ -278,7 +278,7 @@ public class HostController
 		wbred.release(elem);
 		if( success == false )
 		{
-			this.addReduce(key, value);
+			this.addReduce(getID(),key, value);
 		}
 		
 		this.nReduceTasksf.add();
@@ -443,6 +443,48 @@ public class HostController
 		out.close();
 		for(i= 0; i < this.redc; i++)
 			reader[i].close();
+	}
+	
+	public String mergeReduceOutput() throws IOException, InterruptedException
+	{
+		RecordReader[] reader;
+		RecordReader in;
+		int i;
+		String out= "";
+		
+		reader= new RecordReader[this.redc];
+		in= new RecordReader(this.redparts);
+		
+		for(i= 0; i < this.redc; i++)
+			reader[i]= new RecordReader(reducewriter.get(i));
+		
+		i= 0;
+		while(in.hasRecordsLeft())
+		{
+			String[] h= in.readRecord();
+			int f= Integer.parseInt(h[1]);
+			List<String[]> recs= reader[f].readSession();
+			
+			// Records can be empty when no data was written
+			if( recs != null )
+			{
+				for(String[] rec : recs)
+				{
+					if( rec[0] == null && rec[1] == null ) {}
+					else
+					{
+						// out.write(rec[0], rec[1]);
+						out+= "<" + Base64.encodeBytes(rec[0].getBytes()) + "," + Base64.encodeBytes(rec[1].getBytes()) + ">";
+					}
+				}
+			}
+			i++;
+		}
+		
+		for(i= 0; i < this.redc; i++)
+			reader[i].close();
+		
+		return out;
 	}
 	
 	public String getReducer()
