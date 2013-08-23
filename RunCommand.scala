@@ -5,6 +5,7 @@ object RunCommand {
     workspace.open(args(0))
     println("RunCommand: run")
     for( i <- 1 to args.length - 1) {
+      println("RunCommand: " + args(i))
       workspace.command(args(i))
       Thread.sleep(1000)
     }
