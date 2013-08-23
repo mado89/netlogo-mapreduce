@@ -26,21 +26,22 @@ public class MapReduce extends DefaultCommand
 		return Syntax.commandSyntax(new int[] {
 				Syntax.StringType() /*Mapper*/, 
 				Syntax.StringType() /*Reducer*/,
-				Syntax.WildcardType()});
+				Syntax.WildcardType() /* Accumulator for Reducer */,
+				Syntax.StringType() /*Input*/});
 	}
 	
 	public void perform(Argument args[], Context context) throws ExtensionException
 	{
-		HubNetInterface hubnet = Manager.em.workspace().getHubNetManager();
 		Framework fw = FrameworkFactory.getInstance();
 		
 		try {
 			fw.getConfiguration().setMapper(args[0].getString());
 			fw.getConfiguration().setReducer(args[1].getString());
 			fw.getConfiguration().setAccumulatorFromObj(args[2].get());
+			fw.getConfiguration().setInputDirectory(args[3].getString());
 		} catch (LogoException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
+			throw new ExtensionException(e);
 		}
 		
 		String world,model;
