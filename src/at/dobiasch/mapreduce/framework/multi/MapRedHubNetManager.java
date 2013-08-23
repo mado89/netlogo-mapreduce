@@ -1,5 +1,6 @@
 package at.dobiasch.mapreduce.framework.multi;
 
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
@@ -10,6 +11,8 @@ import org.nlogo.api.ExtensionException;
 import org.nlogo.api.HubNetInterface;
 import org.nlogo.api.LogoException;
 import org.nlogo.headless.HeadlessWorkspace;
+
+import ch.randelshofer.quaqua.ext.base64.Base64;
 
 import at.dobiasch.mapreduce.MapReduceRun;
 import at.dobiasch.mapreduce.MultiNodeRun;
@@ -137,12 +140,29 @@ public class MapRedHubNetManager {
 	                        else if( hubnet.exitMessage() )
 	                        {
 	                        	System.out.println("Client left");
-								String name = "xx";
+								String name = hubnet.getMessageSource();
 								run.removeClient(name);
+	                        }
+	                        else if( hubnet.getMessageTag().equals("results") )
+	                        {
+	                        	System.out.println("Tag: " + hubnet.getMessageTag());
+	                        	System.out.println("Source: " + hubnet.getMessageSource());
+	                        	System.out.println("Message: " + hubnet.getMessage());
+	                        	byte[] decoded = Base64.decode((String) hubnet.getMessage());
+	                        	String res= null;
+								try {
+									res = new String(decoded, "UTF-8");
+								} catch (UnsupportedEncodingException e) {
+									e.printStackTrace();
+								}
+	                        	run.newMapResult(hubnet.getMessageSource(), res);
+	                        	run.nodeFinished(hubnet.getMessageSource());
 	                        }
 	                        else
 	                        {
-	                        	
+	                        	System.out.println("Tag: " + hubnet.getMessageTag());
+	                        	System.out.println("Source: " + hubnet.getMessageSource());
+	                        	System.out.println("Message: " + hubnet.getMessage());
 	                        }
 	                }
 	        } catch (LogoException e) {

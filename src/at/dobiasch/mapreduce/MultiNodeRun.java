@@ -5,8 +5,10 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.Arrays;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
@@ -14,14 +16,15 @@ import org.nlogo.api.CompilerException;
 import org.nlogo.api.ExtensionException;
 import org.nlogo.api.LogoException;
 
+import at.dobiasch.mapreduce.framework.ChecksumHelper;
 import at.dobiasch.mapreduce.framework.Framework;
-import at.dobiasch.mapreduce.framework.FrameworkException;
 import at.dobiasch.mapreduce.framework.InputChecker;
 import at.dobiasch.mapreduce.framework.controller.HostController;
 import at.dobiasch.mapreduce.framework.multi.MapRedHubNetManager;
 import at.dobiasch.mapreduce.framework.multi.NodeManager;
 import at.dobiasch.mapreduce.framework.partition.CheckPartData;
 import at.dobiasch.mapreduce.framework.partition.Data;
+import at.dobiasch.mapreduce.framework.task.IntKeyVal;
 import at.dobiasch.mapreduce.framework.task.TaskManager;
 
 public class MultiNodeRun extends MapReduceRun
@@ -34,10 +37,10 @@ public class MultiNodeRun extends MapReduceRun
 	private HashMap<Data, Integer> partIDs;
 	private String inpIDmsg;
 	private NodeManager nodes;
-	// private Map<String,List<String>> nodetasks;
-	// private Map<String,List<String>> tasknodes;
 	private long _id= 1;
 	private TaskManager taskmanager;
+	Map<String,IntKeyVal> intdata= null;
+	MessageDigest md= null;
 	
 	private long getID() {
 		return _id++;
@@ -50,8 +53,13 @@ public class MultiNodeRun extends MapReduceRun
 		this.world= world;
 		this.modelpath= modelpath;
 		this.nodes= new NodeManager();
-		// this.nodetasks= new HashMap<String,List<String>>();
-		// this.tasknodes= new HashMap<String,List<String>>();
+		intdata= new HashMap<String,IntKeyVal>();
+		
+		try {
+			md = MessageDigest.getInstance("SHA1");
+		} catch (NoSuchAlgorithmException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	public void setup() throws ExtensionException
@@ -81,11 +89,6 @@ public class MultiNodeRun extends MapReduceRun
 			throw new ExtensionException(e);
 		}
 	}
-
-	/*
-	private void startHubNetManager() throws CompilerException {
-		fw.getHubNetManager().start();
-	}*/
 
 	@Override
 	public double getMapProgress() {
@@ -117,13 +120,13 @@ public class MultiNodeRun extends MapReduceRun
 		
 		doMap();
 		
+		collectMapResults();
+		
 		finishMapStage();
 			
-			// doCollect();
+		doReduce();
 			
-			// doReduce();
-			
-			// doCollect();
+		outputResult();
 	}
 	
 	private void doMap() throws ExtensionException{
@@ -139,7 +142,7 @@ public class MultiNodeRun extends MapReduceRun
 		} catch (LogoException e) {
 			e.printStackTrace();
 			throw new ExtensionException(e);
-		}
+		} 
 	}
 	
 	private void finishMapStage() throws ExtensionException {
@@ -151,11 +154,68 @@ public class MultiNodeRun extends MapReduceRun
 		
 		System.out.println("done mapping");
 	}
+	
+	private void collectMapResults() {
+		// no wait for hosts to send in finished tasks
+		System.out.println("Master: sleeping");
+		synchronized( this.taskmanager ) {
+			while( !taskmanager.allMapsDone() ) {
+				try {
+					taskmanager.wait();
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		}
+		System.out.println("Master: finished");
+	}
+	
+	private void doReduce() throws ExtensionException
+	{
+		Map<String,IntKeyVal> intd= this.controller.getIntermediateData(intdata);
+		
+		String[] kk= new String[intd.size()];
+		
+		intd.keySet().toArray(kk);
+		
+		System.out.println("Sorting");
+		Arrays.sort(kk);
+		
+		try {
+			System.out.println("Begin Reducing");
+			this.controller.prepareReduceStage();
+			
+			for(int i= 0; i < kk.length; i++)
+			{
+				this.controller.addReduce(this.controller.getID(), kk[i], intd.get(kk[i]));
+			}
+			
+			boolean result= this.controller.waitForReduceStage();
+			if( result == false)
+				throw new ExtensionException("Reduce-Stage failed");
+			
+			this.controller.finishReduceStage();
+			System.out.println("Reducing ended");
+		} catch (IOException e) {
+			e.printStackTrace();
+			throw new ExtensionException(e);
+		} catch (CompilerException e) {
+			e.printStackTrace();
+			throw new ExtensionException(e);
+		}
+	}
 
 	private void createInitialMapShedule() throws ExtensionException {
         long partStart;
         long partEnd;
         int inpid;
+        
+        try {
+			fw.getHubNetManager().broadcast(inpIDmsg);
+		} catch (LogoException e1) {
+			e1.printStackTrace();
+		}
         
         taskmanager= new TaskManager();
         
@@ -266,5 +326,63 @@ public class MultiNodeRun extends MapReduceRun
 		taskmanager.removeNode(name);
 		
 		nodes.removeClient(name);
+	}
+
+	public void newMapResult(String source, String resultstring)
+	{
+		System.out.println("Resultstring: " + resultstring);
+		String[] results= resultstring.split(">");
+		String[] res;
+		IntKeyVal h;
+		String fn;
+		String key;
+		int i;
+		
+		for(i= 0; i < results.length; i++)
+		{
+			System.out.println("Results: " + results[i]);
+			
+			res= results[i].split(",");
+			key= res[0].substring(1);
+			
+			h= intdata.get(key);
+            
+			try {
+	            if( h == null )
+	            {
+	                md.update(key.getBytes());
+	                fn= fw.getSystemFileHandler().addFile(ChecksumHelper.convToHex(md.digest()) + ".int");
+	                h= new IntKeyVal(key,fn);
+					
+	                intdata.put(key, h);
+	            }
+	            
+	            h.writeValue(res[1]);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
+	public void nodeFinished(String node) {
+		taskmanager.tasksDone(node);
+	}
+	
+	private void outputResult() throws ExtensionException {
+		String fn;
+		System.out.println("Writing output");
+		fn= this.fw.getConfiguration().getOutputDirectory();
+		if( !fn.equals("") && !fn.endsWith("" + File.separatorChar)) //TODO: make it work for OS-Problems \\ on linux
+			fn+= File.separatorChar;
+		fn+= "output.txt";
+		try {
+			this.controller.mergeReduceOutput(fn);
+		} catch (IOException e) {
+			e.printStackTrace();
+			throw new ExtensionException(e);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+			throw new ExtensionException(e);
+		}
 	}
 }

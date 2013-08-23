@@ -191,6 +191,12 @@ public class HostTaskController
 		System.out.println("closed");
 	}
 	
+	public Map<String,IntKeyVal> getIntermediateData(Map<String,IntKeyVal> intdata)
+	{
+		this.intdata= intdata;
+		return this.getIntermediateData();
+	}
+	
 	public Map<String,IntKeyVal> getIntermediateData()
 	{
 		// TODO: make this parallel

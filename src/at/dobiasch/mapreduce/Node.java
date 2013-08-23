@@ -1,8 +1,6 @@
 package at.dobiasch.mapreduce;
 
-import java.io.File;
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -117,10 +115,11 @@ public class Node
 			try
 			{
 				Option<Message> message;
+				Option<Message> None= scala.Option.apply(null);
 				String msg;
 				// if( hubnet.messageWaiting() )
-				message= this.client.nextMessage(0);
-				if( message != null )
+				message= this.client.nextMessage(0); // scala.Option.apply(null);
+				if( message != null && message != None )
 				{
 					// hubnet.fetchMessage();
 					// System.out.println("Message: " + message );
@@ -157,8 +156,8 @@ public class Node
 						System.out.println("Message: " + message );
 					}
 				}
-				else
-					System.out.println("Node:null");
+				// else
+				// 	System.out.println("Node:null/None");
 				Thread.sleep(100);
 			} catch (InterruptedException e) {
 				System.out.println("Node interruped");
@@ -234,7 +233,7 @@ public class Node
 				if( h[0].equals(this.user) )
 				{
 					// System.out.println("Controller: " + this.controller);
-					// System.out.println("Inpid: " + this.inpids);
+					// System.out.println("Inpid: " + this.inpids + " : " + h[2]);
 					this.controller.addMap(Long.parseLong(h[1]), this.inpids.get(Integer.parseInt(h[2])), 
 							Long.parseLong(h[3]), Long.parseLong(h[4]));
 				}
@@ -291,8 +290,9 @@ public class Node
 	{
 		System.out.println("Writing output");
 		
-		String results= this.controller.mergeReduceOutput();
+		String results= this.controller.mergeReduceOutputD();
 		
-		this.client.sendActivityCommand("results", this.user + "-" + results);
+		// System.out.println("Node:" + results);
+		this.client.sendActivityCommand("results", results);
 	}
 }

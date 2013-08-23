@@ -15,10 +15,7 @@ import java.util.concurrent.TimeUnit;
 import org.nlogo.api.CompilerException;
 import org.nlogo.workspace.AbstractWorkspace;
 
-import ch.randelshofer.quaqua.ext.base64.Base64;
-
 import at.dobiasch.mapreduce.framework.Counter;
-import at.dobiasch.mapreduce.framework.MapOutWriter;
 import at.dobiasch.mapreduce.framework.RecordReader;
 import at.dobiasch.mapreduce.framework.RecordWriter;
 import at.dobiasch.mapreduce.framework.RecordWriterBuffer;
@@ -30,6 +27,7 @@ import at.dobiasch.mapreduce.framework.partition.IPartitioner;
 import at.dobiasch.mapreduce.framework.task.IntKeyVal;
 import at.dobiasch.mapreduce.framework.task.MapRun;
 import at.dobiasch.mapreduce.framework.task.ReduceRun;
+import ch.randelshofer.quaqua.ext.base64.Base64;
 
 public class HostController
 {
@@ -104,7 +102,7 @@ public class HostController
 	@SuppressWarnings("unchecked") //TODO: this is for redcomplet init ...
 	public void prepareReduceStage() throws IOException, CompilerException
 	{
-		this.wbred= new WorkspaceBuffer(this.mapc ,world, modelpath);
+		this.wbred= new WorkspaceBuffer(this.redc ,world, modelpath);
 		// this.wbred.compileComands(null, reducer);
 		// TODO: belows null assignments are only for debugging, remove them
 		this.complet= null;
@@ -184,6 +182,7 @@ public class HostController
 	{
 		WorkspaceBuffer.Element elem= wbmap.get();
 		this.htc.addMap(elem.ws, ID, key, start, end);
+		// System.out.println("Map startRun:" + elem.ws + " " + ID + " " + key + " " + start);
 		return elem;
 	}
 	
@@ -244,9 +243,24 @@ public class HostController
 		// }
 	}
 
+	/**
+	 * Get all files to be reduced on this host
+	 * @return
+	 */
 	public Map<String, IntKeyVal> getIntermediateData()
 	{
 		return this.htc.getIntermediateData();
+	}
+	
+	/**
+	 * Get all files to be reduced on this host
+	 * Files in intdata are also used 
+	 * @param intdata
+	 * @return
+	 */
+	public Map<String, IntKeyVal> getIntermediateData(Map<String,IntKeyVal> intdata)
+	{
+		return this.htc.getIntermediateData(intdata);
 	}
 
 	/**
@@ -445,7 +459,7 @@ public class HostController
 			reader[i].close();
 	}
 	
-	public String mergeReduceOutput() throws IOException, InterruptedException
+	public String mergeReduceOutputD() throws IOException, InterruptedException
 	{
 		RecordReader[] reader;
 		RecordReader in;
@@ -474,7 +488,8 @@ public class HostController
 					else
 					{
 						// out.write(rec[0], rec[1]);
-						out+= "<" + Base64.encodeBytes(rec[0].getBytes()) + "," + Base64.encodeBytes(rec[1].getBytes()) + ">";
+						// out+= "<" + Base64.encodeBytes(rec[0].getBytes()) + "," + Base64.encodeBytes(rec[1].getBytes()) + ">";
+						out+= "<" + rec[0] +  "," + rec[1] + ">";
 					}
 				}
 			}
@@ -484,7 +499,7 @@ public class HostController
 		for(i= 0; i < this.redc; i++)
 			reader[i].close();
 		
-		return out;
+		return Base64.encodeBytes(out.getBytes());
 	}
 	
 	public String getReducer()

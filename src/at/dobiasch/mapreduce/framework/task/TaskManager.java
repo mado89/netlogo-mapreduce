@@ -41,7 +41,8 @@ public class TaskManager {
 	}
 
 	public void assignMapTask(long tID, long partStart, long partEnd, int inpid, String fn) {
-		String key= inpid + "-" + partStart + "-" + partEnd;
+		Task t= new Task(inpid,partStart,partEnd);
+		String key= t.getKey();
 		
 		System.out.println("Create Task: " + inpid + " " + cnode + " " + tfn + " " + partStart);
 		
@@ -50,15 +51,15 @@ public class TaskManager {
 		else
 			controller.addMap(controller.getID(), fn, partStart, partEnd);
 		
-		Task t;
 		if( !taskmap.containsKey(key) )
 		{
-			t= new Task(inpid,partStart,partEnd);
 			taskmap.put(key,t);
 		}
 		else
 			t= taskmap.get(key);
 		t.addWorker(cnode);
+		if( cnode != null )
+			nodes.addNodeTask(cnode,t);
         
         // Check if the maximum of tasks for this node is added
         tfn++;
@@ -70,6 +71,26 @@ public class TaskManager {
                 	cnode= null;
                 tfn= 0;
         }
+	}
+	
+	public void taskDone(String node, long ID) {
+		
+	}
+	
+	/**
+	 * Check whether all map tasks assigned to other nodes are done
+	 * @return
+	 */
+	public boolean allMapsDone() {
+		Iterator<String> nit= nodes.iteratorNodeNames();
+		
+		while( nit.hasNext() ) {
+			String node= nit.next();
+			if( nodes.getNodeTasks(node).size() > 0 )
+				return false;
+		}
+		
+		return true;
 	}
 	
 	public String getMapAssignmentString() {
@@ -93,5 +114,16 @@ public class TaskManager {
 			tasknodes.remove(task);
 	}
 		 */
+	}
+
+	public void tasksDone(String node) {
+		for(Task t : nodes.getNodeTasks(node))
+		{
+			taskmap.get(t.getKey()).removeWorker(node);
+		}
+		nodes.removeNodeTasks(node);
+		synchronized(this){
+			notifyAll();
+		}
 	}
 }
