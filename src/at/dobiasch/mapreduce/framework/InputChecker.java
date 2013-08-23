@@ -27,24 +27,31 @@ public class InputChecker
 		String indir= fw.getConfiguration().getInputDirectory();
 		File inputdir = new File(indir);
 		
-		FilenameFilter filter = new FilenameFilter() {
-		    public boolean accept(File dir, String name) {
-		        return !name.startsWith(".");
-		    }
-		};
-
-		String[] children = inputdir.list(filter);
-		if (children == null)
+		if( inputdir.isFile() )
 		{
-		    // Either dir does not exist or is not a directory
+			part.addFile(indir);
 		}
 		else
 		{
-		    for (int i=0; i<children.length; i++) {
-		        // Get filename of file or directory
-		    	// System.out.println(children[i]);
-		        part.addFile(indir + "/" + children[i]);
-		    }
+			FilenameFilter filter = new FilenameFilter() {
+			    public boolean accept(File dir, String name) {
+			        return !name.startsWith(".");
+			    }
+			};
+	
+			String[] children = inputdir.list(filter);
+			if (children == null)
+			{
+			    // Either dir does not exist or is not a directory
+			}
+			else
+			{
+			    for (int i=0; i<children.length; i++) {
+			        // Get filename of file or directory
+			    	// System.out.println(children[i]);
+			        part.addFile(indir + "/" + children[i]);
+			    }
+			}
 		}
 		
 		indata= part.getData();
