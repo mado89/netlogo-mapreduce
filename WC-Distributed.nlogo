@@ -12,22 +12,12 @@ to-report split [ #string ] ; http://groups.yahoo.com/group/netlogo-users/messag
   ]
 end
 
-to read-file ; [file-name contents] ; Jeweils eine ganze Datei bearbeiten
-  let x mapreduce:values
-  let file-name mapreduce:key
-  ; print x
-  foreach x
+to read-file [file-name line]
+  foreach split line; Text lesen und zerteilen
   [
-     foreach split ? ; Text lesen und zerteilen
-     [
-       ; show ?
-       mapreduce:emit ? "1" ; <wort, 1> Wort kommt aus split
-     ]
+    ; show ?
+    mapreduce:emit ? "1" ; <wort, 1> Wort kommt aus split
   ]
-  
-  ; let aa 0
-  ; repeat 10000000 [ set aa 12345678010 * 123489023809 ]
-  ; repeat 10000000 [ set aa 12345678010 * 123489023809 ]
   
   show word file-name "done"
 end
@@ -63,10 +53,8 @@ to wc
   
   reset-ticks
   
-  mapreduce:config.input "/home/martin/DA/input5" ; Den gesamten Inhalt des Verzeichnisses bearbeiten
   mapreduce:config.output "" ; im aktuellen Verzeichnis ausgeben
-  ; mapred:mapreduce.local task read-file task word-count
-  mapreduce:mapreduce "read-file" "word-count" 0
+  mapreduce:mapreduce "read-file" "word-count" 0 "/home/martin/DA/input5"
   print "mapreduce:mapreduce fertig"
   while [mapreduce:running?] [
    every 0.5 [

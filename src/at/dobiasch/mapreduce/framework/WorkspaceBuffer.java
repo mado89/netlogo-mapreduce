@@ -144,7 +144,8 @@ public class WorkspaceBuffer
 		for(i= 0; i < q.size(); i++)
 		{
 			Element e= q.poll();
-			e.map= e.ws.compileCommands(map);
+			String cmd= map + " mapreduce:key first mapreduce:values";
+			e.map= e.ws.compileCommands(cmd);
 			
 			compileHelperCommands(e);
 			
