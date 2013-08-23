@@ -54,6 +54,7 @@ public class MultiNodeRun extends MapReduceRun
 		this.modelpath= modelpath;
 		this.nodes= new NodeManager();
 		intdata= new HashMap<String,IntKeyVal>();
+		taskmanager= new TaskManager();
 		
 		try {
 			md = MessageDigest.getInstance("SHA1");
@@ -92,14 +93,12 @@ public class MultiNodeRun extends MapReduceRun
 
 	@Override
 	public double getMapProgress() {
-		// TODO Auto-generated method stub
-		return 0;
+		return this.taskmanager.getMapProgress(this.controller.getMapProgress());
 	}
 
 	@Override
 	public double getReduceProgress() {
-		// TODO Auto-generated method stub
-		return 0;
+		return this.controller.getReduceProgress();
 	}
 
 	@Override
@@ -216,8 +215,6 @@ public class MultiNodeRun extends MapReduceRun
 		} catch (LogoException e1) {
 			e1.printStackTrace();
 		}
-        
-        taskmanager= new TaskManager();
         
         taskmanager.setNodes(nodes);
         taskmanager.initMap(indata.getNumberOfPartitions(), controller);

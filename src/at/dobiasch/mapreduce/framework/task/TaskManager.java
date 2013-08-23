@@ -18,10 +18,16 @@ public class TaskManager {
 	private Map<String,Task> taskmap;
 	private String mapassignment; //Initial Map-Assignment (to send it out)
 	private HostController controller;
+	private int localtasks;
+	private int nodetasks;
+	private int finishednodetasks;
 	
 	public TaskManager()
 	{
 		taskmap= new HashMap<String,Task>();
+		localtasks= 0;
+		nodetasks= 0;
+		finishednodetasks= 0;
 	}
 
 	public void setNodes(NodeManager nodes) {
@@ -46,10 +52,14 @@ public class TaskManager {
 		
 		System.out.println("Create Task: " + inpid + " " + cnode + " " + tfn + " " + partStart);
 		
-		if( cnode != null )
+		if( cnode != null ) {
 			mapassignment+= cnode + "-" + tID + "-" + inpid + "-" + partStart + "-" + partEnd + ",";
-		else
+			nodetasks++;
+		}
+		else {
 			controller.addMap(controller.getID(), fn, partStart, partEnd);
+			localtasks++;
+		}
 		
 		if( !taskmap.containsKey(key) )
 		{
@@ -116,14 +126,24 @@ public class TaskManager {
 		 */
 	}
 
+	/**
+	 * Remove the node as worker from the tasks assigned to the node
+	 * Remove the assigned tasks from the node
+	 * @param node
+	 */
 	public void tasksDone(String node) {
 		for(Task t : nodes.getNodeTasks(node))
 		{
 			taskmap.get(t.getKey()).removeWorker(node);
+			finishednodetasks++;
 		}
 		nodes.removeNodeTasks(node);
 		synchronized(this){
 			notifyAll();
 		}
+	}
+	
+	public double getMapProgress(double localMapProgress) {
+		return (localtasks * localMapProgress + finishednodetasks) / (double) (localtasks + nodetasks);
 	}
 }
