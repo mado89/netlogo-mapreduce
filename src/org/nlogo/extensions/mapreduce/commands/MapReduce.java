@@ -43,19 +43,16 @@ public class MapReduce extends DefaultCommand
 			e.printStackTrace();
 		}
 		
-		if( fw.getNNodes(hubnet) == 0 )
-		{
-			String world,model;
-			world= Manager.getWorld();
-			model= Manager.em.workspace().getModelPath();
-			MapReduceRun run;
-			if( fw.isMultiNode() )
-				run= new MultiNodeRun(fw,world,model);
-			else
-				run= new SingleNodeRun(fw,world,model);
-			fw.setRun(run);
-			run.setup();
-			run.startRun();
-		}
+		String world,model;
+		world= Manager.getWorld();
+		model= Manager.em.workspace().getModelPath();
+		MapReduceRun run;
+		if( fw.isMultiNode() )
+			run= new MultiNodeRun(fw,world,model);
+		else
+			run= new SingleNodeRun(fw,world,model);
+		fw.setRun(run);
+		run.setup();
+		run.startRun();
 	}
 }
