@@ -48,7 +48,7 @@ public class TextInputFormat implements IInputParser
 			// System.out.println("running " + data.key + " " + data.start + " " + data.end + " " + vals.length);
 			
 			this.vals= list.toLogoList();
-			this.key= "" + data.start;
+			this.key= "" + data.src;
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 			throw new ExtensionException(e);
