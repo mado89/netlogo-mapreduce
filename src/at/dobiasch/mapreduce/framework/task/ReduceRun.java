@@ -61,12 +61,44 @@ public class ReduceRun implements Callable<Object>
 				System.out.println("read " + data.ID + " " + data.key + " " + vals[0].replaceAll("\\n","") + " " + vals.length);
 				Accumulator accum= fw.getConfiguration().getAccumulator().copy();
 				
-				for(int i= 0; i < vals.length; i++)
+				int count= 0;
+				boolean success= false;
+				for(int i= 0; i < vals.length;)
 				{
 					String cmd= controller.getReducer() + " \"" + data.key + "\" " + accum.toLogo() + " \"" + vals[i] + "\"";
 					System.out.println(cmd);
-					Object o= elem.ws.report(cmd);
-					accum.set(o);
+					Object o= null;
+					try
+					{
+						o= elem.ws.report(cmd);
+						System.out.println("Reduce step returned: " + o);
+						success= elem.ws.lastLogoException() == null;
+					} catch( Exception e) {
+						System.out.println("Exception caught in reporter");
+						e.printStackTrace();
+						success= false;
+					}
+					if( success )
+					{
+						accum.set(o);
+						i++;
+						count= 0;
+					}
+					else
+					{
+						if( elem.ws.lastLogoException() != null )
+							System.out.println(elem.ws.lastLogoException().getMessage());
+						count++;
+						if( count > 1 ) //TODO: this needs to be logged!
+						{
+							System.out.println("Reduce-Step failed -> skip");
+							
+							i++;
+							count= 0;
+						}
+						else
+							System.out.println("Reduce-Step failed");
+					}
 				}
 				controller.emit(elem.ws, data.key, accum.toString());
 			} catch (FileNotFoundException e) {
