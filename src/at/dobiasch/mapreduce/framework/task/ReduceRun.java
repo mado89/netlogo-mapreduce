@@ -7,7 +7,7 @@ import java.util.concurrent.Callable;
 
 import org.nlogo.api.ExtensionException;
 
-import at.dobiasch.mapreduce.framework.Accumulator;
+import at.dobiasch.mapreduce.framework.LogoObject;
 import at.dobiasch.mapreduce.framework.Framework;
 import at.dobiasch.mapreduce.framework.FrameworkFactory;
 import at.dobiasch.mapreduce.framework.WorkspaceBuffer;
@@ -59,7 +59,7 @@ public class ReduceRun implements Callable<Object>
 				String[] vals= new String(b).split("\n");
 				
 				System.out.println("read " + data.ID + " " + data.key + " " + vals[0].replaceAll("\\n","") + " " + vals.length);
-				Accumulator accum= fw.getConfiguration().getAccumulator().copy();
+				LogoObject accum= fw.getConfiguration().getAccumulator().copy();
 				
 				int count= 0;
 				boolean success= false;

@@ -152,7 +152,7 @@ public class SingleNodeRun extends MapReduceRun
 		System.out.println("Sorting");
 		Arrays.sort(kk);
 		
-		System.out.println("Begin Reducing");
+		System.out.println("Begin Reducing #Reduce-Tasks: " + kk.length);
 		this.controller.prepareReduceStage();
 		
 		for(int i= 0; i < kk.length; i++)

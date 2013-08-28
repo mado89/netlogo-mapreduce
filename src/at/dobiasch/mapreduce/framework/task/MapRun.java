@@ -39,6 +39,12 @@ public class MapRun implements Callable<Object>
 			excep= elem.ws.lastLogoException() != null;
 			// System.out.println("done compiled command " + ID + ": " + excep);
 			
+			/*if( excep ) // There was an exception. Try it again. 
+			{
+				elem.ws.clearLastLogoException();
+				elem.ws.runCompiledCommands(elem.owner, elem.map);
+				excep= elem.ws.lastLogoException() != null;
+			}*/
 			returned= true;
 		} catch (RuntimeException e) {
 			e.printStackTrace();
@@ -50,7 +56,8 @@ public class MapRun implements Callable<Object>
 			boolean suc = returned && !excep;
 			if( excep )
 			{
-				System.out.println(elem.ws.lastLogoException().getMessage());
+				System.out.println("LogoException: " + elem.ws.lastLogoException().getMessage());
+				elem.ws.lastLogoException().printStackTrace();
 				elem.ws.clearLastLogoException();
 			}
 			try {

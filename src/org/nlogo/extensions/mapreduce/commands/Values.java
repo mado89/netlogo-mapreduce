@@ -17,7 +17,7 @@ public class Values extends DefaultReporter
 {
 	public Syntax getSyntax()
 	{
-		return Syntax.reporterSyntax( new int[] {  } , Syntax.ListType() ) ;
+		return Syntax.reporterSyntax( new int[] {  } , Syntax.WildcardType() ) ;
 	}
 	
 	public Object report(Argument args[], Context context)
@@ -41,6 +41,6 @@ public class Values extends DefaultReporter
 		Framework fw= FrameworkFactory.getInstance();
 		HostController controller= fw.getTaskController();
 		Data data= controller.getData(ws);
-		return data.values;
+		return data.value.getObject();
 	}
 }

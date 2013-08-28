@@ -5,15 +5,15 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 
 import org.nlogo.api.ExtensionException;
-import org.nlogo.api.LogoList;
 import org.nlogo.api.LogoListBuilder;
 
+import at.dobiasch.mapreduce.framework.LogoObject;
 import at.dobiasch.mapreduce.framework.controller.Data;
 
 public class TextInputFormat implements IInputParser
 {
 	private String sep;
-	private LogoList vals;
+	private LogoObject vals;
 	private String key;
 
 	@Override
@@ -36,18 +36,30 @@ public class TextInputFormat implements IInputParser
 			
 			in.close();
 			
-			LogoListBuilder list = new LogoListBuilder();
 			// System.out.println(data.ID + " " + new String(b));
-			String[] vals= new String(b).split(sep);
-			b= null;
-			for(int i= 0; i < vals.length; i++)
-				list.add(vals[i].replaceAll("\\r|\\n", ""));
+			if( sep.equals("\n") )
+			{
+				LogoObject o= new LogoObject();
+				o.set(new String(b).replaceAll("\\r|\\n", ""));
+				this.vals= o;
+			}
+			else
+			{
+				LogoListBuilder list = new LogoListBuilder();
+				String[] vals= new String(b).split(sep);
+				b= null;
+				for(int i= 0; i < vals.length; i++)
+					list.add(vals[i].replaceAll("\\r|\\n", ""));
+				
+				// if( vals.length > 0)
+				// 	System.out.println(data.ID + ": " + data.src + " " + data.start + " " + data + " " + vals[0].replaceAll("\\r|\\n", ""));
+				// System.out.println("running " + data.key + " " + data.start + " " + data.end + " " + vals.length);
+				
+				LogoObject o= new LogoObject();
+				o.set(list.toLogoList());
+				this.vals= o;
+			}
 			
-			// if( vals.length > 0)
-			// 	System.out.println(data.ID + ": " + data.src + " " + data.start + " " + data + " " + vals[0].replaceAll("\\r|\\n", ""));
-			// System.out.println("running " + data.key + " " + data.start + " " + data.end + " " + vals.length);
-			
-			this.vals= list.toLogoList();
 			this.key= "" + data.src;
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
@@ -59,7 +71,7 @@ public class TextInputFormat implements IInputParser
 	}
 
 	@Override
-	public LogoList getValues()
+	public LogoObject getValues()
 	{
 		return this.vals;
 	}

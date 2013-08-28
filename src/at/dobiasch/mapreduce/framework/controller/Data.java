@@ -2,6 +2,7 @@ package at.dobiasch.mapreduce.framework.controller;
 
 import org.nlogo.api.LogoList;
 
+import at.dobiasch.mapreduce.framework.LogoObject;
 import at.dobiasch.mapreduce.framework.RecordWriter;
 import at.dobiasch.mapreduce.framework.TaskType;
 
@@ -19,7 +20,7 @@ public class Data
 	public long start;
 	public long end;
 	public RecordWriter dest;
-	public LogoList values;
+	public LogoObject value;
 	
 	/**
 	 * 

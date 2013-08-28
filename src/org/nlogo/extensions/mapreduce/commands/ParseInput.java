@@ -14,6 +14,7 @@ import org.nlogo.workspace.AbstractWorkspace;
 
 import at.dobiasch.mapreduce.framework.Framework;
 import at.dobiasch.mapreduce.framework.FrameworkFactory;
+import at.dobiasch.mapreduce.framework.LogoObject;
 import at.dobiasch.mapreduce.framework.TaskType;
 import at.dobiasch.mapreduce.framework.controller.Data;
 import at.dobiasch.mapreduce.framework.controller.HostController;
@@ -57,7 +58,9 @@ public class ParseInput extends DefaultCommand
 				
 				System.out.println("read " + data.ID + " " + data.key + " " + vals[0].replaceAll("\\n","") + " " + vals.length);
 				
-				data.values= list.toLogoList();
+				LogoObject o= new LogoObject();
+				o.set(list.toLogoList());
+				data.value= o;
 			} catch (FileNotFoundException e) {
 				e.printStackTrace();
 				throw new ExtensionException(e);
@@ -74,7 +77,7 @@ public class ParseInput extends DefaultCommand
 				inp.parseInput(data);
 				
 				data.key= inp.getKey();
-				data.values= inp.getValues();
+				data.value= inp.getValues();
 				// if( ! data.values.isEmpty() )
 				// 	System.out.println(data.ID + " " + ws + " " + data + " " + data.values.first());
 			}

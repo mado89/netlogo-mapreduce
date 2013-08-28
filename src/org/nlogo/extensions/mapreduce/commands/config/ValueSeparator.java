@@ -9,7 +9,7 @@ import org.nlogo.api.Syntax;
 
 import at.dobiasch.mapreduce.framework.FrameworkFactory;
 
-public class ValueSeperator extends DefaultCommand
+public class ValueSeparator extends DefaultCommand
 {
 	public Syntax getSyntax()
 	{

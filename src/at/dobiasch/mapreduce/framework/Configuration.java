@@ -18,10 +18,10 @@ public class Configuration
 	private String parser;
 	private String valsep;
 	private IInputParser inp;
-	private Accumulator accumulator;
+	private LogoObject accumulator;
 	
 	private static final String INDIR    = "input";
-	private static final String OUTDIR   = "output";
+	private static final String OUTDIR   = "";
 	private static final String MAPPER   = "mapper";
 	private static final String REDUCER  = "reducer";
 	private static final int    MAPPERS  = Runtime.getRuntime().availableProcessors() * 2;
@@ -38,7 +38,7 @@ public class Configuration
 		mappers= MAPPERS;
 		reducers= REDUCERS;
 		valsep= VALSEP;
-		accumulator= new Accumulator();
+		accumulator= new LogoObject();
 		accumulator.set(0.0);
 		this.setInputParser(PARSER);
 	}
@@ -125,7 +125,7 @@ public class Configuration
 		this.inp.init(this.valsep);
 	}
 	
-	public void setAccumulator(Accumulator accumulator)
+	public void setAccumulator(LogoObject accumulator)
 	{
 		this.accumulator= accumulator;
 	}
@@ -258,7 +258,7 @@ public class Configuration
 		return this.inp;
 	}
 
-	public Accumulator getAccumulator() {
+	public LogoObject getAccumulator() {
 		return accumulator;
 	}
 

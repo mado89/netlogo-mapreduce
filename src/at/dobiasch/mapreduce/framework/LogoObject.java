@@ -3,14 +3,14 @@ package at.dobiasch.mapreduce.framework;
 import org.nlogo.api.LogoList;
 import org.nlogo.api.LogoListBuilder;
 
-public class Accumulator {
+public class LogoObject {
 	private String svalue;
 	private double dvalue;
 	private boolean bvalue;
 	private LogoList lvalue;
 	private int type= 0;
 	
-	public Accumulator()
+	public LogoObject()
 	{
 		type= 0;
 	}
@@ -168,6 +168,24 @@ public class Accumulator {
 		return null;
 	}
 	
+	public Object getObject()
+	{
+		switch( type )
+		{
+			case 0:
+				throw new IllegalStateException();
+			case 1:
+				return svalue;
+			case 2:
+				return dvalue;
+			case 3:
+				return bvalue;
+			case 4:
+				return lvalue;
+		}
+		return null;
+	}
+	
 	private String lvalueToLogo()
 	{
 		String ret= "[";
@@ -186,9 +204,9 @@ public class Accumulator {
 		return ret;
 	}
 
-	public Accumulator copy()
+	public LogoObject copy()
 	{
-		Accumulator accum= new Accumulator();
+		LogoObject accum= new LogoObject();
 		
 		accum.type= this.type;
 		accum.svalue= this.svalue;

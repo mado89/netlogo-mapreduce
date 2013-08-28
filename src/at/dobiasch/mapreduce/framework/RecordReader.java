@@ -83,9 +83,13 @@ public class RecordReader
 			{
 				if(ret.length < 3)
 				{
+					// This case means:
+					/// we have a session information but not key and value
+					/// in case we have two items -> session and key
+					/// otherwise we only have the session information
 					String[] reth= new String[3];
-					reth[0]= null;
-					reth[1]= ( ret.length == 2 ) ? ret[1] : null;
+					reth[0]= ( ret.length == 2 ) ? ret[1] : null;
+					reth[1]= null;
 					reth[2]= ret[0];
 					ret= reth;
 				}
@@ -101,8 +105,8 @@ public class RecordReader
 			else if(ret.length < 2)
 			{
 				String[] reth= new String[2];
-				reth[0]= null;
-				reth[1]= ret[0];
+				reth[1]= null;
+				reth[0]= ret[0];
 				ret= reth;
 			}
 			/*for(i= 0; i < ret.length; i++)

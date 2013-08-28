@@ -24,7 +24,7 @@ import org.nlogo.extensions.mapreduce.commands.config.InputFormat;
 import org.nlogo.extensions.mapreduce.commands.config.Mapper;
 import org.nlogo.extensions.mapreduce.commands.config.OutDir;
 import org.nlogo.extensions.mapreduce.commands.config.Reducer;
-import org.nlogo.extensions.mapreduce.commands.config.ValueSeperator;
+import org.nlogo.extensions.mapreduce.commands.config.ValueSeparator;
 
 import at.dobiasch.mapreduce.framework.FrameworkFactory;
 
@@ -107,7 +107,7 @@ public class Manager extends org.nlogo.api.DefaultClassManager
 		manager.addPrimitive("test", new Test());
 		manager.addPrimitive("mapreduce", new MapReduce());
 		
-		manager.addPrimitive("values", new Values());
+		manager.addPrimitive("value", new Values());
 		manager.addPrimitive("key", new Key());
 		manager.addPrimitive("id", new ID());
 		manager.addPrimitive("emit", new Emit());
@@ -117,7 +117,7 @@ public class Manager extends org.nlogo.api.DefaultClassManager
 		manager.addPrimitive("config.mapper", new Mapper());
 		manager.addPrimitive("config.reducer", new Reducer());
 		manager.addPrimitive("config.inputformat", new InputFormat());
-		manager.addPrimitive("config.valueseperator", new ValueSeperator());
+		manager.addPrimitive("config.valueseparator", new ValueSeparator());
 		
 		manager.addPrimitive("running?", new Running());
 		manager.addPrimitive("map-progress", new MapProgress());

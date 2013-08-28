@@ -5,15 +5,15 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 
 import org.nlogo.api.ExtensionException;
-import org.nlogo.api.LogoList;
 import org.nlogo.api.LogoListBuilder;
 
+import at.dobiasch.mapreduce.framework.LogoObject;
 import at.dobiasch.mapreduce.framework.controller.Data;
 
 public class KeyValueInputFormat implements IInputParser
 {
 	private String sep;
-	private LogoList vals;
+	private LogoObject vals;
 	private String key;
 
 	@Override
@@ -55,7 +55,9 @@ public class KeyValueInputFormat implements IInputParser
 			
 			// System.out.println("running " + data.key + " " + data.start + " " + data.end + " " + vals.length);
 			
-			this.vals= list.toLogoList();
+			LogoObject o= new LogoObject();
+			o.set(list.toLogoList());
+			this.vals= o;
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 			throw new ExtensionException(e);
@@ -66,7 +68,7 @@ public class KeyValueInputFormat implements IInputParser
 	}
 
 	@Override
-	public LogoList getValues()
+	public LogoObject getValues()
 	{
 		return this.vals;
 	}
