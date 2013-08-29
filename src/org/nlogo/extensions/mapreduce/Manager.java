@@ -13,6 +13,7 @@ import org.nlogo.extensions.mapreduce.commands.MapProgress;
 import org.nlogo.extensions.mapreduce.commands.MapReduce;
 import org.nlogo.extensions.mapreduce.commands.Node;
 import org.nlogo.extensions.mapreduce.commands.NodeParams;
+import org.nlogo.extensions.mapreduce.commands.Result;
 import org.nlogo.extensions.mapreduce.commands.Running;
 import org.nlogo.extensions.mapreduce.commands.ParseInput;
 import org.nlogo.extensions.mapreduce.commands.PlotConfig;
@@ -104,8 +105,8 @@ public class Manager extends org.nlogo.api.DefaultClassManager
 		manager.addPrimitive("node", new Node());
 		manager.addPrimitive("node.connect", new NodeParams());
 		manager.addPrimitive("acceptworkers", new AcceptWorkers());
-		manager.addPrimitive("test", new Test());
 		manager.addPrimitive("mapreduce", new MapReduce());
+		manager.addPrimitive("result", new Result());
 		
 		manager.addPrimitive("value", new Values());
 		manager.addPrimitive("key", new Key());

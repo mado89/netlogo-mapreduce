@@ -9,6 +9,7 @@ public class LogoObject {
 	private boolean bvalue;
 	private LogoList lvalue;
 	private int type= 0;
+	private double hval;
 	
 	public LogoObject()
 	{
@@ -76,17 +77,17 @@ public class LogoObject {
 		return null;
 	}
 	
-	private static boolean isNumeric(String str)
+	private boolean isNumeric(String str)
 	{
 		try {
-			Double.parseDouble(str);
+			this.hval= Double.parseDouble(str);
 		} catch (NumberFormatException nfe) {
 			return false;
 		}
 		return true;
 	}
 	
-	private static LogoList fromString(String value)
+	private LogoList fromString(String value)
 	{
 		LogoListBuilder lb= new LogoListBuilder();
 		int s= 2;
@@ -100,7 +101,7 @@ public class LogoObject {
 				{
 					String val= value.substring(s, i);
 					if( isNumeric(val) )
-						lb.add(Double.parseDouble(val));
+						lb.add(this.hval);
 					else if( val.equals("true") )
 						lb.add(true);
 					else if( val.equals("false") )
@@ -123,6 +124,26 @@ public class LogoObject {
 		}
 		
 		return lb.toLogoList();
+	}
+	
+	public void createFromString(String string)
+	{
+		if( isNumeric(string) ) {
+			type= 2;
+			dvalue= hval;
+		} else if ( string.charAt(0) == '[' ) {
+			type= 4;
+			lvalue= fromString(string);
+		} else if( string.equals("true") ) {
+			type= 3;
+			bvalue= true;
+		} else if( string.equals("false") ) {
+			type= 3;
+			bvalue= false;
+		} else {
+			type= 1;
+			svalue= string;
+		}
 	}
 	
 	public void importValue(String value)

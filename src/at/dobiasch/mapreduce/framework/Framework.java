@@ -1,12 +1,7 @@
 package at.dobiasch.mapreduce.framework;
 
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.Map;
-
 import org.nlogo.api.ExtensionException;
 import org.nlogo.api.HubNetInterface;
-import org.nlogo.api.LogoException;
 
 import at.dobiasch.mapreduce.MapReduceRun;
 import at.dobiasch.mapreduce.framework.controller.HostController;
@@ -27,6 +22,7 @@ public class Framework
 	private MapReduceRun run;
 	private boolean        multinode;
 	private MapRedHubNetManager hubnetmgr;
+	private int job;
 	
 	public Framework() throws ExtensionException
 	{
@@ -36,6 +32,8 @@ public class Framework
 		
 		this.run= null;
 		this.multinode= false;
+		
+		this.job= -1; //-1 because then we can see if a job was started. First Job has number 0
 		
 		// Don't initialize Inputparser here. Config will change reference won't be updated
 		// this.inp= new TextInputFormat();
@@ -157,6 +155,14 @@ public class Framework
 
 	public MapRedHubNetManager getHubNetManager() {
 		return this.hubnetmgr;
+	}
+
+	public int getJobNr() {
+		return this.job;
+	}
+
+	public void newJob() {
+		this.job++;
 	}
 	
 	/*public String getSystemDir()

@@ -48,6 +48,21 @@ public class RecordReader
 			e.printStackTrace();
 		}
 	}
+	
+	public RecordReader(String filename, String keyValueSeparator, boolean sessionInfo) throws IOException
+	{
+		this.filename= filename;
+		this.sessinfo= sessionInfo;
+		
+		this.keyValueSeparator= keyValueSeparator;
+		try {
+			this.in= new RandomAccessFile(filename, "rw");
+		} catch (FileNotFoundException e) {
+			// This case should never happen since we create it from an existing one
+			e.printStackTrace();
+		}
+		this.fsize= this.in.length();
+	}
 
 	public boolean hasRecordsLeft()
 	{

@@ -31,9 +31,7 @@ public class MultiNodeRun extends MapReduceRun
 {
 	private String world;
 	private String modelpath;
-	private Framework fw;
 	private CheckPartData indata;
-	private HostController controller;
 	private HashMap<Data, Integer> partIDs;
 	private String inpIDmsg;
 	private NodeManager nodes;
@@ -363,23 +361,5 @@ public class MultiNodeRun extends MapReduceRun
 
 	public void nodeFinished(String node) {
 		taskmanager.tasksDone(node);
-	}
-	
-	private void outputResult() throws ExtensionException {
-		String fn;
-		System.out.println("Writing output");
-		fn= this.fw.getConfiguration().getOutputDirectory();
-		if( !fn.equals("") && !fn.endsWith("" + File.separatorChar)) //TODO: make it work for OS-Problems \\ on linux
-			fn+= File.separatorChar;
-		fn+= "output.txt";
-		try {
-			this.controller.mergeReduceOutput(fn);
-		} catch (IOException e) {
-			e.printStackTrace();
-			throw new ExtensionException(e);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-			throw new ExtensionException(e);
-		}
 	}
 }

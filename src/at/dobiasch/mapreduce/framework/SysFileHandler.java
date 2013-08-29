@@ -22,19 +22,34 @@ public class SysFileHandler
 		File f= new File(sysdir);
 		if( !f.exists() )
 			f.mkdirs();
-		if( this.sysdir.endsWith("/") )
+		if( this.sysdir.endsWith("/") || this.sysdir.endsWith("\\"))
 			this.sysdir= this.sysdir.substring(0, this.sysdir.length() - 1);
 		this.files= new HashMap<String,String>();
 	}
 	
 	/**
-	 * Add a file to the filemanagement
+	 * Add a directory to the temporary files
+	 * @param dir
+	 */
+	public String addDirectory(String dir)
+	{
+		String dirn= this.sysdir + File.separator + dir;
+		File f= new File(dirn);
+		if( !f.exists() )
+			f.mkdirs();
+		
+		return dirn;
+	}
+	
+	/**
+	 * Add a file to the file-management
+	 * Returns a path to the file in the system. 
 	 * @param fn
 	 * @return a filename
 	 */
 	public String addFile(String fn)
 	{
-		String intfn= sysdir + "/" + fn;
+		String intfn= sysdir + File.separator + fn;
 		synchronized( syncFiles ) // get Intermediate-Data access for the key 
 		{
 			while( syncFileswait )

@@ -23,14 +23,7 @@ public class SingleNodeRun extends MapReduceRun
 	String modelpath;
 	int size;
 	WorkspaceBuffer wb;
-	Framework fw;
 	CheckPartData indata;
-	
-	/*
-	 * Number of input splits ie number of mappers that has to be run
-	 
-	private int ninpsplit;*/
-	private HostController controller;
 	
 	public SingleNodeRun(Framework fw, String world, String modelpath)
 	{
@@ -75,12 +68,12 @@ public class SingleNodeRun extends MapReduceRun
 			
 			doReduce();
 			
-			doCollect();
+			outputResult();
 		} catch (IOException e) {
+			e.printStackTrace();
 			throw new ExtensionException(e);
 		} catch (CompilerException e) {
-			throw new ExtensionException(e);
-		} catch (InterruptedException e) {
+			e.printStackTrace();
 			throw new ExtensionException(e);
 		}
 	}
@@ -144,6 +137,7 @@ public class SingleNodeRun extends MapReduceRun
 		Map<String,IntKeyVal> intdata= this.controller.getIntermediateData();
 		// Iterator<IntKeyVal> vals= intdata.values().iterator();
 		// Iterator<String> keys= intdata.keySet().iterator();
+		System.out.println(intdata);
 		String[] kk= new String[intdata.size()];
 		intdata.keySet().toArray(kk);
 		// String key;
@@ -175,16 +169,16 @@ public class SingleNodeRun extends MapReduceRun
 		System.out.println("Reducing ended");
 	}
 
-	private void doCollect() throws IOException, InterruptedException
+	/*private void doCollect() throws IOException, InterruptedException
 	{
 		String fn;
 		System.out.println("Writing output");
 		fn= this.fw.getConfiguration().getOutputDirectory();
-		if( !fn.equals("") && !fn.endsWith("" + File.separatorChar)) //TODO: make it work for OS-Problems \\ on linux
-			fn+= File.separatorChar;
+		if( !fn.equals("") && !fn.endsWith(File.separator)) //TODO: make it work for OS-Problems \\ on linux
+			fn+= File.separator;
 		fn+= "output.txt";
 		this.controller.mergeReduceOutput(fn);
-	}
+	}*/
 	
 	@Override
 	public double getMapProgress() {

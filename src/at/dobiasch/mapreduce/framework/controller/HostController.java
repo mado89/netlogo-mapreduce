@@ -13,6 +13,7 @@ import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 
 import org.nlogo.api.CompilerException;
+import org.nlogo.nvm.Workspace;
 import org.nlogo.workspace.AbstractWorkspace;
 
 import at.dobiasch.mapreduce.framework.Counter;
@@ -104,6 +105,18 @@ public class HostController
 	{
 		this.wbred= new WorkspaceBuffer(this.redc ,world, modelpath);
 		// this.wbred.compileComands(null, reducer);
+		
+		// Check if the reducer exists
+		try {
+			System.out.println("Test compile reducer");
+			Element e= this.wbred.get();
+			e.ws.compileReporter(reducer + " 0 0 0");
+			this.wbred.release(e);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		
+		
 		// TODO: belows null assignments are only for debugging, remove them
 		this.complet= null;
 		this.pool= null;

@@ -1,81 +1,60 @@
 extensions [mapreduce]
 
-to-report split [ #string ] ; http://groups.yahoo.com/group/netlogo-users/message/6490
-  let result [] ; return value
-  loop ; exit when done
-  [
-    let next-pos position " " #string
-    if not is-number? next-pos
-    [ report reverse (fput #string result) ]
-    set result fput (substring #string 0 next-pos) result
-    set #string substring #string (next-pos + 1) (length #string)
-  ]
-end
-
-to read-file [file-name line]
-  foreach split line; Text lesen und zerteilen
-  [
-    ; show ?
-    mapreduce:emit ? "1" ; <wort, 1> Wort kommt aus split
-  ]
+to pointgenerator [key value]
+  ; show (word "Running job " key " " value)
+  let x 0
+  let y 0
+  let hitCounter 0
   
-  show word file-name "done"
-end
-
-
-to benchmark
-  reset-timer
-  repeat 10 [
-    wc
-    ; show "done"
-    ; print timer
+  random-seed read-from-string value
+  repeat repeats [
+    set x ((random-float 2) - 1)
+    set y ((random-float 2) - 1)
+    if x * x + y * y <= 1 [
+      set hitCounter (hitCounter + 1)
     ]
-  let result timer
-  print result
-end
-
-to-report word-count [key acum value]
-  report acum + read-from-string value
-end
-
-to server
-  mapreduce:acceptworkers
-end
-
-to client
-  mapreduce:node.connect "127.0.0.1" 9173
-end
-
-to wc
-  let words []
-  let runit true
-  
-  reset-ticks
-  
-  let res mapreduce:mapreduce "read-file" "word-count" 0 "/home/martin/DA/input5"
-  print "mapreduce:mapreduce fertig"
-  while [mapreduce:running?] [
-   every 0.5 [
-       print mapreduce:map-progress
-       print mapreduce:reduce-progress
-       ; plot 1
-       tick
-     ]
   ]
-  tick
-  print "done"
-  show mapreduce:result res
-  tick
+  
+  ; show hitCounter
+  mapreduce:emit "1" hitCounter
+end
+
+to-report summer [key accum value]
+  show "sumit"
+  report accum + read-from-string value
+end
+
+to-report calcpi [#res]
+  let hits first butfirst first mapreduce:result #res
+  report (4 * hits) / (mapper * repeats)
+end
+
+to makepi
+  let h 1
+  let x []
+  repeat mapper [set x lput h x
+    set h h + 1
+  ]
+  let inp fput ( fput 1 fput x [] ) []
+  
+  let res mapreduce:mapreduce "pointgenerator" "summer" 0 inp
+  
+  while [mapreduce:running?] [
+    wait 1
+  ]
+  
+  let mypi calcpi res
+  show mypi
 end
 @#$#@#$#@
 GRAPHICS-WINDOW
-365
-13
-610
-232
-1
-1
-62.7
+210
+10
+649
+470
+16
+16
+13.0
 1
 10
 1
@@ -85,59 +64,38 @@ GRAPHICS-WINDOW
 1
 1
 1
--1
-1
--1
-1
+-16
+16
+-16
+16
 0
 0
 1
 ticks
 30.0
 
-PLOT
-18
-13
-361
-231
-Progress
-progress
-time
-0.0
-100.0
-0.0
-5.0
-true
-true
-"" ""
-PENS
-"map-progress" 1.0 0 -5298144 true "" "plot mapreduce:map-progress"
-"reduce-progress" 1.0 0 -13840069 true "" "plot mapreduce:reduce-progress"
+SLIDER
+23
+81
+195
+114
+mapper
+mapper
+10
+1000
+502
+1
+1
+NIL
+HORIZONTAL
 
 BUTTON
-34
-267
-111
-300
-server
-server
-NIL
-1
-T
-OBSERVER
-NIL
-NIL
-NIL
-NIL
-1
-
-BUTTON
-153
+37
+233
+100
 266
-224
-299
-client
-client
+Pi
+makepi
 NIL
 1
 T
@@ -147,11 +105,26 @@ NIL
 NIL
 NIL
 1
+
+SLIDER
+23
+148
+195
+181
+repeats
+repeats
+100
+1000
+1000
+900
+1
+NIL
+HORIZONTAL
 
 @#$#@#$#@
 ## WHAT IS IT?
 
-This section could give a general understanding of what the model is trying to show or explain.
+This model tries to estimate Pi.
 
 ## HOW IT WORKS
 
@@ -159,15 +132,17 @@ This section could explain what rules the agents use to create the overall behav
 
 ## HOW TO USE IT
 
-This section could explain how to use the model, including a description of each of the items in the interface tab.
+Slider mapper sets the number of times points are generated.
+Slider repeats sets how many times the points are generated in each run.
 
 ## THINGS TO NOTICE
 
-This section could give some ideas of things for the user to notice while running the model.
+Increasing the numbers should give a better estimate of Pi.
+Of course increasing the sliders will cause a longer running time. 
 
 ## THINGS TO TRY
 
-This section could give some ideas of things for the user to try to do (move sliders, switches, etc.) with the model.
+Try moving the sliders.
 
 ## EXTENDING THE MODEL
 
@@ -175,15 +150,7 @@ This section could give some ideas of things to add or change in the procedures 
 
 ## NETLOGO FEATURES
 
-This section could point out any especially interesting or unusual features of NetLogo that the model makes use of, particularly in the Procedures tab.  It might also point out places where workarounds were needed because of missing features.
-
-## RELATED MODELS
-
-This section could give the names of models in the NetLogo Models Library or elsewhere which are of related interest.
-
-## CREDITS AND REFERENCES
-
-This section could contain a reference to the model's URL on the web if it has one, as well as any other necessary credits or references.
+This model uses the MapReduce-extension. 
 @#$#@#$#@
 default
 true
