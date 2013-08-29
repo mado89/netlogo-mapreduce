@@ -14,9 +14,9 @@ public class RecordReader
 	private long fsize;
 	private boolean sessinfo;
 	
-	private int recs;
+	private long recStart;
 	
-	private List<String[]> read;
+	// private List<String[]> read;
 	
 	private static final String utf8 = "UTF-8";
 	private final String keyValueSeparator;
@@ -47,8 +47,6 @@ public class RecordReader
 			// This case should never happen since we create it from an existing one
 			e.printStackTrace();
 		}
-		recs= 0;
-		this.read= new ArrayList<String[]>();
 	}
 
 	public boolean hasRecordsLeft()
@@ -65,8 +63,11 @@ public class RecordReader
 	{
 		// Create a large buffer
 		byte[] buffer= new byte[10000];
+		
 		int i= 0;
 		try {
+			recStart= this.in.getFilePointer();
+			
 			buffer[i]= this.in.readByte();
 			while(buffer[i] != newline)
 			{
@@ -112,7 +113,6 @@ public class RecordReader
 			/*for(i= 0; i < ret.length; i++)
 				System.out.println(i + ": " + ret[i]);*/
 			buffer= null;
-			recs++;
 			return ret;
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -120,12 +120,17 @@ public class RecordReader
 		return null;
 	}
 	
+	private void unReadRecord() throws IOException
+	{
+		this.in.seek(recStart);
+	}
+	
 	public List<String[]> readSession()
 	{
 		if( this.sessinfo == false)
 			throw new UnsupportedOperationException("Can't read Session from a file without session info");
 		
-		List<String[]> ret= null;
+		List<String[]> ret= new ArrayList<String[]>();;
 		String ses;
 		
 		if( hasRecordsLeft() )
@@ -134,55 +139,37 @@ public class RecordReader
 			boolean loop;
 			
 			ses= rec[rec.length-1];
-			if( read.size() > 0)
-			{
-				String[] h= read.get(0);
-				if( ses.equals(h[h.length-1]))
-				{
-					read.add(rec);
-					loop= true;
-				}
-				else
-				{
-					loop= false;
-					ret= read;
-					read= new ArrayList<String[]>();
-					read.add(rec);
-				}
-			}
-			else
-			{
-				loop= true;
-				read.add(rec);
-			}
 			
-			while( hasRecordsLeft() && loop)
+			loop= true;
+			ret.add(rec);
+			
+			if( hasRecordsLeft() )
 			{
-				rec= readRecord();
-				if( ses.equals(rec[rec.length-1]))
+				while( hasRecordsLeft() && loop)
 				{
-					read.add(rec);
-					loop= true;
+					rec= readRecord();
+					if( ses.equals(rec[rec.length-1]))
+					{
+						ret.add(rec);
+						loop= true;
+					}
+					else
+					{
+						loop= false;
+						try {
+							unReadRecord();
+						} catch (IOException e) {
+							e.printStackTrace();
+						}
+					}
 				}
-				else
-				{
-					loop= false;
-					ret= read;
-					read= new ArrayList<String[]>();
-					read.add(rec);
-				}
-			}
-		}
-		else
-		{
-			if( read.size() > 0 )
-			{
-				ret= read;
-				read= new ArrayList<String[]>();
 			}
 		}
 		
-		return ret;
+		if( ret.size() > 0)
+			return ret;
+		else
+			return null;
 	}
 
 	public void close() throws IOException {
