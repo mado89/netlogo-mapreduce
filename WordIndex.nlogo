@@ -44,7 +44,7 @@ end
 to index
   reset-ticks
   
-  mapreduce:mapreduce "mapper" "reducer" [] "/home/martin/DA/input5"
+  let res mapreduce:mapreduce "mapper" "reducer" [] "/home/martin/DA/input5"
   while [mapreduce:running?] [
    every 1 [
        print mapreduce:map-progress
@@ -54,8 +54,8 @@ to index
      ]
   ]
   tick
-  
   print "done"
+  show mapreduce:result res
   tick
 end
 @#$#@#$#@

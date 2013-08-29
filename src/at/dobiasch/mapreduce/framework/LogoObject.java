@@ -133,7 +133,18 @@ public class LogoObject {
 			dvalue= hval;
 		} else if ( string.charAt(0) == '[' ) {
 			type= 4;
-			lvalue= fromString(string);
+			String[] vals= string.split(", ");
+			LogoListBuilder lb= new LogoListBuilder();
+			
+			vals[0]= vals[0].substring(1);
+			
+			for(int i= 1; i < vals.length - 1;i++)
+				lb.add(vals[i]);
+			
+			if( vals.length > 0 )
+				lb.add(vals[vals.length - 1].substring(0, vals[vals.length - 1].length() - 1));
+			
+			lvalue= lb.toLogoList();
 		} else if( string.equals("true") ) {
 			type= 3;
 			bvalue= true;
@@ -237,19 +248,23 @@ public class LogoObject {
 		
 		return accum;
 	}
-	
-	/*public static void main(String[] args) {
+	/*
+	public static void main(String[] args) {
 		LogoListBuilder lb= new LogoListBuilder();
 		lb.add("test");
 		lb.add(true);
-		Accumulator a= new Accumulator();
-		Accumulator b= new Accumulator();
+		LogoObject a= new LogoObject();
+		LogoObject b= new LogoObject();
 		a.set(lb.toLogoList());
 		System.out.println(a.toLogo());
 		System.out.println(a.export());
 		b.importValue(a.export());
 		System.out.println(b.toString());
 		System.out.println(b.toLogo());
+		
+		LogoObject o= new LogoObject();
+		o.createFromString("[/home/martin/DA/input5/4.txt, /home/martin/DA/input5/2.txt, /home/martin/DA/input5/1.txt, /home/martin/DA/input5/0.txt, /home/martin/DA/input5/3.txt]");
+		System.out.println(o);
 		
 	}*/
 }
