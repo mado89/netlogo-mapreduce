@@ -1,6 +1,13 @@
 package at.dobiasch.mapreduce;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.RandomAccessFile;
+import java.io.UnsupportedEncodingException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -13,10 +20,14 @@ import org.nlogo.hubnet.client.LoginCallback;
 import org.nlogo.hubnet.client.LoginDialog;
 import org.nlogo.hubnet.protocol.Message;
 
+import ch.randelshofer.quaqua.ext.base64.Base64;
+
 import scala.Option;
+import at.dobiasch.mapreduce.framework.ChecksumHelper;
 import at.dobiasch.mapreduce.framework.Framework;
 import at.dobiasch.mapreduce.framework.FrameworkFactory;
 import at.dobiasch.mapreduce.framework.controller.HostController;
+import at.dobiasch.mapreduce.framework.partition.CheckPartData;
 import at.dobiasch.mapreduce.framework.task.IntKeyVal;
 
 /**
@@ -136,6 +147,10 @@ public class Node
 						mapAssignment(msg.substring(14, msg.length() - 7));
 					} else if (msg.startsWith("Some(Text(INPIDS:")) {
 						inputIDs(msg.substring(18, msg.length() - 8));
+					} else if (msg.startsWith("Some(Text(WORLD:")) {
+						worldRecieved(msg.substring(16, msg.length() - 7));
+					} else if (msg.startsWith("Some(Text(f-")) {
+						filePartRecieved(msg.substring(12, msg.length() - 7));
 					} else if (msg.startsWith("Some(Text(ASSIGNED")) {
 						try {
 							finishMapStage();
@@ -146,11 +161,13 @@ public class Node
 							doReduce();
 							doCollect();
 						} catch (IOException e) {
-							// TODO Auto-generated catch block
 							e.printStackTrace();
+							this.client.sendActivityCommand("failed-node", this.user);
+							throw new ExtensionException(e);
 						} catch (CompilerException e) {
-							// TODO Auto-generated catch block
 							e.printStackTrace();
+							this.client.sendActivityCommand("failed-node", this.user);
+							throw new ExtensionException(e);
 						}
 					} else {
 						System.out.println("Message: " + message );
@@ -163,6 +180,7 @@ public class Node
 				System.out.println("Node interruped");
 				run= false;
 				e.printStackTrace();
+				this.client.sendActivityCommand("failed-node", this.user);
 			}/* catch (LogoException e) {
 				run= false;
 				e.printStackTrace();
@@ -170,6 +188,28 @@ public class Node
 		}
 	}
 	
+	private void filePartRecieved(String msg) {
+		int i= 0;
+		while( msg.charAt(i) != '-') i++;
+		int inpId= Integer.parseInt(msg.substring(0,i));
+		int ss= ++i;
+		while( msg.charAt(i) != '-') i++;
+		int offs= Integer.parseInt(msg.substring(ss,i));
+		byte[] decoded = Base64.decode(msg.substring(i+1));
+		
+		RandomAccessFile out;
+		try {
+			out = new RandomAccessFile(this.inpids.get(inpId), "rw");
+			out.seek(offs * 1024);
+			out.write(decoded);
+			out.close();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
 	public void setup() throws ExtensionException
 	{
 		System.out.println("Setting up");
@@ -186,9 +226,29 @@ public class Node
 		
 		fw.setHostController(this.controller);
 		
+		/*try {
+			prepareInput();
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new ExtensionException(e);
+		}*/
+	}
+	
+	/**
+	 * Once the world is recieved the Mapping-Stage can be prepared
+	 * @param msg
+	 * @throws ExtensionException
+	 */
+	private void worldRecieved(String msg) throws ExtensionException {
 		try
 		{
-			String world= ""; //TODO: we need the world!
+			byte[] decoded = Base64.decode(msg);
+        	String world= null;
+			try {
+				world = new String(decoded, "UTF-8");
+			} catch (UnsupportedEncodingException e) {
+				e.printStackTrace();
+			}
 			this.controller.prepareMappingStage(world);
 		} catch (CompilerException e){
 			throw new ExtensionException(e);
@@ -199,7 +259,7 @@ public class Node
 		}
 	}
 
-	private void inputIDs(String string) {
+	private void inputIDs(String string) throws ExtensionException {
 		System.out.println(string);
 		String[] vals= string.split(",");
 		
@@ -208,8 +268,53 @@ public class Node
 		{
 			// System.out.println(vals[i]);
 			String[] h= vals[i].split(":");
-			this.inpids.put(Integer.parseInt(h[1]), h[0]);
+			int id= Integer.parseInt(h[1]);
+			this.inpids.put(id, h[0]);
+			if( !checkInput(h[0],id,h[2]) )
+				this.client.sendActivityCommand("fr", id);
 		}
+	}
+
+	private boolean checkInput(String inpfile, int inpid, String checksum) throws ExtensionException {
+		MessageDigest complete;
+		String check= null;
+		try {
+			complete = MessageDigest.getInstance("SHA1");
+			
+			try {
+				InputStream fis = new FileInputStream(FrameworkFactory.getInstance().getConfiguration().getInputDirectory() +
+						inpfile);
+
+				byte[] buffer = new byte[1024];
+				int numRead;
+
+				do {
+					numRead = fis.read(buffer);
+					if (numRead > 0) {
+						complete.update(buffer, 0, numRead);
+					}
+				} while (numRead != -1);
+
+				fis.close();
+				byte[] b = complete.digest();
+
+				check= ChecksumHelper.convToHex(b);
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
+				throw new ExtensionException(e);
+			} catch (IOException e) {
+				e.printStackTrace();
+				throw new ExtensionException(e);
+			}
+		} catch (NoSuchAlgorithmException e1) {
+			e1.printStackTrace();
+			throw new ExtensionException(e1);
+		}
+		
+		if( check.equals(checksum) )
+			return true;
+		else
+			return false;
 	}
 
 	private void mapAssignment(String assignment) {

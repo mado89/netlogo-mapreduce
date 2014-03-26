@@ -17,6 +17,8 @@ import org.nlogo.api.ExtensionException;
 import org.nlogo.api.LogoException;
 import org.nlogo.extensions.mapreduce.Manager;
 
+import ch.randelshofer.quaqua.ext.base64.Base64;
+
 import at.dobiasch.mapreduce.framework.ChecksumHelper;
 import at.dobiasch.mapreduce.framework.Framework;
 import at.dobiasch.mapreduce.framework.InputChecker;
@@ -33,11 +35,12 @@ public class MultiNodeRun extends MapReduceRun
 	// private String world;
 	private String modelpath;
 	private CheckPartData indata;
-	private HashMap<Data, Integer> partIDs;
+	private Data[] partIDs;
 	private String inpIDmsg;
 	private NodeManager nodes;
 	private long _id= 1;
 	private TaskManager taskmanager;
+	private String world;
 	Map<String,IntKeyVal> intdata= null;
 	MessageDigest md= null;
 	
@@ -75,8 +78,13 @@ public class MultiNodeRun extends MapReduceRun
 		
 		this.fw.setHostController(this.controller);
 		
+		fw.getHubNetManager().sendConfigToClients(fw.getConfiguration());
+		
+		world= Manager.getWorld();
+		
 		try
 		{
+			sendWorld();
 			prepareInput();
 			createInputIDs();
 			prepareLocalMapper();
@@ -129,9 +137,25 @@ public class MultiNodeRun extends MapReduceRun
 	
 	private void doMap() throws ExtensionException{
 		fw.getHubNetManager().sendConfigToClients(fw.getConfiguration());
+		sendWorld();
+		sendInputIDs();
 		
 		createInitialMapShedule();
 		requestResults();
+	}
+	
+	/**
+	 * Send the World to all clients
+	 * @throws ExtensionException
+	 */
+	private void sendWorld() throws ExtensionException {
+		String send= "WORLD:";
+		send+= Base64.encodeBytes(world.getBytes());
+		try {
+			fw.getHubNetManager().broadcast(send);
+		} catch (LogoException e1) {
+			e1.printStackTrace();
+		}
 	}
 
 	private void requestResults() throws ExtensionException {
@@ -209,23 +233,19 @@ public class MultiNodeRun extends MapReduceRun
         long partEnd;
         int inpid;
         
-        try {
-			fw.getHubNetManager().broadcast(inpIDmsg);
-		} catch (LogoException e1) {
-			e1.printStackTrace();
-		}
-        
         taskmanager.setNodes(nodes);
         taskmanager.initMap(indata.getNumberOfPartitions(), controller);
         
-        for(Data d : indata.values())
+        // for(Data d : indata.values())
+        for(inpid= 0; inpid < partIDs.length; inpid++)
         {
+        	Data d= partIDs[inpid];
         	System.out.println("Starting for " + d.key);
                 try
                 {
                         File file= new File(d.partitionfile);
                         BufferedReader in= new BufferedReader(new FileReader(file));
-                        inpid= partIDs.get(d); 
+                        // inpid= partIDs.get(d); 
                         
                         String line;
                         line= in.readLine(); //TODO: this assumes there is a line ... not good
@@ -247,6 +267,7 @@ public class MultiNodeRun extends MapReduceRun
                                 partStart= partEnd;
                         }
                         partEnd= d.lastpartitionend;
+                        in.close();
                         
                         // don't add an empty task
                         if( partStart < partEnd )
@@ -274,7 +295,7 @@ public class MultiNodeRun extends MapReduceRun
 	}
 	
 	/**
-	 * Check the input and create Partitions, and input ids
+	 * Check the input and create Partitions
 	 * @throws Exception
 	 */
 	private void prepareInput() throws Exception
@@ -290,26 +311,36 @@ public class MultiNodeRun extends MapReduceRun
      */
 	private void createInputIDs() throws LogoException
 	{
-		partIDs = new HashMap<Data, Integer>();
+		partIDs = new Data[indata.values().size()];
 		int i = 0;
-		for (at.dobiasch.mapreduce.framework.partition.Data d : indata.values())
+		for(at.dobiasch.mapreduce.framework.partition.Data d : indata.values())
 		{
-			partIDs.put(d, i++);
+			// partIDs.put(d, i++);
+			partIDs[i++]= d;
 		}
 
 		inpIDmsg = "INPIDS:[";
-		for (Entry<Data, Integer> e : partIDs.entrySet())
+		// for (Entry<Data, Integer> e : partIDs)
+		for(i= 0; i < partIDs.length; i++)
 		{
-			inpIDmsg += e.getKey().key + ":" + e.getValue() + ",";
+			// inpIDmsg += e.getKey().key + ":" + e.getValue() + ":" + e.getKey().checksum + ",";
+			inpIDmsg += partIDs[i].key + ":" + i + ":" + partIDs[i].checksum + ",";
 		}
 		inpIDmsg = inpIDmsg.substring(0, inpIDmsg.length() - 1) + "]";
 		
-		fw.getHubNetManager().broadcast(inpIDmsg);
+		sendInputIDs();
+	}
+	
+	private void sendInputIDs() {
+		try {
+			fw.getHubNetManager().broadcast(inpIDmsg);
+		} catch (LogoException e1) {
+			e1.printStackTrace();
+		}
 	}
 	
 	private void prepareLocalMapper() throws IOException, CompilerException
 	{
-		String world= Manager.getWorld();
 		this.controller.prepareMappingStage(world);
 	}
 
@@ -363,5 +394,9 @@ public class MultiNodeRun extends MapReduceRun
 
 	public void nodeFinished(String node) {
 		taskmanager.tasksDone(node);
+	}
+
+	public void fileRequest(String node, int inpid) throws ExtensionException {
+		fw.getHubNetManager().sendFile(this.partIDs[inpid].key, inpid, node);
 	}
 }

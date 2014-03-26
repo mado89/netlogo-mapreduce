@@ -1,10 +1,16 @@
 package at.dobiasch.mapreduce.framework.multi;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.LinkedBlockingQueue;
 
 import org.nlogo.api.CompilerException;
 import org.nlogo.api.ExtensionException;
@@ -16,6 +22,7 @@ import ch.randelshofer.quaqua.ext.base64.Base64;
 
 import at.dobiasch.mapreduce.MapReduceRun;
 import at.dobiasch.mapreduce.MultiNodeRun;
+import at.dobiasch.mapreduce.framework.ChecksumHelper;
 import at.dobiasch.mapreduce.framework.Configuration;
 import at.dobiasch.mapreduce.framework.Framework;
 import at.dobiasch.mapreduce.framework.FrameworkException;
@@ -26,6 +33,7 @@ import scala.collection.Iterable;
 public class MapRedHubNetManager {
 	private HeadlessWorkspace ws;
 	private int state= STATE_UNINIT;
+	private HelperT handler;
 	
 	public final static int STATE_UNINIT= 0;
 	public final static int STATE_INIT= 1;
@@ -37,11 +45,13 @@ public class MapRedHubNetManager {
 		private HubNetInterface hubnet;
 		private MultiNodeRun run;
 		private Framework fw;
+		private BlockingQueue<String> msgtosend;
 		
 		public HelperT(HubNetInterface hubnet, Framework fw) {
 			super();
 			this.hubnet= hubnet;
 			this.fw= fw;
+			this.msgtosend= new LinkedBlockingQueue<String>();
 		}
 		
 		public void run() {
@@ -158,6 +168,14 @@ public class MapRedHubNetManager {
 	                        	run.newMapResult(hubnet.getMessageSource(), res);
 	                        	run.nodeFinished(hubnet.getMessageSource());
 	                        }
+	                        else if( hubnet.getMessageTag().equals("fr") )
+	                        {
+	                        	System.out.println("Tag: " + hubnet.getMessageTag());
+	                        	System.out.println("Source: " + hubnet.getMessageSource());
+	                        	System.out.println("Message: " + hubnet.getMessage());
+	                        	run.fileRequest(hubnet.getMessageSource(), 
+	                        			Integer.parseInt((String) hubnet.getMessage()));
+	                        }
 	                        else
 	                        {
 	                        	System.out.println("Tag: " + hubnet.getMessageTag());
@@ -165,10 +183,23 @@ public class MapRedHubNetManager {
 	                        	System.out.println("Message: " + hubnet.getMessage());
 	                        }
 	                }
+	                
+	                String msg= msgtosend.poll();
+	                if( msg != null )
+	                	broadcast(msg);
 	        } catch (LogoException e) {
 	                e.printStackTrace();
 	                throw new ExtensionException(e);
 	        }
+		}
+
+		public synchronized void queueMsg(String msg) {
+			try {
+				msgtosend.put(msg);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 	}
 	
@@ -243,7 +274,8 @@ public class MapRedHubNetManager {
 	}
 	
 	public void start() throws ExtensionException {
-		new HelperT(ws.getHubNetManager(), FrameworkFactory.getInstance()).start();
+		handler= new HelperT(ws.getHubNetManager(), FrameworkFactory.getInstance());
+		handler.start();
 		System.out.println("HubNetManager started");
 	}
 
@@ -255,5 +287,39 @@ public class MapRedHubNetManager {
 	public synchronized void runStarted() {
 		this.state= STATE_RUNSTARTED;
 		notifyAll();
+	}
+
+	public void sendFile(String filename, int inpid, String node) throws ExtensionException {
+		try {
+			InputStream fis= null;
+			try {
+				fis = new FileInputStream(FrameworkFactory.getInstance().getConfiguration().getInputDirectory() +
+						filename);
+			} catch (ExtensionException e) {
+				throw new ExtensionException(e);
+			}
+
+			byte[] buffer = new byte[1024];
+			int numRead;
+			int i= 0;
+
+			do {
+				numRead = fis.read(buffer);
+				if (numRead > 0) {
+					this.handler.queueMsg("f-" + inpid + "-" + i + "-" + Base64.encodeBytes(buffer));
+					i++;
+				}
+			} while (numRead != -1);
+
+			fis.close();
+			//end of file
+			
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+			throw new ExtensionException(e);
+		} catch (IOException e) {
+			e.printStackTrace();
+			throw new ExtensionException(e);
+		}
 	}
 }
