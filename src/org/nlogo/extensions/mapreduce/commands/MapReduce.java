@@ -7,7 +7,6 @@ import java.io.UnsupportedEncodingException;
 
 import org.nlogo.api.Argument;
 import org.nlogo.api.Context;
-import org.nlogo.api.DefaultCommand;
 import org.nlogo.api.DefaultReporter;
 import org.nlogo.api.ExtensionException;
 import org.nlogo.api.LogoException;
@@ -59,6 +58,7 @@ public class MapReduce extends DefaultReporter
 				String dir= writeListToFiles(args[3], fw);
 				System.out.println("Inputdir: " + dir);
 				fw.getConfiguration().setInputDirectory(dir);
+				// fw.getConfiguration().setInputParser("at.dobiasch.mapreduce.framework.inputparser.ListTextInputFormat");
 			}
 			else
 				throw new ExtensionException(new FrameworkException("Unsupported argument type " + 
@@ -69,14 +69,14 @@ public class MapReduce extends DefaultReporter
 			throw new ExtensionException(e);
 		}
 		
-		String world,model;
-		world= Manager.getWorld();
-		model= Manager.em.workspace().getModelPath();
+		String model;
 		MapReduceRun run;
+		model= Manager.em.workspace().getModelPath();
+		Manager.requestWorld(((org.nlogo.nvm.ExtensionContext) context).workspace());
 		if( fw.isMultiNode() )
-			run= new MultiNodeRun(fw,world,model);
+			run= new MultiNodeRun(fw,model);
 		else
-			run= new SingleNodeRun(fw,world,model);
+			run= new SingleNodeRun(fw,model);
 		fw.setRun(run);
 		run.setup();
 		run.startRun();

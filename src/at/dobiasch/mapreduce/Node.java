@@ -31,7 +31,7 @@ public class Node
 	// private HubNetInterface hubnet;
 	private String user;
 	private String host;
-	private String world;
+	// private String world;
 	private String modelpath;
 	private int port;
 	
@@ -39,21 +39,21 @@ public class Node
 	private HostController controller;
 	private Map<Integer,String> inpids;
 	
-	public Node(String world, String modelpath)
+	public Node(String modelpath)
 	{
-		this.world= world;
+		// this.world= world;
 		this.modelpath= modelpath;
 		
 		inpids= new HashMap<Integer,String>();
 		startIt();
 	}
 	
-	public Node(String user, String host, int port, String world, String modelpath) throws ExtensionException
+	public Node(String user, String host, int port, /*String world, */String modelpath) throws ExtensionException
 	{
 		this.user= user;
 		this.host= host;
 		this.port= port;
-		this.world= world;
+		// this.world= world;
 		this.modelpath= modelpath;
 		
 		inpids= new HashMap<Integer,String>();
@@ -182,13 +182,14 @@ public class Node
 				fw.getConfiguration().getMapper(), 
 				fw.getConfiguration().getReducer(),
 				fw.getSystemFileHandler(), 
-				this.world, this.modelpath);
+				this.modelpath);
 		
 		fw.setHostController(this.controller);
 		
 		try
 		{
-			this.controller.prepareMappingStage();
+			String world= ""; //TODO: we need the world!
+			this.controller.prepareMappingStage(world);
 		} catch (CompilerException e){
 			throw new ExtensionException(e);
 		} catch (IOException e) {

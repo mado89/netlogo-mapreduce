@@ -32,10 +32,9 @@ public class NodeParams extends DefaultCommand
 			throw new ExtensionException(e);
 		}
 		
-		String world,model;
-		world= Manager.getWorld();
+		String model;
 		model= Manager.em.workspace().getModelPath();
 		
-		new at.dobiasch.mapreduce.Node(name,host,port,world,model);
+		new at.dobiasch.mapreduce.Node(name,host,port,model);
 	}
 }

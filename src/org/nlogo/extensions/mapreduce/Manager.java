@@ -18,7 +18,6 @@ import org.nlogo.extensions.mapreduce.commands.Running;
 import org.nlogo.extensions.mapreduce.commands.ParseInput;
 import org.nlogo.extensions.mapreduce.commands.PlotConfig;
 import org.nlogo.extensions.mapreduce.commands.ReduceProgress;
-import org.nlogo.extensions.mapreduce.commands.Test;
 import org.nlogo.extensions.mapreduce.commands.Values;
 import org.nlogo.extensions.mapreduce.commands.config.InputDir;
 import org.nlogo.extensions.mapreduce.commands.config.InputFormat;
@@ -26,6 +25,8 @@ import org.nlogo.extensions.mapreduce.commands.config.Mapper;
 import org.nlogo.extensions.mapreduce.commands.config.OutDir;
 import org.nlogo.extensions.mapreduce.commands.config.Reducer;
 import org.nlogo.extensions.mapreduce.commands.config.ValueSeparator;
+import org.nlogo.nvm.Workspace;
+import org.nlogo.workspace.AbstractWorkspace;
 
 import at.dobiasch.mapreduce.framework.FrameworkFactory;
 
@@ -50,13 +51,17 @@ public class Manager extends org.nlogo.api.DefaultClassManager
 		private String world= "";
 		private final Object sync= new Object();
 		private boolean exportRunning= false;
+		private AbstractWorkspace ws;
 		
 		/**
 		 * This method has to be called before the world can be read via getWorld
 		 * @see getWorld
 		 */
-		public void fillIn()
+		public void fillIn(AbstractWorkspace workspace)
 		{
+			exportRunning= true;
+			world= "";
+			this.ws= workspace;
 			org.nlogo.awt.EventQueue.invokeLater(new Runnable()
 			{
 				public void run()
@@ -66,18 +71,24 @@ public class Manager extends org.nlogo.api.DefaultClassManager
 						synchronized(sync)
 						{
 							StringWriter sw = new StringWriter();
-							em.workspace().exportWorld(new PrintWriter(sw));
+							ws.exportWorld(new PrintWriter(sw));
 							world = sw.toString();
 							exportRunning= false;
+							System.out.println("World exported!" + world);
 							sync.notifyAll();
 						}
 					}
 					catch(IOException io)
 					{
-						
+						io.printStackTrace();
 					}
 				}
 			});
+		}
+		
+		public void fillIn()
+		{
+			fillIn(Manager.em.workspace());
 		}
 		
 		public String getWorld()
@@ -86,6 +97,7 @@ public class Manager extends org.nlogo.api.DefaultClassManager
 			{
 				while( exportRunning || world.equals("") )
 				{
+					System.out.println("Waiting for World export");
 					try {
 						sync.wait();
 					} catch (InterruptedException e) {
@@ -137,13 +149,28 @@ public class Manager extends org.nlogo.api.DefaultClassManager
 	{
 		Manager.em= (org.nlogo.workspace.ExtensionManager) em;
 		Manager.world= new WorldSem();
-		Manager.world.fillIn();
+		// Manager.world.fillIn();
 		
 		FrameworkFactory.getInstance();
 	}
 	
+	/**
+	 * Request the current(!) world
+	 * @return
+	 */
+	/*public static String requestWorld()
+	{
+		Manager.world.fillIn();
+		return Manager.world.getWorld();
+	}*/
+	
 	public static String getWorld()
 	{
+		return Manager.world.getWorld();
+	}
+
+	public static String requestWorld(Workspace workspace) {
+		Manager.world.fillIn((AbstractWorkspace) workspace);
 		return Manager.world.getWorld();
 	}
 	

@@ -9,6 +9,7 @@ import java.util.Map;
 
 import org.nlogo.api.CompilerException;
 import org.nlogo.api.ExtensionException;
+import org.nlogo.extensions.mapreduce.Manager;
 
 import at.dobiasch.mapreduce.framework.Framework;
 import at.dobiasch.mapreduce.framework.InputChecker;
@@ -25,11 +26,10 @@ public class SingleNodeRun extends MapReduceRun
 	WorkspaceBuffer wb;
 	CheckPartData indata;
 	
-	public SingleNodeRun(Framework fw, String world, String modelpath)
+	public SingleNodeRun(Framework fw, String modelpath)
 	{
 		this.fw= fw;
 		this.fw.setMaster(true);
-		this.world= world;
 		this.modelpath= modelpath;
 	}
 	
@@ -43,7 +43,7 @@ public class SingleNodeRun extends MapReduceRun
 				fw.getConfiguration().getMapper(), 
 				fw.getConfiguration().getReducer(),
 				fw.getSystemFileHandler(), 
-				this.world, this.modelpath);
+				this.modelpath);
 		
 		this.fw.setHostController(this.controller);
 		
@@ -91,7 +91,9 @@ public class SingleNodeRun extends MapReduceRun
 	
 	private void prepareMapper() throws IOException, CompilerException
 	{
-		this.controller.prepareMappingStage();
+		world= Manager.getWorld();
+		System.out.println("Prepare Mapper" + world);
+		this.controller.prepareMappingStage(world);
 	}
 	
 	private void doMap() throws IOException, ExtensionException

@@ -48,6 +48,17 @@ public class WorkspaceBuffer
 		this.createWorkspaces();
 	}
 	
+	/*public void loadWorld(String world) throws IOException
+	{
+		this.world= world;
+		
+		for(int i= 0; i < q.size(); i++)
+		{
+			Element e= q.poll();
+			e.ws.importWorld(world);
+		}
+	}*/
+	
 	private void createWorkspaces() throws IOException
 	{
 		// ExecutorService pool= Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());

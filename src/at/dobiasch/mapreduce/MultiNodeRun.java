@@ -15,6 +15,7 @@ import java.util.Map.Entry;
 import org.nlogo.api.CompilerException;
 import org.nlogo.api.ExtensionException;
 import org.nlogo.api.LogoException;
+import org.nlogo.extensions.mapreduce.Manager;
 
 import at.dobiasch.mapreduce.framework.ChecksumHelper;
 import at.dobiasch.mapreduce.framework.Framework;
@@ -29,7 +30,7 @@ import at.dobiasch.mapreduce.framework.task.TaskManager;
 
 public class MultiNodeRun extends MapReduceRun
 {
-	private String world;
+	// private String world;
 	private String modelpath;
 	private CheckPartData indata;
 	private HashMap<Data, Integer> partIDs;
@@ -44,11 +45,11 @@ public class MultiNodeRun extends MapReduceRun
 		return _id++;
 	}
 	
-	public MultiNodeRun(Framework fw, String world, String modelpath)
+	public MultiNodeRun(Framework fw, String modelpath)
 	{
 		this.fw= fw;
 		this.fw.setMaster(true);
-		this.world= world;
+		// this.world= world;
 		this.modelpath= modelpath;
 		this.nodes= new NodeManager();
 		intdata= new HashMap<String,IntKeyVal>();
@@ -70,7 +71,7 @@ public class MultiNodeRun extends MapReduceRun
 				fw.getConfiguration().getMapper(), 
 				fw.getConfiguration().getReducer(),
 				fw.getSystemFileHandler(), 
-				this.world, this.modelpath);
+				this.modelpath);
 		
 		this.fw.setHostController(this.controller);
 		
@@ -308,7 +309,8 @@ public class MultiNodeRun extends MapReduceRun
 	
 	private void prepareLocalMapper() throws IOException, CompilerException
 	{
-		this.controller.prepareMappingStage();
+		String world= Manager.getWorld();
+		this.controller.prepareMappingStage(world);
 	}
 
 	public void newClient(String name) {

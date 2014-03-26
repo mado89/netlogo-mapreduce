@@ -21,10 +21,10 @@ public class Node extends DefaultCommand
 	public void perform(Argument args[], Context context) throws ExtensionException
 	{
 		
-		String world,model;
-		world= Manager.getWorld();
+		String model;
+		Manager.requestWorld(((org.nlogo.nvm.ExtensionContext) context).workspace());
 		model= Manager.em.workspace().getModelPath();
 		
-		new at.dobiasch.mapreduce.Node(world, model);
+		new at.dobiasch.mapreduce.Node(/*world, */model);
 	}
 }

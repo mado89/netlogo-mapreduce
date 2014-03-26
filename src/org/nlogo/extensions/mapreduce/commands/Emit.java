@@ -17,7 +17,7 @@ public class Emit extends DefaultCommand
 {
 	public Syntax getSyntax()
 	{
-		return Syntax.commandSyntax(new int[] {Syntax.StringType(), Syntax.StringType()});
+		return Syntax.commandSyntax(new int[] {Syntax.StringType() | Syntax.NumberType(), Syntax.WildcardType()});
 	}
 	
 	public void perform(Argument args[], Context context) throws ExtensionException

@@ -10,7 +10,7 @@ import org.nlogo.api.LogoListBuilder;
 import at.dobiasch.mapreduce.framework.LogoObject;
 import at.dobiasch.mapreduce.framework.controller.Data;
 
-public class TextInputFormat implements IInputParser
+public class ListTextInputFormat implements IInputParser
 {
 	private String sep;
 	private LogoObject vals;
@@ -89,7 +89,7 @@ public class TextInputFormat implements IInputParser
 	@Override
 	public IInputParser newInstance()
 	{
-		TextInputFormat parser= new TextInputFormat();
+		ListTextInputFormat parser= new ListTextInputFormat();
 		parser.init(this.sep);
 		return parser;
 	}	

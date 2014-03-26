@@ -70,7 +70,7 @@ public class HostController
 	 * @param redn Name of the Reducer (in the source code of the model)
 	 */
 	public HostController(int mapc, int redc, String mapn, String redn, 
-			SysFileHandler sysh, String world, String modelpath)
+			SysFileHandler sysh, String modelpath)
 	{
 		this.mapc= mapc;
 		this.redc= redc;
@@ -78,7 +78,7 @@ public class HostController
 		this.reducer= redn;
 		this.maptaskC= new Counter();
 		this.redtaskC= new Counter();
-		this.world= world;
+		// this.world= world;
 		this.modelpath= modelpath;
 		this.sysh= sysh;
 		this.htc= new HostTaskController(sysh);
@@ -89,8 +89,15 @@ public class HostController
 		this.nReduceTasksf= new Counter();
 	}
 	
-	public void prepareMappingStage() throws IOException, CompilerException
+	/**
+	 * World is stored for reducer
+	 * @param world
+	 * @throws IOException
+	 * @throws CompilerException
+	 */
+	public void prepareMappingStage(String world) throws IOException, CompilerException
 	{
+		this.world= world;
 		this.wbmap= new WorkspaceBuffer(this.mapc ,world, modelpath);
 		this.wbmap.compileComands(mapper, null);
 		this.pool= Executors.newFixedThreadPool(this.mapc);

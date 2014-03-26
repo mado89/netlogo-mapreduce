@@ -26,7 +26,8 @@ public class SingleNode extends DefaultCommand
 	{
 		Framework framework= FrameworkFactory.getInstance();
 		
-		SingleNodeRun run= new SingleNodeRun(framework,Manager.getWorld(),Manager.em.workspace().getModelPath());
+		Manager.requestWorld(((org.nlogo.nvm.ExtensionContext) context).workspace());
+		SingleNodeRun run= new SingleNodeRun(framework,Manager.em.workspace().getModelPath());
 		run.setup();
 	}
 }
