@@ -12,4 +12,5 @@ cluster/hadoop/masters
 cluster/hadoop/hosts
 zstats/
 *.txt
+tmpdir*/
 
