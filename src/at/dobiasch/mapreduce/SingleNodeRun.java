@@ -92,7 +92,7 @@ public class SingleNodeRun extends MapReduceRun
 	private void prepareMapper() throws IOException, CompilerException
 	{
 		world= Manager.getWorld();
-		System.out.println("Prepare Mapper" + world);
+		// System.out.println("Prepare Mapper" + world);
 		this.controller.prepareMappingStage(world);
 	}
 	
@@ -118,6 +118,7 @@ public class SingleNodeRun extends MapReduceRun
 				partStart= partEnd;
 			}
 			partEnd= data.lastpartitionend;
+			in.close();
 			
 			// Partitioning might have written last partition correct ;)
 			// so don't add an empty task
