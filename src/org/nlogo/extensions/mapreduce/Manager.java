@@ -74,7 +74,7 @@ public class Manager extends org.nlogo.api.DefaultClassManager
 							ws.exportWorld(new PrintWriter(sw));
 							world = sw.toString();
 							exportRunning= false;
-							System.out.println("World exported!" + world);
+							// System.out.println("World exported!" + world);
 							sync.notifyAll();
 						}
 					}
@@ -86,10 +86,10 @@ public class Manager extends org.nlogo.api.DefaultClassManager
 			});
 		}
 		
-		public void fillIn()
+		/*public void fillIn()
 		{
 			fillIn(Manager.em.workspace());
-		}
+		}*/
 		
 		public String getWorld()
 		{
