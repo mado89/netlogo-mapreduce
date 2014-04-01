@@ -27,7 +27,7 @@ public class Emit extends DefaultCommand
 		
 		try
 		{
-			key = args[0].getString();
+			key = args[0].get().toString();
 			value = args[1].get().toString(); //args[1].getString();
 	    }
 	    catch(LogoException e)
