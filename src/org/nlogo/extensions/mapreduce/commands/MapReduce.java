@@ -98,7 +98,7 @@ public class MapReduce extends DefaultReporter
 			Object key= kv.first();
 			Object value= kv.get(1);
 			
-			System.out.println(i + ": " + key + " " + value);
+			// System.out.println(i + ": " + key + " " + value + " " + value.getClass());
 			
 			String fn= fw.getSystemFileHandler().addFile(dir + File.separator + key.toString());
 			
@@ -109,7 +109,19 @@ public class MapReduce extends DefaultReporter
 				{
 					LogoList list= (LogoList) value;
 					for(int j= 0; j < list.size(); j++)
-						writer.println(list.get(j).toString());
+					{
+						Object elem= list.get(j);
+						if( elem.getClass() == LogoList.class)
+						{
+							writer.print("[");
+							LogoList el= (LogoList) elem;
+							for(int jj= 0; jj < el.size(); jj++)
+								writer.print(el.get(jj).toString() + " ");
+							writer.println("]");
+						}
+						else
+							writer.println(elem.toString());
+					}
 				}
 				else
 					writer.println(value.toString());
