@@ -78,10 +78,12 @@ public class Result extends DefaultReporter
 			
 			// key
 			obj.createFromString(h[0]);
+			// obj.importValue(h[0]);
 			kvpair.add(obj.getObject());
 			
 			// value
-			obj.createFromString(h[1]);
+			obj.importValue(h[1]);
+			// obj.createFromString(h[1]);
 			kvpair.add(obj.getObject());
 			
 			lb.add(kvpair.toLogoList());

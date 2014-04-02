@@ -75,6 +75,10 @@ public class ReduceRun implements Callable<Object>
 						success= elem.ws.lastLogoException() == null;
 					} catch( Exception e) {
 						System.out.println("Exception caught in reporter");
+						if( elem.ws.lastLogoException() != null )
+						{
+							System.out.println("LogoException: " + elem.ws.lastLogoException().getMessage());
+						}
 						e.printStackTrace();
 						success= false;
 					}
@@ -100,7 +104,13 @@ public class ReduceRun implements Callable<Object>
 							System.out.println("Reduce-Step failed");
 					}
 				}
-				controller.emit(elem.ws, data.key, accum.toString());
+				
+				/**
+				 * Need to use export otw lists are not handled right
+				 */
+				// System.out.println("Finished: " + accum.export().substring(1) + " vs " + accum.toString());
+				
+				controller.emit(elem.ws, data.key, accum.export());
 			} catch (FileNotFoundException e) {
 				e.printStackTrace();
 				throw new ExtensionException(e);
