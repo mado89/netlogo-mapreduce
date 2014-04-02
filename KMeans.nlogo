@@ -5,15 +5,22 @@ breed [centroids centroid]
 
 globals [centers ]
 
-to-report word-count-functional [key acum value]
-  report acum + read-from-string value
+to test
+  ask points [die]
+  ask centroids [die]
+  load-points "../input-kmeans1/points4.txt"
+  init
+  ; show point-list
+  ;centroids-to-centers
+  ;let acc newMeans "1.0" [] "137.0"
+  kmeans
 end
 
 to load-points [#filename]
   file-open #filename
   while[not file-at-end?][
     let line file-read-line
-    show word "line " line
+    ; show word "line " line
     if (length line) > 0 [
       let split-pos position " " line
       let px (substring line 0 split-pos)
@@ -30,11 +37,12 @@ end
 
 to-report point-list []
   let #list []
-  let id 0
+  ; let id 0
   ask points [
-   show xcor
-   set id (id + 1)
-   set #list (lput (list who xcor ycor) #list)
+   ; show xcor
+   ; set id (id + 1)
+   let cords list xcor ycor
+   set #list (lput (list who (list cords)) #list)
   ]
   
   report #list
@@ -53,16 +61,29 @@ to-report vecsub [#p1 #p2]
 end
 
 to-report newMeans [#key #acc #value]
+  let val read-from-string #value
   ifelse #acc = []
-  [report vecsub (bf #key) #value]
-  [report vecsub #acc #value]
+  [
+    ; search for the point in the list of centers
+    let cents centers
+    let id (read-from-string #key)
+    while [(not empty? cents) and (first first cents) != id][set cents bf cents]
+    ifelse not empty? cents [
+      ;exract coordinates
+      let centr first cents
+      
+      report vecsub (bf centr) val]
+    ; there has been a mistake in the data. Keep accumulator
+    [report #acc]
+  ]
+  [report vecsub #acc val]
 end
 
 to-report nearestCenter [#key #value]
   let nearest -1
   let mindist 99999
-  let nx 0
-  let ny 0
+  ;let nx 0
+  ;let ny 0
   foreach centers [
     let id first ?
     let x first butfirst ?
@@ -72,12 +93,22 @@ to-report nearestCenter [#key #value]
     if dist < mindist [
      set mindist dist
      set nearest id
-     set nx x
-     set ny y
+     ;set nx x
+     ;set ny y
     ]
   ]
   
-  report list (list nearest nx ny) #value
+  report nearest
+end
+
+to mapper [#key #value]
+  ; mapreduce:emit (nearestCenter #key #value) #value
+  let val read-from-string #value
+  ; show val
+  ; show "in mapper"
+  let nearest (nearestCenter (read-from-string #key) val)
+  show nearest
+  mapreduce:emit nearest #value
 end
 
 to centroids-to-centers
@@ -100,19 +131,20 @@ to kmeans
   ; create the list of centers
   centroids-to-centers
   
-  ; let res mymapreduce point-list
   let res mapreduce point-list
   
   ; adapt centroids
   foreach res [
-    show ?
-   ask centroid first first ? [
+    let id first ?
+    let x (first last ?)
+    let y (last last ?)
+   ask centroid id [
      ;setxy (pxcor + (first last ?)) (pycor + last last ?)
-     setxy (first last ?) (last last ?)
+     setxy x y
      ; set color (color + 10)
    ]
   ]
-  
+  show "recentering done"
   color-partitions
 end
 
@@ -122,8 +154,11 @@ to color-partitions
   set cl sort cl
   
   foreach point-list [
-    let nc nearestCenter (first ?) (butfirst ?)
-    let cid (first first nc)
+    ; show (first ?)
+    ; show (first last ?)
+    let nc nearestCenter (first ?) (first last ?)
+    ; show "jjj"
+    let cid nc
     let tcl cl
     let c 25
     while [(first tcl) != cid] [set c (c + 10) set tcl bf tcl]
@@ -131,59 +166,15 @@ to color-partitions
   ]
 end
 
-to-report mymapreduce [#input]
-  ; map
-  let mapres mymapper point-list
-  ; show mapres
-  
-  ; reduce
-  let redres myreduce [] mapres
-  ; show redres
-  
-  report redres
-end
-
-to-report mymapper [#kv-pairs]
-  let mapres []
-  foreach #kv-pairs [
-    set mapres fput (nearestCenter (first ?) (butfirst ?)) mapres
-  ]
-  set mapres sort-by [first first ?1 < first first ?2] mapres
-  report mapres
-end
-
-to-report myreduce [#acc #mapres]
-  let lastkey first first #mapres
-  let acc #acc
-  let res []
-  foreach #mapres [
-   let key first ?
-   let value first bf ?
-   if lastkey != key
-   [
-     set res fput (list lastkey acc) res
-     set acc #acc
-   ]
-   ; show key
-   ; show value
-   ; show acc
-   set acc (newMeans key acc value)
-   set lastkey key
-  ]
-  set res fput (list lastkey acc) res
-  ;show "result"
-  report res
-end
-
 to-report mapreduce [#kv-pairs]
   reset-ticks
   
-  let res mapreduce:mapreduce "nearestCenter" "newMeans" [] #kv-pairs
+  let res mapreduce:mapreduce "mapper" "newMeans" [] #kv-pairs
   
   while [mapreduce:running?] [
    every 0.5 [
-       print mapreduce:map-progress
-       print mapreduce:reduce-progress
+       ; print mapreduce:map-progress
+       ; print mapreduce:reduce-progress
        ; plot 1
        tick
      ]
