@@ -10,9 +10,6 @@ to test
   ask centroids [die]
   load-points "../input-kmeans1/points4.txt"
   init
-  ; show point-list
-  ;centroids-to-centers
-  ;let acc newMeans "1.0" [] "137.0"
   kmeans
 end
 
@@ -127,7 +124,6 @@ to init
 end
 
 to kmeans
-  ; init
   ; create the list of centers
   centroids-to-centers
   
@@ -138,11 +134,7 @@ to kmeans
     let id first ?
     let x (first last ?)
     let y (last last ?)
-   ask centroid id [
-     ;setxy (pxcor + (first last ?)) (pycor + last last ?)
-     setxy x y
-     ; set color (color + 10)
-   ]
+    ask centroid id [ setxy x y ]
   ]
   show "recentering done"
   color-partitions
@@ -166,10 +158,10 @@ to color-partitions
   ]
 end
 
-to-report mapreduce [#kv-pairs]
+to-report mapreduce [#input]
   reset-ticks
   
-  let res mapreduce:mapreduce "mapper" "newMeans" [] #kv-pairs
+  let res mapreduce:mapreduce "mapper" "newMeans" [] #input
   
   while [mapreduce:running?] [
    every 0.5 [
