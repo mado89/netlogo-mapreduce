@@ -3,7 +3,7 @@ ifeq ($(origin JAVA_HOME), undefined)
 endif
 
 ifeq ($(origin NETLOGO), undefined)
-  NETLOGO=/media/data/Uni/DA/netlogo-5.0
+  NETLOGO=/media/data/netlogo-5.0.5
 endif
 
 ifeq ($(origin SCALA_HOME), undefined)
