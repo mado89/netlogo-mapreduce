@@ -537,7 +537,7 @@ public class HostController
 		double a= nMapTasks.getValue();
 		double b= nMapTasksf.getValue();
 		
-		System.out.println("mP " + b + " " + a + " " + nMapTasks + " " + nMapTasksf);
+		// System.out.println("mP " + b + " " + a + " " + nMapTasks + " " + nMapTasksf);
 		
 		if( a > 0 )
 			return b / a;
@@ -555,7 +555,7 @@ public class HostController
 		double a= nReduceTasks.getValue();
 		double b= nReduceTasksf.getValue();
 		
-		System.out.println("rP " + b + " " + a + " " + nReduceTasks + " " + nReduceTasksf);
+		// System.out.println("rP " + b + " " + a + " " + nReduceTasks + " " + nReduceTasksf);
 		
 		if( a > 0 )
 			return b / a;
