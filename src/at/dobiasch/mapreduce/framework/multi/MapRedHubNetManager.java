@@ -17,6 +17,7 @@ import org.nlogo.api.ExtensionException;
 import org.nlogo.api.HubNetInterface;
 import org.nlogo.api.LogoException;
 import org.nlogo.headless.HeadlessWorkspace;
+import org.nlogo.workspace.AbstractWorkspace;
 
 import ch.randelshofer.quaqua.ext.base64.Base64;
 
@@ -31,7 +32,7 @@ import at.dobiasch.mapreduce.framework.FrameworkFactory;
 import scala.collection.Iterable;
 
 public class MapRedHubNetManager {
-	private HeadlessWorkspace ws;
+	private AbstractWorkspace ws;
 	private int state= STATE_UNINIT;
 	private HelperT handler;
 	
@@ -63,13 +64,13 @@ public class MapRedHubNetManager {
 
 			while (runIt) {
 				state= fw.getHubNetManager().getState();
-				System.out.println("Message loop " + state);
+				// System.out.println("Message loop " + state);
 				
 				try {
 				switch( state )
 				{
 					case MapRedHubNetManager.STATE_INIT: // do nothing
-						// idleFetch();
+						idleFetch();
 						break;
 					case MapRedHubNetManager.STATE_RUNSTARTED:
 						prepareRun();
@@ -149,8 +150,8 @@ public class MapRedHubNetManager {
 	                        }
 	                        else if( hubnet.exitMessage() )
 	                        {
-	                        	System.out.println("Client left");
-								String name = hubnet.getMessageSource();
+	                        	String name = hubnet.getMessageSource();
+	                        	System.out.println("Client left '" + name + "'");
 								run.removeClient(name);
 	                        }
 	                        else if( hubnet.getMessageTag().equals("results") )
@@ -165,16 +166,20 @@ public class MapRedHubNetManager {
 								} catch (UnsupportedEncodingException e) {
 									e.printStackTrace();
 								}
-	                        	run.newMapResult(hubnet.getMessageSource(), res);
-	                        	run.nodeFinished(hubnet.getMessageSource());
+	                        	
+								if( run.newMapResult(hubnet.getMessageSource(), res) )
+									run.nodeFinished(hubnet.getMessageSource());
+								else
+									run.removeClient(hubnet.getMessageSource());
 	                        }
 	                        else if( hubnet.getMessageTag().equals("fr") )
 	                        {
 	                        	System.out.println("Tag: " + hubnet.getMessageTag());
 	                        	System.out.println("Source: " + hubnet.getMessageSource());
 	                        	System.out.println("Message: " + hubnet.getMessage());
+	                        	// if( hubnet.getMessage().getClass() == Integer.class) {
 	                        	run.fileRequest(hubnet.getMessageSource(), 
-	                        			Integer.parseInt((String) hubnet.getMessage()));
+	                        			(Integer) hubnet.getMessage());
 	                        }
 	                        else
 	                        {
@@ -207,24 +212,30 @@ public class MapRedHubNetManager {
 		return this.state;
 	}
 	
-	public MapRedHubNetManager(String model) throws CompilerException, LogoException {
+	public MapRedHubNetManager(String model, AbstractWorkspace workspace) throws CompilerException, LogoException {
+		ws= workspace;
 		init(model);
 	}
 	
 	private void init(String model) throws CompilerException, LogoException {
-		ws= HeadlessWorkspace.newInstance();
+		// ws= HeadlessWorkspace.newInstance();
 		
-		ws.open(model);
+		// ws.open(model);
 		
 		// StartUp Hubnet
 		ws.getHubNetManager().reset();
 		ArrayList<Object> list= new ArrayList<Object>();
 		ws.getHubNetManager().setClientInterface("MAPREDUCE", 
 				scala.collection.JavaConversions.collectionAsScalaIterable(list));
+		System.out.println(ws.getHubNetManager().toString());
 	}
 	
 	public synchronized void broadcast(String message) throws LogoException {
 		ws.hubnetManager().broadcast(message);
+	}
+	
+	public synchronized void sayGoodBy(String to) throws LogoException {
+		ws.hubnetManager().send(to, "ExitMessage", "Shutting Down.");
 	}
 	
 	@Deprecated
@@ -290,15 +301,12 @@ public class MapRedHubNetManager {
 	}
 
 	public void sendFile(String filename, int inpid, String node) throws ExtensionException {
+		System.out.println("Send file " + filename);
+		
 		try {
 			InputStream fis= null;
-			try {
-				fis = new FileInputStream(FrameworkFactory.getInstance().getConfiguration().getInputDirectory() +
-						filename);
-			} catch (ExtensionException e) {
-				throw new ExtensionException(e);
-			}
-
+			fis = new FileInputStream( filename);
+			
 			byte[] buffer = new byte[1024];
 			int numRead;
 			int i= 0;
@@ -306,7 +314,8 @@ public class MapRedHubNetManager {
 			do {
 				numRead = fis.read(buffer);
 				if (numRead > 0) {
-					this.handler.queueMsg("f-" + inpid + "-" + i + "-" + Base64.encodeBytes(buffer));
+					// System.out.println(numRead);
+					this.handler.queueMsg("f-" + inpid + "-" + i + "-" + Base64.encodeBytes(buffer, 0, numRead));
 					i++;
 				}
 			} while (numRead != -1);

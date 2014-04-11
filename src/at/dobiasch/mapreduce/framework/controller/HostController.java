@@ -2,6 +2,7 @@ package at.dobiasch.mapreduce.framework.controller;
 
 import java.io.IOException;
 import java.lang.reflect.Array;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -17,6 +18,7 @@ import org.nlogo.nvm.Workspace;
 import org.nlogo.workspace.AbstractWorkspace;
 
 import at.dobiasch.mapreduce.framework.Counter;
+import at.dobiasch.mapreduce.framework.FrameworkException;
 import at.dobiasch.mapreduce.framework.RecordReader;
 import at.dobiasch.mapreduce.framework.RecordWriter;
 import at.dobiasch.mapreduce.framework.RecordWriterBuffer;
@@ -58,9 +60,12 @@ public class HostController
 	
 	// Members for Progress
 	private Counter nMapTasks;
-	private Counter nMapTasksf;
+	private Counter nMapTasksfinished;
+	private Counter nMapTasksfailed;
 	private Counter nReduceTasks;
 	private Counter nReduceTasksf;
+	
+	private ConcurrentHashMap<Long,Short> retry;
 	
 	/**
 	 * 
@@ -84,9 +89,12 @@ public class HostController
 		this.htc= new HostTaskController(sysh);
 		
 		this.nMapTasks= new Counter();
-		this.nMapTasksf= new Counter();
+		this.nMapTasksfinished= new Counter();
+		this.nMapTasksfailed= new Counter();
 		this.nReduceTasks= new Counter();
 		this.nReduceTasksf= new Counter();
+		
+		retry= new ConcurrentHashMap<Long,Short>();
 	}
 	
 	/**
@@ -158,6 +166,12 @@ public class HostController
 	{
 		// System.out.println(ID + ": " + key + " " + start + " " + end + " submit");
 		
+		Object val= retry.get(ID);
+		if( val == null)
+			retry.put(ID, (short) 0);
+		else
+			retry.put(ID, (short) (((Short) val) + 1));
+		
 		this.complet.submit(new MapRun(ID,key,start,end));
 		
 		this.maptaskC.add();
@@ -206,7 +220,7 @@ public class HostController
 		return elem;
 	}
 	
-	public void setMapFinished(long ID, boolean success, WorkspaceBuffer.Element elem, String key, long start, long end)
+	public void setMapFinished(long ID, boolean success, WorkspaceBuffer.Element elem, String key, long start, long end) throws FrameworkException
 	{
 		// System.out.println("Map " + ID + "finished : " + success);
 		try {
@@ -219,10 +233,20 @@ public class HostController
 		wbmap.release(elem);
 		if( success == false )
 		{
-			this.addMap(getID(), key, start, end);
+			this.nMapTasksfailed.add();
+			int failed= this.nMapTasksfailed.getValue();
+			int total= this.nMapTasks.getValue();
+			if( (double) failed / (double) total > 0.5 )
+			{
+				throw new FrameworkException("Too much map tasks failed. Giving up");
+			}
+			Object val= retry.get(ID);
+			short count= (Short) val;
+			if( count < 2 )
+				this.addMap(ID, key, start, end);
 		}
 		
-		this.nMapTasksf.add();
+		this.nMapTasksfinished.add();
 	}
 	
 	public boolean waitForMappingStage()
@@ -239,6 +263,7 @@ public class HostController
 				if( (Boolean) complet.take().get() != true)
 				{
 					System.out.println("Something failed");
+					return false;
 				}
 			}
 			System.out.println("All taken");
@@ -535,7 +560,7 @@ public class HostController
 	public synchronized double getMapProgress()
 	{
 		double a= nMapTasks.getValue();
-		double b= nMapTasksf.getValue();
+		double b= nMapTasksfinished.getValue();
 		
 		// System.out.println("mP " + b + " " + a + " " + nMapTasks + " " + nMapTasksf);
 		

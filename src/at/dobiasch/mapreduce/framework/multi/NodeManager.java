@@ -36,6 +36,12 @@ public class NodeManager {
 		public List<Task> getTasks() {
 			return tasks;
 		}
+		
+		@Override
+		public String toString() {
+			return "NodeItem [name=" + name + ", tasks=" + tasks + "]";
+		}
+
 	};
 	
 	Map<String,NodeItem> nodes;
@@ -64,19 +70,36 @@ public class NodeManager {
 		nodes.put(name, new NodeItem(name));
 	}
 	
-	public void removeClient(String name) {
-		nodes.remove(name);
+	/** 
+	 * Remove a node from the network
+	 * @param name
+	 * @return list of tasks which the node should compute
+	 */
+	public List<Task> removeClient(String name) {
+		Object obj= nodes.get(name);
+		System.out.println("Node: " + obj + " " + nodes.keySet());
+		if( obj != null )
+		{
+			List<Task> tasks= getNodeTasks(name);
+			nodes.remove(name);
+			return tasks;
+		}
+		else
+			return new ArrayList<Task>();
 	}
 
 	public List<Task> getNodeTasks(String node) {
 		return nodes.get(node).getTasks();
 	}
 
-	public void addNodeTask(String cnode, Task t) {
-		nodes.get(cnode).addTask(t);
+	public void addNodeTask(String node, Task t) {
+		// System.out.println("addNodeTask" + node + " " + t + " " + nodes.get(node));
+		nodes.get(node).addTask(t);
+		// System.out.println("addNodeTask2" + node + " " + t + " " + nodes.get(node));
 	}
 
 	public void removeNodeTasks(String node) {
+		System.out.println("Remove Node Tasks: " + node);
 		nodes.get(node).tasks.clear();
 	}
 

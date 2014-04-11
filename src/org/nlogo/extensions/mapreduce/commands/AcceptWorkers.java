@@ -32,7 +32,7 @@ public class AcceptWorkers extends DefaultCommand
 			System.out.println("Accept Workers");
 			model= Manager.em.workspace().getModelPath();
 			
-			MapRedHubNetManager manager= new MapRedHubNetManager(model);
+			MapRedHubNetManager manager= new MapRedHubNetManager(model, Manager.em.workspace());
 			
 			FrameworkFactory.getInstance().setMultiNode(true);
 			FrameworkFactory.getInstance().setHubNetManager(manager);

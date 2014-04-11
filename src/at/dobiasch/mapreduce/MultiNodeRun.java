@@ -10,14 +10,11 @@ import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Map.Entry;
 
 import org.nlogo.api.CompilerException;
 import org.nlogo.api.ExtensionException;
 import org.nlogo.api.LogoException;
 import org.nlogo.extensions.mapreduce.Manager;
-
-import ch.randelshofer.quaqua.ext.base64.Base64;
 
 import at.dobiasch.mapreduce.framework.ChecksumHelper;
 import at.dobiasch.mapreduce.framework.Framework;
@@ -29,6 +26,7 @@ import at.dobiasch.mapreduce.framework.partition.CheckPartData;
 import at.dobiasch.mapreduce.framework.partition.Data;
 import at.dobiasch.mapreduce.framework.task.IntKeyVal;
 import at.dobiasch.mapreduce.framework.task.TaskManager;
+import ch.randelshofer.quaqua.ext.base64.Base64;
 
 public class MultiNodeRun extends MapReduceRun
 {
@@ -292,6 +290,8 @@ public class MultiNodeRun extends MapReduceRun
 			e.printStackTrace();
 			throw new ExtensionException(e);
 		}
+        
+        taskmanager.debugNodes();
 	}
 	
 	/**
@@ -345,18 +345,20 @@ public class MultiNodeRun extends MapReduceRun
 	}
 
 	public void newClient(String name) {
+		taskmanager.debugNodes();
 		nodes.add(name);
 	}
 	
 	public void removeClient(String name) {
 		// Tell TaskManger that node has failed
 		// TODO: this means reschedule
-		taskmanager.removeNode(name);
+		System.out.println("Client " + name + " failed");
 		
-		nodes.removeClient(name);
+		taskmanager.debugNodes();
+		taskmanager.removeNode(name);
 	}
 
-	public void newMapResult(String source, String resultstring)
+	public boolean newMapResult(String source, String resultstring)
 	{
 		System.out.println("Resultstring: " + resultstring);
 		String[] results= resultstring.split(">");
@@ -365,6 +367,11 @@ public class MultiNodeRun extends MapReduceRun
 		String fn;
 		String key;
 		int i;
+		
+		if( resultstring.equals("") )
+		{// There went something wrong --> We have to redo all the tasks done on this node
+			return false; 
+		}
 		
 		for(i= 0; i < results.length; i++)
 		{
@@ -388,8 +395,11 @@ public class MultiNodeRun extends MapReduceRun
 	            h.writeValue(res[1]);
 			} catch (IOException e) {
 				e.printStackTrace();
+				return false;
 			}
 		}
+		
+		return false;
 	}
 
 	public void nodeFinished(String node) {
@@ -397,6 +407,7 @@ public class MultiNodeRun extends MapReduceRun
 	}
 
 	public void fileRequest(String node, int inpid) throws ExtensionException {
+		System.out.println("File requested");
 		fw.getHubNetManager().sendFile(this.partIDs[inpid].key, inpid, node);
 	}
 }

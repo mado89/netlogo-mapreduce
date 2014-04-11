@@ -1,5 +1,6 @@
 package at.dobiasch.mapreduce;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -114,15 +115,18 @@ public class Node
 		} catch( Exception e ) {
 			System.out.println("Exception in node(): " + e.getMessage() );
 			e.printStackTrace();
+			throw new ExtensionException(e);
 		}
 	}
 	
 	private void node() throws ExtensionException
 	{
 		boolean run= true;
+		boolean error= false;
+		String reason= "";
 		while(run)
 		{
-			System.out.println("running");
+			// System.out.println("running");
 			try
 			{
 				Option<Message> message;
@@ -155,7 +159,17 @@ public class Node
 						try {
 							finishMapStage();
 						} catch (ExtensionException e) {
+							e.printStackTrace();
+							System.out.println("Failure shutting down");
 							this.client.sendActivityCommand("failed-node", this.user);
+							
+							error= true;
+							reason= "Failure during Map-Stage occured";
+							
+							// By not setting run to false we can still recieve files
+							//   -> missing files most likely have caused the error
+							// run= false;
+							
 						}
 						try {
 							doReduce();
@@ -169,6 +183,9 @@ public class Node
 							this.client.sendActivityCommand("failed-node", this.user);
 							throw new ExtensionException(e);
 						}
+					} else if (msg.equals("Some(ExitMessage(Shutting Down.))")) {
+						System.out.println("Shutdown signal recieved");
+						run= false;
 					} else {
 						System.out.println("Message: " + message );
 					}
@@ -186,6 +203,8 @@ public class Node
 				e.printStackTrace();
 			}*/
 		}
+		
+		if( error ) throw new ExtensionException(reason);
 	}
 	
 	private void filePartRecieved(String msg) {
@@ -196,6 +215,8 @@ public class Node
 		while( msg.charAt(i) != '-') i++;
 		int offs= Integer.parseInt(msg.substring(ss,i));
 		byte[] decoded = Base64.decode(msg.substring(i+1));
+		
+		System.out.println("File part recieved " + inpId + " " + offs);
 		
 		RandomAccessFile out;
 		try {
@@ -217,6 +238,12 @@ public class Node
 		// TODO: check if config was received before
 		
 		Framework fw= FrameworkFactory.getInstance();
+		
+		// Create input-directory if it doesn't exist
+		File f= new File(fw.getConfiguration().getInputDirectory());
+		if( !f.exists() )
+			f.mkdirs();
+		
 		this.controller= new HostController( fw.getConfiguration().getMappers(),
 				fw.getConfiguration().getReducers(),
 				fw.getConfiguration().getMapper(), 
@@ -282,8 +309,8 @@ public class Node
 			complete = MessageDigest.getInstance("SHA1");
 			
 			try {
-				InputStream fis = new FileInputStream(FrameworkFactory.getInstance().getConfiguration().getInputDirectory() +
-						inpfile);
+				// TODO: For some reason the Input-Directory is allready encoded in inpfile
+				InputStream fis = new FileInputStream(inpfile);
 
 				byte[] buffer = new byte[1024];
 				int numRead;
@@ -300,11 +327,11 @@ public class Node
 
 				check= ChecksumHelper.convToHex(b);
 			} catch (FileNotFoundException e) {
-				e.printStackTrace();
-				throw new ExtensionException(e);
+				// This means we need to get the file!
+				return false;
 			} catch (IOException e) {
-				e.printStackTrace();
-				throw new ExtensionException(e);
+				// Also there is probably a mistake with the file -> get it
+				return false;
 			}
 		} catch (NoSuchAlgorithmException e1) {
 			e1.printStackTrace();

@@ -47,7 +47,7 @@ public class TaskManager {
 	}
 
 	public void assignMapTask(long tID, long partStart, long partEnd, int inpid, String fn) {
-		Task t= new Task(inpid,partStart,partEnd);
+		Task t= new Task(inpid,fn,tID,partStart,partEnd);
 		String key= t.getKey();
 		
 		System.out.println("Create Task: " + inpid + " " + cnode + " " + tfn + " " + partStart);
@@ -57,7 +57,8 @@ public class TaskManager {
 			nodetasks++;
 		}
 		else {
-			controller.addMap(controller.getID(), fn, partStart, partEnd);
+			// controller.addMap(controller.getID(), fn, partStart, partEnd);
+			controller.addMap(tID, fn, partStart, partEnd);
 			localtasks++;
 		}
 		
@@ -67,6 +68,7 @@ public class TaskManager {
 		}
 		else
 			t= taskmap.get(key);
+		
 		t.addWorker(cnode);
 		if( cnode != null )
 			nodes.addNodeTask(cnode,t);
@@ -107,23 +109,47 @@ public class TaskManager {
 		return mapassignment;
 	}
 
+	/*
+	 * A node has failed.
+	 * This means all it tasks need to be removed and resheduled
+	 */
 	public void removeNode(String name) {
-		// TODO Auto-generated method stub
-		/*
+		List<Task> tasks= nodes.removeClient(name);
+		
 		// Go over all tasks and set them to fail
-		for(String task : tasks)
-			failedTask(task);
+		for(Task task : tasks)
+			failedTask(name, task);
+		
+		synchronized (this) {
+			notifyAll();
+		}
+	}
 
-	private void failedTask(String task) {
-		List<String> nodes= tasknodes.get(task);
+	/**
+	 * A task has failed on a node
+	 * Reshedule it
+	 * @param task
+	 */
+	private void failedTask(String node, Task task) {
+		// Old code. Was in comment, never used
+		/*List<String> nodes= tasknodes.get(task);
 		nodes.remove(task);
 		
-		// TODO: decide about reshedule
+		// TOD-0: decide about reshedule
 		
 		if( nodes.size() == 0 )
 			tasknodes.remove(task);
-	}
-		 */
+		*/
+		
+		// taskmap.get(task.getKey());
+		task.removeWorker(node);
+		if( task.getWorker().size() == 0 ) // TODO: better alg for reschedule
+		{
+			controller.addMap(task.getTID(), task.getFn(), task.getPartStart(), task.getPartEnd());
+			System.out.println("Task " + task.getTID() + " rescheduled to localhost");
+			localtasks++;
+			nodetasks--;
+		}
 	}
 
 	/**
@@ -132,6 +158,7 @@ public class TaskManager {
 	 * @param node
 	 */
 	public void tasksDone(String node) {
+		System.out.println("All tasks done for node: " + node);
 		for(Task t : nodes.getNodeTasks(node))
 		{
 			taskmap.get(t.getKey()).removeWorker(node);
@@ -145,5 +172,20 @@ public class TaskManager {
 	
 	public double getMapProgress(double localMapProgress) {
 		return (localtasks * localMapProgress + finishednodetasks) / (double) (localtasks + nodetasks);
+	}
+
+	public void debugNodes() {
+		System.out.println("DEBUG NODES - START");
+		if( nodes != null ) {
+			Iterator<String> nodeit= nodes.iteratorNodeNames();
+			while(nodeit.hasNext())
+			{
+				String node= nodeit.next();
+				System.out.println("Node: " + node + " " + nodes.getNodeTasks(node));
+			}
+		}else{
+			System.out.println("No nodemanager installed");
+		}
+		System.out.println("DEBUG NODES - END");
 	}
 }

@@ -4,6 +4,7 @@ import java.util.concurrent.Callable;
 
 import org.nlogo.api.ExtensionException;
 
+import at.dobiasch.mapreduce.framework.FrameworkException;
 import at.dobiasch.mapreduce.framework.FrameworkFactory;
 import at.dobiasch.mapreduce.framework.WorkspaceBuffer;
 
@@ -23,7 +24,7 @@ public class MapRun implements Callable<Object>
 	}
 
 	@Override
-	public Object call()
+	public Object call() throws FrameworkException
 	{
 		boolean returned= false;
 		boolean excep= false;
@@ -65,7 +66,11 @@ public class MapRun implements Callable<Object>
 			} catch (ExtensionException e) {
 				e.printStackTrace();
 				return false;
-			}
+			} catch (FrameworkException e) {
+				e.printStackTrace();
+				// throw e;
+				return false;
+			} 
 		}
 		
 		return true;
