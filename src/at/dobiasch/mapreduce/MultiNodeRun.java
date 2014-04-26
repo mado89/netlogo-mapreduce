@@ -252,7 +252,7 @@ public class MultiNodeRun extends MapReduceRun
                         {
                                 partEnd= Integer.parseInt(line);
                                 // don't add an empty task
-                                if( partStart < partEnd )
+                                if( (partStart + 1) < partEnd )
                                 {
                                 	// System.out.println(node);
                                     // System.out.println(d);

@@ -165,7 +165,7 @@ public class HostTaskController
 		Data data;
 		data= tasks.getTaskDataByWorkspace(ws);
 		
-		// System.out.println("emit " + data.ID + " <" + key + "," + value + ">" + data.src + data.start);	
+		// System.out.println("emit " + data.ID + " <" + key + "," + value + ">" + data.src + " " + data.start + " " + data.dest.getFilename());	
 		if( data.type == TaskType.Map ) // emmited from a Map Task
 		{
 			data.dest.write(key, value);

@@ -112,7 +112,7 @@ public class SingleNodeRun extends MapReduceRun
 			{
 				partEnd= Integer.parseInt(line);
 				// don't add an empty task
-				if( partStart < partEnd )
+				if( (partStart + 1) < partEnd )
 					this.controller.addMap(this.controller.getID(), data.key, partStart, partEnd);
 				
 				partStart= partEnd;
