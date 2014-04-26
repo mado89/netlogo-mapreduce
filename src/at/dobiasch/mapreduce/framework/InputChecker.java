@@ -29,7 +29,10 @@ public class InputChecker
 		
 		if( inputdir.isFile() )
 		{
-			part.addFile(indir);
+			if( inputdir.isAbsolute() )
+				part.addFile(indir);
+			else
+				part.addFile(fw.getConfiguration().getBaseDir() + indir);
 		}
 		else
 		{
@@ -39,7 +42,14 @@ public class InputChecker
 			    }
 			};
 	
-			String[] children = inputdir.list(filter);
+			String[] children;
+			if( !inputdir.isAbsolute() )
+			{
+				indir= fw.getConfiguration().getBaseDir() + indir;
+				inputdir= new File(indir);
+			}
+			children= inputdir.list(filter);
+			
 			if (children == null)
 			{
 			    // Either dir does not exist or is not a directory

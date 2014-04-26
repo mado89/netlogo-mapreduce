@@ -19,11 +19,13 @@ public class Configuration
 	private String valsep;
 	private IInputParser inp;
 	private LogoObject accumulator;
+	private String basedir;
 	
 	private static final String INDIR    = "input";
 	private static final String OUTDIR   = "";
 	private static final String MAPPER   = "mapper";
 	private static final String REDUCER  = "reducer";
+	// private static final int    MAPPERS  = 1;
 	private static final int    MAPPERS  = Runtime.getRuntime().availableProcessors() * 2;
 	private static final int    REDUCERS = 1;
 	private static final String PARSER   = "at.dobiasch.mapreduce.framework.inputparser.TextInputFormat";
@@ -38,6 +40,7 @@ public class Configuration
 		mappers= MAPPERS;
 		reducers= REDUCERS;
 		valsep= VALSEP;
+		basedir= "";
 		accumulator= new LogoObject();
 		accumulator.set(0.0);
 		this.setInputParser(PARSER);
@@ -264,5 +267,13 @@ public class Configuration
 
 	public void setAccumulatorFromObj(Object object) {
 		this.accumulator.set(object);
+	}
+
+	public String getBaseDir() {
+		return basedir;
+	}
+
+	public void setBaseDir(String basedir) {
+		this.basedir = basedir;
 	}
 }

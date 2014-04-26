@@ -24,6 +24,7 @@ public class SysFileHandler
 			f.mkdirs();
 		if( this.sysdir.endsWith("/") || this.sysdir.endsWith("\\"))
 			this.sysdir= this.sysdir.substring(0, this.sysdir.length() - 1);
+		f.deleteOnExit();
 		this.files= new HashMap<String,String>();
 	}
 	
@@ -94,11 +95,13 @@ public class SysFileHandler
 		}
 	}
 	
+	/*
 	public void cleanSysDir()
 	{
-		// TODO
 		System.out.println("SysFileHandler::cleanSysDir");
-	}
+		File dir= new File(sysdir);
+		dir.deleteOnExit();
+	}*/
 
 	public String getFile(String fn) {
 		return sysdir + "/" + fn;

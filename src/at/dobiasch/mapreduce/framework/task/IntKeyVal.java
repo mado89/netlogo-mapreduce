@@ -8,6 +8,12 @@ import java.io.IOException;
  */
 public class IntKeyVal
 {
+	@Override
+	public String toString() {
+		return "IntKeyVal [fn=" + fn + ", key=" + key + ", out=" + out
+				+ ", count=" + count + ", fsize=" + fsize + "]";
+	}
+
 	/**
 	 * Filename
 	 */

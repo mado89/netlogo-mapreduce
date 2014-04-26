@@ -11,7 +11,6 @@ import org.nlogo.api.ExtensionException;
 
 import at.dobiasch.mapreduce.framework.Framework;
 import at.dobiasch.mapreduce.framework.controller.HostController;
-import at.dobiasch.mapreduce.framework.partition.CheckPartData;
 
 public abstract class MapReduceRun {
 	
@@ -84,6 +83,9 @@ public abstract class MapReduceRun {
 		fn= this.fw.getConfiguration().getOutputDirectory();
 		if( !fn.equals("") && !fn.endsWith(File.separator)) //TODO: make it work for OS-Problems \\ on linux
 			fn+= File.separator;
+		File outdir= new File(fn);
+		if( !outdir.isAbsolute() )
+			fn= this.fw.getConfiguration().getBaseDir() + fn;
 		fn+= String.format("output-%02d.txt", fw.getJobNr());
 		try {
 			this.controller.mergeReduceOutput(fn);

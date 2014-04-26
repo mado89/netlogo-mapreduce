@@ -1,9 +1,11 @@
 package org.nlogo.extensions.mapreduce;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 
+import org.nlogo.api.ExtensionException;
 import org.nlogo.extensions.mapreduce.commands.AcceptWorkers;
 import org.nlogo.extensions.mapreduce.commands.Emit;
 import org.nlogo.extensions.mapreduce.commands.ID;
@@ -28,6 +30,7 @@ import org.nlogo.extensions.mapreduce.commands.config.ValueSeparator;
 import org.nlogo.nvm.Workspace;
 import org.nlogo.workspace.AbstractWorkspace;
 
+import at.dobiasch.mapreduce.framework.Framework;
 import at.dobiasch.mapreduce.framework.FrameworkFactory;
 
 /**
@@ -151,8 +154,22 @@ public class Manager extends org.nlogo.api.DefaultClassManager
 		Manager.world= new WorldSem();
 		// Manager.world.fillIn();
 		
-		FrameworkFactory.getInstance();
+		Framework fw= FrameworkFactory.getInstance();
+		File model= new File(Manager.em.workspace().getModelPath());
+		String absolutePath = model.getAbsolutePath();
+		String modelPath = absolutePath.substring(0,absolutePath.lastIndexOf(File.separator));
+		fw.getConfiguration().setBaseDir(modelPath + File.separator);
 	}
+	
+	/**
+	 * When NetLogo is closing properly --> clean up
+	 * @throws ExtensionException in case the Framework can not be loaded
+	 */
+	/*public void unload() throws ExtensionException 
+	{
+		Framework fw= FrameworkFactory.getInstance();
+		fw.cleanup();
+	}*/
 	
 	/**
 	 * Request the current(!) world

@@ -28,6 +28,7 @@ public class Framework
 	{
 		this.config= new Configuration();
 		this.masterp= false;
+		// TODO place the tmpdir wisely. At the moment it might end up in the NetLogo directory
 		sysfileh= new SysFileHandler("./tmpdir" + ((int)(Math.random() * 100))  + "/");
 		
 		this.run= null;
@@ -164,7 +165,7 @@ public class Framework
 	public void newJob() {
 		this.job++;
 	}
-	
+
 	/*public String getSystemDir()
 	{
 		return sysdir; // TODO: not hardcoded is maybe better ...
