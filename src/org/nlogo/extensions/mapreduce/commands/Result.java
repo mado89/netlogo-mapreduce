@@ -1,5 +1,6 @@
 package org.nlogo.extensions.mapreduce.commands;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
@@ -51,9 +52,21 @@ public class Result extends DefaultReporter
 			e.printStackTrace();
 			throw new ExtensionException(e);
 		}
+		
+		Framework fw= FrameworkFactory.getInstance();
+		String outdir= fw.getConfiguration().getOutputDirectory();
+		File outputdir = new File(outdir);
+		if( !outputdir.isAbsolute() )
+		{
+			outdir= fw.getConfiguration().getBaseDir() + outdir;
+			outputdir= new File(outdir);
+		}
+		
 		RecordReader in;
+		
 		try {
-			in = new RecordReader(String.format("output-%02d.txt", nr), ": ", false);
+			
+			in = new RecordReader(String.format(outdir + "output-%02d.txt", nr), ": ", false);
 		} catch (IOException e) {
 			e.printStackTrace();
 			throw new ExtensionException(e);
