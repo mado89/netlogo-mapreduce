@@ -25,7 +25,10 @@ clean:
 	rm mapreduce/mapreduce-framework.jar
 	
 export: samples
-	rm $(wildcard samples/WordCount/output*.txt)
+	rm -f $(wildcard samples/WordCount/output*.txt)
+	rm -f $(wildcard samples/Graph/output*.txt)
+	rm -f $(wildcard samples/KMeans/output*.txt)
+	rm -f $(wildcard samples/output*.txt)
 	tar cvfz MapReduce-xx.tar.gz src/ mapreduce netlogo.sh samples/ client 
 
 mapreduce/mapreduce.jar: $(SRCS) manifest.txt mapreduce/mapreduce-framework.jar

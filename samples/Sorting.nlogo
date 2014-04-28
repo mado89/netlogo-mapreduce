@@ -5,12 +5,16 @@ to read-file [file-name words]
   foreach words
   [
     ;;;  emit: <word, 1>
-    mapreduce:emit ? "1" ; <word, 1>
+    mapreduce:emit ? "" ; <word, 1>
   ]
 end
 
-to-report identity [key acum value]
+to-report identity1 [key acum value]
   report fput key acum
+end
+
+to-report identity2 [key acum value]
+  report (list key)
 end
 
 to server
@@ -27,8 +31,12 @@ to mrsort
   
   ;;; Tell MapReduce that a line has words, separated by spaces
   mapreduce:config.valueseparator " "
+  let reducer ""
+  ifelse preserve-count
+  [set reducer "identity1"]
+  [set reducer "identity2"]
   ;;; Start the MapReduce computation
-  let res mapreduce:mapreduce "read-file" "identity" [] (word "WordCount/" data-set)
+  let res mapreduce:mapreduce "read-file" reducer [] (word "WordCount/" data-set)
   ;;; Wait or the computation to finish and display the progress
   while [mapreduce:running?] [
     wait 1
@@ -37,7 +45,6 @@ to mrsort
   tick
   print "done"
 end
-
 @#$#@#$#@
 GRAPHICS-WINDOW
 365
@@ -88,8 +95,8 @@ PENS
 BUTTON
 360
 263
-311
-278
+415
+296
 server
 server
 NIL
@@ -105,7 +112,7 @@ NIL
 BUTTON
 420
 263
-397
+475
 296
 node
 node
@@ -130,10 +137,10 @@ data-set
 0
 
 BUTTON
-200
-263
-340
-296
+192
+308
+332
+341
 Sort
 mrsort
 NIL
@@ -145,6 +152,17 @@ NIL
 NIL
 NIL
 1
+
+SWITCH
+183
+263
+349
+296
+preserve-count
+preserve-count
+0
+1
+-1000
 
 @#$#@#$#@
 ## WHAT IS IT?
@@ -459,7 +477,7 @@ Polygon -7500403 true true 270 75 225 30 30 225 75 270
 Polygon -7500403 true true 30 75 75 30 270 225 225 270
 
 @#$#@#$#@
-NetLogo 5.0
+NetLogo 5.0.5
 @#$#@#$#@
 @#$#@#$#@
 @#$#@#$#@
@@ -467,9 +485,9 @@ NetLogo 5.0
 @#$#@#$#@
 default
 0.0
--0.2 0 1.0 0.0
+-0.2 0 0.0 1.0
 0.0 1 1.0 0.0
-0.2 0 1.0 0.0
+0.2 0 0.0 1.0
 link direction
 true
 0
