@@ -49,7 +49,11 @@ public class TextInputFormat implements IInputParser
 				String[] vals= new String(b).split(sep);
 				b= null;
 				for(int i= 0; i < vals.length; i++)
-					list.add(vals[i].replaceAll("\\r|\\n", ""));
+				{
+					String h= vals[i].replaceAll("\\r|\\n", "");
+					if( h.length() > 0 )
+						list.add(h);
+				}
 				
 				// if( vals.length > 0)
 				// 	System.out.println(data.ID + ": " + data.src + " " + data.start + " " + data + " " + vals[0].replaceAll("\\r|\\n", ""));
