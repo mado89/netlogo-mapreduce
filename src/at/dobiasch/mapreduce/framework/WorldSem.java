@@ -63,7 +63,7 @@ public class WorldSem
 		{
 			while( exportRunning || world.equals("") )
 			{
-				System.out.println("Waiting for World export");
+				System.out.println("Waiting for World export eR: " + exportRunning + " " + world.equals(""));
 				try {
 					sync.wait();
 				} catch (InterruptedException e) {
