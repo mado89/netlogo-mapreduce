@@ -13,4 +13,5 @@ cluster/hadoop/hosts
 zstats/
 *.txt
 tmpdir*/
+*.nlogo~
 
