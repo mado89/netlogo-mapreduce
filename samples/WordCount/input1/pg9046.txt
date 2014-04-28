@@ -1,0 +1,6528 @@
+Project Gutenberg's Koenig Ottokars Glueck und Ende, by Franz Grillparzer
+
+Copyright laws are changing all over the world. Be sure to check the
+copyright laws for your country before downloading or redistributing
+this or any other Project Gutenberg eBook.
+
+This header should be the first thing seen when viewing this Project
+Gutenberg file.  Please do not remove it.  Do not change or edit the
+header without written permission.
+
+Please read the "legal small print," and other information about the
+eBook and Project Gutenberg at the bottom of this file.  Included is
+important information about your specific rights and restrictions in
+how the file may be used.  You can also find out about how to make a
+donation to Project Gutenberg, and how to get involved.
+
+
+**Welcome To The World of Free Plain Vanilla Electronic Texts**
+
+**eBooks Readable By Both Humans and By Computers, Since 1971**
+
+*****These eBooks Were Prepared By Thousands of Volunteers!*****
+
+
+Title: Koenig Ottokars Glueck und Ende
+       Trauerspiel in fuenf Aufzuegen
+
+Author: Franz Grillparzer
+
+Release Date: October, 2005 [EBook #9046]
+[Yes, we are more than one year ahead of schedule]
+[This file was first posted on September 1, 2003]
+
+Edition: 10
+
+Language: German
+
+Character set encoding: ISO Latin-1
+
+*** START OF THE PROJECT GUTENBERG EBOOK KOENIG OTTOKARS GLUECK UND ENDE ***
+
+
+
+
+Produced by Mike Pullen and Delphine Lettau.
+
+
+
+
+This Etext is in German.
+
+We are releasing two versions of this Etext, one in 7-bit format,
+known as Plain Vanilla ASCII, which can be sent via plain email--
+and one in 8-bit format, which includes higher order characters--
+which requires a binary transfer, or sent as email attachment and
+may require more specialized programs to display the accents.
+This is the 8-bit version.
+
+This book content was graciously contributed by the Gutenberg Projekt-DE.
+That project is reachable at the web site http://gutenberg.spiegel.de/.
+
+Dieses Buch wurde uns freundlicherweise vom "Gutenberg Projekt-DE"
+zur Verfuegung gestellt. Das Projekt ist unter der Internet-Adresse
+http://gutenberg.spiegel.de/ erreichbar.
+
+
+
+
+KOeNIG OTTOKARS GLUeCK UND ENDE
+
+von FRANZ GRILLPARZER
+
+Trauerspiel in fuenf Aufzuegen
+
+
+Personen:
+
+Primislaus Ottokar, Koenig von Boehmen
+Margarethe von Oesterreich, Witwe Heinrichs von Hohenstaufen, seine Gemahlin
+Benesch von Diedicz, Milota und Zawisch, die Rosenberge
+Berta, Beneschs Tochter
+Braun von Olmuetz, des Koenigs Kanzler
+Bela, Koenig von Ungarn
+Kunigunde von Massovien, seine Enkelin
+Rudolf von Habsburg
+Albrecht und Rudolf, seine Soehne
+Friedrich Zollern, Burggraf von Nuernberg
+Heinrich von Lichtenstein und Berthold Schenk von Emerberg,
+Oesterreichische Ritter
+Der alte Merenberg, Friedrich Pettauer und Seyfried Merenberg,
+steirische Ritter
+Herbott von Fuellenstein
+Ortolf von Windischgraetz
+Ottokar von Hornek
+Merenbergs Frau
+Paltram Vatzo, Buergermeister von Wien
+Der Buergermeister von Prag
+Ein kaiserlicher Herold
+Der Kuester von Goetzendorf
+Der Kanzler des Erzbischofs von Mainz
+Elisabeth, Margarethens Kammerfrau
+Ein Kammerfraeulein Kunigundens
+Abgeordnete der deutschen Wahlversammlung
+
+Boehmische, oesterreichische, steirische, kaerntnerische Landesherren und
+Kriegsleute.
+
+
+
+
+Erster Aufzug
+
+Im Schlosse zu Prag. Vorzimmer der Koenigin. Rechts und links Seitentueren,
+deren erstere zu den innern Gemaechern fuehrt. Vor derselben, Wache haltend,
+Seyfried von Merenberg, auf seine Partisane gestuetzt.
+
+Frau Elisabeth mit einer andern Kammerfrau tritt aus dem Zimmer der
+Koenigin.
+
+
+Elisabeth.
+Lauf, Barbara! lauf schnell nach Meister Niklas!
+Die Koenigin scheint wohl, doch trau ich nicht.
+
+(Ein Diener ist gekommen.)
+
+Elisabeth.
+Hast du den Balsam? Gut, gib her, mein Freund!
+O ungluecksel'ger Tag! O arme Frau!
+
+(Der alte Merenberg kommt.)
+
+Merenberg.
+Wie geht's der Koenigin?
+
+Elisabeth.
+Verwunderlich!
+Doch tut sie sich Gewalt, das sieht man wohl.
+
+Merenberg.
+Wer ist bei ihr?
+
+Elisabeth.
+Der Graf von Habsburg, Herr!
+O dass ich das erleben muessen!
+(Ab ins Zimmer der Koenigin.)
+
+Merenberg.
+Sohn!
+
+Seyfried (der gedankenvoll, auf seine Hallbarte gestuetzt, dagestanden hat).
+Ihr, Vater?
+
+Merenberg.
+Hast du schon gehoert?
+
+Seyfried.
+Ja wohl!
+
+Merenberg.
+Und sagst dazu?
+
+Seyfried.
+Ich glaub's nicht, Vater!
+
+Merenberg.
+Wie?
+
+Seyfried.
+Nein, Vater! Und bin so ergrimmt darob,
+Dass ich den Luegnern mit der Hallbart hier
+Den Kopf einschlagen moechte, allgesamt.
+
+Merenberg (zuruecktretend).
+O weh, mein Sohn! schlag deinen Vater nicht!
+Denn ich glaub's auch.
+
+Seyfried.
+Ihr auch?
+
+Merenberg.
+Ich weiss, mein Sohn!
+
+Seyfried.
+Wie? so ein Herr, ein Ritter, so ein Koenig,
+Und taete schlimm an seinem eignen Wort,
+Die Frau verlassend, die ihm angetraut?
+Hab ich nicht knabenweis bei ihm gedient,
+Und war er mir ein Muster, Vorbild nicht
+Von jedem hohen Tun?
+
+Merenberg.
+'s wird keiner boes,
+Der nicht, bevor er's ward, erst gut gewesen!
+
+Seyfried.
+Und was ich Loeblichs tat und Gutes dachte,
+An ihn hielt ich's und an sein adlig Walten,
+Gar tief beschaemt ob des zu grossen Abstands.
+Er hat die letzte Zeit mich schwer gekraenkt,
+Ich durft' nicht mit ihm in die Ungarschlacht!
+Denn seht, er denkt wohl, dass ein alt Gefuehl
+Fuer Berta noch von Rosenberg--Ihr wisst ja!--
+O haett' ich das aus seinem Leben fort,
+Den einz'gen Fleck, im andern steht er rein!--
+Doch glaubt! sie haben ihn dazu verleitet,
+Die Rosenberg! Der Vater--pfui des Kupplers!
+
+Merenberg.
+Denk was du willst, nur eines halt fuer wahr:
+Die Koenigin muss fort, und sie und ihre Diener,
+Das Aergste haben sie, das Aeusserste zu scheun.
+
+Ich geh noch heute heim nach Merenberg,
+Auf meiner Vaeter Schloss, auch du musst fort!
+
+Seyfried.
+Wie, Vater?
+
+Merenberg.
+Du! dies toerichte Vertrauen
+Soll dich nicht selber an das Messer liefern.
+Du folgst mir nach, zum Schein; allein in Bruck
+Harrt dein ein treuer Knecht mit frischen Pferden,
+Und waehrend man dich bei dem Vater glaubt,
+Eilst du nach Deutschland auf verborgnen Pfaden.
+Die Koenigin will sich ans Reich nicht wenden
+Mit ihrer Not; ich aber will's, hilft Gott!
+Ich will nicht sehn die Tochter meines Herrn
+Von Haus und Land vertrieben, ohne Schutz.
+Du gehst nach Frankfurt, und dies Schreiben gibst du
+(Er oeffnet das Koller, in dem der Brief steckt)
+Dem Erzbischof von Mainz. Allein man koemmt,
+Wir sind bewacht, (indem er sich von ihm entfernt) Verschwiegenheit und Eile!
+Ein Tag zuviel ist dreissig Jahr zuwenig!
+
+(Benesch von Diedicz und Milota kommen.)
+
+Benesch.
+War nicht Herr Zawisch hier?
+
+Seyfried (indem er sich abwendet).
+Ich sah ihn nicht!
+
+Benesch.
+Er ritt doch nur ins Schloss!
+
+Milota.
+Sei ruhig, Bruder!
+
+Benesch.
+Was ruhig? Sieh, ich bin's! Der Koenig wagt's nicht!
+Heiss ich nicht Rosenberg? Ist unser Haus
+Im ganzen Lande nicht das maechtigste?
+Und er sollt's wagen? Solchen Schimpf? Ha, Possen!
+Doch soll's heraus, wer das Geruecht ersann;
+Ich will ihn treffen, so--und so--und so!
+Bis in das vierte Glied!
+
+(Berta von Diedicz kommt.)
+
+Benesch.
+Ha, Naerrin, du?
+Was willst du hier? Geh fort, auf dein Gemach!
+
+Berta.
+Ich kann nicht bleiben, rastlos treibt's mich um.
+Sie eilen durch das Schloss und fluestern sich
+Entsetzliches mit scheuen Blicken zu.
+Sagt, Vater, ist es wahr?
+
+Benesch.
+Das fragst du mich?
+Geh fort! von hier!
+
+Berta.
+O Gott! wo find ich Menschen?
+(Indem sie auf Seyfried losgeht, zurueckfahrend.)
+Ihr, Merenberg? Euch sollt' ich eher meiden,
+Vor allen Euch; und doch, Ihr seid ein Mensch!
+Ich hab Euch schwer beleidigt, Merenberg,
+Doch raecht Euch jetzt nicht, jetzt nicht! Seht mich knien.
+(Sie kniet.)
+Sagt, ist es wahr?
+
+Seyfried.
+Was, Berta?
+
+Berta.
+Ist es wahr?
+Des Koenigs Eh' getrennt!
+
+Seyfried.
+Der Vater sagt's.
+
+Berta.
+Die andern sagen's auch!--und er vermaehlt--
+Zu spaete Scham, ist jetzo Zeit zu schaemen?
+Vermaehlt von neuem sich mit--
+
+Seyfried (mitleidig).
+Nicht mit Berta
+Von Rosenberg!
+
+(Sie drueckt mit einem Ausruf ihr Gesicht an den Boden.)
+
+Benesch (zu Seyfried).
+Wer sagt's Euch?--Her zu mir!
+
+Milota (auf sie zugehend).
+Kommt, Nichte, kommt! Hier ist kein Platz fuer Euch!
+
+Berta.
+O Seyfried, schuetze mich!
+
+Seyfried.
+Mit Gunst, Herr Milota!
+Wenn Ihr es wagt, die Hand an sie zu legen,
+So stoss ich Euch die Partisan in Leib.
+(Die Hallbarte gesenkt.)
+
+Benesch.
+Und wenn ich selbst--!
+
+Seyfried.
+Mir gleich!
+
+Benesch.
+Verweigerst du dem Vater
+Sein Kind?
+
+Seyfried.
+O haettet Ihr sie doch verweigert,
+Sie laege jetzt nicht stoehnend vor uns da,
+Dass mir das Herz im Innern um sich wendet!
+
+Benesch.
+Wir haetten sie wohl dir vermaehlen sollen?
+
+Seyfried.
+'s war besser, Herr, als jetzo solche Schmach!
+
+Benesch.
+Mein Kind!
+
+Seyfried.
+Zurueck! Mir hat sie sich vertraut,
+Und ich weiss Anvertrautes zu bewahren!
+
+Benesch.
+So soll mein Schwert!
+
+Seyfried.
+Lasst sein! Du aber fuercht dich nicht!
+
+(Zawisch tritt ein und bleibt beim Eingange laut lachend stehen.)
+
+Zawisch.
+Ha, ha, ha, ha!
+
+Benesch (der sich rasch umgewendet hat, da er Zawisch erblickt).
+Bist du's? Dich sendet Gott!
+
+Zawisch.
+Was kaempft ihr denn, ihr hochgesinnten Jaeger,
+So wutentzuendet um des Baeren Fell?
+Herr Petz trabt wohlgemut durch Berg und Tal
+Und weist euch seinerzeit wohl noch die Pranken.
+Schoen Muehmchen, gruess Euch Gott! (Zu Seyfried.) Und Ihr, Herr Weidmann!
+Hebt Eure Feder und seht nicht so kraus;
+Ich bin kein Wild fuer Euch!
+
+Benesch.
+Nun sag, erzaehle!
+
+Milota.
+Ja, Neffe, sprich!
+
+Zawisch.
+Erzaehle! Sprich! Ei, was denn?
+
+Benesch.
+Der Koenig--
+
+Zawisch.
+Hat die Ungarn derb geschlagen,
+Bei Kroissenbrunn; (gegen Milota) Ihr, Ohm, wart ja dabei!
+
+Benesch.
+Wer fragt um das?
+
+Zawisch.
+Der Friede ist gemacht:
+Auf Oesterreich--
+
+Benesch.
+Nicht doch!
+
+Zawisch.
+Auf Steiermark--
+
+Benesch.
+Willst du mein spotten?
+
+Zawisch.
+Nu, was wollt ihr denn?
+
+Benesch.
+Des Koenigs Ehe--
+
+Zawisch.
+Ei, die ist getrennt!
+
+Benesch.
+Die Handfest ausgefertigt?
+
+Zawisch.
+Und besiegelt.
+Die Koenigin geht heute noch nach Wien.
+Von da--
+
+Benesch.
+Und spricht man nicht?--Verdammt!--Mit wem--
+(Gegen Berta hin.)
+Regst du dich noch?--Mit wem der Koenig?--
+
+Zawisch.
+Ah!
+Mit wem er sich zum zweitenmal vermaehlt?
+Ei, mit wem anders denn, als dort mit jener,
+Mit Eurer Tochter? Ihr habt's schlau gekartet!
+Erst fuehrtet Ihr das Maedchen still ihm vor,
+Geschmueckt! man konnte kaum was Schoeners sehn!
+Dann halft der Armen Mangel Ihr an Witz
+Mit Euerm eignen nach. Was sie da Reden fuehrte!
+Die Koenigin von Saba kann nicht besser!
+Zuletzt--nu, was weiss ich, was alles noch!
+Kurz, er ist ganz berueckt, und gebt nur acht,
+Er kommt zur Stund' und freit um ihre Hand.
+
+Berta (aufspringend).
+Zu ihr, zu ihr! zu ihren Fuessen sterben!
+(Ab in der Koenigin Gemach.)
+
+Zawisch.
+Ha, ha, ha, ha!
+
+Merenberg.
+Herr Zawisch!
+
+Zawisch.
+Lustig! lustig!
+Wir wollen auf des Koenigs Hochzeit tanzen!
+(Zu Seyfried.)
+Ihr habt ja auch vordem um sie gefreit?
+Weiss Gott! ich glaub, einmal zu Nacht, bei Wein,
+Gefiel mir selbst ihr rot und weiss Gesicht!
+Nu, gebt mir Eure Hand, Herr Bundesbruder!
+(Seyfried wendet sich ab.)
+
+Milota.
+Wozu das tolle Wesen? Grad und kurz:
+Mit wem vermaehlt der Koenig sich?
+
+Zawisch.
+So kurz
+Als Eure Frage soll die Antwort sein!
+Mit Kunigunde von Massovien,
+Des Ungarkoenigs Nichte.
+
+Benesch.
+Gift und Pest!
+
+Zawisch.
+Ihr wolltet selbst des Koenigs Eh' getrennt,
+Habt jahrelang euch weidlich drum bemueht;
+Sie ist getrennt--und er freit Belas Nichte.
+
+Benesch (mit der Hand vor der Stirn).
+Verraten, hintergangen! Schaendlich, schaendlich!
+
+Zawisch.
+Pocht nicht so hart an der Gedanken Tor,
+Wenn's frueher schloss, macht jetzo doch nicht auf!
+
+Benesch.
+Jetzt spottest du, und hast es selbst gebilligt!
+
+Zawisch.
+Gebilligt, ich? den Unsinn, die Verruecktheit!
+
+Benesch.
+Ja, du, und du!
+
+Milota.
+Weil du Gewissheit vorgabst!--
+
+Benesch.
+Bringt mir sie her, das Maedchen bringt mir her!
+Sie soll nicht leben! Sie und ich! Oh!--Oh!
+
+Seyfried (herueberrufend).
+Schmaeht Ihr das Maedchen? Schmaehet auf Euch selbst!
+Wer hiess Euch glauben, dass fuer Eure Tochter
+Des Koenigs, ihres eignen Koenigs Hand--
+
+Zawisch.
+Das liess' sich allenfalls noch glauben, Herr!
+Ein Merenberg waer' toll, daecht' er an so was;
+Doch wir, die aus der Weltstadt Roma stammen,
+Von den Patriziern, die den Erdkreis beugten,
+Und, als Ursini, noch dem Throne stehn zunaechst,
+Auf dem Sankt Peters Macht ob Herrschern herrschet;
+Wir moegen wohl nach Fuerstenkronen trachten,
+Und eine Rosenberg mag kuehn und frei
+Dem Besten sich vermaehlen dieser Erde:
+Auch--ha, ha, ha, ha, ha!
+
+Milota (der sich gesetzt hat).
+Verdammt sein Lachen!
+
+Zawisch.
+Die Tochter rast, der Vater rauft sein Haar,
+Und wir beweisen unsern alten Adel!
+Und waer' er aelter als der Engel Fall,
+Der Koenig winkt, und knall! liegt er am Boden.
+
+Benesch.
+Doch eh' ich falle, Rache! (Milota anfassend.) Rache, Bruder!
+
+Milota (der aufsteht).
+Ich sann soeben und gedenk zu handeln!
+
+Zawisch.
+Regst du dich auch, vierschroet'ger Milota?
+Ei ja, da muss der Koenig nun wohl zittern!
+
+Benesch.
+Wenn du--wenn du dich unsrer Sach' entziehst,
+Bist du kein Rosenberg; ein Schurk'! Nicht wahr?
+
+Milota.
+So ist's!
+
+Zawisch.
+Ei ja! Wie fuehren wir's denn aus?
+Beim naechsten Kirchgang drueck dich an den Koenig
+Und tritt ihm auf den Fuss. Das schmerzt verzweifelt,
+Und so bist du geraecht!
+
+Benesch.
+Er spottet unser?
+Mein Kopf! Mein Kopf!--Er ist kein Rosenberg!
+
+Milota.
+Komm, Bruder, lass uns gehn! Wer lachen kann
+Bei seines Hauses Schmach, verdient--
+
+Zawisch.
+Halt, Freund!
+Wer seid ihr denn, ihr beide, dass ihr schmaeht?
+Die ihr auf offner Strasse Racheplaene
+Zu tauben Waenden schreit und--offnen Ohren!
+Verschwoert euch auf dem Markt und treibt im Zimmer Aufruhr!
+Herr Merenberg, nicht wahr, das nenn' ich Leute?
+Der Rausch des Zorns ist wie ein andrer Rausch:
+Das beste Mittel ist die frische Luft.
+Drum fort ins Freie, meine werten Herrn!
+Brennt unser Haus und koennen wir nicht loeschen,
+So lasst uns wenigstens die Haende waermen.
+Der Koenig ist mein Herr, und damit holla!
+
+Milota (ihm naeher tretend).
+Fast glaub ich, Freund, du denkst mehr als du sprichst.
+Sag, wofuer haeltst du uns?
+
+Zawisch (laut).
+Fuer wackre Leute:
+Was man verschweigt, erratet ihr auch nicht;
+Errietet ihr's, ihr koenntet's nicht verschweigen!
+Es oeffnet sich die Tuer der Koenigin,
+Sie kommt, mit ihr der Grossalmosenier,
+Der Graf von Habsburg. Lasst uns gehn,
+Wir wollen sie nicht in der Hora stoeren.
+(Ziehn sich zurueck.)
+
+(Die Koenigin tritt aus ihrem Zimmer mit Rudolf von Habsburg. Hinter ihr
+zwei Diener, die Bertan ohnmaechtig in einem Lehnstuhl heraustragen.
+Daneben Frau Elisabeth, die sie unterstuetzt.)
+
+Margarethe (im Auftreten gegen die zurueckweichenden Rosenberge).
+Da gehn sie hin; wie dunkle Wetterwolken,
+Die, wenn sie sich entleert, nach Aufgang ziehn.
+(Gegen Berta gewendet.)
+Bringt sie in ihr Gemach und sorgt fuer sie,
+Nach wenig Augenblicken komm ich selbst.
+
+Rudolf.
+Beinah zu viele Sorgfalt, gnaed'ge Frau!
+(Berta, von Verwandten umgeben, wird fortgebracht; auch beide Merenberge
+entfernen sich.)
+
+Margarethe.
+Sie selbst ist kaum so schlimm, nur schwachen Geistes,
+Und toericht eitel, das hat sie verfuehrt.
+Doch ihre Vettern, ihre Anverwandten,
+Der starre Milota, der Geifrer Benesch,
+Und Zawisch, jener Schlimmste wohl von allen,
+Mit Reichtum, Macht und Hoffnung auf den Thron--
+Ja, so weit ging der Uebermuet'gen Stolz--
+Verlockten sie das leichtbetoerte Kind.
+Seit lange sah ich sie, die boesen Engel
+Des Koenigs, meines Herrn, verstohlen reissen
+An den nur allzuschwachen Banden, die
+Kaum Ottokarn noch fesselten an mich.
+Ich hoerte, wie sie seinen Wunsch nach Erben,
+Nach angebornen Folgern seines Throns,
+Mit heuchlerischem Mitleid listig naehrten.--
+Ein Wunsch, gar wohl verzeihlich einem Koenig!
+Doch was soll Erbrecht, das aus Unrecht stammt?
+Sie waren es, die dieser Ehe Trennung
+Mit unermuedlicher Geschaeftigkeit
+Und ohne Auftrag fast des Koenigs trieben;
+Denn eine ihres Hauses hofften sie
+Zu setzen auf der Boehmen Herrscherthron:
+Die Arme, die jetzt mit dem Wahnsinn ringt!
+Wie oft war sie an Festen mir genueber,
+Mit Schmuck bedeckt, des Hofes Schwall um sie;
+Indes ich einsam sass mit meinem Gram.
+Der Koenig Augen nur fuer ihren Reiz
+Und Ohr fuer ihren Wunsch, des Mundes Draeun
+Zur Schmeichelei herabgestimmt fuer sie.
+Sie aber froh und stolz und ueberselig,
+Wohl gar veraechtlich blickend hin auf mich.
+Da fuehlt' ich Mitleid mit dem armen Opfer
+Und nahm mir vor, am Tage ihres Falls
+Ihr mild zu sein und hilfreich ihrem Unglueck.
+O Ottokar, wie viel nimmst du auf dich!
+
+Rudolf.
+Vergesst nicht ob der Unbild an der Fremden
+Der eignen, groessern Unbild, gnaed'ge Frau!
+
+Margarethe.
+O glaubt nicht, dass den Koenig ich entschuldige!
+Fern sei von mir, dass ich je Boeses lobe!
+Er handelt unrecht, unerlaubt an mir,
+Und sagen will ich's ihm, tret ich vor ihn.
+Bin ich nicht jung; ich hab es nie verhehlt!
+Hat Gram der Zuege Reiz mir ausgeloescht;
+Er sah mich ja, bevor er um mich warb!
+Vermisst er Munterkeit an mir und Scherz;
+Wer hiess den Muntern denn zur Freite gehn
+Bei der unsel'gen Koenigin der Traenen,
+Zum Grab gebeugt durch all der Ihren Tod?
+Seitdem mit diesen Augen ich gesehn,
+Im grausen Kerker von Apulien,
+Den roem'schen Koenig Heinrich, meinen Gatten,
+Des harten Friedrich allzu weichen Sohn,
+Von nahverwandten Haenden liegen tot,
+Und tot die beiden hoffnungsvollen Kleinen,
+Die ihm mein Schoss, seitdem verschlossen, trug;
+War Lust ein Fremdling dieser oeden Brust,
+Und Laecheln floh entsetzt von meinen Lippen,
+Die Gram und Schmerz mit seinem Siegel schloss.
+
+Was gibt man an als unsrer Trennung Grund?
+Den ersten weiss ich: ich bin kinderlos
+Und ohne Hoffnung, je ein Kind zu saeugen;
+Weil ich nicht will, weit mehr noch als nicht kann!
+Das wusste Ottokar, als er mich freite,
+Ich sagt' ihm's, und er nahm es fuer genehm;
+Denn auf mein reiches Erb' von Oesterreich
+War da sein Sinn gestellt und seines Vaters,
+Des laendersuecht'gen Koenig Wenzeslav.
+Was will der Koenig also? Kinder, Erben?
+Ein Bettlerkind saess' besser auf dem Thron,
+Als Koenigssoehne, die das Unrecht zeugte!
+
+Was gibt man weiter an, als fernern Grund?
+
+Rudolf.
+Verwandt seid Ihr in unerlaubtem Grad.
+
+Margarethe.
+Man hat in meiner Jugend mir erzaehlt
+Von einem Bela wohl und einem Geysa,
+Die Brueder waren, Toechter hatten und
+Nach Oesterreich und Boehmen sie vermaehlten
+In Vaeter Vaeterszeit. Der Koenig spottet!
+Es sind die Fuerstenhaeuser alle sich verwandt,
+Und solchen Grads Erlassung faellt nicht schwer.
+Auch hat man anfangs dessen nicht erwaehnt!
+
+Rudolf.
+Erinnrung kam mit der gelegnen Zeit!
+
+Margarethe.
+Glaubt nicht, dass mich bekuemmert, fortzugehn,
+Dass es mir leid tut um des Hofes Ehren!
+O koennt' ich jetzt, in diesem Augenblick,
+Weit hinter mir der Krone Glanz und Pracht,
+Nach Haimburg hin, in meiner Vaeter Schloss,
+Allwo ich sass nach meines Gatten Tod
+Und sein und meiner Kinder Fall beweinte!
+Der Koenig sende heute noch mich fort,
+Ich will ihm danken, wie ich nie gedankt!
+Doch soll er mir die Ehe nicht betasten,
+Beflecken nicht das Band, das uns vereint,
+Und so der juengstverflossnen Jahre Lauf
+Zum Greuel machen und zum Aergernis!
+
+Ich habe diese Krone nicht gesucht!
+Auf Haimburg sass ich, meines Grams gedenkend,
+Beinah dem allgemeinen Elend taub:
+Denn Brand und Raub verwuestete mein Land;
+Der Ungar hier, der Baier dort, der Boehme,
+Sie hausten mit dem Schwert in Oesterreich,
+Verderbend meiner Vaeter schoenes Erbe.
+Da tagten sie, die Herrn, zu Triebensee,
+Wie sie dem Wesen einen Vogt gewaennen,
+Und Boten sandten sie ins Meissnerland,
+Von dorther einen Fuersten sich zu holen,
+Konstanzias, der Babenbergrin, Sohn.
+Die Boten aber fing der Koenig auf,
+Der damals herrscht' in Boehmen, Wenzeslav,
+Der Listige; und liess nicht eher ab
+Mit Bitten, Drohn, Versprechen und Geschenken,
+Bis seinem Sohn, bis diesem Ottokar
+Der Herren Wahl, des Landes Herrschaft wurde.
+Der wollte, jener nicht; und neuer Krieg
+Durchflammte gluehnder meines Landes Fluren.
+Da traten zu mir hin, auf Haimburgs Schloss,
+Die Landesherrn und klagten ihre Not.
+Ein Mittel als das einz'ge nannten sie:
+Des Staerksten Recht durch meines zu verstaerken,
+Durch Ottokars Vermaehlung und die meine
+Mit Boehmen zu vereinen Oesterreich.
+Ich sagte: Nein! gedenkend meines Gatten,
+Der meine Treue mit sich nahm ins Grab.
+Da fuehrten sie mich auf des Schlosses Soeller
+Und zeigten mir das glutversengte Land,
+Die Felder nackt, die Huetten leer, die Menschen tot.
+Von Weibern, Kindern, Blutenden, Verletzten
+Sah ich mit Schaudern, heulend, mich umgeben,
+Zu mir um Rettung flehend, die's vermochte.
+Da wollt' ich alles und versprach es ihnen!
+Sie aber brachten Ottokarn zu mir,
+Mir ihn bezeichnend als den kuenft'gen Gatten.
+Mit schwarzem Aug' aus schwarzen Brauen blickend,
+Stand er in scheuer Ferne sinnend da--
+Und mass, der Juengling, mich, die Alternde.
+Allein des Landes Not bei mir gedenkend,
+Trat ich zu ihm und sprach ihn freundlich an;
+Und so ward ich sein Weib. Ich hab ihn nie geliebt;
+Ich dachte nie, ob ich ihn lieben koennte:
+Doch sorgt' ich still fuer ihn, und wie ich sorgte,
+Fand ein Gefuehl sich mir im Innern ein,
+Das allen Schmerz der Liebe kennt, wenn auch
+Nichts von der Liebe Glueck. So war's mit uns.
+Nun urteilt, ob Entfernung mich erschreckt.
+Ja, ich will gehn, doch bleibt die Ehe fest,
+Nichts ward verletzt, was ihren Bruch begehrte.
+
+Rudolf.
+Von einem spricht man noch: dass Ihr zu Trier,
+Nach Eures Gatten, Koenig Heinrichs Tod,
+Nicht mehr Euch zu vermaehlen feierlich gelobt.
+Doch ist's Erdichtung wohl!
+
+Margarethe.
+Nein, das ist wahr!
+Es war kein feierlich Geluebd', kein solches,
+Das andre Bande kirchlich brechen koennte;
+Doch hab ich es gelobt--und haett' es halten sollen!
+
+Zu Trier lag ich im Gebet vor Gott,
+Und ew'ge Treu und ew'gen Witwenstand
+Gelobt' ich meinem Gatten, Koenig Heinrich.
+Nicht Manneshaende sollten je beruehren
+Den kleinsten Finger mir, des Kleides Saum,
+Und selbst ein Weib nicht meine Lippen kuessen,
+Die einst an Heinrichs teurem Mund geruht.
+Ja, ich gelobt's, und alles Unheil rief ich,
+Wenn ich's je braeche, nieder auf mein Haupt.
+Das Unheil, merk ich, tut, was seines Amtes.
+Nochmal, es war kein feierlich Geluebd'!
+Ich tat's nur mir und meines Heinrich Schatten!
+Doch war's Geluebd', ich haett' es halten sollen!
+
+Rudolf.
+Was, gnaed'ge Frau, soll ich dem Koenig melden?
+
+Margarethe.
+Wie rasch wir sind, an andern das zu tadeln,
+Was selber wir, wenn minder gleich, veruebt!
+Sagt Koenig Ottokar, Herr Graf von Habsburg:
+Das Ganze legt' ich ihm auf sein Gewissen,
+Was er entscheide, das sei mir genehm.
+
+Rudolf.
+Ihr willigt ein?
+
+Margarethe.
+Ich widerspreche nicht.
+
+Rudolf.
+Doch man verlangt zugleich, dass ab Ihr tretet,
+Das Land von Oesterreich und das von Steier,
+Der Babenberger Gut.
+
+Margarethe.
+Ich hab's getan.
+
+Rudolf.
+Doch war es Schenkung um der Ehe wegen,
+Der Ehe Trennung hebt die Schenkung auf.
+
+Margarethe.
+Ich will sie wiederholen.
+
+Rudolf.
+Auch bedenkt,
+Dass jene Lande Reicheslehen sind,
+Dem Reich erledigt und nicht Euch gehoerig.
+
+Margarethe.
+So weit mein Recht geht, geb ich es dahin.
+Sagt das dem Koenig, und zugleich:
+Er soll vor Unrecht sorglich sich bewahren;
+Denn auch das kleine raecht sich. So lebt wohl!
+
+(Trompeten und Laerm auf der Strasse.)
+
+Der alte Merenberg (tritt ein).
+Der Koenig kommt.
+
+Margarethe.
+Gerechter Gott!--Ich will
+Zu staerken mich versuchen durch Gebet.
+(Sie entlaesst die beiden durch eine Handbewegung und geht in ihr Gemach.
+Die andern auf der entgegengesetzten Seite ab.)
+
+
+
+-------------------------------------------------------------------------
+
+Thronsaal mit gotischen Bogen und Saeulen. Der Thron an der zweiten
+Kulisse rechts. Im Vorgrunde zu beiden Seiten ein reichbedeckter Tisch
+mit einem Armstuhl.
+
+Kriegerische Musik, Trompetensignale und Volkszuruf von aussen. Boehmische
+Grosse und Krieger treten, vom Hintergrunde her, auf und stellen sich
+teils neben den Thron, teils gegenueber in Reihen. Links im Vorgrunde
+eine Deputation der Stadt Prag mit dem Buergermeister an der Spitze. Die
+Mitte des Hintergrundes nimmt eine tartarische Gesandtschaft ein,
+Der Kanzler (tritt auf).
+Der Koenig kommt!
+
+Alle.
+Hoch lebe Ottokar!
+
+Ottokar (tritt ganz geruestet, jedoch ohne Helm, vom Hintergrunde her
+rasch auf).
+Habt Dank, ihr Herrn!
+(Er bleibt vor den tartarischen Gesandten stehen, die auf die Kniee
+niedergefallen sind.)
+Wer sind die Leute da?
+
+Kanzler.
+Gesandte, Herr, des Khanes der Tartaren;
+Sie bringen Gruss und bieten Freundschaftsbund.
+
+Ottokar.
+Heisst sie nur aufstehn!--Hoert ihr? Auf vom Boden!
+Ein sonderbares Volk und sonderbar bewaffnet!
+Weist her den Saebel! (Er wiegt ihn in der Hand.) Viel zu krumm gebogen!
+(Er tut einen Hieb in die Luft.)
+Das nimmt dem Hieb die Kraft. Das muesst ihr aendern!
+Ein krummes Schwert mag angehn; doch der Kraftpunkt
+Soll mehr nach oben. Einer meiner Reiter
+Jagt euer zehn mit seinem breiten Schwert!
+(Er gibt den Saebel zurueck.)
+Und sonst die Ruestung! Wozu soll der Haarschopf
+Da oben auf dem Scheitel? Fuer den Feind wohl?
+Der fasst sich seinen Mann, zieht ihn vom Pferde
+Und wuergt ihn wie er mag. Waer' ich ihr Koenig,
+In einer Nacht liess ich sie alle scheren!
+Sie sollen gehn und morgen wiederkommen!
+
+(Die Tartaren ab.)
+
+Ottokar (im Vortreten).
+Nun, haben wir's euch recht gemacht, ihr Herrn?
+Vor Ungarn moegt ihr kuenftig ruhig schlafen;
+Wir haben sie gejagt.--Was gibt es sonst?
+
+(Die Deputation der Stadt Prag ist vorgetreten.)
+
+Ottokar.
+Wer seid ihr!
+
+Buergermeister.
+Rat und Buergermeister, Herr,
+Von Eurer vielgetreuen Pragerstadt.
+
+Ottokar.
+Was wollt ihr?--Ah!--Nur immer zu, ihr Herrn!
+Ich bin ermuedet, nehmt mir meine Waffen!
+
+(Er wirft sich in einen Lehnstuhl links im Vorgrunde. Zwei Diener sind
+beschaeftigt, ihn zu entwaffnen.)
+
+Buergermeister.
+Grossmaechtigster! Unueberwindlichster!
+Es drang zu uns die Fama deines Siegs,
+Und--
+
+Ottokar.
+Fuellenstein!
+
+Fuellenstein.
+Hier bin ich, gnaed'ger Herr!
+(Tritt vor.)
+
+Ottokar.
+Wie hiess der Platz, wo wir die Ungarn jagten?
+
+Fuellenstein.
+Bei Kroissenbrunn.
+
+Ottokar.
+Hans Narr, da war das Lager!
+Glaubst du, ich weiss den Ort nicht, wo ich stand?
+Ich mein den Platz des letzten Reiterangriffs,
+Der ganz entschied.
+
+Fuellenstein.
+Man nennt den Ort Marchegg,
+Weil in die Ecke dort die March sich wendet.
+
+Ottokar.
+Marchegg, so soll man mir die Stadt auch nennen,
+Die ich dort baun will zu des Siegs Gedaechtnis!
+Marchegg soll sein der Markstein meines Gluecks,
+Von dort aus weiter; denn wer hielte mich?
+Und wer dort geht, noch in den fernsten Tagen,
+Der soll von Ottokar und seinem Streiten sagen!
+(Er ist aufgestanden, zu den Dienern.)
+Was zoegert ihr?--Ja so, du willst das Bein?
+(Er setzt sich wieder.)
+Herr Buergermeister, zieht dort an der Schiene!
+So geht's nicht! Fort! Wer wird so lange zoegern?
+(Er reisst selbst gewaltsam die Schiene ab und wirft sie mitten in den Saal.)
+Just in der Ecke dort der March, am Huegel jenseits,
+Sass Koenig Bela hoch auf seinem Stuhl,
+Und Heinrich Preussel stand dabei, ich sah's wohl,
+Der legt' ihm, wie der Knab' im Puppenspiel,
+Die Gegend aus und was sich drin begab
+Und wer die Kaempfer waren und so weiter.
+Zum Anfang ging's noch gut, doch als der Habsburg
+Auf eins hervorbrach mit den schweren Reitern
+Und alles floh, was ungrisch fluchen kann,
+Und in die March, dass ihre Zottelbaerte
+Wie Schilfgras aus gedaemmtem Wasser ragten--
+Wo ist der Habsburg? Hei! beim reichen Gott,
+Er hielt sich wohl! Sonst ein gar stiller Mann,
+Doch wenn er angreift, wie der boese Teufel.
+Wo ist Graf Habsburg?
+
+Diener.
+Sollen wir ihn rufen?
+
+Ottokar.
+Lasst nur!--Als das der Ungarkoenig sah,
+Da braucht' er keines Dolmetsch weiter mehr.
+Mit beiden Haenden fuhr er sich ins Haar
+Und zog sich feindlich. Ei, dacht' ich mir, Herr,
+Spart Euch die Mueh', wir koennen das viel besser.
+Doch ist er Freund uns jetzt und Bundsgenoss,
+Da muss man Gutes nur und Liebes sprechen!
+Nun, seid ihr endlich fertig? (Er steht auf.) Hut und Mantel!
+Und wie steht's hier bei Euch, Herr Buergermeister?
+Habt Ihr indes getraeumt?--Der Hut da drueckt.
+(Da der Diener zoegert.)
+Zum Teufel, einen andern Hut!--Wie also?
+Die Mauer auf dem Wischehrad ist fertig?
+
+Buergermeister.
+Ja, gnaed'ger Herr!
+
+Ottokar.
+Die Moldaubruecke auch?
+
+Buergermeister.
+Nur gestern ward der letzte Stein gefuegt.
+
+Ottokar.
+Ja, weil ihr wusstet, dass ich heute kam!
+Den Deutschen, die ich sandte, Sachsen, Baiern,
+Ward schon die untre Vorstadt eingeraeumt?
+
+Buergermeister.
+Verzeihet--
+
+Ottokar.
+Ist's geschehn?
+
+Buergermeister.
+Eu'r Hoheit--
+
+Ottokar.
+Ja?
+
+Buergermeister.
+Noch nicht.
+
+Ottokar.
+Warum nicht? Gottes Feu'r! Warum nicht?
+
+Buergermeister.
+Wir wollten noch einmal Eu'r Hoheit angehn,
+Eh' wir vertrieben so viel treue Boehmen--
+
+Ottokar.
+Vertrieben! Was vertrieben! Wollt' ich das?
+Sie sollten nach Chrudim, dort waren Aecker
+Und Baugrund ihnen dreifach angewiesen,
+Und dreifach alle Kosten der Versetzung.
+Doch aus der Vorstadt sollen sie heraus.
+Sie sollen, muessen! Muessen, Gottes Donner!
+Ich weiss wohl, was ihr moegt, ihr alten Boehmen:
+Gekauert sitzen in verjaehrtem Wust,
+Wo kaum das Licht durch blinde Scheiben dringt;
+Verzehren, was der vor'ge Tag gebracht,
+Und ernten, was der naechste soll verzehren,
+Am Sonntag Schmaus, am Kirmes plumpen Tanz,
+Fuer alles andre taub und blind;
+So moechtet ihr: ich aber mag nicht so!
+Wie den Ertrinkenden man fasst am Haar,
+Will ich euch fassen, wo's am meisten schmerzt;
+Den Deutschen will ich setzen euch in Pelz,
+Der soll euch kneipen, bis euch Schmerz und Aerger
+Aus eurer Dumpfheit wecken und ihr ausschlagt
+Wie ein gesporntes Pferd. Ihr denkt der Zeit,
+Da eure Fuersten sassen an dem Herd
+Und einen Kessel fuehrten in dem schnoeden Wappen;
+Ich bin kein solcher, straf mich Gott!
+(Man hat ihm den Mantel umgegeben.) Seht her!
+Der Mantel ward in Augsburg eingekauft.
+Das Gold, der Samt, die Stickerei, das Ganze,
+Koennt ihr das machen hier in eurem Land?
+Ihr sollt! bei Gott, ihr sollt! Ich will euch's lehnen--
+Mit Koeln und Wien, mit Lunden und Paris
+Soll euer Prag hier stehn in einer Reihe!
+Die Laender, die euch herrisch sonst gehoehnt,
+Ich habe sie bezwungen mit dem Schwert:
+Der Ungar flieht, der Baierfuerst haelt Ruh',
+Und Oesterreich, die wackre Steiermark
+Und Portenau und Krain und Deutschlands Eger,
+Ich habe sie vereinigt meinem Reich.
+In alle Fernen trug ich Boehmens Namen,
+Aus allen Fernen toent zurueck sein Ruhm.
+Wie meine Vaeter konnt' ich ruhig schlafen,
+Euch lassen schlafen, so wie eure Vaeter;
+Fuer wen hab ich's getan? Fuer euch!
+Doch sollt ihr nach, des geb ich euch mein Wort!
+Hin auf des Berges Mitte stellt' ich euch,
+Und nun klimmt weiter oder brecht den Hals!
+(indem er sich abwendet.)
+Dass mir die Deutschen in die Vorstadt kommen.
+
+(Kanzler tritt ein und naehert sich dem Koenige.)
+
+Ottokar.
+Was ist?
+
+Kanzler.
+Die Koenigin, wie Ihr befahlt.
+
+Ottokar (wieder zu den Buergern gewendet).
+Auch das noch, das noch, seht, um euretwillen!
+Was einem jeden Mann das Teuerste,
+Die Ruh' im eignen Haus, hab ich gestoert,
+Um eure Ruh', um eurer Kinder Ruhe.
+Damit nach meinem Tod mein Reich nicht erblos,
+Mein Werk das Spiel nicht werde innern Zwists,
+Hab ich von Margarethen mich getrennt,
+Die keines Erbens Hoffnung mehr gewaehrt,
+Und neuer Bande Wechsel mich gefuegt.
+(Zur ganzen Versammlung sich gewendet.)
+Ja, ja, ihr Herrn, damit ihr's alle wisst:
+Zur Festigung des nur geschlossnen Friedens
+Hat Koenig Bela mir die Hand geboten
+Von Kunigunden, seinem Enkelkind,
+Des Herzogs von Massovien einz'gen Tochter.
+Da nun seit lang die Bischoefe des Reichs
+Mich warnten meiner Eh' mit Margarethen;
+Wie denn auch manches sonst dagegen spricht:
+Denn erstens ist sie alt und unfruchtbar,
+Kein Erbe laesst sich mehr von ihr erwarten;
+Dann ist sie mir verwandt in--was weiss ich,
+In welchem und wievieltem Grad, und endlich--
+Allein wozu noch lange eins und zwei;
+Denn erstens, zweitens, drittens: bleibt's dabei!
+Die Koenigin wird kommen, Handfest unterzeichnen,
+Die Schenkung wiederholen ihrer Lande,
+Und des zu Zeugen seid ihr hier versammelt.
+(Er besteigt den Thron.)
+
+Der Kanzler (der seine Papiere auf demselben Tische ausgebreitet hat,
+an dem vorher der Koenig sass, tritt nun, mit einer Urkunde in der Hand,
+in die Mitte des Saales).
+Nun Ruh' in Ehrfurcht ist des Koenigs Wille!
+
+(Margarethe, in einen nachschleppenden Mantel gekleidet, die Krone auf
+dem Haupte, tritt, von Habsburg und Merenberg begleitet, von Frauen
+gefolgt, ganz im Vorgrunde links auf.)
+
+Kanzler.
+Erlauchte Frau und Koenigin Margrethe,
+Von Oestreich Herzogin und Steiermark,
+Des weiland roem'schen Koenigs Heinrich Witwe,
+Derzeit vermaehlt mit Boehmens hohem Herrn.
+Wer fuehrt das Wort in Eurer Gnaden Sache?
+
+Margarethe.
+Ich selbst! (Ablehnend zu Merenberg, der vorgetreten ist.)
+Lasst nur, Herr Merenberg!--Ich selbst!
+Allein will ich des Zornes Makel tragen
+Und reden, so wie leiden, ich allein!
+
+Kanzler.
+Ist Euch bekannt--?
+
+Margarethe.
+Ich weiss!
+
+Kanzler.
+Nun denn, mit Gott!
+Es hat ein heil'ger Send, zu Wien versammelt,
+Im Vorsitz Guido, Kardinal-Legats,
+Des Titels von Sankt Laurenz in Lucina,
+Zu Recht gesprochen ob dem Eheband,
+Das Euch verbunden unserm gnaed'gen Herrn;
+Und in Betracht, dass Ihr im vierten Grad,
+Durch Bela, Ungarns Koenig, und durch Geysa,
+Als leiblich naher Brueder Kindeskinder,
+Gedachten unserm gnaed'gen Herrn verwandt;
+In weiterm Anbetracht, wie vorgekommen,
+Dass Ihr nach Eures ersten Herren Tod,
+Des hochbelobten roem'schen Koenigs Heinrich,
+Euch nicht mehr zu vermaehlen ein Geluebd'
+Zu Trier getan, im Katharinenstift--
+
+Margarethe.
+Es war kein feierlich Geluebd'!
+
+Ottokar.
+Hier steht's!
+Fahrt fort!
+
+Kanzler.
+Als hat--
+
+(Trompeten von aussen.)
+
+Ottokar.
+Was ist?
+
+Ein Diener.
+Die Staende, Herr,
+Von Oesterreich sind in die Burg gezogen,
+Den Fuerstenhut des Landes bringen sie.
+
+Ottokar.
+Hierher! Sie kommen als gelegne Zeugen!
+
+(Die Staende von Oestreich, den Herzogshut auf einem Kissen vor sich
+hertragend, treten ein.)
+
+Heinrich von Lichtenstein (als Wortfuehrer).
+Es hat dein tapfres Schwert, erhabner Fuerst,
+Entschieden in dem Streit mit Ungarns Koenig,
+Wer Herr soll sein in unserm schoenen Land.
+Geendet ist der blutig schwere Zwist,
+Und leichten Herzens wiederholen wir
+Die Huld'gung, die erst jetzt in voller Kraft.
+(Zu Margarethen gewendet.)
+Vor allem aber dir, erlauchte Frau,
+Dem edlen Spross des alten Heldenstammes,
+Der ruhmvoll lang ob Oesterreich gebot--
+
+Ottokar.
+Lasst das nur sein und stellt euch ruhig hin!
+Statt neuer Huld'gung denkt auf alte Treu'
+Und haltet's einmal, statt es zweimal zu versprechen!
+(Zum Kanzler.)
+Fahrt fort!
+
+Kanzler.
+Als haben sie zu Recht erkannt,
+Dass solches Buendnis laenger nicht bestehe,
+Erklaeren es fuer null und aufgehoben.
+Die Schenkung, die Ihr frueher habt gemacht
+An Euern Herrn mit Eures Stammes Erbe,
+Sie bleibt in Kraft, und Ihr seid aufgefodert,
+Sie noch einmal, der Form nach, zu bestaet'gen.
+Euch angewiesen wird, als Leibgeding,
+Die Stadt von Krems, das Polan rings um Horn
+Und Grevenberg von unsers Herren Gnade.
+
+Margarethe.
+Habt Ihr geendet?
+
+Kanzler.
+Ja, erlauchte Frau!
+
+Margarethe.
+Ich koennte manches noch entgegensetzen!
+
+Ottokar.
+Wozu? Es bleibt der Spruch in Kraft.
+
+Margarethe.
+Doch unterwerf ich mich!
+
+Ottokar (vom Throne steigend).
+Nun gut, was mehr?
+
+Margarethe.
+Und geh von hinnen, wie man es begehrt--
+
+Ottokar (auf sie zugehend).
+Mich freut, dass ich Euch klug und billig finde;
+So hab ich Margarethen stets gekannt
+Und stets geachtet Euch als eine solche.
+Es ist ja nicht der Jugend wilder Kitzel,
+Der gaerend feur'ge Drang nach Neuerung,
+Was mich Euch meiden heisst; es ist mein Land,
+Das in mir Ehen schliesst und Ehen scheidet.
+So hoch ein Mensch mag seine Groesse setzen,
+So hoch hat Ottokar gesetzt die seine.
+In Boehmen herrsch ich, bin in Maehren maechtig;
+Zu Oestreich hab ich Steier mir erkaempft,
+Mein Oheim siecht, der Kaernten nach mir laesst.
+(Vertraulich und leiser.)
+Im nahen Ungarn hab ich meine Hand,
+Die Grossen sehn auf mich, die Missvergnuegten;
+Es will mir Schlesien wohl, und Polen schwankt,
+Wie sturmgepeitscht ein Schiff, in meinen Hafen.
+(Wieder lauter.)
+Vom Belt bis fern zum Adriat'schen Golf,
+Vom Inn bis zu der Weichsel kaltem Strand
+Ist niemand, der nicht Ottokarn gehorcht;
+Es hat die Welt seit Karol Magnus' Zeiten
+Kein Reich noch wie das meinige gesehn.
+Ja, Karol Magnus' Krone selbst,
+Sie duenkt mich nicht fuer dieses Haupt zu hoch.
+Nur eines fehlte noch; nur eins und--alles:
+Der Erbe, der's empfaengt aus meiner Hand.
+Den Giebel setz ich auf an meinem Bau;
+Margrethe, weiss ich, wird mir's nicht missgoennen.
+
+Margarethe.
+Ich goenn Euch alles, goenn Euch mehr als mir!
+Auch ist's mein Vorteil nicht, es ist der Eure,
+Was mich noch einmal warnend sprechen heisst.
+Geliebt es Euch, so folgt mir nebenan--
+
+Ottokar.
+Sprecht immer hier; nur unter Koenigen
+Ist Ottokar der Koenig, nicht allein.
+Die hier gehorchen--
+
+Margarethe (schnell).
+Doch wie lange, Herr?
+Das ist's, woran ich warnend mahnen wollte!
+(Naeher zu ihm tretend.)
+Die Laender all, das Erbe meines Hauses,
+Sie wurden Euch durch Margarethens Hand.
+Weiss Gott, ich scheide gern! Doch wie ich scheide,
+Schwingt wieder Aufruhr zischend seine Fackel,
+Und gegen Euch--
+
+Ottokar.
+Seid Ihr 'ne Baeckersfrau,
+Die ihren Altknecht freit auf ihr Gewerb',
+Und fuerchtet Ihr, sie kommen, von der Stadt,
+Und nehmen mir's, sobald die Herrin fort?
+(Halb gegen die Staende gewendet.)
+Ich halte sie, seht Ihr? mit dieser Hand--
+Sie sollen sich nur regen, wenn sie's wagen!
+
+Margarethe.
+Umringt seid Ihr mit Argen und Verraetern!
+
+Ottokar.
+Lehrt Ihr den Ottokar die Seinen kennen?
+Ich gehe meinen Gang, was hindert, faellt.
+
+Margarethe.
+Ihr steht am Abgrund, glaubt mir, Ottokar!
+
+(Wiederholte Trompetenstoesse.)
+
+Diener (kommt).
+Die Landesherrn von Steiermark sind unten
+Und bitten, dass du gnaediglich sie hoerst.
+
+Ottokar.
+Lasst sie herein!--Ihr seht wohl, Margarethe,
+Die Ungluecksprophezeiung trifft nicht ein!
+
+(Die Staende von Steiermark treten ein, den Herzogshut vor sich her auf
+einem Kissen.)
+
+Der Wortfuehrer (indem er vor Margarethen das Knie beugt).
+Erlauchte Frau!
+
+Margarethe (ablehnend).
+Nicht mir!
+
+Ottokar.
+Zu mir, mit Gunst!
+Der Koenig ist, der Koeniginnen macht!
+Schweigt immerhin, ich weiss schon, was ihr wollt.
+Ich hab eu'r Land den Ungarn abgestritten
+Und werd es wahren gegen jedermann;
+Auch gegen euch, wenn's irgend etwa not.
+Stellt euch nur hin und wartet ruhig ab.
+Im uebrigen betrachtet mich genau,
+Damit ein andermal ihr gleich beim Eingang wisst,
+Vor wem ihr habt zu knien.
+
+(Die Steirer stellen sich in eine Linie mit den Oestreichern, dem Throne
+gegenueber, die Traeger der Kronen voran.)
+
+Ottokar.
+Nun noch zum letzten!
+Habt Ihr die Handfest hier, Herr Kanzellar,
+Die Schenkungsurkund' von der Fuerstin Landen?
+
+Kanzler.
+Ich nicht; die gnaed'ge Frau.
+
+Ottokar.
+Habt Ihr sie, Margarethe?
+
+Margarethe.
+Im Schrein verschlossen meiner Hauskapelle
+Liegt sie verwahrt.
+
+Ottokar.
+Nun gut, ich sende drum!
+
+Margarethe.
+Noch hat kein menschlich Aug' des Schreines Inhalt,
+Den Schatz gesehn, den mir sein Schloss bewahrt.
+Bei meines Heinrich teurem Abbild liegt sie,
+Bei meiner beiden Kinder Totenhemd,
+Beim Schreckenspfeil, den an der Leitha Strand
+Man blutig zog aus meines Bruders Herzen.
+Erlaubt Ihr, geh ich selbst!
+
+Ottokar.
+Wie's Euch gefaellt.
+
+(Trompeten und Jubelgeschrei von aussen.)'
+
+Diener (kommt).
+Ach, gnaed'ger Herr!
+
+Ottokar.
+Was ist?
+
+(Die Landesherrn von Kaernten, Ritter und Bauern bunt gemengt, treten auf,
+den Herzogshut vor sich auf dem Kissen.)
+
+Ottokar.
+Wer sind die?
+
+Margarethe.
+Soll ich?
+
+Ottokar.
+Ich bitt Euch drum!--Ihr seht, ich bin beschaeftigt!
+Noch mehr der Kronen?
+
+(Margarethe geht ab.)
+
+Diener.
+Gnaed'ger Herr, der Koenig
+Von Ungarn reitet ein--
+
+Ottokar (auf den Kronentraeger zugebend).
+Wer seid ihr, Leute?
+
+Wortfuehrer der Kaerntner.
+Der Herzog Kaerntens, Euer Gnaden Oheim--
+
+Ottokar.
+Ist er gestorben?
+
+Kaerntner.
+Ja, erlaubter Herr,
+Und kraft des Erbvertrags mit Euer Gnaden
+Faellt Euch das Land, die Herzogskrone zu.
+
+Ottokar.
+Betrauern mag ihn, wer sein Land nicht erbt!
+Seid mir willkommen, meine wackern Kaerntner!
+Fuegt eure Krone dort zu jenen beiden
+Und lasst mich freun des koeniglichen Anblicks.
+
+(Die Kaerntner stellen sich in die Reihe der andern Staende).
+
+Ottokar.
+Man laermt ja noch! Was ist?
+
+Diener.
+Ich sagt' es ja!
+Der Koenig Ungarns, Herr, ist eingeritten.
+Mit ihm Gesandte von dem Reichsvereine,
+Den Doppeladler tragend vor sich her,
+Und alles ruft--
+
+Von aussen.
+Heil Ottokar, dem deutschen Kaiser!
+
+Die im Saale.
+Heil Ottokar, dem deutschen Kaiser, Heil!
+
+Ottokar (im Vorgrunde).
+Nun Erde, steh mir fest!
+Du hast noch keinen Groesseren getragen!
+(Er eilt in den Hintergrund, dem Ungarkoenig entgegen.)
+
+(Indes tritt der alte Merenberg zum Schenk von Emerberg, der ganz im
+Vorgrunde links, der aeusserste unter den oestreichischen Staenden, steht.)
+
+Merenberg (leise).
+In dieses Tuch gewickelt ist ein Brief,
+Gib ihn an meinen Sohn, er weiss darum.
+Ich geh nach Merenberg. Und heiss ihn eilen!
+(Er laesst das Tuch mit dem Briefe fallen und entfernt sich. Emerberg hebt
+es auf.)
+
+(Der Koenig von Ungarn tritt auf mit Gefolge.)
+
+Ottokar (ihm entgegen).
+Erlauchter Herr, und Vater, will es Gott!
+
+Bela (zuruecktretend).
+Bevor ich rede, lasst erst diese sprechen!
+
+(Die Gesandtschaft des Reichstages tritt vor.)
+
+Erster Abgesandter.
+Des Heil'gen Roem'schen Reichs gemeine Fuersten,
+Zu Frankfurt auf der Kaiserwahl versammelt,
+Sie senden uns an dich, o Fuerst von Boehmen.
+Die Augen haben sie nach dir gewendet,
+Die einen Kaiser suchen fuer das Reich.
+Doch ziemt uns nicht, als Herren den zu waehlen,
+Der unsre Wahl wohl gar zurueckeweist:
+Drum sollen wir dich fragen, hoher Herr,
+Ob, wenn der Wahltag dir die Krone beut,
+Dem Reiche du dich unterziehen werdest?
+Verweigr' es nicht! es geht ein alter Spruch:
+Des Reiches Adler werde Ruh' erst finden
+Im Nest des Loewen; wohl, grossmuet'ger Loewe,
+(er ergreift ein Schild mit dem Sinnbilde des Loewen, das an den Stufen des
+Thrones lehnt, und hebt es in die Hoehe)
+Nimm auf den Adler, der verloren fleugt,
+Und schirm ihn stark gen alle seine Feinde!
+
+Ottokar.
+Ha, was ist das? Wer hat mir das getan?
+Das ist der weisse Loewe nicht von Boehmen!
+Der Loew' ist rot!
+
+Rudolf von Habsburg (der zur Seite des Thrones rechts im Vorgrunde gestanden
+hat, vortretend).
+'s ist Habsburgs Loewe, Herr!
+Der Schild ist mein! Ich legt' ihn, kommend, ab.
+
+Ein zweiter der Abgesandten.
+Ihr seid der Graf von Habsburg?
+
+Rudolf.
+Ja, der bin ich!
+
+Zweiter Abgesandter.
+In Boehmen hier?
+
+Rudolf.
+Vom Kreuzzug kehr ich heim.
+
+Ottokar.
+Genug!--Ihr harret, mein Herr Abgesandter,
+Bis man Euch wieder ruft! (Zum Koenig Bela gewandt.) Mein edler Fuerst!
+Nun ruft die Pflicht mich doppelt her zu Euch!
+
+Bela.
+Zuerst stell ich Euch meine Kinder vor.
+Hier Ladislaus, der Erbe meines Throns,
+Und hier ein anderer.
+
+Ottokar.
+Hat Koenig Bela
+Der Enkelsoehne mehr?
+
+Bela.
+Ihr argwohnt nicht?
+Man weiset dich zurueck!
+
+Kunigunde.
+Und doch war ich's,
+Die Euch am meisten wuenschte zu gefallen!
+Nehmt Ihr mich unter Eure Krieger auf?
+(Sie wirft den Reitermantel und ungarischen Kalpak weg und steht als
+Weib gekleidet da.)
+
+Zawisch (der auf der linken Seite des Saales, nicht weit von ihr steht,
+laut).
+O schoener Krieger!
+
+Kunigunde (umgewendet).
+Ha, wer spricht?
+
+Ottokar (zornig).
+Wer sprach?
+
+Zawisch (gleichfalls umsehend).
+Von dorther schien's, vom Winkel her zu toenen!
+
+Kunigunde (rasch).
+Ihr wart's--wohl nicht. Ihr wuerdet nicht so frech,
+Da ich so nahe stand, mir sonst es leugnen!
+
+Mein Koenig, Ihr verzeiht die Ueberraschung.
+Sie wollten erst mich vor den Toren lassen,
+Doch trieb's mich, hier zu sein, und also kam ich.
+
+Rudolf (der sich wieder in den Vorgrund rechts gestellt hat).
+Der ruecksichtslosen, rohen Uebereilung!
+
+(Die Koenigin Margarethe kommt mit Schriften.)
+
+Ottokar (mit einer Bewegung gegen sie hin).
+Jetzt ist nicht Zeit!
+
+Margarethe (sich am Sessel haltend).
+O Gott! Wer bringt mich fort!
+
+Merenberg (vortretend).
+Der Koenigin zu Hilf'!
+
+Ottokar.
+Wer rief Euch, Herr?
+Wer hiess Euch weichen dort von Eurem Platz?
+Ihr habt Euch einmal unnuetz schon gemacht!
+Dorthin!
+
+(Merenberg tritt zurueck.)
+
+Margarethe (schwach).
+Nur fort!--Nimmt sich denn niemand an?
+
+Rudolf von Habsburg.
+Hier ist mein Arm, erlauchte Koenigin!
+Stets war bei Habsburg der Gekraenkten Schirm.
+
+Ottokar.
+Und wer hat's Euch geheissen?
+
+Rudolf.
+Kennt ein Heissen,
+Wer kein Verbieten kennt?
+
+Ottokar.
+Ihr seid, vergesst's nicht,
+In meinem Land!
+
+Rudolf.
+Nicht laenger, als ich will!
+Als freier Krieger focht ich Eure Schlachten,
+Um Lohn nicht, und den Dank selbst schenk ich Euch!
+Ich bin nicht Euer Mann.
+
+Ottokar.
+Nicht von der Stelle,
+Bis der entschieden, dem Entscheidung ziemt!
+
+Der zweite der Abgesandten (tritt vor).
+So will denn ich hier diese Fuerstin schirmen!
+Der Kanzler ich des Erzbischofs von Mainz,
+Von ihm der Wahlgesandtschaft beigesellt,
+Damit ich hoere, wo die andern reden.
+Erkennt Ihr mich, Graf Habsburg?
+
+Rudolf.
+Nein, fuerwahr.
+
+Zweiter Abgesandter.
+Gabt Ihr nicht einst im Walde nah bei Basel
+Dem Priester, der das Allerheil'ge trug
+Zu eines Kranken Trost und, aufgehalten
+Vom wuet'gen Strom der Aar, am Ufer irrte,
+Das eigne Pferd, die Flut drauf zu durchsetzen?
+
+Rudolf.
+Und dieser Priester--?
+
+Abgesandter.
+Habt nicht spaeter dann
+Den Erzbischof von Mainz Ihr treu geleitet
+Durch feindlich Land, durch Krieg und Brand und Tod,
+Als er nach Rom zog zu dem Heil'gen Vater?
+Des Bischofs Sekretaer, auf sein Geheiss,
+War oft Euch nah und prueft' Euch im Gespraech;
+Vermoechtet Ihr ihn nicht mehr zu erkennen?
+
+Rudolf.
+Seid Ihr's?
+
+Abgesandter (zur Versammlung gewendet).
+Fuer diese Frau, als Reichesfuerstin,
+Begehr ich frei und offenes Geleit.
+Herr Graf von Habsburg, gebt ihr Euren Arm,
+Wir wollen sie zur sichern Ruhstatt fuehren!
+
+Im Namen denn des Heil'gen Roem'schen Reichs,
+Gebt Raum der Herzogin von Oesterreich!
+(Fuehrt mit Rudolfen die Koenigin Margarethe ab.)
+
+Ottokar.
+Bin ich eu'r Kaiser, sollt ihr anders sprechen!
+
+Der erste der Gesandtschaft.
+Geliebt's Euch, Herr, uns Antwort zu erteilen?
+
+Zawisch (sich vordraengend).
+Raubt ihr uns unsern Koenig, unsern Herrn?
+Ist er nicht maechtig? was bedarf er euer?
+Wie Gott im Himmel, herrschet er auf Erden;
+Nur Sorgen und nicht Nutzen schafft das Reich,
+Lasst ihn und bietet Deutschen eure Gaben!
+Ihr gebt nur, weil ihr braucht! Lasst unsern Herrn!
+
+Ottokar.
+Er spricht zum Teil ganz gut, Herr Abgesandter.
+Gar viel ist abzustellen in dem Reich,
+Gar mancher Trotz zu beugen und zu strafen;
+Ich seh wohl, euer Herr war euer Knecht.
+Ich bin ein reicher Fuerst von Boehmen, Gott verhuete,
+Dass ich ein armer Kaiser wollte sein.
+Doch moegt Ihr harren, ob es uns gefaellt,
+Vielleicht Euch guenst'gre Antwort zu erteilen.
+(Zu Kunigunden gewendet.)
+Nun bin ich Euer, ganz mit Seel und Leib.
+
+Zawisch.
+Es lebe Ottokar!
+
+(Unter Trompetengetoen.)
+
+Zuruf von allen Seiten.
+Von Boehmen Koenig!
+Herzog von Oestreich!--Steier!--Kaernten!--Krain!
+Der Deutschen Kaiser! Lebe Ottokar!
+
+(Der Vorhang faellt.)
+
+
+
+
+Zweiter Aufzug
+
+Offener Gartensaal, gegen den Hintergrund zu mit einem halbmannshohen
+Marmorgelaender geschlossen. Es wird angenommen, dass hinter demselben der
+Garten terrassenfoermig abwaerts geht. Im Vorgrunde zu beiden Seiten Tueren,
+daneben Bildsaeulen. Der Haupteingang ist zwischen den Saeulen, links an
+der Balustrade.
+
+
+Zawisch (tritt lachend auf).
+Ich bin verliebt! O weh, mein Herz ist fort!
+Ihr Leute, kommt zu Hilfe! Ha, ha, ha!
+Wie sie mich ansah mit dem schwarzen Blick,
+Die stolze Ungarin! Hilft alles nichts!
+Und schoen ist sie, beim wunderbaren Gott!
+Ein adlig, wildes, reuterscheues Fuellen,
+Den Zaum anschnaubend, der es baend'gen soll.
+
+Auch sonst geht alles, wie es Gott gefaellt!
+Die Oesterreicher reissen tuechtig aus,
+Seit Margarethe fort, die Koenigin;
+Der eine rechts, der andre links, doch alle
+Nach Frankfurt auf die Kaiserwahl. Nu! nu!
+Sie legen dort wohl die Gesuche nieder,
+Dass man doch ja Herrn Ottokar erwaehle!
+
+Milota (von innen).
+Nur hier herein indes!
+
+Zawisch.
+Wen bringt man da?
+
+(Gewaffnete bringen Seyfried von Merenberg gefangen. Milota, ganz geruestet,
+folgt, einen versiegelten Brief in der Hand.)
+
+Milota.
+Der Koenig ist noch beim Turnier?
+
+Zawisch.
+Ja wohl!
+Sich da, Herr Merenberg? und so begleitet!
+
+Milota.
+Sein Vater, der Verraeter, sandt' ihn fort
+Mit diesem Schreiben an den Erzbischof
+Von Mainz. Er hatt' ihm Eile wohl geboten--
+
+Seyfried.
+Ob er's gebot!
+
+Milota.
+Allein der junge Herr,
+Da ihn sein Weg am Schloss vorueberfuehrte,
+Wo Bruder Benesch haust mit seiner Tochter,
+Wollt' er noch einmal sehn sein altes Lieb;
+Doch fing man ihn und sendet ihn hierher.
+
+Zawisch.
+So? Bei schoen Muehmchen? Ei, bei Fraeulein Berta?
+
+Seyfried.
+Im heissen Fieber liege sie und rase,
+Ward mir gesagt. Ich wollte sie nur sehn,
+Nur wissen, ob sie lebt, und so gab ich
+Des Vaters Haupt und mich in ihre Hand.
+Tor, der ich war, verruchter, blinder Tor!
+
+Milota.
+Hier ist der Brief, die Aufschrift an den Mainzer.
+
+Seyfried.
+Herr Zawisch, seht, ich hab Euch nie geliebt!
+Fuer doppelsinnig hielt ich Euch und falsch,
+Doch sagt mein Vater, Menschen kennt' ich nicht;
+O zeigt mir, Herr, dass ich Euch nicht gekannt!
+Gebt mir den Brief, lasst ihn uns hier vernichten.
+Mit mir koennt Ihr beginnen, was Ihr wollt!
+Ich hab Euch sonst wohl auch schon Liebs getan.
+Als Ihr mit Euren Sippen da und Freunden,
+Wisst Ihr? im Vorgemach der Koenigin
+Gar sonderbare Reden einst gefuehrt;
+Ich ging nicht hin und sagt's dem Koenig an,
+Wie ich gekonnt, vielleicht wohl gar gesollt!
+Denn damals ehrt' und liebt' ich noch den Koenig,
+Als meiner angebornen Fuerstin Gatten
+Und meinen wahren, rechtgesinnten Herrn.
+
+Zawisch.
+Hoerst du, Freund Milota?
+
+Milota.
+Wer achtet sein!
+
+Zawisch.
+Der Brief ist richtig! (Er liest.) An den Erzbischof
+Von Mainz. Du bist verloren, guter Freund,
+Wenn dieser Brief dem Koenig kommt zu Hand!
+
+Seyfried.
+Herr, rettet mich!
+
+Zawisch.
+Schon gut! schon gut!
+Die Leute sind vertraut? (Auf die Wache zeigend.)
+
+Milota.
+O ja! Warum?
+
+Zawisch (den Brief in der Hand waegend).
+Der Brief kann viel enthalten--oder wenig.
+Ein Troepflein Gift vielleicht--
+(Die Hand mit dem Briefe schnell auf den Ruecken gelegt.)
+Ein Meer von Argwohn!
+(Zur Wache gekehrt.)
+Geht ihr nach Haus und gruesset Vetter Benesch.
+
+Milota.
+Was tust du?
+
+Zawisch.
+Geht ihr nur! (Gewaffnete ab.) Und du, mein Freund,
+Was gibst du mir, wenn ich dich diesmal rette?
+
+Seyfried.
+Mein Leben--
+
+Zawisch.
+Ei, behalt das nur fuer dich!
+Kannst du auch springen?
+
+Milota.
+Zawisch!
+
+Zawisch.
+Nun, so komm!
+Hier hast du deinen Brief; so, und nun spring!
+
+(Er hat ihn ans Gelaender gefuehrt, Seyfried springt hinab.)
+
+Milota.
+Wahnsinniger!
+
+Zawisch.
+Hei, was der Junge laeuft!
+
+Milota.
+Ihm nach!
+
+Zawisch.
+Zurueck! Hast du dich mir vertraut?
+Nun, hast du es getan, so traue mir!
+Ich weiss am besten, was sich fuegt, was nicht;
+Zu seiner Zeit wird sich's dir offenbaren.
+Und dann--das junge Blut, mein gutes Herz!
+Ha, ha!--Sprich nicht und geh! Es kommen Dinge,
+Bei denen ich nach Zeugen nicht verlange.
+Du gabst dein Wort, dass du mich laesst gewaehren,
+Drum geh!
+
+Milota (kehrt am Ausgange um).
+Folgst du auch nicht mehr zum Turnier?
+
+Zawisch.
+Die Waffen hab ich schon von mir gelegt,
+Der Preis ist mein!--Geh jetzt! Der Augenblick
+Pocht wie ein Glaeubiger und will, was sein!
+
+(Milota ab.)
+
+Ich sehe sie den Gang herunterkommen,
+Begleitet nur von einer Kaemmerin;
+Nun rasch ans Werk!
+(Zu einer Bildsaeule der Liebesgoettin gewendet, die im Vorgrunde links
+steht.)
+Du keusche Liebesgoettin,
+Getreue Gattin deines holden Gatten,
+Dich fleh ich an: verleih mir deinen Schutz!
+(Er zieht ein Blatt hervor und steckt es, zur Bildsaeule auf einer Stufe
+des Untersatzes emporsteigend, unter den halbgehobenen Fuss der Goettin.)
+Bewahre mir dies Blatt hier und bestell es!
+Man kommt!--Ich muss noch etwas zoegern!--Jetzt!
+(Er springt herab und eilt, wie betroffen, fort.)
+
+(Die Koenigin tritt in demselben Augenblicke mit ihrem Kammerfraeulein
+links im Hintergrunde auf.)
+
+Kunigunde.
+War das nicht Rosenberg? der Unverschaemte!
+Ruf ihn zurueck!
+
+Fraeulein (in die Szene rufend).
+Herr Zawisch! Kommt hierher!
+Die Koenigin befiehlt es! Hier! Ihr sollt!
+
+(Zawisch kommt zurueck, verschaemt das Barett in der Hand drehend.)
+
+Koenigin.
+Ich weiss nicht, Herr, bin ich nicht voll bei Sinnen,
+War ich im Fiebertraum, die Tage her;
+Wie, oder seid Ihr ganz so unverschaemt,
+So rasend--Nein! Die Sprache hat kein Wort!
+Verrueckung moecht' am ersten es bezeichnen--
+So unverschaemt-verrueckt, als Ihr Euch zeigt?
+Bei meiner Ankunft schriet Ihr gellend auf--
+Ihr wart's! Ich stand drei Schritte fern und weiss es!
+Seitdem verfolgt Ihr rastlos mich mit Blicken,
+Mit Blicken, die ich naeher nicht bezeichne,
+Doch regt sich mir der Ingrimm, denk ich dran.
+(Naeher zu ihm tretend.)
+
+Nur erst, beim Tanz, als ich die Hand Euch reichte,
+Ja, Frecher, ja! Ihr druecktet mir die Hand!
+Wer bin ich, Herr? und wer seid Ihr?
+
+Zawisch.
+Verzeiht!
+
+Kunigunde.
+Behandelt so hier Lands man Koeniginnen?
+Waer' ich zu stolz nicht, meines Gatten Zorn
+In meiner eignen Sache aufzurufen,
+Waer's hier in Boehmen wie bei uns daheim,
+Wo auch die Frau ein Recht hat, eine Stimme,
+Und Macht, um zu vollfuehren, was sie denkt,
+Wo eine Koenigin nicht bloss des Koenigs Gattin,
+Wo sie Gebietrin ist; es sollt' Euch reun!
+
+Zawisch.
+Verzeiht!
+
+Koenigin.
+Und nun: verzeiht! Erst frech und kuehn,
+Und nun so knechtisch, dass es an mich ekelt!
+Was stecktet Ihr an jene Saeule hin?
+
+Zawisch.
+An jene Saeule? Steckt was dort?
+
+Koenigin.
+Ein Zettel.
+
+Zawisch.
+Ein Zettel, in der Tat!
+
+Koenigin (zum Kammerfraeulein).
+Nimm ihn herab!
+(Es geschieht.) Was steht auf dem Papier?
+
+Zawisch.
+Ich weiss es nicht!
+
+Koenigin.
+Ihr stecktet's doch hinauf!
+
+Zawisch.
+Ich? Wahrlich nicht!
+
+Koenigin.
+Nur erst, sowie ich kam.
+
+Zawisch.
+Ich war nicht hier;
+Ich kam von jener Seite.
+
+Koenigin.
+Nun, beim Himmel!
+Ich bin verrueckt, der Kopf dreht sich im Wirbel!
+Sind das hier Baeume? Ist das Luft und Erde?
+Ich sah es ja, ich stand drei Schritte fern,
+Als Ihr den Zettel an die Saeule stecktet!
+
+Zawisch.
+Wenn Ihr es sagt, o hocherhabne Frau,
+Dann muss es sein, und waer' es nie gewesen!
+
+Koenigin.
+Und was enthaelt der Zettel?
+
+Zawisch.
+Phantasien;
+Die Ausgeburt von dichterischer Glut!
+
+Koenigin (zum Kammerfraeulein).
+Zeig her!
+(Sie entwickelt den Zettel und liest die Aufschrift.)
+"Der Schoensten"--Ha, Verwegener,
+Nimm hin das Zeugnis deiner frechen Torheit
+(sie wirft ihm denZettel vor die Fuesse)
+Und wagst du's noch einmal, dich mir zu nahn,
+So soll der Koenig deinen Frevel strafen!
+
+Zawisch (hebt den Zettel auf und kniet damit vor dem Kammerfraeulein nieder).
+Nun denn, so wisst, dass ich Euch dienend folge,
+Schon lang brennt das Geheimnis meine Brust.
+In diesen Zeilen wagt' ich's zu gestehen,
+Verloren bin ich, Herrin, wenn Ihr zuernt.
+(Er steht auf und geht.)
+
+Koenigin.
+Ha, lachen muss ich wahrlich des Verrueckten!
+
+Kammerfraeulein.
+Seht, gnaed'ge Frau, so komm ich, Hand kehr um,
+Zu einem Ritter und zu Minnedienst.
+
+Koenigin.
+Und glaubst du wirklich, dich hab er gemeint?
+Nach mir blickt er, der uebermuet'ge, Freche!
+
+Kammerfraeulein.
+Ei, gnaed'ge Frau, was tut's? Der Wahn schon schmeichelt
+Von solcher Werbung und von solchem Ritter.
+
+Koenigin.
+Von solchem Ritter? Lachen machst du mich!
+
+Kammerfraeulein.
+Ja, gnaed'ge Frau, im ganzen Boehmerland
+Ist keiner, der dem Zawisch sich vergleicht
+Von Rosenberg. Den edlen Glanz, die Haltung,
+Des Koerpers mannigfache, edle Gaben,
+Ihr saht sie, Koenigin, so gut als ich:
+Doch auch an Heldenmut, an Tapferkeit
+Steht er vor allen, die sich Ritter nennen.
+In Padua hat er jahrelang studiert,
+Auch macht er Reim' und singt sie zu der Zither.
+
+Koenigin.
+So schlimmer denn!
+
+Kammerfraeulein.
+So schlimmer, gnaed'ge Frau?
+
+Koenigin.
+Bei uns daheim lohnt man die Zitherspieler
+Mit Geld und mit Verachtung!
+
+Kammerfraeulein.
+So bei uns nicht!
+Manch Edler eifert mit den Troubadours,
+Und dieser Zawisch hat sich manches Herz
+Ersungen bei den Klaengen seiner Zither.
+(Den Zettel entfaltend.)
+Ihr sollt gleich sehn!
+
+Koenigin (hat sich gesetzt).
+Er soll mir's wahrlich buessen!
+
+Kammerfraeulein (liest).
+"Der Schoensten "--Nun, ich nehm es dankbar hin!
+"O Hand von Schnee"--
+
+Koenigin.
+O Hand von Schnee, was heisst das?
+
+Kammerfraeulein.
+Weiss wie Schnee.
+
+Koenigin (den Handschuh abziehend und ihre Hand betrachtend).
+Ich denk, er hat die Hand noch nie gesehn,
+Den Handschuh hoechstens!
+
+Kammerfraeulein (lesend).
+"O Hand von Schnee,
+Und doch so heiss;"
+(Die Koenigin stampft mit dem Fusse.)
+
+Kammerfraeulein.
+Beliebt Euch, gnaed'ge Frau?
+
+Koenigin.
+Lies weiter nur!
+Ich wollte sagen: tu, was dir gefaellt!
+
+Kammerfraeulein.
+"O Hand von Schnee,
+Und doch so heiss;
+O Blick, so feurig,
+Und dennoch Eis!"
+
+Koenigin.
+Ich wollt' er waere Glut und traefe dich!
+Ich wollt' ihn martern, bis ich voll geraecht.
+
+Kammerfraeulein.
+"Der Mund, so suesse,
+Spricht herber Art;
+Die Brust, ob wogend,
+Nicht minder hart."
+
+Koenigin.
+Schweig still!
+
+Kammerfraeulein.
+"O Blick, erwarme,
+O Brust, erweich!
+O Hand--"
+
+Koenigin.
+Ich sage dir, du sollst verstummen!
+
+Kammerfraeulein.
+So lasst Ihr mich nicht meines Sieges freun?
+
+Koenigin.
+Ich glaube bald, die Toerin nimmt's auf sich!
+(Sie steht auf.)
+O waer' ich wieder fort aus diesem Land,
+In Ungarn bei den Meinigen daheim!
+Da galt ich noch! Frei streift' ich in die Ferne,
+Dorthin, dahin, wohin der Wunsch mich rief.
+Mein alter Vater war mir gern zu Dienst,
+Zu Dienst die Fuersten, seine Sippen alle,
+Und was nur Mann hiess in dem weiten Reich.
+Und Leben war und Feuer, Glut und Mut!
+Da riefen sie zum fernen Prag mich hin:
+Ein Koenig, sagten sie, regiere dort,
+Vermaehlt in seiner Kraft der aeltern Frau,
+Den's duerste nach der feurigen Genossin,
+Nach gleichem Mut in gleichgeschwellter Brust.
+Ich komm und finde--einen Greis. Ja, Greis!
+Denn spielt ihm nicht schon graulich Bart und Haar?
+Sie sagen: von des Krieges Arbeit. Gleichviel!
+Und ist er denn nicht muerrisch wie ein Greis?
+Rechthabrisch, ungestuem? Beim reichen Gott,
+Zum Schweigen und Gehorchen kam ich nicht!
+Die andern aber schmeicheln, betteln, kriechen,
+Sind traegen Bluts und weissen, kalten Herzens.
+Nur dieser Rosenberg: bei uns in Ungarn
+Trueg' er sein Haupt keck unter Gottes Himmel,
+Wie jener kuehne Fuehrer der Kumanen,
+Dem er auch aehnlich sonst an Haupt und Brust,
+Dem besten unter Ungarns starken Mannen!
+Doch jener war ein freudig kuehner Held,
+Gerad in seinem Wollen, seinem Handeln;
+Indes der Boehme feig und niedrig kriecht,
+Und seinen Wert und all sein Selbst besudelt.
+(Trompeten von aussen.)
+Was ist?
+
+Kammerfraeulein.
+Geendet ist wohl das Turnier,
+Und man erteilt den Siegenden die Preise.
+Euch, Koenigin, gebuehret das Geschaeft.
+
+Koenigin.
+Man wird uns rufen.--Gib doch das Geschreibe,
+Man merkt beim ersten Lesen kaum den Sinn.
+(Sie nimmt den Zettel.)
+
+Kammerfraeulein.
+Ach, gnaed'ge Frau, des Koenigs Hoheit naht,
+Der ganze Zug; sie kommen vom Turnier.
+
+(Ottokar kommt mit Milota und Fuellenstein. Hinter ihm Herren und Damen
+vom Turnier.)
+
+Ottokar (zu denen, die ihm folgen).
+Wenn er darauf besteht, so bringt ihn her!
+(Im Vortreten zu Kunigunden.)
+Es will der Sieger des Turnieres nur
+Aus deiner Hand den Preis empfangen!
+Nu, Kunthe, nu, wie geht's?
+(Er will sie am Kinne fassen, sie tritt zurueck.)
+
+Kunigunde.
+Ganz gut.
+
+Ottokar.
+Potz Blitz!
+Wohl uebel gar gelaunt?--He Milota!
+(Er tritt mit Milota auf die andere Seite des Vorgrundes.)
+Der junge Merenberg entsprang?
+
+Milota.
+Ja, Herr.
+
+Ottokar.
+Verwuenscht! Doch woher weiss man's von dem Brief?
+
+Milota.
+Nach junger Leute Art hat er sich dessen
+Geruehmt, man hat den Brief sogar gesehn.
+
+Ottokar.
+Die Aufschrift an den Erzbischof von Mainz?
+
+Milota.
+Derselbe, ja.
+
+Ottokar.
+Auch Wolkersdorf ist fort?
+
+Milota.
+Und Hartneid Wildon. Alle Oesterreicher,
+Seitdem die Koenigin Margrethe fern,
+Sind uebeln Sinns und schleichen fort vom Hof.
+
+Ottokar.
+Haett' ich den Brief, so kennt' ich die Verraeter
+Und meine Ferse setzt' ich auf die Brut:
+Nun aber wird ein jeder mir verdaechtig,
+Und alle muss ich hueten, alle, alle!
+Pfui, Argwohn, Spuerhund von des Teufels Meute!
+Lockst du auch Koenige zu deiner Jagd?
+
+(Man hat indes Zawisch von Rosenberg, als Sieger im Turnier, hereingebracht,
+er steht vor dem Koenige.)
+
+Ottokar.
+Was ist?--Ja, du bist Sieger im Turnier?
+Ich habe stets als wacker dich gekannt;
+Geh hin zur Koenigin und nimm den Preis!
+He, Fuellenstein!
+
+Fuellenstein.
+Mein gnaediger Gebieter!
+
+Ottokar.
+Du nimmst Gewappnete, und alle Pforten
+Besetzest du, die aus dem Schlosse fuehren.
+Wenn nach dem Fest die Gaeste heimwaerts ziehn,
+Verhaftest du, die ich bezeichnen werde,
+Und haeltst als Geisel sie in enger Haft.
+Den dort, dem trau ich nicht.--Auch Lichtenstein,
+Der glatte Ulrich--
+
+Fuellenstein.
+Herr, doch Heinrich auch?
+
+Ottokar.
+Was schreist du so! Komm hier und hoere schweigend.
+
+(Er zieht sich mit Fuellenstein etwas mehr gegen den Hintergrund und spricht
+leise. Sooft er dem, was jener erwidert, zuhoert, wendet er die Augen nach
+der andern Seite, wo Zawisch und seine Gemahlin sprechen.)
+(Zawisch hat sich vor die Koenigin hingestellt, die sitzt und in Gedanken
+vor sich hinstarrt.)
+
+Kammerfraeulein (die Koenigin aufmerksam machend).
+Erlauchte Frau!
+
+Kunigunde (da sie Zawisch vor sich stehen sieht).
+Verwegner, wie, auch hier?
+(Sie springt auf.)
+
+Kammerfraeulein (auf die reichgestickte Schaerpe zeigend, die ein Page auf
+einem Samtkissen traegt).
+Der Dank!
+(Die Koenigin nimmt die Schaerpe, der Page legt das Kissen bei ihren Fuessen
+nieder.)
+
+Zawisch (zum Kammerfraeulein).
+Ei, Fraeulein, gebt mir doch den Zettel,
+Den ich vor kurzem nur Euch ueberreicht.
+Er kam nicht in die rechte Hand!
+
+Kammerfraeulein.
+Mein Herr!
+
+Zawisch.
+Gebt ihn! (Er haelt die Hand bin.)
+
+Kammerfraeulein.
+Verzeiht!
+
+Zawisch (immer die Hand hinhaltend).
+Er soll fuer jemand anders!
+
+Kammerfraeulein.
+Ich--hab ihn nicht mehr!
+
+Zawisch.
+Wie? Ihr habt ihn nicht mehr?
+Dann wahrlich ist er in der rechten Hand!
+(Er wirft sich vor der Koenigin auf das Kissen nieder. Feurig.)
+O Koenigin, habt tausend, tausend Dank--
+(Langsam.)
+Im voraus fuer den Preis, den Ihr mir reichet.
+
+Ottokar (sein Gespraech unterbrechend).
+Warum gebt Ihr den Preis nicht, Kunigunde?
+
+Koenigin (beleidigt).
+Ich wollte frueher schon, eh' Ihr befahlt!
+(Mit der Schaerpe nahend.)
+Herr Ritter!
+
+Zawisch.
+Wie beglueckt Ihr mich, Gebietrin!
+In Demut beugt sich Euch mein dienstbar Haupt!
+(Leise.)
+"O Hand von Schnee
+Und doch so heiss!"
+
+Koenigin (leise).
+Wenn Ihr nicht schweigt!
+
+Zawisch (laut).
+Mit diesem teuren Pfand
+Statt Harnisch angetan, statt aller Waffen,
+Will fahrend ich die weite Welt durchziehn
+Und Euren Ruhm und meines Koenigs Ruhm
+Verkuenden und verfechten ueberall,
+Fuer ihn und Euch mein Leben!
+(Da die Koenigin sich mit der Schaerpe zu ihm neigt, leise und schnell.)
+Alte Maenner
+Sollten alte Weiber freien! Jugend
+Gehoert fuer Jugend!
+(Die Koenigin wirft die Schaerpe auf den Boden.)
+
+Ottokar (herueberrufend).
+Nun, noch nicht zu Ende?
+
+Zawisch (leise).
+Dies Haupt dem Henker, wenn Ihr so es wollt!
+
+Ottokar.
+Was ist?
+
+Zawisch.
+Die Schaerpe fiel.
+
+Koenigin (zum Kammerfraeulein).
+Reich mir die Schaerpe!
+Die hoechste Langmut findet doch ihr Ziel,
+Verwegenheit mag es denn gleichfalls finden!
+Hier nehmt die Schaerpe und gehabt Euch wohl!
+(Sie haengt ihm die Schaerpe um. Wie sie sich ueber ihn beugt, fasst Zawisch
+ie Schleife an ihrem Aermel, die Schleife faellt. Zawisch bueckt sich rasch
+und hebt sie auf.)
+
+Kunigunde.
+Ha, mein Gemahl!
+(Ottokar wendet sich nach ihr.)
+
+Zawisch (der aufgestanden ist und sich gegen die Mitte zurueckzieht).
+Die Koenigin, mein Koenig!
+
+Ottokar.
+Was ist? Was willst du, Kunigunde?
+
+(Pause, waehrend welcher die Koenigin Zawisch ansieht, der ruhig vor sich
+hinblickend dasteht. Sie blickt noch einmal hin, dann:)
+
+Kunigunde.
+Geht Ihr noch heut nach Ribnik auf die Jagd?
+
+Ottokar.
+Wie kommt Ihr auf die Frage? Heute, ja!
+Auch bist du ganz verstoert. Was war denn hier?
+Das Dankerteilen macht dir so viel Mueh',
+Dass ich in Zukunft dir's ersparen werde!
+(Er wendet sich von ihr.)
+
+Kunigunde (zum Kammerfraeulein leise).
+Die Schleife soll er geben; geh und sag ihm's!
+
+(Ottokar ist in Mitte des Saales getreten; die Versammelten bilden einen
+Halbzirkel, dessen linkes Ende die Koenigin, das rechte Zawisch bildet, der,
+dem Kammerfraeulein ausweichend, bis in den Vorgrund kommt.)
+
+Ottokar.
+Ihr Herrn, wer ist von euch, der einer Sorge,
+Und einer drueckenden, mich ledig macht?
+Der alte Merenberg im Lande Steier,
+An mir ist zum Verraeter er geworden,
+An mir und seinem Land, von dem ich Herr.
+Mit Briefen an den Erzbischof von Mainz
+Hat er den Sohn nach Frankfurt hingesandt;
+Wahrscheinlich unsre Wahl zu hintertreiben,
+Der man dort pflegt, zum Kaiserthron der Deutschen,
+Und Unruh' anzustiften, Meuterei.
+Der Sohn ist zwar entwischt, allein der Vater,
+Er soll der Strafe nimmermehr entgehn,
+Noch der Enthuellung seiner Spiessgesellen.
+Der Frevler hat sich auf sein Schloss gezogen,
+Das wohl bewahrt ist gegen jeden Angriff;
+Wer mir ihn bringt, wer mir ihn lebend bringt,
+Was er ob Hochverrat verwirkt, die Lehen,
+Sein ganzes Gut, sei des Ergreifers Lohn!
+Ortolf von Windischgraetz, du scheinst bereit?
+
+Fuellenstein.
+So lasst den zweiten mich sein, gnaed'ger Herr!
+
+Ottokar.
+Von meinen Leuten geb ich euch die besten;
+Den hier--und den--
+(Im Hintergrunde einzelne Wappner bezeichnend.)
+
+Kammerfraeulein (die von hinten herumgegangen ist, zu Zawisch tretend).
+Die gnaed'ge Fuerstin zuernt.
+Ihr sollt die Schleife geben, laesst sie sagen.
+
+Zawisch.
+Die Schleife? Nun und nimmermehr, mein Kind!
+Ich habe sie erobert, und mein Leben,
+Den Kopf hier lass ich, doch die Schleife nicht!
+(Er zieht die Schleife hervor.)
+Sieh her, wie schoen! Rot, wie ihr holder Mund,
+Und weiss, wie ihres Nackens reines Silber.
+Nein, die behalt ich, und auf meinem Sarge
+Soll neben Schild und Helm sie prangend ruhn.
+Setzt' ich mein Blut nicht ein, um sie zu haben?
+Du blutigrote Schleife, du bleibst mein!
+(Er haelt sie vor sich hin in die Luft.)
+
+Koenigin (auf der andern Seite des Theaters).
+Wahnsinnig ist er! Himmel, wenn der Koenig--
+
+Kammerfraeulein (zu Zawisch).
+Die Koenigin macht Zeichen, steckt sie ein!
+Der Koenig naht.
+
+Ottokar (zurueckkommend).
+Was habt Ihr, Rosenberg?
+
+Zawisch (hat die Schleife in den Busen gesteckt).
+Nichts, gnaed'ger Herr!
+
+Ottokar.
+Wie? Nichts?
+
+Zawisch.
+Herr, es gibt Dinge,
+Die man mit Recht dem Koenig selbst verbirgt!
+
+Ottokar.
+Ein Liebespfand?
+
+Zawisch.
+Ein Pfand, Herr, das man liebt.
+
+Ottokar (nach einer Pause der Beobachtung).
+Wer hat die Koenigin heut angekleidet?
+
+Kammerfraeulein.
+Ich, gnaed'ger Herr.
+
+Ottokar.
+Seid Ihr so sorglos, Dirne,
+Dass einen Arm Ihr nur mit Schleifen ziert,
+Indes der andre leer?
+
+Kammerfraeulein.
+Gewiss--verloren!
+
+Zawisch (zum Suchen gebueckt).
+Man muss sie suchen.
+
+Ottokar.
+Lasst das nur, Herr Zawisch!
+Wenn die Versammlung fort ist, macht sich's leichter;
+Allein bis abends hoff ich sie zu sehn!
+Dem aber, der sie fand, gebt diesen Ring
+(Er zieht ihn vom Finger und gibt ihn Rosenberg.)
+Im Namen meiner Gattin, seiner Frau:
+Denn Koeniginnen schenken Diamanten,
+Doch Busenschleifen nicht.--Euch, Koenigin,
+Bitt ich, in Zukunft Euren Anzug mehr
+Und--meiner Wuerde mehr in acht zu nehmen!
+(Zu Zawisch.)
+Vergesst es nicht und richtet's aus dem Finder!
+
+Kunigunde.
+In meinem Namen, Ritter, aber sagt ihm:
+Er moege das behalten, was er fand;
+Denn was ich schenke, Schleife, Diamant,
+Indem ich's schenke, aendert's die Natur
+Und ist nur noch der Koenigin Geschenk.
+Auch moeg' er sehen, dass ich Herrin bin,
+Zu schenken, was ich will; und wenn es mehr
+Als Schleife waere, mehr als Diamant!
+(Sie geht ab.)
+
+Der Koenig (geht einigemal auf und nieder, dann bleibt er vor Rosenberg
+stehen).
+Was war hier, Rosenberg?
+
+Zawisch (auf ein Knie niedergelassen).
+Zuernt mir mein Koenig?
+
+Ottokar (ihn betrachtend).
+Du solltest toericht gnug sein, meinen Zorn,
+Den Zorn des Ottokar auf dich zu rufen
+Um einer Laune, eines leeren Nichts?
+Wer bist du denn, dass du es wagen solltest?
+Ich hauche--und wo war dann Rosenberg?
+Ich aber kenne dich als klug!--Steh auf!
+
+Zawisch.
+Nicht wenn Ihr zuernt!
+
+Ottokar.
+Ich sage dir: steh auf!
+(Zawisch steht auf.)
+
+Ottokar.
+Ihr aber geht zu meiner Frau und sagt ihr:
+Nicht stoeren moege sie der Gaeste Frohsinn
+Durch laengeres Entbehren unsrer Wirtin!
+(Diener ab.)
+
+Ottokar.
+Ihr, Ortolf, also richtet mir ins Werk,
+Was Ihr verspracht; den Lohn verbuerg ich Euch.
+Ich will sie lehren, an das Reich sich wenden!
+(Auf die Brust schlagend.)
+Hier ist das Reich!
+
+Diener (kommt zurueck).
+Die Koenigin ist unpass.
+
+Ottokar.
+Ei, derlei Krankheit ist nicht schwer zu heilen!
+Geh noch einmal und bitte sie zu kommen.
+(Diener geht.)
+Und nun, ihr Herrn, hinauf zum Rittersaal!
+Und lasst den Tanz, lasst sich das Fest erneun,
+Bis an den Morgen rege sich die Lust!
+(Zu Fuellenstein.)
+Vergiss nicht, was ich dir gebot!
+
+Fuellenstein.
+Sorgt nicht!
+
+(Diener zurueck.)
+
+Ottokar.
+Nun, kommt die Koenigin?
+
+Diener.
+Sie will nicht, Herr!
+
+Ottokar.
+Sie will nicht? will nicht, wenn ich es gebiete?
+Sag ihr!--Doch lass! Sie wird sich selbst besinnen:
+Mit Weiberlaunen hat man billig Nachsicht!
+Nur fort, ihr Herrn!
+
+Der Erste der Reichstaggesandten (die sich unter der Menge befinden).
+Mein gnaed'ger Herr und Koenig!
+
+Ottokar.
+Wie, mein Herr Abgesandter, Ihr noch hier?
+
+Abgesandter.
+Noch immer harrend einer gnaed'gen Antwort
+Fuer meine Kommittenten, fuer die Wahlherrn
+Des Heil'gen Roem'schen Reichs.
+
+Ottokar.
+Mein Herr Gesandter,
+Die Antwort ist denn auch nicht gar so leicht!
+Ich bin ein Koenig ueber viele Laender,
+Zu viel beinah fuer eines Menschen Kraft.
+Nun soll ich mit der Sorge mich belasten
+Fuer noch ein Land, und fuer ein Land, das selber
+Mitsorgen will und sitzen mit im Rat.
+Ich bin gewohnt, wenn ich mal sage: Ja;
+So gilt's den Kopf, wenn jemand spraeche: Nein!
+Und was koennt ihr denn eurem Fuersten bieten?
+Die Zoelle sind versetzt und die Gefaelle;
+Was nur des Kaisers war, es haben
+Im langen Zwischenreich sich die und der
+Mit raeuberischen Haenden drein geteilt.
+Soll ich das Mark von meinem reichen Erbland
+Nun setzen auf so truegerisches Spiel?
+Euch Herrn gefiele wohl, mit meiner Habe
+Zu helfen eurer dringend bittern Not;
+Doch will ich lieber hier in Boehmen sitzen
+Und eines armen deutschen Kaisers lachen,
+Als selbst ein armer deutscher Kaiser sein.
+Indes verschmaeh ich nicht, die hoechste Macht
+Vielleicht zu kroenen mit der hoechsten Wuerde,
+Auf Karl des Grossen Thron, ein zweiter Karl,
+Zu sitzen in des Reiches Vollgewalt:
+Doch soll man mir die Kron' erst selber bringen
+Und legen auf dem Kissen dort vor mir,
+Bevor ich mich entscheide, was geschieht.
+
+Ich habe meinen Kanzler hingesandt,
+Herrn Braun von Olmuetz, auf den Tag nach Frankfurt,
+Und seht, er schreibt mir,
+(er zieht den Brief hervor) dass die Wahl des naechsten
+Wird vor sich gehn. Dem Pfalzgraf bei dem Rhein
+Trug man den Ausspruch auf im Kompromiss.
+Er ist zwar nicht mein Freund; er und der Mainzer,
+Sie schmieden Raenke, wie mein Kanzler schreibt;
+Allein die deutschen Fuersten wagen's nicht,
+Dem Stirnenrunzeln Ottokars zu stehn.
+Die Kron' ist mein! das heisst: wenn ich sie mag.
+Doch lasst sie hier erst sein, dann will ich sprechen.
+
+Diener (kommt).
+Der Kanzler, Euer Hoheit, Braun von Olmuetz.
+
+Ottokar.
+Seht Ihr? er koemmt zurueck.
+
+Diener.
+Mit ihm ein Ritter
+In lichter Ruestung, Fuersten gleich geziert,
+Und zwei Herolde in des Reiches Farben,
+Den Adler vor der Brust, die laut Trompeten.
+(Trompeten von innen.)
+
+Zawisch.
+Erlaube, koeniglicher Herr und Kaiser,
+Dass wir die ersten deiner neuen Diener--
+(Die ganze Versammlung macht eine Bewegung nach vorn.)
+
+Ottokar.
+Zurueck! Wollt ihr dem Reichstagsboten zeigen,
+Dass unverhoffte Freud' er ueberbringt?
+Auch wisst ihr nicht, ob ich die Wahl genehm'ge!
+(Zu den Gesandten, die sich zurueckgezogen haben.)
+Wo geht ihr hin? Ich hab euch nicht entlassen!
+Nichts ist geschehn, was Stoerung bringen kann.
+Der Mainzer also, sagt ihm's, mag sich hueten!
+Denn komm ich an den Rhein, und das soll bald,
+Zum Dank fuer all die frechen Winkelzuege
+Treib ich ihn aus von seinem Bischofsitz.
+
+(Der Kanzler ist indessen eingetreten. Alle umringen ihn mit fragenden
+Gebaerden; er bleibt im Hintergrunde, die Haende ringend.)
+
+Ottokar (im Vorgrunde fortfahrend).
+Der Pfalzgraf auch bei Rhein steht mir nicht an,
+Ich werde seine Kur dem Baier geben.
+Noch allerlei will ich in eurem Land,
+Und alle, die mir dieses Schreiben nennt--
+
+Zawisch (im Hintergrunde losbrechend, doch halblaut).
+Die Wahl des Reichs fiel nicht auf Ottokar?
+
+(Der Kanzler schuettelt mit gefalteten Haenden das Haupt.)
+
+Zawisch.
+Auf wen denn sonst?
+
+Kanzler.
+Auf Rudolf, Graf von Habsburg.
+
+(Unterdessen hat Ottokar den Gesandten den Brief gewiesen, mit dem Finger
+einzelne Stellen bezeichnend.)
+
+Ottokar.
+Die muessen fort--seht, der!--
+(Bei der ersten Rede des Kanzlers horcht er, in derselben Stellung
+bleibend, nach hinten hin in hoechster Spannung. Als jener den Namen
+Habsburg nennt, faehrt Ottokar zusammen; die Hand, mit der er auf den
+Brief zeigt, beginnt zu zittern; er stottert noch einige Worte.)
+und der--muss fort!
+(Die Hand mit dem Briefe sinkt hinab; mit gebrochenen Knieen steht er
+noch eine Sekunde, starr vor sich hin sehend, dann rafft er sich empor
+und geht starken Schrittes in sein Zimmer.)
+
+Zawisch.
+Herr Kanzler, sagt, ist es denn wirklich wahr?
+
+Kanzler.
+Nur allzuwahr; der Habsburg Deutschlands Kaiser.
+
+Zawisch.
+Allein wie kam's?
+
+Kanzler.
+Es ging noch alles gut,
+Die meisten Fuersten stimmten fuer den Herrn;
+Da kommt mit einemmal der Kanzellar
+Des Erzbischofs von Mainz--der hier gewesen--
+Mit ihm ein Wolkersdorf aus Oesterreich
+Und Hartneid Wildon aus dem Lande Stei'r,
+Die klagten--still! Der Koenig koemmt zurueck!
+
+Ottokar (kommt aus seinem Gemach).
+Sagt meiner Frau, sie soll bereit sich halten,
+Ich will noch heut vor Abend auf die Jagd.
+(Er geht mit starken Schritten auf und nieder.)
+
+Kanzler (nach einer Pause).
+Ach gnaed'ger Herr!
+
+Ottokar.
+Was ist? (Zusammenfahrend.) Ihr?--Wart Ihr hier?
+Vor kurzem hier?
+
+Kanzler.
+Ach ja!
+
+Ottokar.
+Und habt gesprochen?
+
+Kanzler.
+Ja, gnaed'ger Herr!
+
+Ottokar.
+Verdammt!
+(Wirft ihm den Handschuh ins Gesicht; dann ihn an der Hand in den
+Vorgrund fuehrend.)
+Was schwatztet Ihr
+Von Reichstag und von Wahl?
+
+Kanzler.
+Hier hoert es selbst!
+
+(Der Burggraf von Nuernberg, mit zwei Herolden voraus und mehreren
+Begleitern hinter sich, tritt ein.)
+(Der Koenig geht ihm mit starken Schritten bis in die Mitte des Saales
+entgegen.)
+
+Ottokar.
+Wer seid Ihr, Herr?
+
+Burggraf. Friedrich von Zollern bin ich,
+Burggraf von Nuernberg, abgesandt vom Reich.
+
+Ottokar.
+Glueck zu!
+(Er kehrt ihm den Ruecken und geht wieder in den Vorgrund.)
+
+Burggraf.
+Rudolf, von Gottes Gnaden Kaiser--
+
+Ottokar.
+Ich glaube, Herr, das Reich will meiner spotten?
+Hier stehn noch die Gesandten, die die Krone
+Mir anzubieten kamen, und ihr waehlt,
+Eh' ich entschieden, einen andern?
+
+Burggraf. Herr,
+Der Kanzellar des Erzbischofs von Mainz,
+Er hat gemeldet, wie mit schnoeden Worten
+Von Euch gewiesen Ihr so Kron' als Reich.
+
+Ottokar.
+Ha, frecher Treubruch deutscher Reichsbarone!
+
+Burggraf.
+Beschuldigt Ihr des Treubruchs Deutschlands Fuersten?
+So wisst denn, was die Wahl von Euch gewandt!
+Wir suchten einen Herrn, gerecht und gnaedig,
+Als einem solchen bot man Euch den Thron.
+Da kam der Ruf, da kamen selber Zeugen,
+Die laut es riefen in der Fuersten Ohr,
+Wie Ihr getan an Koenigin Margrethen,
+Die Eure Gattin war, die Ihr verstiesst;
+Wie Ihr die Rechte schmaelert jener Lande,
+Die rechtlos vorenthalten Ihr dem Reich;
+Wie Eure Ungnad' schon ein Halsverbrechen,
+Und Strafe trifft, wo noch kein Urteil traf.
+Das sind wir nicht gewohnt in Schwaben und beim Rhein,
+Wir muessen einen gnaed'gen Fuersten haben,
+Vor allem aber soll er sein gerecht.
+Dies ueberlegend, schritten sie zur Wahl--
+
+Heinrich von Lichtenstein (hinter der Szene).
+Verraeterei!
+
+Ottokar.
+Wer ruft?
+
+Gemurmel (unter den Anwesenden).
+Der Lichtenstein?
+
+Heinrich von Lichtenstein (tritt auf).
+Wer Oesterreicher ist, der sei gewarnt!
+Am Ausgang stehn des Schlosses Haescherrotten,
+Die fangen jeden, der nicht boehmisch ist.
+
+Fuellenstein (kommt hinter ihm mit gezogenem Schwert).
+Gebt Euch gefangen!
+
+Ottokar (vortretend).
+Eure Wehre, Heinrich!
+Ihr, Ulrich Lichtenstein, Graf Bernhard Pfannberg,
+Chol Seldenhoven, Wulfing Stubenberg,
+Ihr gebt die Schwerter und euch selbst in Haft!
+
+Lichtenstein.
+Was taten wir?
+
+Ottokar.
+Damit ihr, Freund, nichts tut,
+Send ich euch in die Haft. Damit ihr nicht
+Euch fluechtet zu der neuen Majestaet,
+Wie Wolkersdorf und Wildon, die Verraeter,
+Und Merenberg--(Mit dem Fusse stampfend.) Wer schafft mir Merenberg?
+Sobald er hier aus seinem Felsennest,
+Soll euch der Richter gegenueberstellen,
+Und wohl dann dem, der sich nicht schuldig fuehlt!
+(Zu Zollern gewendet.)
+Und nun nur weiter fort in unsrer Sache!
+(Die Geisel werden fortgefuehrt.)
+
+Burggraf.
+Der Auftritt hier erspart mir die Erklaerung,
+Warum die Fuersten, Herr, nicht Euch gewaehlt.
+Und nun zu meiner Botschaft, Boehmens Koenig!
+Rudolf, von Gottes Gnaden roemisch-deutscher Kaiser,
+Entbietet dich auf einen Tag nach Nuernberg,
+Dass du dort wartest deines Schenkenamts,
+Wie's dir als Kurfuerst ziemt des deutschen Reichs,
+Sonst auch nach Recht die Lehen dort empfangest
+Von Boehmen und von Maehren, die dir zustehn.
+
+Ottokar.
+Wie das? Nicht mehr? Und Oesterreich und Steier?
+
+Burggraf.
+Und Oesterreich und Steier, Krain und Kaernten,
+Nebst Eger, Portenau, der wind'schen Mark,
+Stellst du zurueck zu Handen unsers Kaisers,
+Als boeslich vorenthalten von dem Reich.
+
+Ottokar.
+Ha, ha, ha, ha! 'ne lust'ge Maer fuerwahr!
+Und sonst begehrt der neue Kaiser nichts?
+
+Burggraf.
+Nur was des Reichs!
+
+Ottokar.
+Herr, es ist aber mein!
+Den Ungarn hab ich Steier abgewonnen
+Mit meinem Blut, mit meiner Boehmen Blut.
+Vererbt ward Kaernten mir von meinem Ohm
+Durch gleicher Erbvertraege Wechseltausch,
+Und Oestreich brachte mir zur Morgengabe
+Die Koenigin Margrethe, meine Gattin.
+
+Burggraf.
+Wo ist Margrethe nun?
+
+Ottokar.
+Wenn auch getrennt,
+Bestaetigt hat sie ihrer Lande Schenkung,
+Und mein ist alles, was sonst ihre war.
+
+Burggraf.
+Die Lande Oesterreich und Steier fallen,
+Vermoeg' dem Majestaetsbrief Kaiser Friedrichs,
+Wohl an des letzten Lehnbesitzers Toechter,
+An seine Schwestern nicht, und Margarethe
+Ist nur des letzten Babenbergers Schwester,
+Des Herzogs Friedrich, der den Mannstamm schloss.
+Des Reiches Lehn vererben nicht,
+Durch keine Heirat mag man sie erwerben:
+Und so gib wieder, was dem Reich gehoert.
+
+Ottokar.
+Ich glaube gern, dass es ihm wohlgefiele,
+Dem neuen Herrn, wenn ich die reichen Lande
+Ihm sendete nach Schwaben, seinen Saeckel
+Zu bessern und die duerftig leere Hand;
+Allein nicht so! Ich bin nun alt genug,
+Um auf Verlust mich zu verstehn und auf Gewinn.
+Geht nur zurueck und sagt dem deutschen Reich--
+Denn einen deutschen Kaiser kenn ich nicht--
+Manch Geier soll noch Aases werden satt,
+Bis sie gewinnen, was des Boehmen ist!
+Er ladet mich zu sich? nun wohl, ich komme!
+Doch will ich Gaeste fuehren mit zum Tanz,
+Dass von der Fuesse Stampfen weit umhin
+Die Erde soll erzittern bis zum Rhein.
+Gehabt Euch wohl und sagt das Euerm Herrn!
+
+Zawisch.
+Wir aber wollen zu den Waffen greifen.
+Mit Gut und Blut fuer unsern grossen Koenig!
+(Er geht, mehrere wollen folgen.)
+
+Ottokar.
+Halt da! Warum nicht gar! Fuer wen? und gegen wen?
+Im Lande soll man handeln und verkehren,
+Als waer' der tiefste Fried'. Wenn's an der Zeit,
+Will ich schon des Besuches Gaeste waehlen.
+
+Und nun mit mir! Der neue Bettelkoenig,
+Nicht einem Reh soll er das Leben retten!
+Auf Ribnik ist fuer morgen grosse Jagd;
+Ihr alle seid geladen! Lust und Freude!
+Bringt Lichter, es wird dunkel. Fackeln her
+Und so mit mir! Auf Weidwerk! In den Wald!
+(Ab, die uebrigen folgen ihm tumultuarisch nach.)
+
+(Es wird dunkler. Kurze Pause, dann hoert man in der Ferne auf einer
+Zither spielen.)
+
+Kammerfraeulein (tritt aus der Tuere der Koenigin).
+So, sie sind fort! Wer spielt da auf der Zither?
+
+Kunigunde (kommt).
+Was ist? Wer spielt?
+
+Kammerfraeulein (an der Balustrade).
+Ich weiss nicht, gnaed'ge Frau.
+Horch! Worte? "Hand wie Schnee, und doch so heiss"
+Es ist Herr Zawisch Rosenberg. Er singt.
+Soll ich ihn gehen heissen?
+
+Koenigin (hat sich gesetzt).
+Lass ihn nur,
+Es hoert sich gut zu in der Abendkuehle.
+(Sie stuetzt ihr Haupt gedankenvoll in die Hand.)
+
+(Der Vorhang faellt.)
+
+
+
+
+Dritter Aufzug
+
+Gemach in Merenbergs Schlosse.
+
+
+Der alte Merenberg (steht am offenen Fenster, die Muetze zwischen den
+gefalteten Haenden).
+Die Sonne steigt empor. Hab Dank, o Gott,
+Des Greisen Dank, fuer diesen neuen Tag!
+Und fuer den Tag, den du geschenkt dem Lande,
+Da du hervorriefst aus des Dunkels Schoss
+Mildglaenzend Habsburgs leuchtendes Gestirn,
+Das wieder gruen macht die zerstampften Auen
+Und wieder lau die frostdurchschnittne Luft.
+O gib, dass wir, der Deutschen Aeusserste,
+Teilnehmen an dem Heil, das dort entstand;
+Dass alle, die wir Oesterreicher sind,
+Entnommen aus des Fremden harter Zucht,
+Wie Brueder kehren in der Eltern Haus,
+Von eines Vaters Auge fromm bewacht.
+Amen, so soll's geschehn!--Wer klopft?
+
+Frau (von aussen).
+Ich, Alter!
+
+Merenberg.
+Ei, nur herein!
+
+Frau (tritt ein mit einer Schuessel und Wein).
+Ich bringe dir das Fruehstueck.
+
+Merenberg.
+Setz immer hin! Wer spricht im Schlosshof unten?
+
+Frau.
+Zwei Reiter, die nach dir verlangten.
+
+Merenberg.
+Nun?
+Warum bringt man sie nicht?
+
+Frau.
+Ich dachte--
+
+Merenberg.
+Was denn?
+Bin ich in Fehde denn mit meinen Nachbarn?
+Liebt man den Merenberg nicht rings im Land,
+Dass vor zwei Reitern ich mich scheuen sollte?
+Wer weiss, was Wicht'ges sie zu melden kommen?
+Vielleicht von meinem Sohn! Fuehr sie herauf!
+(Frau ab.)
+Das hiesse sich noch gar verdaechtig machen,
+Verschloess' ich mich vor Botschaft und Besuch.
+Ob freilich zwar der boese Zeitenlauf
+Zur Vorsicht raet und leicht wohl gar zu Misstraun;
+Doch sind mir zwanzig Knechte ja im Schloss!
+
+(Herbott von Fuellenstein und Ortolf von Windischgraetz treten, von Merenbergs
+Frau gefuehrt, ein. Beide ganz geruestet und mit geschlossenem Visier.)
+
+Merenberg.
+Ei, Gott zum Gruss, ihr Herrn! Frau, bring noch Wein!
+(Frau ab.)
+Was fuehrt euch her zu mir? Zwar, eh' ihr sprecht,
+Setzt euch an Tisch und nehmt mit mir vorlieb;
+So ist es Sitt' in unserm Steierland.
+(Sie setzen sich.)
+Beliebt's euch nicht, den Helm vom Haupt zu nehmen?
+(Beide schuetteln verneinend die Haeupter.)
+Verbietet's ein Geluebd'?--Doch wie ihr wollt!
+Ihr zieht dem Heer des Koeniges wohl zu?--
+Des Koenigs Ottokar?--Er lagert an der Donau
+Seitwaerts Korneuburg, weit bis Tulln hinab
+Am linken Ufer, war , mir angesagt.
+Und Kaiser Rudolf--nu, den Habsburg mein ich--
+Am rechten Ufer haelt er Wien belagert.
+Den Fluss zu uebersetzen scheuen beide.
+Allein ihr sprecht nicht, und ihr esst auch nicht!
+
+Beide (aufstehend).
+Wir essen mit Verraetern nicht!
+
+Merenberg (springt auf).
+Dass Gott!
+
+Fuellenstein (der das Schwert zieht und sich vor die Tuere stellt, das
+Visier oeffnend).
+Erkennst du mich?
+
+Merenberg.
+Herbott von Fuellenstein,
+(Der andre hat auch das Visier aufgeschlagen.)
+Ortolf von Windischgraetz!--Was tut ihr, Herren?
+(Ortolf von Windischgraetz ist ans Fenster getreten und stoesst ins Horn.)
+
+Fuellenstein.
+Im Namen unsers Koenigs Ottokar
+Nehm ich dich in Verhaft als Hochverraeter.
+
+Merenberg.
+Warum?
+
+Fuellenstein.
+Hast du nicht deinen Sohn gesandt
+Mit Klagen an die Fuersten und das Reich?
+
+Merenberg.
+Der Unvorsichtige!--Mit Klagen nicht,
+Mit Bitten nur fuer Koenigin Margrethe
+Und ihres angestammten Rechtes Schutz.
+
+Fuellenstein.
+Dient nicht dein Sohn jetzt in des Kaisers Heer?
+
+Merenberg.
+Ich bin verloren!
+
+Fuellenstein.
+Ja, das bist du! Folge!
+
+Merenberg.
+Wohin?
+
+Fuellenstein.
+Dahin, wo man dich pressen wird,
+Bis deiner Raenke letzter dir entgeht.
+
+Von aussen.
+Macht auf! macht auf!
+
+Fuellenstein.
+Ortolf, bewach die Tuer!
+
+Aussen.
+Um Gottes willen, oeffnet!
+
+Ortolf.
+'s ist dein Knecht,
+Der Duxer, Fuellenstein!
+
+Fuellenstein.
+Was will denn der?
+
+(Windischgraetz oeffnet die Tuere, Knecht tritt ein.)
+
+Knecht.
+Herr, Kaiserliche streifen in der Naehe!
+
+Fuellenstein.
+Verdammt!
+
+Knecht.
+Sie haben, heisst es, Graez genommen,
+Des Koenigs Hauptmann; Milota, gefangen,
+Und wenden alles Land dem Kaiser zu.
+
+Fuellenstein.
+Wie mag das sein?
+
+Knecht.
+Ja, Meinhard Graf von Goetz
+Soll beigetreten sein der Deutschen Sache,
+Und der haust also uebel hier im Land.
+
+Merenberg.
+Nun, Gott sei Dank!
+
+Fuellenstein.
+Euch soll's nicht helfen, Herr!
+Nur fort mit ihm! Ihr wendet eure Schwerter
+Auf seine Brust, und wagen's die im Schlosshof
+Sich nur zu regen, stosst ihr stracks ihn nieder!
+Die Pfade kenn ich hier herum, ich leit euch!
+
+Merenberg (der abgefuehrt wird).
+Mein Sohn ist frei, die Koenigin geborgen;
+Was liegt an mir? Da wird der Himmel sorgen!
+(Alle ab.)
+
+
+
+--------------------------------------------------------------------
+
+Boehmisches Lager am linken Donauufer. Zelt des Koenigs. Ein Tisch mit
+einem Aufriss der Gegend im Vorgrunde.
+Ottokar tritt auf, der Kanzler und mehrere hinter ihm.
+
+Ottokar (im Auftreten zu seinen Begleitern).
+Ist er geflohn, so lasst den Schurken haengen!
+Man haengt ja taeglich Diebe. Gottes Donner!
+Ein Feiger duenkt mich schlechter als ein Dieb!
+(Er kommt in den Vorgrund, der Kanzler folgt ihm.)
+Verfolgt Ihr mich denn uebrall hin, Herr Kanzler?
+
+Kanzler.
+Ja, ueberall, mein Koenig und mein Herr,
+Bis Ihr mich anhoert und mir Antwort goennt.
+Herr, es steht schlimm!
+
+Ottokar (auf und nieder gehend).
+Es steht sehr gut!
+
+Kanzler.
+O Gott!
+Die Krankheit herrscht, der Mangel herrscht im Lager.
+
+Ottokar.
+Die Krankheit: Furcht, und Mangel wohl an Mut,
+Doch nur bei wenigen, so will ich hoffen,
+Und von den wenigen haengt einer drauss'!
+Hat man jetzt Zeit, um krank zu sein? Und Hunger?
+Ich hungre nur nach einem: nach dem Sieg!
+
+Kanzler.
+Aus Boehmen seit fuenf Tagen keine Nachricht,
+Und man besorgt--
+
+Ottokar.
+Wahrscheinlich bin ich dort
+So schlecht bedient als hier!
+
+Kanzler.
+Hier seid Ihr gut,
+(auf seine Brust schlagend)
+Hier mindstens seid Ihr gut bedient, mein Koenig!
+
+Ottokar.
+Mag sein! mag sein!
+
+Kanzler.
+Von Oestreich die, von Steier,
+Allnaechtlich fliehn sie haufenweis zum Feind.
+
+Ottokar (stehenbleibend).
+Ich will sie treffen!--All dies weite Land,
+Zur menschenleeren Wueste will ich's machen,
+Dass drin die Fuechse hausen und die Woelfe,
+Und nach Jahrhunderten der muess'ge Wandrer
+Sich streiten soll, wo Neuburg stand und Wien.
+
+Kanzler.
+Am linken Ufer schon, auf unsrer Seite,
+Will Feinde man sogar gesehen haben.
+
+Ottokar.
+Beinahe glaub ich, dass es mancher wollte;
+Doch ist's nicht wahr!
+
+Kanzler.
+Allein die Wachen sahn's.
+
+Ottokar.
+Schickt einen Mutigen, der sieht wohl nichts!
+
+Kanzler.
+Bei Wolkersdorf--
+
+Ottokar.
+Ich sag Euch: Nein! Ich weiss!
+Die Maehrer sind's, wenn sich dort Haufen zeigen!
+(Er steht am Tisch bei der Karte.)
+So war's im Plan! Die Maehrer dort von oben,
+Im Ruecken Milota aus Steiermark,
+Und wir, wie Schleien durch die Donau und
+Wie Loewen jenseits raus; und dann: (Mit der Hand auf den Tisch
+schlagend.) Schlag tot!
+Ich habe sie!
+(Er geht wieder auf und nieder.)
+
+Kanzler.
+Du allgerechter Gott!
+Ich sinne nach, wie wir uns retten moechten,
+Und Ihr sprecht nur von Sieg!--Aus Steiermark
+Hoert ab und zu man wunderbare Dinge.
+
+Ottokar.
+Ei, wundert Euch soviel Ihr wollt, Herr Kanzler!
+Dort ist der Milota; ein tuecht'ger Mann!
+Kein Kopf, doch eine Faust von Stein und Stahl.
+Der schlaegt Euch zwanzigmal auf einen Fleck
+Und fraegt nicht, wie's getan.
+
+Kanzler.
+Nun denn, so sei's!
+Ich habe mich verwahrt! Als ich Euch sagte:
+Herr, traut dem Baier nicht! Ihr trautet doch:
+Und nun liess er den Kaiser durch sein Land.
+
+Ottokar.
+Furcht hat 'ne feine Nase fuer die Furcht;
+Den Baier habt Ihr trefflich ausgewittert!
+
+Kanzler.
+Der Grafenbund in Schwaben ist zerstreut.
+
+Ottokar.
+Der hielt wohl niemals allzufest beisammen!
+
+Kanzler.
+Mit einem Wort. Der Kaiser Rudolf, Herr--
+
+Ottokar.
+Was Kaiser!
+
+Kanzler.
+Nu, der Habsburg also denn!
+Er ist der Mann nicht, den wir sonst ihn glaubten.
+
+Ottokar.
+Mir sollte leid tun, wenn er schlimmer waere!
+Ein Krieger und ein Mann vielleicht; kein Koenig.
+
+Kanzler.
+So dachte mancher, der ihn waehlen half;
+Doch hat sich's anders, unverhofft bewaehrt.
+In Aachen schon, als man die Lehen gab
+Und sich kein Szepter fand--man wollt' ihn stoeren!--
+Da trat er hin und nahm vom Hochaltar
+Ein Kruzifix--
+
+Ottokar.
+Und gab die Lehn damit?
+Wer geben will, der findet leicht ein Werkzeug;
+Zum Nehmen ruest' er kraeftiger sich aus!
+
+Kanzler.
+Die Ruh' ist hergestellt im weiten Deutschland,
+Die Raeuber sind bestraft, die Fehden ruhn.
+Durch kluge Heirat und durch kraeft'ges Wort
+Die Fuersten einig und ihm eng verbunden;
+Der Papst fuer ihn. Im Land nur eine Stimme,
+Ihn preisend, benedeiend als den Retter.
+Als auf der Donau nur allsamt dem Heer
+Nach Wien er niederfuhr mit lautem Schall,
+Da toente Glockenklang von beiden Ufern,
+Von beiden Ufern toente Jubelruf
+Der Menge, die dort kam und staunt' und kniete,
+Wie sie den Kaiser sahn im grauen Roecklein
+Am Vorderteil des Schiffes stehn allein
+Und freundlich gruessend mit des Hauptes Neigen.
+Herr, nennt ihn Kaiser, denn fuerwahr er ist's!
+
+Ottokar.
+Sprichst du so warm fuer ihn?
+
+Kanzler.
+Fuer Euch wohl waermer.
+Hab ich ihm denn geschworen, so wie Euch?
+Doch, dass zwei Herrn, so hoch, so wuerdevoll,
+Sich gegenueberstehn, da's nur ein Wort,
+Ein Wort nur brauchte, um sie auszusoehnen--
+Ja, Herr, es ist gesagt! Es sei gesagt!
+Und moegt Ihr zuernen, melden muss ich's Euch:
+Der Kaiser hat gesendet einen Herold
+Und laedt Euch ein zu guetlichem Gespraech.
+
+Ottokar.
+Schweig still!
+
+Kanzler.
+Die Insel Kaumberg ward ersehn;
+Von beiden Teilen werde sie besetzt.
+Nicht Ihr zu ihm, nicht er zu Euch,
+Auf gleichgeteilten Boden sollt Ihr kommen
+Und dort verhandeln, was uns allen nuetzt.
+
+Ottokar.
+Bei meinem Zorn--!
+
+Kanzler.
+Herr, selbst bei Eurem Zorn!
+Nicht schweig ich da, wo reden meine Pflicht!
+
+(Zawisch von Rosenberg kommt.)
+
+Ottokar.
+Du kommst zurecht; beschwicht'ge diesen Raben!
+
+Zawisch.
+Was will er denn?
+
+Ottokar.
+Er spricht mir von Vergleich.
+
+Zawisch.
+Wie? Von Vergleich? der kindisch schwache Greis!
+Nur eben hat sich eine Schar Kumanen
+Durch eine Furt dem Lager angenaht;
+Allein ich ging hinaus mit meinen Boehmen,
+Und, wie sie flohn, den Rueckweg fand wohl keiner!
+
+Ottokar (zum Kanzler).
+Seht Ihr?
+
+Kanzler.
+Ein einzler Fall entscheidet nicht!
+
+Zawisch.
+Doch viele Faelle faellen doch zuletzt!
+Die Axt ist an der Wurzel, losgeschlagen!
+(Zum Kanzler.)
+Habt Ihr ein Heer wie unsers je gesehn?
+Voll Kraft und Mut und Zuversicht und Stolz
+Auf sich und auf den Fuehrer, der es leitet.
+
+Kanzler.
+Ihr wisst wohl, Zawisch, dass es anders ist.
+
+Zawisch (fortfahrend).
+Und Ihr koennt von Vergleich und Frieden sprechen?
+Sind ihrer viel; wir sind wohl gleicher Zahl!
+Sind tapfer sie; wer nimmt es auf mit uns?
+Fuehrt sie ein Kaiser; hier steht Deutschlands Kaiser!
+Noch diese Schlacht, und, Kanzler, glaubt, er ist's.
+
+Kanzler.
+O Rosenberg, Ihr spielt ein falsches Spiel!
+Ich glaub, Ihr seid nicht wahrhaft, Rosenberg!
+Ein altes Unrecht, Eurem Haus getan
+Von unserm sonst gerechten, gnaed'gen Herrn,
+Ich fuercht, es wurzelt tief in Eurem Herzen
+Und laesst Euch also sprechen, wie Ihr sprecht.
+Glaubt mir, mein gnaed'ger Herr, ich mein es redlich.
+
+Zawisch.
+Die Feinde sind im Nachteil, das ist klar!
+
+Ottokar.
+Das ist nicht klar. Die Waage steht fuer sie.
+Der einz'ge Vorteil--doch der soll entscheiden!--
+Ist, dass Euch Ottokar, und jene Habsburg fuehrt.
+(Er tritt an den Tisch und, mit der rechten Hand daraufgestemmt,
+betrachtet er die vor sich liegende Karte.)
+
+Zawisch.
+Der Sieg ist unser, glaubt mir das, Herr Kanzler!
+
+Kanzler.
+Und wenn auch! was ist noch damit gewonnen?
+Ihr schlagt den Kaiser heut, und uebers Jahr
+Kommt er herab mit einem neuen Heer.
+Die Lande sind nun einmal missvergnuegt,
+Bereit zu Aufstand und zu Meuterei,
+Sie rufen Euch die Deutschen, eh' Ihr's denkt.
+Und stirbt auch Rudolf, faellt er in der Schlacht;
+Ein andrer Kaiser fodert Euch dasselbe,
+Und ewig waehrt der Unfried' mit dem Reich.
+
+Zawisch.
+Was mehr?
+
+Zawisch.
+Was mehr?
+
+Kanzler.
+Was mehr?--Und rechnet Ihr fuer nichts
+Das Unheil und die Greuel in dem Land?
+Die Saat zerstampft, die Wohnungen verbrannt,
+Die Menschen hingeschlachtet wie--dass Gott!
+Schaemt Euch, Herr Rosenberg, dass Ihr so sprecht!
+Hat darum unser Koenig Gold und Gut
+Daran gesetzt, sein Boehmen aufzubringen?
+Es geht der Pflug, der Weber sitzt am Werk,
+Der Spinner dreht, der Berg gibt seinen Schatz;
+Und soll er nun mit eigner Fuerstenhand
+Das all zerstoeren, was er selbst gebaut?
+Ei geht, Ihr wisst nicht, was Ihr sprecht, Herr Zawisch!
+Der Koenig kennt das besser, als Ihr glaubt!
+
+Ottokar (vor sich hin).
+Im Grunde waren sie's, die mir den Antrag taten!
+
+Kanzler.
+Wohl waren sie's!
+
+Ottokar (wieder auf und nieder gehend).
+Ist Schmach dabei, trifft sie's!
+
+Kanzler (mit dankend gefalteten Haenden).
+Er ueberlegt!
+
+Ottokar.
+Die Schwaeche macht versoehnlich!
+Herr Kanzler, um das Kaisertum der Welt
+Haett' ich ihm nicht das erste Wort gegoennt!
+
+Kanzler.
+Die Ehre bleibt; verdoppelt wird der Ruhm.
+
+Ottokar.
+Dem Feind verzeihen; gut! Doch nach der Strafe!
+Die Schwaeche macht versoehnlich!
+
+Kanzler.
+Gnaed'ger Herr--!
+
+Ottokar.
+Und wahrlich, Zawisch, sehen moecht' ich ihn!
+Wie er sich nimmt, dem Ottokar genueber,
+Der arme Habsburg in dem Kaiserkleid?
+Was er entgegnet, wenn im selben Ton,
+Mit dem ich ihm bei Kroissenbrunn befahl:
+"Herr Graf, greift an" ich Oestreich nun und Steier
+Und all die Lehen von dem Reich begehre?
+Das hiesse siegen, ohne Heer, allein!
+
+Zawisch.
+Dagegen aber, wenn er schlau und listig--
+
+Ottokar.
+Topp, Kanzler, Euren Vorschlag nehm ich an!
+
+Kanzler.
+O tausend Dank!
+
+Ottokar.
+Ei, dankt nicht allzufrueh!
+Nicht ganz in Eurem Sinn ist's, dass ich gehe!
+Wenn er so dasteht und nach Worten sucht
+Und ich ihm sage: Euren Kaisermantel
+Begehr ich nicht, Ihr moegt ihn ruhig tragen!
+Doch an mein Land sollt Ihr mir, Herr, nicht ruehren;
+Und so gehabt Euch wohl und zieht in Frieden!
+Aufs hoechste gibt man ihm ein Fleckchen Grund,
+Dass er daheim sich bruesten mag und sagen:
+Das haben wir erobert fuer das Reich!
+Die Freude goenn ich ihm. Glueck auf, Herr Kanzler,
+Wir ziehen aus auf Frieden und Vergleich;
+Da seid Ihr Fuehrer, wir gehorchen Euch!
+Und was sich regt im Lager, gross und klein--
+(gegen den Eingang gewendet, einige treten herein)
+Das sei bereit und rueste sich in Pracht.
+Von Gold und Silber lasst die Ruestung starren;
+Und weh dem Edelknecht, des Wams und Mantel
+Nicht hundertmal den deutschen Kaiser aussticht.
+(Ab, die andern folgen ihm.)
+
+
+
+-----------------------------------------------------------------------
+
+Insel Kaumberg in der Donau. Lager der Kaiserlichen. Im Hintergrunde,
+auf einigen Stufen erhoeht, ein kostbares Zelt, mit dem Reichsadler
+geschmueckt.
+
+Ein Hauptmann tritt auf; hinter ihm mehrere Wappner, die mit gekreuzten
+Hallbarten das nachdringende Volk abzuhalten bemueht sind.
+
+Hauptmann.
+Lasst sie nur ein, der Kaiser hat's befohlen!
+
+(Volk stroemt herein.)
+
+Erster Buerger (der sich mit seinem Nachbar durch die Menge in den
+Vorgrund gearbeitet hat).
+Hier ist ein guter Platz, hier lasst uns bleiben!
+
+Zweiter Buerger.
+Wenn er nur vorkommt, dass wir ihn auch sehn.
+
+Frau (zu ihrem Kinde).
+Halt dich zu mir und nimm da deine Blumen!
+
+Schweizersoldat.
+Wo ist der Rudi? Herr, ich bin sein Landsmann
+Und hab was anzubringen bei dem Kaiser!
+
+Hauptmann.
+Geduldet euch! Doch seht, man oeffnet schon.
+
+(Das Zelt oeffnet sich. Kaiser Rudolf sitzt im ledernen Unterkleide an
+einem Feldtische. Er hat einen Helm vor sich, an dem er mit einem Hammer
+die Beulen ausklopft. Vollendend und zufrieden seine Arbeit beschauend.)
+
+Rudolf.
+Nun haelt das lange wieder, ab und zu.
+(Er sieht sich um.)
+Schon Leute da?--He, Georg, hilf einmal!
+(Ein Diener hilft ihm, er zieht den Rock an.)
+
+Erster Buerger (im Vorgrunde).
+Gevatter Grobschmied, saht Ihr wohl? Der Kaiser,
+Den Hammer in der Hand! Vivat Rudolphus!
+
+Zweiter Buerger.
+Sei still, sei still! Er tritt schon auf uns zu!
+(Der Kaiser kommt die Stufen herab.)
+
+Seyfried von Merenberg (tut einen Fussfall).
+Erlauchter Herr!
+
+Rudolf.
+Ei, Merenberg? Nicht wahr?
+Seid ruhig, Euer Vater wird befreit,
+Des geb ich Euch mein Wort. Im weiten Reich
+Hat Gottes Hilfe hergestellt die Ruh',
+So wird's auch hier in Eurem Osterland.
+Der Fuerst von Boehmen kommt heut zum Gespraech;
+Vor allem will ich Eurer da gedenken!
+(Merenberg tritt zurueck.)
+(Ein Kind mit einem Blumenstrauss laeuft auf den Kaiser zu.)
+
+Rudolf.
+Wem ist das Kind? Wie heisst du?
+
+Eine Frau.
+Katharina,
+Kathrina Froehlich, Buergerskind aus Wien.
+
+Rudolf.
+Fall nicht, Kathrina! Ei, was ist sie huebsch!
+Wie fromm sie aus den braunen Augen blickt,
+Und schelmisch doch. Zierst du dich auch schon, Kroete?
+Was wollt Ihr, gute Frau?
+
+Frau.
+Ach Gott, Eu'r Hoheit!
+Die Boehmen haben unser Haus verbrannt,
+Mein Mann liegt krank vor Kummer und Verdruss.
+
+Rudolf (zu einem seiner Begleiter).
+Schreibt Euch den Namen auf und sehet zu!
+(Zur Frau.)
+Worin zu helfen ist, da wird man helfen!
+
+Schweizersoldat (tritt vor, hinter ihm noch drei oder vier andere).
+Mit Gunst und Urlaub, gnaediger Herr Landsmann!
+
+Rudolf.
+Ei, Walter Stuessi aus Luzern? Was willst du?
+(Zum Kinde.)
+Geh nur zu deiner Mutter, Katharina,
+Dem Vater wird geholfen, sag ihr das!
+(Das Kind laeuft zur Mutter.)
+
+Schweizer.
+Ich und die andern da vom Lande Schweiz,
+Wir kommen her, ob Ihr die Gutheit haettet
+Und gaebt uns etwas Geld!
+
+Rudolf.
+Ja Geld, mein Freund,
+Geld ist ein gutes Ding, wenn man nur hat.
+
+Schweizer.
+So habt Ihr keins? Ja so!--Und fuehrt doch Krieg?
+
+Rudolf.
+Sieh Freund, du weisst wohl noch von Hause her,
+Gar manchmal hat ein Landwirt auf gespeichert
+An Frucht und Futter fuer den Winter gnug,
+Bis voll zur Fruehlingszeit. Allein der Fruehling
+Anstatt im Maerzen kommt er erst im Mai,
+Und Schnee liegt dort, wo sonst wohl Saaten standen;
+Wenn da der Vorrat aufgeht, schmaehst du ihn
+Als einen schlechten Wirt?
+
+Schweizer.
+Behuete Gott!
+Das hat wohl mancher schon an sich erfahren!--
+Und Ihr?--Ja so! (Zu seinen Landsleuten.) Seht nur, er ist der Landwirt,
+Und dau'rt der Winter--heisst: der Krieg--so lang,
+Und ist die Brotfrucht aufgezehrt:--das Geld.
+Nu Herr, wir warten schon noch etwas zu:
+Indessen holt man aus des Landmanns Kasten.
+
+Rudolf.
+Wenn ihr nicht bleiben wollt, so geht.
+Doch wer sich nicht begnuegt mit Lagerzehrung,
+Und mir die Hand legt an des Landmanns Gut,
+Der haengt, und waer's der Beste!
+
+Schweizer.
+Nu, 'ne Frage
+Ist wohl erlaubt. Es ist nur, dass man's, weiss.
+Wir wollen zusehn noch ein Tage vier,
+Vielleicht wird's besser bis dahin.
+
+Rudolf.
+Das tut!
+Und gruesst mir Rat und Buerger von Luzern.
+(Der Kaiser wendet sich zu gehen.)
+
+Ottokar von Hornek (im Vorgrunde tritt aus der Menge).
+Erlauchter Herr und Kaiser, hoert auch mich!
+
+Rudolf.
+Wer seid Ihr?
+
+Hornek.
+Ottokar von Hornek, Dienstmann
+Des edlen Ritters Ott von Lichtenstein,
+Den Koenig Ottokar, samt andern Landherrn,
+Ohn Recht und Urteil haelt in enger Haft.
+O nehmt Euch sein, nehmt Euch des Landes an!
+Er ist ein guter Herr, es ist ein gutes Land,
+Wohl wert, dass sich ein Fuerst sein unterwinde!
+Wo habt Ihr dessengleichen schon gesehn?
+Schaut rings umher, wohin der Blick sich wendet,
+Lacht's wie dem Braeutigam die Braut entgegen!
+Mit hellem Wiesengruen und Saatengold,
+Von Lein und Safran gelb und blau gestickt,
+Von Blumen suess durchwuerzt und edlem Kraut,
+Schweift es in breitgestreckten Taelern hin--
+Ein voller Blumenstrauss soweit es reicht,
+Vom Silberband der Donau rings umwunden!--
+Hebt sich's empor zu Huegeln voller Wein,
+Wo auf und auf die goldne Traube haengt
+Und schwellend reift in Gottes Sonnenglanze;
+Der dunkle Wald voll Jagdlust kroent das Ganze.
+Und Gottes lauer Hauch schwebt drueber hin
+Und waermt und reift und macht die Pulse schlagen,
+Wie nie ein Puls auf kalten Steppen schlaegt.
+Drum ist der Oesterreicher froh und frank,
+Traegt seinen Fehl, traegt offen seine Freuden,
+Beneidet nicht, laesst lieber sich beneiden!
+Und was er tut, ist frohen Muts getan.
+'s ist moeglich, dass in Sachsen und beim Rhein
+Es Leute gibt, die mehr in Buechern lasen;
+Allein, was not tut und was Gott gefaellt,
+Der klare Blick, der offne, richt'ge Sinn,
+Da tritt der Oesterreicher hin vor jeden,
+Denkt sich sein Teil und laesst die andern reden!
+
+O gutes Land! o Vaterland! Inmitten
+Dem Kind Italien und dem Manne Deutschland,
+Liegst du, der wangenrote Juengling, da:
+Erhalte Gott dir deinen Jugendsinn
+Und mache gut, was andere verdarben!
+
+Rudolf.
+Ein wackrer Mann!
+
+Erster Buerger.
+Ja Herr, und ein Gelehrter!
+Er schreibt 'ne Reimchronik, und Ihr, Herr Kaiser,
+Kommt auch drin vor!
+
+Rudolf.
+Im Guten, will ich hoffen!
+Dein Herr, vertrau! er soll die Freiheit haben.
+Und du--Zum Angedenken dieser Stunde, nimm
+Die Kette da und schmuecke dich damit!
+Dem Wissen sei sein Lohn und dem Vollbringen!
+(Er nimmt eine Kette vom Hals und haengt sie Horneken um, der niedergekniet
+ist. Zu einem der Nebenstehenden.)
+
+Euch, Ritter, scheint die Gunst wohl allzuhoch?
+Wenn diesen Mann ich mit dem Schwert beruehre,
+So steht er auf als Ritter, wie so mancher;
+Doch manchen wuesst' ich nicht, womit beruehren,
+Sollt' er ein Reimwerk schreiben, so wie der.
+Doch davon nichts in deine Chronik, Freund!
+Das hiesse sonst in dir mich selber loben!
+
+Hauptmann (kommt).
+Der Koenig naht von Boehmen, gnaed'ger Herr!
+
+Rudolf.
+Nun, grosser Gott, du hast mich hergefuehrt;
+Vollende nun, was ich mit dir begonnen!
+
+(Man hat rechts im Vorgrunde einen Feldstuhl gesetzt. Der Kaiser setzt
+sich, sein Gefolge steht um ihn.)
+
+(Koenig Ottokar kommt in glaenzender Ruestung, darueber einen bis auf die
+Fersen gebenden reichgestickten Mantel; statt des Helmes die Krone auf
+dem Haupt. Hinter ihm der Kanzler und Gefolge.)
+
+Ottokar (vom Hintergrunde her auftretend).
+Ich suche nun schon lange rechts und links;
+Wo habt ihr euren Kaiser, edle Herrn?
+Ihr da, Herr Merenberg? Trifft man Euch hier?
+Ich denk Euch schon noch anderswo zu treffen!
+Nun, wo ist Rudolf? Ah! (Er erblickt ihn und geht auf ihn zu.) Gott gruess
+Euch, Habsburg!
+
+Rudolf (der aufsteht, zu denen, die um ihn stehen).
+Warum steht ihr entbloessten Hauptes da?
+Kommt Ottokar zu Habsburg, Mensch zum Menschen,
+So mag auch Hinz und Kunz sein Haupt bedecken,
+Ist er doch ihresgleichen: Mensch.--Bedeckt euch!
+Doch kommt der Lehensmann zum Lehensherrn,
+Der Boehmen pflicht'ger Fuerst zu Deutschlands Kaiser,
+(Unter sie tretend.)
+Dann weh dem, der die Ehrfurcht mir verletzt!
+(Mit starken Schritten auf ihn losgehend.)
+Wie geht's Euch, Ottokar? was fuehrt Euch her?
+
+Ottokar (der betroffen einen Schritt zurueckgetreten ist).
+Zur--Unterredung hat man mich geladen!
+
+Rudolf.
+Ja so, Ihr kommt zu reden in Geschaeften?
+Ich dacht', es waer' ein freundlicher Besuch!
+Zur Sache denn! Wie koemmt's, mein Fuerst von Boehmen,
+Dass Ihr erst jetzt auf meinen Ruf erscheint?
+Ich liess Euch laden schon zu dreien Malen,
+Nach Nuernberg, dann nach Wuerzburg und nach Augsburg,
+Dass Ihr die Lehen naehmt von Eurem Land;
+Allein Ihr kamt nicht. Nur das letztemal
+Erschien statt Euch der wuerd'ge Herr von Seckau,
+Doch der nicht allzu wuerdig sich benahm.
+
+Ottokar.
+Die Lehn von Boehmen gab mir Koenig Richard.
+
+Rudolf.
+Ja, der von Kornwall. Ei, es gab 'ne Zeit,
+Wo man in Deutschland fuer sein bares Geld
+Noch mehr erhalten konnt' als Lehn und Land!
+Doch damit ist's vorbei! Ich hab's geschworen,
+Geschworen meinem grossen, gnaed'gen Gott,
+Dass Recht soll herrschen und Gerechtigkeit
+Im deutschen Land; und so soll's sein und bleiben!
+Ihr habt Euch schlecht benommen, Herr von Boehmen,
+Als Reichsfuerst gegen Kaiser und das Reich!
+Dem Erzbischof von Salzburg seid Ihr feindlich
+Mit Raub und Mord gefallen in sein Land,
+Und Eure Voelker haben drin gehaust,
+Dass Heiden sich der Greuel scheuen wuerden.
+
+Ottokar.
+Die Fehde ward ihm ehrlich angesagt.
+
+Rudolf.
+Hier aber gilt's nicht Fehde; Ruhe, Herr!
+Die Lande Oesterreich und Steiermark,
+Mit Kaernten und mit Krain, der Wind'schen Mark,
+Als ungerecht dem Reiche vorenthalten,
+Gebt wieder Ihr zurueck in meine Hand!
+Ist hier nicht Feder und Papier? wir wollen
+Die Handfest gleich in Ordnung bringen lassen!
+
+Ottokar.
+Ha, beim allmaecht'gen Gott! wer bin ich denn?
+Ist das nicht Ottokar? nicht das sein Schwert?
+Dass man in solchem Ton zu sprechen wagt!
+
+Wie aber dann, Herr, wenn, statt aller Antwort,
+Der Donau breiten Pfad zurueck ich messe
+Und weiter frag an meines Heeres Spitze?
+
+Rudolf.
+Noch vor zwoelf Monden kamt Ihr mir zurecht,
+Wenn Ihr der Waffen blut'gen Ausspruch waehltet!
+Ihr seid ein kriegserfahrner Fuerst, wer zweifelt?
+Und Euer Heer, es ist gewohnt zu siegen;
+Von Gold und Silber starret Euer Schatz:
+Mir fehlt's an manchem, fehlt's an vielem wohl!
+Und doch, Herr, seht! bin ich so festen Muts,
+Wenn diese mich verliessen alle hier,
+Der letzte Knecht aus meinem Lager wiche;
+Die Krone auf dem Haupt, den Szepter in der Hand
+Ging ich allein in Euer trotzend Lager
+Und rief Euch zu: Herr, gebet, was des Reichs!
+Ich bin nicht der, den Ihr voreinst gekannt!
+Nicht Habsburg bin ich, selber Rudolf nicht;
+In diesen Adern rollet Deutschlands Blut.
+Und Deutschlands Pulsschlag klopft in diesem Herzen.
+Was sterblich war, ich hab es ausgezogen
+Und bin der Kaiser nur, der niemals stirbt.
+Als mich die Stimme der Erhoehung traf,
+Als mir, dem nie von solchem Glueck getraeumt,
+Der Herr der Welten auf mein niedrig Haupt
+Mit eins gesetzt die Krone seines Reichs,
+Als mir das Salboel von der Stirne troff,
+Da ward ich tief des Wunders mir bewusst
+Und hab gelernt, auf Wunder zu vertraun!
+Kein Fuerst des Reichs, der maecht'ger nicht als ich;
+Und jetzt gehorchen mir des Reiches Fuersten!
+Die Friedensstoerer wichen meiner Stimme;
+Ich konnt' es nicht, doch Gott erschreckte sie!
+Fuenf Schilling leichtes Geld in meinem Saeckel,
+Setzt' ich in Ulm zur Heerfahrt mich ins Schiff;
+Der Baierherzog trotzte, er erlag;
+Mit wenig Kriegern kam ich her ins Land,
+Das Land, es sandte selbst mir seine Krieger!
+Aus Euren Reihen traten sie zu mir,
+Und Oesterreich bezwingt mir Oesterreich.
+Geschworen hab ich: Ruh' und Recht zu schirmen:
+Beim allessehenden, dreiein'gen Gott!
+Nicht so viel, sieh! Nicht eines Haares Breite
+Sollst du von dem behalten, was nicht dein!
+Und so tret ich im Angesicht des Himmels
+Vor dich hin, rufend: gib, was du vom Reich!
+
+Ottokar.
+Die Lande hier sind mein!
+
+Rudolf.
+Sie waren's nie!
+
+Ottokar.
+Mein Weib Margrethe brachte sie mir zu!
+
+Rudolf.
+Wo ist Margrethe nun?
+
+Ottokar.
+Wo immer, gleichviel!
+Sie gab mir dies ihr Land!
+
+Rudolf.
+Soll ich sie selber
+Als Richtrin stellen zwischen uns?--Sie ist im Lager!
+
+Ottokar.
+Im Lager, hier?
+
+Rudolf (mit geaendertem Tone).
+Die Ihr so schwer beleidigt,
+An Rechten und an Freuden hart beraubt,
+Heut morgens kam sie, milden Sinnes bittend
+Um Schonung fuer den Mann, der ihrer nie geschont!
+
+Ottokar.
+Die Muehe konnte sich die Frau ersparen!
+Wo Ottokar, da braucht's der Bitten nicht!
+
+Rudolf (stark).
+Wohl braucht's der Bitten, mein Herr Fuerst von Boehmen,
+Denn sprech ich nur ein Wort, seid Ihr verloren!
+
+Ottokar.
+Verloren?
+
+Rudolf.
+Ja! von Boehmen abgeschnitten.
+
+Ottokar.
+Indes Ihr Wien belagert, mach ich's frei!
+
+Rudolf.
+Herr, Wien ist ueber!
+
+Ottokar.
+Nein!
+
+Rudolf (hinter sich gewendet).
+Herr Paltram Vatzo!
+Wo ist er? Er begehrte mich zu sprechen;
+Der Buergermeister samt dem Rat von Wien.
+
+(Paltram Vatzo, Buergermeister von Wien, mit einigen Ratsgliedern kommt,
+die Schluessel der Stadt auf einem Kissen tragend.)
+
+Paltram.
+In Unterwuerfigkeit, mein Herr und Kaiser,
+Bring ich die Schluessel Euch der Stadt von Wien,
+Euch bittend, dass Ihr mir nicht zuernt darob,
+Weil ich, dem Koenig treu, dem ich geschworen,
+Die Stadt gehalten bis auf diesen Tag;
+Sie auch, verzeiht! vielleicht noch laenger hielt,
+Wenn nicht das Volk die Uebergab' erzwungen,
+Der langen Sperrung mued und der Entbehrung.
+(Er legt knieend die Schluessel zu des Kaisers Fuessen.)
+Mein Amt, ich leg es mit den Schluesseln ab,
+Doch sollt als treuen Buerger Ihr mich finden.
+(Aufstehend.)
+Des Landes Herr ist Paltram Vatzos Herr,
+Zugleich mit meinem Land ergeb ich mich!
+(Er tritt zurueck.)
+
+Ottokar.
+Verdammt! O Wiener! Leichtbeweglich Volk!
+Hast du fuer deinen leckern Gaum gezittert?
+Doch soll's dich reun! Die Zufuhr sperr ich dir
+Aus Klosterneuburg, meiner starken Feste!
+
+Rudolf.
+Auch Klosterneuburg ist in meiner Hand,
+Und nichts mehr dein am rechten Donauufer!
+Herr Friedrich Pettau, kommt!
+
+(Friedrich Pettauer tritt vor mit niedergeschlagenen Augen.)
+
+Ottokar.
+Ha, schaendlicher Verraeter!
+So gabst du meine Burg?
+
+Pettauer.
+Nicht ich, o Herr!
+Ein rascher Ueberfall, spaet gestern abends--
+
+Ottokar.
+Genug! Ich weiss, dass ich verraten bin!
+Doch triumphiere nicht! Doch spott ich dein!
+Aus Steiermark naht mir ein stattlich Heer
+Mit Milota, dem treuerprobten Fuehrer;
+Im Ruecken fasst er deine Mietlingsschar,
+Indes, wie Donnerwolken, Ottokar
+Von vornehmer die schwachen Halme knickt,
+Und kein Entrinnen bleibt als in die Donau!
+
+Rudolf.
+O sprich nicht weiter, allzu rascher Fuerst!
+
+Ottokar.
+Erkennst du nun, wie weit du noch vom Ziel?
+
+Rudolf.
+Auf Milota bau deine Hoffnung nicht!
+
+Ottokar.
+Mein Grund steht fest; an dir ist's wohl, zu zittern!
+In Waffen sehn wir uns. Leb wohl!
+
+Rudolf.
+Du gehst?
+Du gibst die Lande nicht?
+
+Ottokar (zum Abgehen gewendet).
+Ob ich sie geb!
+
+Rudolf.
+Nun wohl, so sprich denn selbst mit Milota,
+Ob du mit Grund ihm so viel magst vertraun?
+
+(Milota tritt auf in Ketten.)
+
+Rudolf.
+So brachten mir die Herren ihn von Steier,
+In Ketten, weil er grimmig sie gedrueckt.
+Nehmt ihm die Fesseln ab!--Hier ist das Banner
+Von Steiermark, und hier ist Oestreichs Banner,
+(Landesherrn von Oestreich und Steiermark treten auf des Kaisers Seite vor,
+mit Banner und Farben ihres Landes.)
+Sie gaben selbst sich in des Reiches Schutz.
+
+Steht nicht so traurig da, mein Fuerst von Boehmen!
+Schaut um Euch her! Die Wolken sind entflohn,
+Und klar seht Ihr nun alles, wie es ist.
+Wenn Oesterreich verloren--
+
+Ottokar.
+Ha, noch nicht!
+
+Rudolf.
+Taeuscht Euch nicht selbst! Ihr fuehlt's in Eurem Innern,
+Dass es verloren ist; und zwar auf immer!
+
+Ihr wart ein maecht'ger Fuerst, ein grosser Koenig,
+Eh' die Gelegenheit des Mehrbesitzes
+In Euch entzuendet auch den Wunsch dazu;
+Ihr werdet's bleiben, maechtig, reich und gross,
+Wenn auch verloren, was nicht halten konnte.
+Denn Gott verhuete, dass ich einen Finger
+Ausstreckte nach dem Gut, das Euch gehoert.
+Auch koennt' ich's nicht! Euch bleibt ein maechtig Heer,
+Zu aller Art des Streites wohlgeruestet,
+Und zweifelhaft ist aller Schlachten Glueck.
+Allein, tut's nicht! Verkennt nicht Gottes Hand,
+Die Euch gewiesen, was sein heil'ger Wille.
+
+Mich hat, wie Euch, der eitle Drang der Ehre
+Mit sich gefuehrt in meiner ersten Zeit.
+An Fremden und Verwandten, Freund und Feind
+Uebt' ich der raschen Tatkraft jungen Arm,
+Als waer' die Welt ein weiter Schauplatz nur
+Fuer Rudolf und sein Schwert. In Bann gefallen,
+Zog ich mit Euch in Preussens Heidenkrieg,
+Focht ich die Ungarschlacht an Eurer Seite,
+Doch murrt' ich innerlich ob jener Schranken,
+Die Reich und Kirche allzu aengstlich setzten
+Dem raschen Mut, der groessern Spielraums wert.
+Da nahm mich Gott mit seiner starken Hand
+Und setzte mich auf jene Thronesstufen,
+Die aufgerichtet stehn ob einer Welt.
+Und gleich dem Waller, der den Berg erklommen
+Und nun hinabsieht in die weite Gegend
+Und auf die Mauern, die ihn sonst gedrueckt;
+So fiel's wie Schuppen ab von meinen Augen
+Und all mein Ehrgeiz war mit eins geheilt.
+Die Welt ist da, damit wir alle leben,
+Und gross ist nur der ein' allein'ge Gott!
+Der Jugendtraum der Erde ist getraeumt,
+Und mit den Riesen, mit den Drachen ist
+Der Helden, der Gewalt'gen Zeit dahin.
+Nicht Voelker stuerzen sich wie Berglawinen
+Auf Voelker mehr, die Gaerung scheidet sich,
+Und nach den Zeichen sollt' es fast mich duenken
+Wir stehn am Eingang einer neuen Zeit.
+Der Bauer folgt in Frieden seinem Pflug,
+Es ruehrt sich in der Stadt der fleiss'ge Buerger,
+Gewerb' und Innung hebt das Haupt empor,
+In Schwaben, in der Schweiz denkt man auf Buende,
+Und raschen Schiffes strebt die muntre Hansa
+Nach Nord und Ost um Handel und Gewinn.
+Ihr habt der Euren Vorteil stets gewollt;
+Goennt ihnen Ruh', Ihr koennt nichts Bessres geben!
+
+O Ottokar, es war 'ne schoene Zeit,
+Als wir, aus Preussen rueckgekommen, sassen
+Im Soeller Eures Schlosses am Hradschin,
+Von kuenft'gen Tagen, kuenft'gen Taten sprachen!
+Bei uns sass damals Koenigin Margrethe--
+Wollt Ihr sie sehn? Margrethen sehen?
+
+Ottokar.
+Herr!
+
+Rudolf.
+Dass Ihr den Friedensengel von Euch stiesst,
+Der sanft versoehnend ob Euch wartete,
+Die rasche Glut mit Segenswort besprach
+Und treulich, eine liebe Schwester, sorgte!
+Mit ihr habt Ihr das Glueck von Euch verbannt.--
+Ihr seid in Eurem Haus nicht gluecklich, Ottokar!--
+Wollt Ihr Margrethen sehn? sie ist im Lager!
+
+Ottokar.
+Nein, Herr! Allein die Lehen will ich nehmen.
+
+Rudolf.
+Von Boehmen und von Maehren?
+
+Ottokar.
+Ja, Herr Kaiser!
+
+Rudolf.
+Dem Reich erstatten--?
+
+Ottokar.
+Oestreich, Steiermark,
+Was ich vom Reich; was sich von mir getrennt.
+Ich habe viel fuer sie getan! Der Undank,
+Der Menschen Schlechtheit ekelt tief mich an.
+
+Rudolf.
+So kommt ins Zelt!
+
+Ottokar.
+Warum nicht hier?
+
+Rudolf.
+Es werden
+Des Reiches Lehen knieend nur genommen!
+
+Ottokar.
+Ich knien?
+
+Rudolf.
+Das Zelt verbirgt uns jedem Auge.
+Dort sollt Ihr knien vor Gott und vor dem Reich,
+Vor keinem, der ein Sterblicher, wie wir.
+
+Ottokar.
+Wohlan!
+
+Rudolf.
+Ihr wollt? Gesegnet sei die Stunde!
+Geht Ihr voran, ich folg Euch freudig nach.
+Wir beide feiern einen grossen Sieg!
+
+(Sie gehen ins Zelt, die Vorhaenge fallen zu.)
+
+Milota (der zu den Seinigen hinuebergeht).
+Nun, Gott sei Dank! Das macht mich wieder frei!
+Der letzten Zeit will ich mein Tage denken.
+
+(Zawisch von Rosenberg kommt.)
+
+Zawisch.
+Wo ist der Koenig?
+
+Milota.
+In des Kaisers Zelt;
+Er nimmt die Lehn!
+
+Zawisch.
+Ho, ho! und so verborgen?
+Das muessen alle sehn, die treuen Herzens sind.
+
+(Er haut mit dem Schwert die Zeltschnuere ab; die Vorhaenge fallen, und
+man sieht Ottokarn vor Rudolf knien, der ihn eben mit dem Schwert mit
+Boehmen belehnt hat.)
+
+Zawisch.
+Der Koenig kniet!
+
+Die Boehmen (unter sich).
+Der Koenig kniet!
+
+Ottokar.
+Ha, Schmach!
+(Er springt auf und eilt in den Vorgrund.)
+(Der Kaiser, der ihm folgt, mit der Fahne von Maehren in der Hand.)
+
+Rudolf.
+Wollt Ihr die Lehn nicht auch auf Maehren nehmen?
+(Ottokar laesst sich auf ein Knie nieder.)
+
+Rudolf (indem er ihm die Fahne von Maehren gibt).
+So leih ich Euch die Markgrafschaft von Maehren
+Und nehm Euch in des Reiches Eid und Pflicht
+Im Namen Gottes und durch meine Macht.
+
+Steht auf, Herr Koenig, und mit diesem Kuss
+Begruess ich Euch als Lehnsmann und als Bruder.
+
+Ihr aber, die ihr Oestreich angehoert
+Und Lehen tragt von seines Landes Fuersten,
+Kommt mit nach Wien, um dort den Eid der Treue,
+Den Lehenseid in unsre Hand zu leisten!
+Ihr folgt uns doch, geehrter Herr und Koenig?
+(Ottokar neigt sich.)
+Nun, ich erwart Euch, wenn's Euch wohlgefaellt.
+Ihr schwingt die Fahnen, lasst den Jubel toenen,
+Dem blutlos-schoenen Sieg der holden Eintracht!
+(Ab mit den Seinigen.)
+
+(Ottokar steht noch immer mit gesenktem Haupte da.)
+(Merenberg, der zurueckgeblieben ist, tritt nach einigem Zoegern ihn an mit
+bittenden Gebaerden.)
+
+Merenberg.
+Erlauchter Herr, ich wollt' Euch bitten!
+
+Ottokar (faehrt empor und sieht ihn mit einem grimmigen Blicke an; dann
+zerreisst er mit einer Hand die Spange des Mantels, dass er faellt; mit der
+andern reisst er von hinten die Krone vom Haupte und stuerzt fort, ausrufend:)
+Fort!
+
+(Indem alle ihm folgen, faellt der Vorhang.)
+
+
+
+
+Vierter Aufzug
+
+Vor der Burg zu Prag; ein grosses Tor mit Fallgattern in der Mitte des
+Hintergrundes fuehrt hinein. Daneben ein kleines Ausfallpfoertchen, zu dem
+einige Stufen hinanfuehren, das aber verschlossen ist. Rechts im
+Mittelgrunde des Pfoertners Wohnung mit einem steinernen Tische und
+einer Bank. Davor ein Beet mit Blumen.
+
+Milota und Fuellenstein von verschiedenen Seiten.
+
+
+Milota.
+Traft Ihr den Koenig?
+
+Fuellenstein.
+Nein.
+
+Milota.
+Ich fand ihn auch nicht.
+
+Fuellenstein.
+In Znaim verlor er sich von dem Gefolge,
+Ein einz'ger Knecht, den man vermisst, mit ihm,
+Und irrt seitdem im Land herum von Maehren.
+In Kraliz sah man ihn, in Hradisch, Lukow;
+Zuletzt in Kostelez, hartbei an Stip,
+Da, wo die kleine Wunderquelle fliesst,
+Zu der die Pilger weitumher sich wenden.
+Ein aermlich Badhaus steht dort in der Tiefe,
+Von Menschen abgesondert und Verkehr,
+Da hielt er vierzehn Tage sich verborgen;
+Ein Ort zum Sterben mehr, als um zu leben!
+Und wie die Pilger pflegen dort herum,
+Die, eines Wunsches, der sie drueckt, gedenkend,
+Ein Kreuz von Reisig in den Brunnen werfen
+Und aus dem Sinken oder Schwimmen prophezein,
+So tat er tagelang und schien betruebt.
+Zuletzt erfuhr's der Magistrat von Hradisch
+Und ging hinaus, den Koenig einzuholen;
+Doch der war nicht mehr da und schon im Weiten.
+
+Milota.
+Und wo er jetzt ist, habt Ihr nicht erfahren?
+
+Fuellenstein.
+Man will ihn auf dem Weg gesehen haben
+Nach Prag.
+
+Milota.
+Hieher?--ich hoff, er wird jetzt ruhn!
+Die stolzen Fluegel sind in was gepflueckt;
+Das Land, das ewig ihn nach aussen lockte,
+Er hat's zurueckgegeben feierlich.
+Will er nach Vaeterweise herrschen hier,
+Die Deutschen heissen gehn aus seinem Reich
+Und unterm Beistand boehmischer Wladiken
+Bedenken seines Volkes wahres Glueck:
+Vielleicht, dass ich vergesse, was er tat
+An mir und meinem Haus.--Geht Ihr zum Kanzler?
+So meldet ihm, ein kaiserlicher Herold,
+Vollziehung fodernd des geschlossnen Friedens,
+Vor allem die Befreiung jener Geisel,
+Die noch aus Oesterreich und Steiermark
+Gefangen liegen rings im Land umher,
+Ist eingeritten in das Tor von Prag.
+Er moege schleunig tun, was man begehrt,
+Bevor der Koenig kommt und manches hindert.
+
+Fuellenstein.
+Doch wenn der Koenig--
+
+Milota.
+Tut, was ich Euch sage!
+
+(Fuellenstein ab.)
+
+Milota.
+Waer' nicht das ganze Land mit ihm beschimpft,
+Ich wollte lachen, wie erst Zawisch lachte.
+Schnell alles angeordnet, eh' er kommt,
+Dann hat er zu bestaet'gen und--zu schlafen!
+(Er geht ins Schloss.)
+
+(Kurze Pause, dann kommt ein Knappe des Koenigs, ringsumherspaehend, er
+ruft in die Szene.)
+
+Knappe.
+So, jetzt ist niemand hier, mein gnaed'ger Herr!
+
+(Ottokar kommt, in einen dunkeln Mantel eingehuellt, ein schwarzes Barett
+mit schwarzen Federn tief in die Augen gedrueckt.)
+
+Diener.
+Den Kanzler soll ich holen? Gnaed'ger Herr,
+Beliebt Euch lieber nicht ins Schloss zu treten?
+(Ottokar schuettelt das Haupt.)
+
+Diener.
+Zwei Tage habt ihr nicht gegessen, nicht
+Geschlafen; denkt an Euer teures Leben!
+(Der Koenig lacht hoehnisch auf.)
+
+Diener.
+Lasst Euch erbitten, geht ins Schloss, mein Koenig!
+(Ottokar stampft ungeduldig mit dem Fusse.)
+
+Diener.
+Ich gehe denn! doch lasst Euch nieder, Herr!
+(Geht ab ins Schloss.)
+
+Ottokar.
+Ich sollte dich betreten, Schloss der Vaeter?
+Die Schwelle dir entweihn mit meinem Fuss?
+Als ich im Sieg, im jubelnden Triumph
+Zu dir heranzog durch die lauten Gassen,
+Erstrittne Fahnen dir entgegenhielt;
+Da machtest du mir deine Pforten auf
+Und meine Vaeter sahn von deinen Zinnen.
+Fuer Helden ward gewoelbt dein hoher Bau,
+Und kein Entehrter hat ihn noch betreten!
+
+Hier will ich sitzen, als mein eigner Pfoertner,
+Und Schande wehren ab von meinem Haus.
+(Er setzt sich auf die Stufen am Ausfallstor und verhuellt sein Haupt.)
+
+(Der Buergermeister von Prag und einige Buerger kommen.)
+
+Buergermeister.
+Ei, lasst mich, ich muss eilen in den Rat.
+Ein Herold von des Kaisers Majestaet
+Ist angelangt, da darf man sich nicht saeumen,
+Denn Boehmen ist nun wieder an dem Reich.
+Der Koenig hat es feierlich gelobt,
+Den Eid der Treue knieend uebernommen.
+
+Buerger.
+Wie, knieend?
+
+Buergermeister.
+Wohl! im kaiserlichen Lager!
+Er lag auf seinen Knien, der Kaiser sass,
+Das ganze Heer hat's staunend angesehen.
+Was regt sich dort?
+
+Buerger.
+Ein Mann sitzt auf den Stufen.
+
+Buergermeister.
+Ja, Hochmut kommt zu Fall; ich sagt' es oft!
+Seht doch mal hin, wer dort am Tore sitzt!
+Verdaechtig Volk streift jetzo durch das Land,
+Die abgedankten Soeldner sind zu scheuen.
+
+Buerger (kommt zurueck).
+Ach, Herr!
+
+Buergermeister.
+Du zitterst ja!
+
+Buerger.
+Es ist der Koenig!
+
+Buergermeister.
+Der Mann dort auf den Stufen? bist du toericht?
+
+Buerger.
+Er sah mir ins Gesicht. Schaut nur!
+
+Buergermeister.
+Er ist's!
+Wenn er vernommen, was wir hier gesprochen!
+Soll ich ihm einen Fussfall tun?--Das Beste,
+Wir ziehen uns zurueck. Er scheint zu sinnen.
+(Sie ziehen sich rechts gegen den Vorgrund.)
+
+(Benesch von Diedicz und seine Tochter treten rechts im Hintergrunde auf.)
+
+Benesch (am Stabe, fuehrt Bertan).
+Ei, sieh nur, wie die liebe Sonne scheint!
+Du musst einmal ins Freie! Berta komm!
+Die dumpfe Stubenluft ist ungesund.
+Und tu mir's auch zulieb, und sprich einmal!
+Sprich, Berta, sprich! und waer's ein einzig Wort!
+Als: ja und nein. Tu's deinem alten Vater!
+Sieh, auf Johanni wird's--ich weiss nicht recht
+Wie lang, seit du so vor dich siehst und schweigst.
+Das ist recht klaeglich! Willst nicht reden, Berta?
+Ich hoerte lieber dich im Fieber rasen,
+Als jetzt den langen Tag kein einzig Wort.
+Ei, was vergangen ist, das ist vergangen!
+Wir denken nicht mehr dran, und so ist's gut.
+
+Buergermeister.
+Still!
+
+Benesch.
+Nun, sie schweigt ja leider ohnehin!
+Herr, Tag fuer Tag, und oeffnet nicht den Mund!
+
+Buergermeister (leise).
+Dort sitzt der Koenig!
+
+Benesch.
+Wo?
+
+Buergermeister.
+Dort auf den Stufen!
+
+Benesch.
+Ei, Berta, sieh, dort sitzt der boese Koenig,
+Der dir so weh getan, du armes Kind!
+Ei, sprich einmal und schmael ihn tuechtig aus.
+Sag: arger Mann, ich freu mich deines Leids,
+Du hast's um mich verdient und meinen Vater.
+
+(Berta hebt eine Handvoll Erde auf und wirft damit, wie Kinder pflegen,
+gerade vor sich hin, ohne zu treffen.)
+
+Benesch.
+Ja, wirf ihn nur! o dass es Dolche waeren!
+Wirf, Berta, wirf! den argen, boesen Mann.
+Doch Gott hat unsre Rach' auf sich genommen:
+Gekniet hat er vor seinem aergsten Feind,
+Vor einem Mann, den er sonst wohl verachtet,
+Im Angesicht des Heers hat er gekniet.
+Ei, ruettle dich, ich fuerchte mich nicht mehr!
+Ist doch ein Hoeherer, der dich bezwingt.
+Mach erst, dass mir mein Kind da wieder spricht,
+Dann lass mich toeten, mich bekuemmert's wenig.
+
+(Die Koenigin kommt mit Zawisch und Dienern.)
+
+Kunigunde.
+Wer liess den Aberwitz da vor die Tuer?
+Hab ich Euch nicht gesagt, Ihr sollt sie hueten?
+
+Benesch (der fortgefuehrt wird).
+Nu, Berta, komm! er hat doch auch sein Teil. (Ab.)
+
+Kunigunde.
+Ihr auch fort, alles fort, was Augen hat!
+(Alle geben, bis auf sie und Zawisch.)
+
+Kunigunde.
+Wir sind allein! allein mit unsrer Schande!
+Wollt Ihr Euch nicht erheben, grosser Koenig,
+Und grosse Worte geben, wie ihr pflagt?
+
+Sieh hin, da sitzt der Stolze, Uebermaecht'ge,
+Dem sonst die Welt zu klein fuer seine Groesse;
+Da sitzt er wie ein Bettler vor der Tuer
+Und holt ein "helf euch Gott!" sich und Verachtung.
+Der Mann, der Kronen trug, als waeren's Kraenze,
+Und, wenn die eine welk ward, neue flocht
+Aus frischgeschnittnen Blumen fremder Gaerten.
+Das Leben Tausender in seiner Hand,
+Es hinsetzt', wie zum froehlich leichten Brettspiel,
+Auf das von Blut und Staub geteilte Feld
+Und ausrief: Schach! als wenn es Steine waeren,
+Vom Kuenstler plump geformt aus totem Stoff,
+Und Ross und Reiter zubenannt zum Scherz.
+Der selbst mit der Natur im Streite lag,
+Und wenn er morgens ausritt auf die Jagd
+Und sah den Himmel ueberdeckt mit Wolken,
+So sprach er: Wart! rief nach dem Meister Maurer,
+Und hiess ihn, mit dem neuen Kirchenbau
+In Gueldenkron nicht allzusehr zu eilen.
+Da sitzt er und starrt leblos auf den Grund,
+Den er zuvor gestampft mit stolzen Fuessen!
+
+Zawisch.
+Ei, gnaed'ge Frau, das Glueck ist eben rund!
+
+Kunigunde.
+Was andre bindet, das war ihm ein Spiel!
+Sein Weib Margrethe stiess er fort von sich:--
+Weiss Gott, sie war fuer ihn, die Alternde,
+Die Koenigin des Jammers stand ihm wohl!--
+Und fern aus Ungarn holt' er ein Gemahl.
+Was kuemmert's ihn, ob sie vielleicht schon laengst
+Nach einem andern hingewandt den Blick?
+Ob grade damals ein Geringerer,
+Und doch viel Groessrer warb um ihre Hand?--
+Ein unbezwungner Fuehrer der Kumanen
+Wiegt einen dienstbarn Boehmenkoenig auf!--
+Was kuemmert's ihn! er will ein Weib und Erben,
+Mag brechen, was da bricht; und damit gut!
+Ein kraeftig freies Wesen kam ich her,
+Gar wuerdig wohl des Juenglings zum Gemahl,
+Und fand--ei nun, den Koenig Ottokar!
+Nicht ganz so klaeglich, als er jetzt dort bruetet,
+Doch nicht viel besser, weiss der grosse Gott!
+Von Rat und Meinung hielt er mich entfernt,
+Wie eine Magd viel mehr als eine Fuerstin.
+Er nur allein, er wollte Herrscher sein.
+
+Zawisch.
+Ei, gnaed'ge Fuerstin, herrschen ist gar suess;
+So suess fast als--gehorchen, und man teilt's nicht!
+
+Kunigunde.
+Er hat geherrscht; fuerwahr, er hat geherrscht!
+Wie eine Seifenblase ist's zerronnen!
+
+Und reden konnt' er, gross und fuerstlich reden!
+Was nicht gewesen noch und niemals wurde,
+In seinem Munde war's! Als der von Nuernberg
+Vom Kaiser ihm die erste Botschaft brachte,
+Wie er da sprach, wie er sich fuerstlich nahm!
+Nicht eine Stadt, kein Haus, nicht eine Scholle
+Gab er dahin von Oestreichs weitem Grund;
+Und wenn's die Aerzte hundertmal geschworen,
+Des Kaisers hohes Leben hinge dran,
+Kein Blaettchen Safran, den sie dort gewinnen!
+Auf unsern Steppen ist ein Tier, heisst Maultier,
+Wenn das den Wolf von weiten kommen sieht,
+So roehrt es laut, schlaegt aus nach allen Seiten,
+Die Erde wirft's in weiten Wirbeln auf;
+Doch naht der Wolf, da bleibt es zitternd stehn
+Und laesst sich ohne Widerstand erwuergen.
+So fast hat dieser Koenig auch getan!
+Mit grossen Worten zog er aus ins Feld,
+Die halbe Welt in seinem Heer versammelt.
+Von Polen, Valben, Tartarn, Deutschen, Boehmen
+Vermischten sich die Stimmen in dem Lager,
+Und Oestreich war zu klein fuer ihre Zahl.
+Doch als des Streites ernste Stunde kam,
+Da fehlte Herz fuer so viel ruest'ge Arme;
+In seines Feindes Lager--Rosenberg!
+
+Zawisch.
+Erlauchte Frau!
+
+Kunigunde.
+Habt Ihr schon je gekniet?
+Vor Frauen nicht--vor Maennern schon gekniet?
+Um Sold, um Lohn, aus Furcht, vor Euresgleichen?
+
+Zawisch.
+Ich nicht.
+
+Kunigunde.
+Und wuerdet's nie?
+
+Zawisch.
+In meinem Leben!
+
+Kunigunde.
+Er aber hat's getan! vor seinem Feinde,
+Vor jenem Mann gekniet, den er verachtet,
+Der einst ihm dienstlich war, und wenn er sprach:
+Komm her! so kam er, und sprach er: geh hin!
+So ging er und beeilte sich gar sehr!
+
+Zawisch.
+Erlauchte Koenigin, es war nur Scherz!
+Scherz unter guten Freunden. Seht, der Kaiser,
+Er wollte seine Macht den Leuten zeigen,
+Da bat er unsern Koenig, und der tat's.
+
+Kunigunde.
+Ich aber will nicht heissen: Knechtes-Frau;
+Nicht eines schnoeden Dienstmanns Bette teilen;
+Will nicht, wenn mich der Kaiser heischt nach Wien,
+Die Schleppe tragen seiner Graefin Hausfrau;
+Will nicht vor Rudolf knien, wie er getan.
+(Der Koenig springt auf.)
+
+Kunigunde.
+O springt nur auf; ich fuercht Euch wahrlich nicht!
+Soll ich die einz'ge sein von Mann und Frau,
+Die noch vor Ottokar, dem Koenig, zittert?
+Gebt mir Geleit, ich will nach Ungarn heim,
+Dort wahrt man eines Koenigs Ehre besser.
+Ihr, Rosenberg, den Arm! und nichts mehr weiter
+Von jener Schmach, die Ihr mit angesehn!
+
+Zawisch (indem er sie abfuehrt).
+Es war nur Scherz! Wir fanden's alle lustig,
+Nicht bloss der Kaiser; freilich der am meisten.
+Und gut sah es sich an, man muss gestehn!
+(Sie gehen ab.)
+
+Ottokar.
+Zawisch!
+
+Zawisch (zurueckkommend).
+Was wollt Ihr, Herr?
+
+Ottokar.
+Dein Schwert!
+
+Zawisch (indem er es gibt).
+Hier ist es!
+
+Ottokar (zum Stoss ausholend).
+Verraeter!
+
+Koenigin (ruft inner dem Schlosstore).
+Rosenberg!
+
+Ottokar.
+Hier nimm dein Schwert und geh!
+
+Zawisch.
+Ei, schoenen Dank! hier ist nicht gut zu weilen.
+(Ab, der Koenigin nach.)
+
+Ottokar (nachdem er eine Weile starr auf den Boden gesehen hat).
+Ist das mein Schatten?--Nun, zwei Koenige!
+(Trompeten von innen.)
+Man kommt, man naht! Wohin verberg ich mich?
+(Er huellt sich in seinen Mantel und zieht sich zurueck.)
+
+(Ein kaiserlicher Herold kommt mit zwei Trompetern. Hinter ihm die
+befreiten oestreichischen Geisel, worunter der alte Merenberg. Volk
+dringt nach. Der Kanzler im Wortwechsel mit dem Herold.)
+
+Kanzler.
+Ich protestier im Namen meines Koenigs!
+
+Herold (die Urkunde in der Hand).
+Artikel drei des fei'rlichen Vertrags
+Besagt: Die Geisel werden freigegeben,
+Und so, in Vollmacht kaiserlicher Hoheit,
+Sprech ich die Freiheit dieser Maenner an
+Aus Oestreich und aus Steier, Untertanen
+Des Kaisers und des Reichs zu dieser Frist.
+Zugleich begehr ich gaenzliche Vollziehung
+Des Friedens, der bis jetzt nur halb erfuellt.
+Noch immer lieget boehmische Besatzung
+Im Lande hie und dort von Oesterreich;
+Auch Heinrich Kuenring, eurer Sache treu,
+Haust uebel in dem Land jenseits der Donau,
+Still unterstuetzt vom nachbarlichen Maehren.
+Es soll nicht sein, befiehlt mein Herr und Kaiser!
+Es abzustellen komm ich her nach Prag.
+
+Kanzler.
+Man wird dem Koenig es erst melden muessen.
+
+Herold.
+Wozu? Ist nicht der Kaiser Lehensherr?
+Derlei ist im Vasalleneid bedungen.
+
+Kanzler.
+Der Kaiser, seinerseits, hat auch noch nicht
+In allem dem Vertrag genug getan!
+In Maehren stehn noch kaiserliche Voelker.
+
+Herold.
+Sie werden abziehn, wenn ihr euch gefuegt.
+
+Kanzler.
+Warum soll Boehmen denn zuerst erfuellen?
+
+Herold.
+Beglueckt, wer hat, das ist ein alt Gesetz.
+
+Kanzler.
+So nennt Ihr das Gesetz? Das ist Gewalt.
+
+Herold.
+Nennt's, wie Ihr wollt, nur handelt, wie Ihr muesst.
+
+Kanzler.
+Ich kann Euch nichts versagen, nichts gewaehren.
+Der Koenig, sagt man, ist in Prag, er selbst
+Kann nur ob Eurer Forderung entscheiden.
+
+Herold.
+So fuehrt mich denn zu ihm!
+
+Kanzler.
+Auch das nicht jetzt!
+Er ist in Prag, doch Naeh'res weiss man nicht.
+
+Herold.
+Nun wohl, so stosst denn ihr in die Trompeten,
+Dass sich der Hall verbreite durch die Stadt
+Und Koenig Ottokarn verkuendet werde,
+Dass Boten da von seinem Lehensherrn.
+
+(Ottokar tritt aus dem Volke, er hat den Mantel weggeworfen.)
+
+Ottokar.
+Hier ist der Koenig! Was verlangt Ihr?
+
+Herold.
+Herr,
+Man weigert mir die Freiheit dieser Maenner!
+
+Ottokar.
+Wer weigert?
+
+Herold (auf den Kanzler zeigend).
+Hier!
+
+Kanzler.
+Nur, Herr, bis du genehmigt.
+
+Ottokar.
+Sie buergten mir fuer ihres Landes Schuld;
+Der Schuldbrief ist erlassen, nehmt das Pfand!
+Zwar dort seh ich ein Angesicht, das fast
+Mich reuen machen koennte solch ein Wort.
+Verbirg dich, Merenberg! Du bist kein Geisel,
+Ein ueberwiesener Verraeter bist du,
+Der erste, der voranging mit Verbrechen.
+Verbirg dich! denn im Innern kocht es auf
+Und lechzt zu kuehlen sich in deinem Blut!
+
+(Merenberg zieht sich hinter zwei andere Geisel zurueck.)
+
+Ottokar.
+Was sonst?
+
+Herold.
+Die Raeumung Oestreichs wird begehrt.
+
+Ottokar.
+Es ist geraeumt!
+
+Herold.
+Nicht ganz.
+
+Ottokar.
+Es soll geschehn!
+Bedungen ward's im Frieden, und so sei's.
+
+Herold (ausrufend).
+Wer sonst noch Fordrung hat an Boehmens Krone,
+Ein vorenthaltnes Recht, erwiesner Schade;
+Wer Lehn zu nehmen hat vom deutschen Reich,
+Ich lad ihn auf das Rathaus, wo der Pfalzgraf
+Zu Recht wird sitzen und die Lehn erteilen.
+Vivat Rudolphus, roemisch-deutscher Kaiser!
+
+(Herold ab, Das Volk tumultuarisch ihm nach. Nur der Kanzler bleibt.)
+
+Ottokar.
+Sie folgen alle? Lassen mich allein?
+(Zum Kanzler.)
+Bist du mein ganzer Hof?--Ha, Ottokar!
+Verachtet von dem Letzten meiner Diener,
+Verhoehnt von meinem Weib, mit Recht verhoehnt,
+Wie Wild gehetzt, von Haus und Bett vertrieben!
+Ich kann's nicht tragen, kann nicht leben so!
+Hinausgestrichen aus der Fuersten Zahl,
+Ein Dienstmann dessen, der mir sonst ein Spott;
+Und ungestraft, mein lachend, ziehn die Frechen,
+Die mich verraten, fort aus meiner Haft.
+Horch!
+
+(Man hoert in der Entfernung den Herold seinen Ausruf wiederholen.)
+
+Ottokar.
+Vivat Rudolphus? In der Hoelle leb' er!
+Ruf mir den Herold!
+
+Kanzler.
+Ach, mein gnaed'ger Koenig!
+
+Ottokar.
+Ruf mir den Herold oder zittre, Knecht! (Kanzler ab.)
+War's besser nicht, zu fallen in der Schlacht,
+Der letzte meiner Krieger neben mir?
+Sie haben mich verraten, ueberrascht.
+Ein dunkler Nebel schwindet von der Stirn;
+Ich hab getraeumt: wie kuehle Morgenluft
+Kommt mir Erinnerung und laesst mich wachen.
+
+Mit einem Heer zog ich an Donaustrand
+Und schlug ein Lager, so weit reicht die Denkkraft;
+Von da an Nacht! Was weiter dann geschehn,
+Wie sie mich lockten in des Kaisers Zelt,
+Wie dort--Ha, Tod und Teufel! Toeten will ich
+Den letzten, der's mit angesehn!
+Mich selber, wenn ich nicht verloeschen kann
+Das Angedenken jener blutigen Schmach!
+
+(Der Herold mit den Geiseln kommt zurueck.)
+
+Herold.
+Ihr liesst mich wieder rufen, gnaed'ger Herr!
+
+Ottokar.
+Fuers erste merket, dass in niemands Namen,
+Als in dem meinigen man Ausruf tut
+In meiner Pragerstadt!
+
+Herold.
+Allein--
+
+Ottokar.
+Genug!
+Dann lasst die Geisel sich in Reihe stellen,
+Man muss erst untersuchen, ob kein andrer,
+Der Haft Entsprungner sich mit ihnen rettet.
+
+Herold.
+Dagegen buergt des Reiches Wuerde zwar;
+Doch stellt euch in die Reihe, wenn's beliebt.
+
+Ottokar (die Reihe hinauf gehend).
+Du magst nur gehn, und du!--Bist du so schmuck,
+Herr Ulrich Lichtenstein? Du freust dich wohl,
+Weil du nun ledig? Nu, ich goenn es dir.
+Du hast mich nicht geliebt; je, ich dich auch nicht!
+Das macht uns wett. Zieh immer hin!
+Doch da ist einer, den ich sprechen muss.
+Gott gruess dich, Merenberg, du Schurk' und du Verraeter!
+
+Kanzler.
+Wenn er nur schweigt, nur nimmer widerspricht!
+
+Ottokar.
+Wie geht's denn deinem Sohn im Dienst des Kaisers?
+Ein wackrer Junge, der schlaegt nicht von Art!
+Du hast ihn noch zur rechten Zeit gerettet,
+Da es mit Ottokar schon abwaerts ging.
+Als ich das letztemal ihn sah, versprach ich
+Ihm Kunde bald von mir und auch von dir;
+Wie waer's, wenn ich ihm jetzt ein Briefchen schriebe:
+Der alte Schurk', dein Vater, lebt nicht mehr!
+(Zum Herold.)
+Das ist kein Geisel, ist ein Hochverraeter
+Und kann mit jenen andern dort nicht gehn!
+
+Herold.
+Gerade den befahl mein Herr, der Kaiser--
+
+Ottokar.
+Gerade den befiehlt sein Herr, der Koenig--
+(Zu Merenberg.)
+Du warst der erste, du hast angefangen,
+Das Beispiel du gegeben von Verrat.
+Nach Frankfurt schriebst du Klagen und Beschwerden,
+Da waehlten sie den Habsburg, meinen Feind!
+
+Merenberg.
+Beschwerden nicht!
+
+Ottokar.
+Nu, Lob doch auch nicht, Bruder!
+Als erst dein Sohn in meines Gegners Heer,
+Da folgten ihm von Oesterreich die andern
+Und haben an der Donau mich verraten,
+Mich preisgegeben, ihren rechten Herrn!
+Weisst du, wo deinen Sohn ich sah zuletzt?
+Es war bei Tulln, im kaiserlichen Lager,
+Wo Koenig Ottokar--Tod und Verdammnis!--
+Vor seinem Feind--in Knechtesart--im Staub--
+Loesch aus, Erinnerung, in meinem Haupt,
+Senk, Wahnsinn, dich herab auf meine Stirn
+Und huell in deine Wogen, was geschehn!
+Wo Koenig Ottokar--warum nicht sagen,
+Was alle Welt gesehn?--vor seinem Feind gekniet!
+Und dieses Mannes Sohn, er stand dabei
+Und lachte!--Darum musst du sterben, Mann!
+Die andern moegen gehn, der eine bleibt!
+
+Merenberg.
+Gerechter Gott!
+
+Herold.
+Bedenket, gnaed'ger Herr!
+
+Ottokar.
+Bedenket lieber Ihr, vorlauter Herr!
+Dass, wenn Ihr nicht in diesem Augenblick--
+Doch zieht in Frieden und lasst mich gewaehren;
+Noch bin ich Herr in diesem meinem Land.
+
+Merenberg.
+Die Steiermark gehorcht nunmehr dem Reich!
+
+Ottokar (zum Herold).
+Er war mein Untertan, als er an mir gefrevelt,
+Als meinen Untertan bestraf ich ihn!
+Werft ihn in tiefsten Turm, und wer mir meldet:
+Der Merenberg ist tot, der sei willkommen!
+
+Herold.
+Der Kaiser aber--
+
+Ottokar.
+Herr, sagt Eurem Kaiser:
+Er soll in Deutschland herrschen nach Gelust!
+Was ich versprach, ich hab es ihm gehalten,
+Obgleich verraten, ueberlistet, hintergangen,
+Ich hab's gehalten, weil ich es versprach.--
+Doch sagt ihm: hier im Busen poch' ein Mahner,
+Der immer zuruft: Nimm, was man dir stahl!
+Des Koenigs Ehre rett'! Die Ehre eines Koenigs
+Steht nicht um tausend Menschenleben feil.
+Man hat dich an der Donau ueberlistet,
+Versuch, ob in Gewalt er auch obsiegt!
+Das sagt ihm, Herr! und weiter sagt ihm noch:
+Der Friede ist erfuellt, er hat das Land,
+Die Geisel send ich ihm, er ist befriedigt;
+Doch moeg' er hueten sich, in Boehmen mir
+Ein Wort zu reden, das mir nicht gefaellt,
+Sich einzumengen hier in mein Geschaeft,
+Sonst wollt' ich ihm--allein sagt ihm doch lieber:
+Er moeg' es tun, er moege Trutz mir bieten,
+Mit einem Heer mir fallen in das Land,
+Dass ich den Hass, den heissen Grimm mag kuehlen
+Im Blut, das seinem Herzen fliesst zunaechst.
+Luegt mir zulieb, ich haett' auf ihn geschmaeht,
+Genannt ihn einen eingedrungnen Herrscher,
+Der mir gestohlen, was mein eigen war;
+Gelacht des Herolds, den er mir gesandt,
+Den Mann, den er beschuetzt, zum Tod verdammt--
+
+Herold.
+Das koennt Ihr nicht!
+
+Ottokar.
+Ich kann es, denn es ist.
+
+Herold.
+Kraft dieses Briefs--
+
+Ottokar.
+Verdammt sei dieser Brief!
+Willst du mit Briefen mich und Worten meistern?
+Noch hab ich Schwerter, noch ist mir ein Heer,
+Das unbesiegt, du siegtest nur mit Raenken,
+Und reissen will ich diese Raenke, wie ich
+Den Brief zerreisse, den du dir erschlichst.
+(Er hat dem Herold den Brief entrissen.)
+Sieh her!
+(Im Begriff, die Urkunde zu zerreissen, haelt er ploetzlich inne.)
+
+Kanzler.
+O Gott, was sinnt er? Teurer, gnaed'ger Herr!
+
+Ottokar.
+Ruft mir mein Weib, die Koenigin!
+(Diener ab.)
+Vor aller Welt ward Ottokar beschimpft,
+Vor aller Welt muss er auch rein sich waschen!
+Sie hat den gift'gen Stachel mir gesenkt
+In meine Brust; sie mag zugegen sein,
+Wenn ich ihn ausziehe oder im Bemuehn
+Ihn druecke in das Innerste des Lebens!
+
+(Die Koenigin kommt.)
+
+Kunigunde.
+Was ist?
+
+Ottokar.
+Ihr habt mich, kurz erst, hart gescholten,
+Dass ich, um Blut zu schonen, nachgegeben
+Und eingeraeumt dem Kaiser Gut und Land.
+
+Kunigunde.
+Ich schelt' Euch noch!
+
+Ottokar.
+Seht hier in meiner Hand
+Den Brief, der an den Kaiser mich gebunden.
+Zerreiss ich ihn, ist auch das Band zerrissen,
+Das jetzt mich haelt; frei bin ich wie zuvor.
+Zerreiss ich ihn?
+
+Kunigunde.
+Kein Mut'ger zweifelt da!
+
+Ottokar.
+Doch hoert! Aufs neue rast der Teufel Krieg;
+Aufs neue dampft das Land in Rauch und Blut.
+Und eines Morgens, leicht kann es geschehn,
+Bringt man Euch auf der Bahre den Gemahl.
+
+Kunigunde.
+An Eurem Sarge will ich lieber stehn,
+Als mit Euch liegen, zugedeckt von Schande!
+
+Ottokar.
+So stark? Ein Troepflein Milde taete wohl!
+
+Kunigunde.
+Solang Ihr Euch nicht von der Schmach gereinigt,
+Betretet nicht als Gatte mein Gemach.
+(Zum Abgehen gewendet.)
+
+Ottokar.
+Bleibt noch! Seht her! der Brief, er ist zerrissen!
+(Er zerreisst den Brief.)
+Die Ehre ganz, und auf der Zukunft Tor!
+Was draus erfolgt, wir wollen's beide tragen!
+Gott goenn Euch was von dem, was hier erwacht,
+(Auf seine Brust zeigend.)
+Und gebe mir die Kraft, die Ihr bewiesen!
+
+Kunigunde.
+Nun erst willkomm ich Euch!
+
+Ottokar.
+So nicht! so nicht!
+Ich sehe Blut an deinen weissen Fingern,
+Zukuenft'ges Blut! Ich sag: beruehr mich nicht.
+Gott hat das Weib aus weichem Ton gemacht
+Und: Milde zugenannt; was bist denn du?
+Wird mein Gedaechtnis wach erst und erzaehlt,
+Wie du den Koenig, da er kam, empfingst,
+Den Gatten, da er rueckgekehrt nach Haus--
+Geh fort! Ich fuehle, dass sich mir die Sehkraft schwaecht,
+Das ist ein Zeichen, dass es Zeit zu gehn.
+Geh fort! Fort, sag ich! Fort! (Die Koenigin geht ab.) Es ist vorueber!
+
+Ottokar (zum Kanzler, den er angefasst hatte).
+Schein ich dir hart? Sie war mir auch nicht guetig!
+Das geht so her und hin; Gott zieht die Rechnung!
+Euch, Herold, halt ich nun nicht laenger mehr!
+Sagt Eurem Herrn, was Ihr mit angesehn!
+(Gegen Merenberg.)
+Mit dem in Turm! Was schuetzte vor Verrat,
+Als die Bestrafung frueherer Verraeter?
+Wer bauen will, der reutet seinen Grund,
+Drum fort, du boeses Schlingkraut, gift'ge Ranke!
+
+Merenberg.
+Zu rascher Koenig, mich schilt nicht Verraeter!
+Die sind's, die deinem Throne stehn zunaechst,
+Die Rosenberg, die--
+
+Ottokar.
+Kannst du auch verleumden?
+
+Merenberg.
+Ach, der mich haelt und mich zum Kerker fuehrt,
+Er ist des Kerkers wuerdiger als ich!
+
+Ottokar.
+Kein Boehme hat noch seinen Herrn verraten!
+Jetzt bin ich deines Frevels erst gewiss!
+In Turm den Laesterer!
+
+Merenberg (der abgefuehrt wird).
+Zu spaet wirst du bereun!
+
+Ottokar.
+In Turm!
+
+Milota.
+Und schweigt er nicht, stopft ihm den Mund!
+
+(Merenberg wird abgefuehrt; Herold folgt.)
+
+Ottokar (unter die Seinen tretend).
+Kein Boehme hat noch seinen Herrn verraten;
+Was auch der Laestrer spricht, ich bin gewiss!
+Nun im Begriff, zu gehn in einen Krieg
+Fuer unsers Landes Ruhm und seine Macht,
+Vertrau ich euch, wie ich mir selbst vertraue.
+Wer missgesinnt ist, wer mein Tun nicht billigt,
+Der schliesse frei sich aus von unserm Zug,
+Kein Nachteil soll ihn treffen oder Vorwurf.
+Wer aber gern mir folgt und denkt wie ich,
+Den drueck ich an mein Herz und nenn ihn Bruder!
+Den Eid, den ich am Kroenungstage schwur,
+Bei meines Vaters Sarg, ich wiederhol ihn:
+Treu bis zum Tod! Tut ihr dasselbe!
+Die Welt ist voll von Boesen und von Argen;
+Erneut den Schwur auf eures Koenigs Schwert.
+
+(Er hat von einem der Umstehenden das Schwert genommen, die Vordersten
+knieen nieder.)
+
+Kniet nicht! Steht auf! Ich kann nicht knieen sehn!--
+Und schwoert auch nicht!--Denn man kann knien und schwoeren
+Und doch das Wort nicht halten, das man gab.
+Ich will euch so vertrauen, ohne Schwur!--
+
+Und nun ans Werk! Du gehst zu Herzog Heinrich
+Nach Breslau! ihn und Prinik, den von Glogau,
+Du ladest sie zur Heerfahrt hier nach Prag.
+Du gehst nach Deutschland, und aus Meissen, Sachsen,
+Von Magdeburg, dem Markgraf mit dem Pfeil,
+Sprichst du den Beistand an, den sie mir goennen.
+(Zum Kanzler.)
+Ihr schreibt mir an die andern Herrn und Fuersten!
+Wir wollen eine Schar zusammenlegen,
+Dass sich der Kaiser drob verwundern soll!
+Ich bin noch Ottokar, man soll schon sehn!
+Ihr alle leiht mir euren kraeft'gen Arm!
+Was ihr verlort an Guetern und an Schloessern,
+Was ich euch abnahm und zur Krone schlug,
+Ich geb es wieder, geb euch mehr dazu.
+Den Rosenbergen sei ihr Frauenberg,
+Auch Aussig, Falkenstein. Dir, Neuhaus, Lar;
+Nehmt Laun, Ihr Zierotin; Dub, Kruschina!
+Nehmt Eure Gueter wieder und seid froehlich!
+Wir wollen eins sein, redlich halten aus.
+Dir, Milota, vertrau ich Maehren an,
+Du bist ein wackrer Krieger, du bewahrst mir's.
+
+(Zawisch von Rosenberg kommt.)
+
+Ottokar.
+Sieh da, Herr Rosenberg! Ei, Gott zum Gruss!
+Ich denk, Ihr folgt uns doch wohl auch ins Feld?
+Ihr seid der Ersten einer meines Reichs,
+Auf den ich vor gar vielen andern zaehle.
+
+Zawisch.
+Was meine Brueder tun, das tu ich auch!
+Der allgemeinen Not werd ich mich nicht entziehn.
+(Er geht.)
+
+Ottokar (der ihm nachgesehen hat, mit Gebaerde)
+Der hat's hier hinterm Ohr, dem trau ich nicht!
+Du, Milota, du bist mein Mann!
+Ich glaube wohl, dass du auch hassen kannst,
+Betruegen nicht! Dir will ich mich vertraun!
+Herr Kanzler, seid Ihr fertig?
+
+Kanzler (der sich zum Schreiben gesetzt hat).
+Ja, mein Koenig!
+
+Ottokar.
+Wir haben viel durch Raschheit eingebuesst,
+Wir muessen uns durch Vorsicht wieder helfen.
+Nicht wahr, so ist's dir recht, mein alter Kauz?
+
+Kanzler.
+O Koenig, scheltet mich, wie sonst, mit Raschheit,
+Mir taet' es wohler, als die Milde jetzt.
+
+Ottokar.
+Schreib an den Hauptmann du der Stadt von Znaim,
+Er soll mit tausend Mann--doch nein, zu viel!
+Die Feste bleibt indessen mir entbloesst.
+Nein, mit fuenfhundert Mann soll er die Grenze
+Allein fuenfhundert sind zu wenig. (Auf Milota.) Nicht wahr?
+Schreib lieber, dass von Iglau--Wieder nichts!
+Mein Kopf ist wuest; zwei Naechte nicht geruht,
+Gegessen auch nicht.--Leih mir deine Bank,
+Ich will versuchen hier zu ruhn.
+
+Kanzler.
+Mein Koenig,
+Gefaellt's Euch nicht, ins Schloss--?
+
+Ottokar.
+Nein, nein, nein, nein!
+Doch holt mir meine Frau; sie ging im Zorn.
+Sie soll zu mir sich setzen, soll mir sprechen,
+Bis sich der Schlaf auf meine Wimpern senkt.
+Mein Freund, tu mir die Lieb' und geh nach ihr!
+
+(Diener ab.)
+
+Ottokar.
+Wie wohl es tut, die Glieder auszustrecken,
+Ist einer mued! Seht mal nach Merenberg;
+Der alte Mann mag hart im Kerker ruhn!
+Ist er ein Schurk' auch, soll man ihn nicht quaelen
+Und soll ihm geben ritterliche Haft.
+
+(Fuellenstein ab.)
+(Diener kommt.)
+
+Ottokar.
+Nun, kommt die Koenigin?
+
+Diener.
+Sie kommt nicht, Herr!
+
+Ottokar.
+So lasst sie gehn! Komm du her, alter Kanzler,
+Und leih zum Ausruhn heut mir deinen Schoss.
+Hab ich geruht--dann sollt ihr sehn--
+Ob ich der alte Ottokar noch bin. (Er schlaeft.)
+
+(Fuellenstein kommt zurueck.)
+
+Kanzler.
+Der Koenig schlaeft!
+
+Fuellenstein.
+Nu, Merenberg bald auch!
+Als er nicht schwieg und alle Welt verklagte,
+Stiess ihn ein Szupan hart den Turm hinab;
+Er wird's nicht ueberleben, glaubt man fast!
+
+Ottokar (sich emporrichtend).
+He, Merenberg, bist du's?
+
+Kanzler.
+Er ist nicht hier!
+
+Ottokar.
+Mir war, als stuend' er da!--Nu, schlafen! schlafen!
+(Er sinkt wieder zurueck und schlaeft.)
+
+(Der Kanzler legt, Schweigen gebietend, den Finger auf den Mund.)
+
+(Der Vorhang faellt.)
+
+
+
+
+Fuenfter Aufzug
+
+Kirchhof von Goetzendorf. Drei Vierteile des Mittelgrundes durch das
+hereinragende Haus des Kuesters geschlossen, mit einem Glockenturm daran.
+Vorposten des boehmischen Heers. Ein Wachfeuer, Krieger herumgelagert.
+Ottokar sitzt hinter demselben auf einer Erhoehung, das Kinn auf beide
+Haende und diese auf den Knopf seines Schwertes gestuetzt. Rechts im
+Vorgrunde Milota und Fuellenstein am Boden liegend. Vor Tagesanbruch.
+Dunkel.
+
+Ein Bote tritt rechts im Vorgrunde auf.
+
+
+Bote.
+Ist hier der Koenig?
+
+Milota.
+Ja, was gibt's?
+
+Bote (halblaut).
+Kumanen
+Und Ungarn von des Kaisers Heere streifen
+Die March hinauf im Ruecken unsrer Stellung;
+Bei Droesing hat man ihrer schon gesehn.
+Soll ich's dem Koenig melden?
+
+Milota.
+Lasst nur sein!
+Der Koenig ist schon uebellaunig sonst;
+Auch stehn die Russen dort und meine Leute,
+Die werden sie den Rueckweg suchen lehren.
+
+Bote.
+Nun, wenn Ihr meint--
+
+Milota.
+Geht nur, gleich komm ich selbst.
+(Bote ab.)
+
+Fuellenstein (halblaut).
+Das ew'ge Zaudern, ewige Bedenken!
+Und immer rueckwaerts! Ei, verdamm es Gott!
+Der Koenig hat sein Wesen ausgezogen.
+Schon frueher ging nicht alles, wie es sollte,
+Die Flucht der Koenigin gab ihm den Rest.
+Und waer's nicht, dass mich freut das Kriegeshandwerk,
+Ich waere laengst gewichen von dem Heer.
+Erst stuermt er vierzehn Tage Drosendorf
+Und laesst dem Kaiser Zeit, die Macht zu sammeln;
+Und als man endlich denkt: jetzt schlaegt er los,
+Als wir geruestet stehn und fertig vor Marchegg,
+Da heisst's: zurueck! und Weiden, Weikendorf
+Und Anger, Stillfried, alle Stellungen
+Am Hasenberg, am Weidenbach und an der Sulz
+Laesst er dem Feind, beinah ohn' einen Schwertschlag.
+
+Milota.
+Bald muss es sich entscheiden; sei getrost!
+
+Fuellenstein.
+Er nennt das Vorsicht; Zagheit nenn ich's eher!
+Sonst war das anders, ei, da galt noch Fechten.
+Jetzt sind wir Memmen!
+
+Milota.
+Schweig! Der Koenig regt sich!
+
+Fuellenstein.
+Zeit waer' es!
+
+Ottokar (am Feuer).
+Gestern war ein schlimmer Tag!
+Der Feind gewinnet Boden. Doch was tut's?
+Ich habe Drosendorf; der Ruecken ist gesichert.
+
+Fuellenstein (laut).
+Beinah der Ruecken sichrer als die Brust!
+
+Ottokar.
+Dir tu ich nicht zu Danke, Fuellenstein!
+
+Fuellenstein.
+Nein, Herr, ich kann's nicht leugnen. Sonst war's anders.
+
+Ottokar.
+Du haettest bei Marchegg schon losgeschlagen?
+
+Fuellenstein.
+So tat ich, Herr, und Ihr, Ihr tatet's auch
+Noch vor zwei Jahren. In der Ungerschlacht,
+Am selben Ort, habt Ihr nicht lang gezweifelt.
+Ei, Schwert heraus und in den Feind! Da ging's.
+
+Ottokar.
+Es ging, weil es der Zufall guenstig meinte.
+Ei, damals war ich ein verwegner Tor,
+Wie du noch jetzt bist. Reife bringt die Zeit.
+
+Fuellenstein.
+Herr, als noch bei Marchegg der Kaiser stand,
+Da zaehlt' er tausend Streiter, und nicht mehr.
+Jetzt ist er an die dreissigtausend stark.
+
+Ottokar.
+Allwissend ist nur Gott!--Was ist die Uhr?
+
+Diener.
+Drei Uhr nach Mitternacht.
+
+Ottokar.
+Die Schlacht ist unvermeidlich!
+Wir sind am Feind. Der heut'ge Tag entscheidet.
+Wie heisst der Ort hier?
+
+Diener.
+Goetzendorf, mein Koenig.
+
+Ottokar.
+Der Bach?
+
+Diener.
+Die Sulz.
+
+Ottokar.
+Ich dacht', ich waer' in Stillfried.
+
+Diener.
+Wir ritten gestern durch in dunkler Nacht.
+Jetzt liegt der Kaiser drinnen.
+
+Ottokar.
+Nun, Gott walt's!
+
+Diener.
+Ihr solltet dort ins Haus gehn, gnaed'ger Herr!
+
+Ottokar.
+Und dass mir niemand angreift, bis ich's sage!
+Ich hab ihn hergelockt in diese Berge
+Mit vorgespiegelter, verstellter Flucht.
+Dringt er nun vor: die Mitte weicht zurueck,
+Die Fluegel schliessen sich--dann gute Nacht, Herr Kaiser!
+Ich hab ihn, wie die Maus im Loch! Ha, ha!
+(Er bricht in ein heiseres Lachen aus, das sich in ein Husten verliert.
+Er reibt die Haende.)
+'s ist kalt! Hat niemand einen Mantel?
+Vor Sonnenaufgang weht die Luft am schaerfsten.
+(Man gibt ihm einen Mantel.)
+Ist das 'ne Sommernacht? Noch stehn die Stoppeln
+Und schon so kalt! Sonst war der Sommer warm,
+Der Winter Frost; jetzt tauschen sie das Amt.
+Die Zeiten aendern sich und wir mit ihnen!
+Hat man nicht Nachricht, wo die Koenigin
+Sich hingewandt?
+
+Diener.
+Man weiss es nicht, mein Koenig!
+
+Ottokar.
+Und Zawisch ist bei ihr?
+
+Diener.
+Ja, gnaed'ger Herr!
+
+Ottokar.
+Ich denke sie zu seiner Zeit zu treffen!
+Will's noch nicht tagen?
+
+Diener.
+Ueberhin der March
+Beginnt's zu graun; der Tag bricht an.
+
+Ottokar (ist aufgesprungen).
+Ich gruesse dich, verhaengnisvolle Sonne!
+Eh' du zu Rueste gehst, hat sich's entschieden,
+Ob Fried' in Waffen, ob im Grabe Frieden.
+(Er wirft den Mantel weg.)
+Loescht aus die Feuer, lasst die Hoerner toenen!
+Bereitet Euch zum Kampf, es gilt das Letzte!
+
+Bote (kommt).
+Herr, Droesing brennt!
+
+Ottokar.
+Im Ruecken meines Heers?
+Dort stehen Eure Leute, Milota!
+
+Milota.
+Versprengte Haufen von Kumanen, Herr!
+Auch glaub ich's nicht!
+
+Ottokar.
+Ist hier herum kein Huegel?
+Dass man des Feuers Richtung koennte sehn.
+
+Diener.
+Der Glockenturm.
+
+Ottokar.
+Steig einer schnell hinauf.
+(Es pochen einige ans Tor.)
+
+Ottokar.
+Wie kommen Ungarn mir nach Droesing? Gottes Feuer!
+Wer des die Schuld traegt, haengt!--Wird's bald?
+
+Diener.
+Herr Koenig,
+Man weigert uns den Eintritt.
+
+Ottokar.
+Weigert? Wer?
+
+Diener.
+Sind Damen drin im Haus.
+
+Ottokar.
+Was, Damen! Possen!
+
+Kuester (der aus dem Hause getreten ist).
+Herr, das Gefolg der Koenigin von Boehmen.
+
+Ottokar (ihn anfassend).
+Der Koenigin von Boehmen?--Das Gefolg'?
+Wohl auch sie selbst?--Ha, Schurk'!--und Zawisch auch?
+Es soll mir wohltun, meinen Zorn zu kuehlen!
+
+Kuester.
+Bedenk Eu'r Hoheit!
+
+Ottokar.
+Fort!
+
+Kuester.
+Ach, Herr!
+
+Ottokar.
+Hinein!
+(Er dringt ins Haus, der Kuester ihm nach.)
+
+Milota.
+Wenn er den Zawisch trifft, ist er verloren!
+Ich muss ihn retten, gaelt's das Aeusserste!
+Zieht euch zurueck, und ruf ich aus dem Fenster,
+So dringt ins Haus und tut, was ich euch sage;
+Der Koenig ist sein selbst nicht Herr im Zorn
+(Er geht ins Haus, die andern ziehen sich zurueck.)
+
+
+
+-----------------------------------------------------------------------
+
+Kurzes Zimmer, durch einen gotischen Bogen geschlossen, von dem ein
+dunkler Vorhang bis zur Erde herabhaengt.
+
+Ottokar, dem Frau Elisabeth in den Weg tritt, stuerzt herein.
+
+Ottokar.
+Fort, Kupplerin! Wo hast du deine Kunden?
+
+Elisabeth.
+Ach, gnaed'ger Herr, goennt ihr doch jetzt die Ruh'!
+
+Ottokar.
+Der Vorhang dort, er deckt wohl das Geheimnis?
+Lieb Taeubchen, komm! Auf, Decke! Vorhang auf!
+(Er reisst den Vorhang auf und prallt zurueck.)
+(Auf einer schwarzbedeckten Erhoehung, von Lichtern umstellt, liegt
+Koenigin Margarethe tot im Sarge. Das Wappen von Oestreich zu ihren Fuessen.)
+
+Ottokar (im Vorgrunde, dumpf).
+Das ist die Koenigin von Boehmen nicht!
+
+Elisabeth.
+Sie war's!
+
+Ottokar.
+Margrethe ist's von Oesterreich,
+Mein Weib einst; doch verwandt im vierten Grad,
+Und drum geschieden nach der Kirche Recht.
+--Gott geb' ihr ew'ge Ruh'!
+
+Elisabeth.
+Ach, Amen, Amen!
+
+Ottokar.
+Wann starb sie?
+
+Elisabeth.
+Gestern morgens, gnaed'ger Herr!
+
+Ottokar.
+Wie kommt sie hieher?
+
+Elisabeth.
+Aus dem Sitz von Krems
+Vertrieben von den Streifern Eures Heers,
+Hat nach Marchegg zum Kaiser sie gewollt,
+Da uebereilte sie der Tod.
+
+Ottokar.
+Warum zum Kaiser?
+
+Elisabeth.
+Herr, sie sagt' es nicht;
+Doch, denk ich, war es, Frieden zu vermitteln.
+
+Ottokar.
+Sie war Vermittlerin! Und woran starb sie?
+
+Elisabeth.
+Man pflegt's zu nennen: am gebrochnen Herzen;
+Denn weinend Tag und Nacht--
+
+Ottokar.
+Genug! Genug!
+Wo aber wollt ihr hin?
+
+Elisabeth.
+Wir wollen warten,
+Bis sich der Krieg so oder so entschieden--
+
+Ottokar.
+So oder so!
+
+Elisabeth.
+Und dann nach Lilienfeld,
+Sie zu begraben in der Ahnen Gruft,
+Wo Herzog Leupold ruht, der Sel'gen Vater,
+Und, der der Babenberger Mannstamm schloss,
+Ihr Bruder Friedrich, den sie Streitbar nennen.
+
+Ottokar.
+Das tu!--Und diesen Ring....
+
+Milota (kommt).
+Der Feind rueckt an!
+
+Ottokar.
+Ich komme gleich. Geht nur! (Milota ab.)
+
+Ottokar.
+Und diesen Ring
+Leg du von mir der Sel'gen in das Grab.
+
+Elisabeth.
+Ach Herr!
+
+Ottokar.
+Und wenn der Krieg sich hat entschieden,
+Und ich es ueberleb, so komm nach Prag,
+Dass ich die Treu' dir lohn an deiner Frau.
+Jetzt muss ich fort!
+(Er geht auf die Tuere zu.)
+
+Elisabeth (die sie ihm oeffnet).
+Gott segn' Euch!
+
+Ottokar (bleibt an der Tuere stehen).
+Margarethe,
+So bist du tot und hast mir nicht verziehn?
+(Er kommt zurueck.)
+Bist hingegangen, treue, fromme Seele,
+Mit dem Gefuehl des Unrechts in der Brust,
+Und stehst wohl jetzt vor Gottes Richterstuhl
+Und klagst mich an, rufst Rache wider mich!
+O tu's nicht, Margaretha, tu es nicht!
+Du bist geraecht. Um was ich dich und alles gab,
+Gefallen ist's von mir, wie Laub im Herbst.
+Was ich gesammelt, ist im Wind zerstoben,
+Der Segen fort, der fruchtend kommt von oben,
+Und einsam steh ich da, von Leid gebeugt,
+Und niemand troestet mich und hoert mich!
+(Er tritt naeher.)
+Sie haben schlimm an mir getan, Margrethe!
+Der Undank hob sein Haupt auf gegen mich.
+Die mir die Naechsten, haben mich verraten,
+Die ich gehoben, haben mich gestuerzt.
+Das Weib, um das ich hingab deinen Wert,
+Sie hat das Herz im Busen mir zerspalten,
+Die Ehre mein verkauft an meinen Knecht;
+Und als ich blutend heimkam aus der Schlacht,
+Goss sie mir Gift, statt Balsam, in die Wunden.
+Mit Hohn und Spott hat sie mich aufgestachelt,
+Dass blind ich rannte in das Todesnetz,
+Das nun zusammenschlaegt ob meinem Scheitel.
+(Er kniet am Sarge.)
+Du hast mich oft getroestet; troeste nun!
+Streck aus die kalte Hand und segne mich.
+Denn eines fuehl ich wohl: es kommt zu sterben;
+Der heut'ge Tag kann Ottokar verderben,
+Drum segne mich, wie du gesegnet bist!
+(Er legt sein Haupt auf die Kissen.)
+
+Elisabeth.
+Er betet, glaub ich. Nun, du guter Gott,
+Verzeih ihm auch! Und ach, der grossen Freude
+Fuer die hochsel'ge Frau! Sagt' ich's nicht immer?
+Er kehrt zurueck. Nun seid ihr doch beisammen,
+Siehst du? (Gegen Himmel blickend.)
+
+Von aussen.
+Ist hier der Koenig?
+
+Elisabeth (zur Tuer hinaussprechend).
+Ei, er will allein sein!
+Sie sollen ihn nicht stoeren!
+(Sie laesst die Vorhaenge herab.)
+Streit und Hader,
+Dazu find't so ein Herr wohl immer Zeit.
+Die Zeit zum Beten aber kommt nicht immer.
+Schon wieder Laerm, ei, dass euch Gott, ihr Heiden!
+(Neuer Laerm von aussen. Sie geht, mit dem Finger auf dem Mund
+Stillschweigen gebietend, leise zur Tuere hinaus.)
+
+
+
+--------------------------------------------------------------
+
+Platz vor dem Hause, wie zu Anfang des Aufzuges.
+
+Milota fuehrt einen Knappen vor. Die andern im Hintergrunde. In
+Zwischenraeumen Trompeten und Laerm von aussen.
+
+Milota.
+Wie? Zawisch Rosenberg, er sendet dich?
+
+Knecht.
+Ja, Herr!
+
+Milota.
+Er ist im kaiserlichen Lager?
+
+Knecht.
+Wohl.
+
+Milota.
+Wo ist sein Brief?
+
+Knecht.
+Ich habe keinen Brief.
+Er hiess mich nur--es klingt fast laecherlich--
+Er hiess mich an das Liedchen Euch erinnern:
+"Der Winter kehrt zurueck, die Rosen welken."
+
+Milota.
+Was will er damit?--Rosen--Rosenberg!
+Sag ihm, die Rosen moegen immer bluehn,
+Der Schnee zergeht; der Winter kehrt nicht wieder!
+(Knecht ab.)
+
+Fuellenstein (kommt).
+Wo ist der Koenig?
+
+Milota.
+Oben.
+
+Fuellenstein.
+Teufel auch!
+Es geht schon hitzig her!
+
+Ein Ritter (tritt eilig auf).
+Ist hier der Koenig?
+Die Vorhut wird zurueckgedraengt. Schickt Hilfe!
+
+Milota.
+Er saeumt noch immer!
+
+Fuellenstein.
+Siehe da, er kommt!
+
+(Ottokar kommt mit dem Kuester aus dem Hause. Frau Elisabeth folgt.)
+
+Ottokar (zum Kuester).
+Man wird Eu'r Haus verschonen, wie nur moeglich.
+Gehabt Euch wohl und schliesst mich ins Gebet.
+Herbott, wie steht's?
+
+Fuellenstein.
+Sie sind schon handgemein.
+
+Ottokar.
+Gebt mir den Helm!
+
+Fuellenstein.
+Der Gaul von einem Dienstmann
+Des Erzbischofs von Salzburg wurde scheu
+Und riss ihn fort, die andern sprengten nach.
+
+Ottokar (hat den Helm auf und zieht das Schwert).
+Nun denn, mit Gott!
+
+Kuester.
+Er segn' Euch, gnaed'ger Herr!
+
+Elisabeth.
+Zu tausendmal! Und fuehr Euch gluecklich heim!
+
+Ottokar.
+Wir wollen hoffen! (Trompeten von aussen.) Nun, wir kommen schon!,
+Wo sind die Pferde?
+
+Fuellenstein.
+Dort am Gittertor!
+
+Ottokar (gehend).
+Voran!
+
+Elisabeth.
+Gott segn' Eu'r Hoheit. (Zugleich mit dem Kuester.) Glueck und Heil!
+(Alle ab.)
+
+
+
+-------------------------------------------------------------------
+
+Freie Gegend an der March. Es ist heller Tag.
+
+Kaiser Rudolf mit seinen Soehnen, in Begleitung oesterreichischer und
+anderer Ritter mit Fahnen, tritt auf.
+
+Rudolf.
+Die Sonne steigt aus Nebeln herrlich auf;
+Es wird ein schoener Tag! Mein Sohn, du trittst
+Zum erstenmal auf oesterreich'schen Boden,
+Sieh um dich her, du stehst in deinem Land!
+Das Feld, das rings sich breitet, heisset Marchfeld,
+Ein Schlachtfeld, wie sich leicht kein zweites findet,
+Doch auch ein Erntefeld, Gott sei gedankt!
+Und dafuer soll es immerdar dir gelten!
+Dort fliesst die March; dort, wo noch Nebel ringt,
+Liegt Wien, die Stadt, die Donau blinkt daneben,
+Von vielen Inseln mannigfach geteilt.
+Dort wirst du wohnen, gibt uns Gott den Sieg.
+Doch gilt's zu kaempfen erst, das sollst du auch.
+Die Rennfahn' geb ich dir, die sollst du fuehren,
+Mir vor sie tragen glorreich durch die Schlacht.
+(Er gibt ihm die Fahne.--Zu seinem juengeren Sohne.)
+Dein junger Arm fuehrt noch zu schwach den Stahl,
+Du bleibst bei mir, in deines Vaters Hut.
+
+Ihr, Markgraf Hochberg, fuehrt des Reiches Adler;
+Und wie der Adler lebend Wild nur beutet,
+Trefft den, der kaempft, und schonet des, der flieht.
+(Er gibt ihn.)
+Dir, Konrad Haslau, ob schon altergrau,
+Vertrau ich Oestreichs flatterndes Panier,
+Das du in zwanzig Schlachten ruehmlich trugst.
+Ihr bleibt ihm nah, Herr Heinrich Lichtenstein,
+Und wahrt des Manns und dessen, was er traegt.
+Ha, wohl verwahrt! Sucht' ich nach einem Schuetzer
+Fuer dies mein Haupt, ich wuesste keinen bessern
+Als einen Lichtenstein! Wohlan, ihr Herrn,
+Nehmt das Panier und tragt es allen vor;
+Den edlen weissen Strich von Oesterreich;
+Und wie er glaenzend geht durchs rote Feld,
+So will ich sehen Oestreichs weisse Zeichen
+Die Gasse ziehn durch blutgefaerbte Leichen.
+
+Nun vor, mit Gott! Und: Christus sei der Schlachtruf.
+So wie er starb fuer uns am blut'gen Holz,
+So wollen wir auch sterben fuer das Recht,
+Ob auch das Unrecht Gueter boet' und Leben.
+Ehrwuerd'ger Herr von Basel, geht voran,
+Stimmt uns das Schlachtlied an: Maria, reine Maid!
+
+Diener (kommt).
+Die Koenigin von Boehmen, gnaed'ger Herr!
+
+Rudolf.
+Wie kommt sie her zu mir?
+
+(Kunigunde und Zawisch auftretend, hinter ihnen wird Berta gefuehrt, mit
+Begleitern, die zurueckbleiben.)
+
+Kunigunde.
+Hier bin ich selbst!
+Um Schutz zu flehn, komm ich in Euer Lager.
+
+Rudolf.
+Schutz, edle Frau, bei Eures Gatten Feind?
+
+Kunigunde.
+Weil mir der Feinde grimmigster mein Gatte!
+Er rast, zumeist gen die, so ihm am naechsten,
+Und fliehend nur erhielt ich fast mein Leben.
+
+Rudolf.
+Gar viel Vertraun schenkt Ihr mir, Koenigin!
+Denn Frauen kenn ich, sonst wohl hohen Muts,
+Die aber lieber tot von Gatten-Hand,
+Als dass sie floehn zu denen, die ihn toeten.
+Doch moegt Ihr immer dort in meinen Zelten
+Des Ausgangs harren, der Euch wohl versoehnt.
+(Zu einem Begleiter.)
+Bringt die erlauchte Frau in Sicherheit!
+
+Kunigunde.
+Ich dank Eu'r Hoheit--Zawisch, kommt mit mir. (Ab.)
+
+Rudolf.
+Ihr, Herr, steht nicht bei Eures Koenigs Fahnen?
+
+Zawisch.
+Der Koenig hat mich hoch und schwer beleidigt.
+
+Rudolf.
+Beleidigt, Herr? und des gedenkt Ihr jetzt?
+Wo er vielleicht dem Tod entgegengeht?
+Dankt Gott, Herr, dass Ihr nicht mein Untertan,
+Ich wollt' Euch das Kapitel sonst erklaeren!
+Folgt Eurer Koenigin, die Euch statt eines Koenigs.
+(Zawisch ab.)
+
+Rudolf.
+Noch eins, eh' wir zur Schlacht! Ich hab erfahren,
+Dass unter denen, die ich gestern abends
+Zu Rittern schlug, und die ob einer Unbild
+Dem Boehmenkoenig abhold, oder sonst,
+Vor allen aus den oesterreich'schen Landen,
+Ein Bund besteht, ihn in der Schlacht zu suchen,
+Und dass ihn jener toete, der ihn fand:
+Den Bund vernicht ich hier, als euer Kaiser,
+Und jedem untersag ich, Hand zu legen
+An Koenig Ottokar zu dieser Frist;
+Den einz'gen Fall der Notwehr ausgenommen.
+(Zu Seyfried Merenberg, der neben ihm steht.)
+Habt Ihr verstanden, Herr? Und so mit Gott!
+
+Es stuerzt einer herein.
+Die Boehmen nahn!
+
+Rudolf.
+Die Oesterreicher sind schon da!
+Wir werden uns doch wohl nicht fuerchten sollen?
+Ein einzler Haufe; schliesst euch an, ihr Herrn!
+
+(Herbott von Fuellenstein mit einem Haufen.)
+
+Fuellenstein (hereinstuerzend).
+Wo ist der Kaiser? Nur den Kaiser such ich!
+
+Rudolf.
+Hier ist er, Freund!
+
+Fuellenstein.
+Bald heisst es wohl: er war.
+
+Rudolf.
+Das fraegt sich noch. Ei, lasst ihn nur, ihr Herrn,
+Das Fechten moecht ich doch nicht ganz verlernen!
+Komm an, mein Freund!
+
+Fuellenstein.
+Ihr folgt, und schlagt sie tot!
+(Gefecht. Alle ab.)
+
+
+
+-----------------------------------------------------------------------
+Ein anderer Teil des Schlachtfeldes. Links im Vorgrunde das Ende eines
+Huegels auf die Buehne hereinlaufend, daneben steht ein Baum.
+
+Ottokar kommt, auf einen Knecht gestuetzt; zwei andere und Milota folgen.
+
+Ottokar.
+Herr Milota, Eu'r Haufe greift nicht an!
+Wo bleiben Eure Maehrer, Tod und Teufel?
+Ich fuercht, Ihr seid ein Schurk', Herr Milota!
+Und seid Ihr es, Herr, weil ich Euch vertraut,
+Seid Ihr es zehn- und hundertfach!
+
+Sie haben mir das Pferd erstochen unterm Leib;
+Das Bein schmerzt noch vom unversehrten Sturz.
+Geh hin und such ein Pferd; ich weile hier!
+(Einer ab.)
+Ihr, Milota, jagt hin zu Euren Maehrern!
+Doch nein! Bleibt da! Geh du und sag der Nachhut--
+Sie sollen auf den Feind, sonst will ich, Pest! auf sie!
+(Der zweite ab.)
+Seht mir ins Antlitz, Milota! Dass Gott!
+Ihr schaut mit Grimm. Ich hoff, das gilt dem Feind;
+Denn gaelt' es mir, auf Eurem Todbett, Herr,
+Wuerd' Euch ein Milota genueber stehn
+Und also schaun in Euer brechend Aug'.
+
+Steigt dort auf jenen Huegel, Herr, und forscht
+Nach Fuellenstein und wie das Treffen geht.
+(Milota ab.)
+Du leite mich zu jenem Baume hin,
+Dass ich mich halte, bis ein Pferd zur Hand,
+Und sieh dich um und sag's, wenn Feinde nahn.
+(Er steht am Baume und haelt sich mit der Hand an einem niedrigen,
+duerren Zweige.)
+Die Boehmen fechten matt, wie man wohl ficht
+Fuer einen Ungeliebten, notgedrungen.
+Die Oestreichsmaenner und die Steirer aber,
+Die sonst nur traeg mir ihren Dienst erwiesen,
+In Todesengel scheinen sie verwandelt,
+Und jeder ist ein Held nun wider mich.
+Der Zahltag ist erschienen, und sie zahlen!
+
+Ich hab nicht gut in deiner Welt gehaust,
+Du grosser Gott! Wie Sturm und Ungewitter
+Bin ich gezogen ueber deine Fluren.
+Du aber bist's allein, der stuermen kann,
+Denn du allein kannst heilen, grosser Gott.
+Und hab ich auch das Schlimme nicht gewollt,
+Wer war ich, Wurm? dass ich mich unterwand,
+Den Herrn der Welten frevelnd nachzuspielen,
+Durchs Boese suchend einen Weg zum Guten!
+
+Den Menschen, den du hingesetzt zur Lust,
+Ein Zweck, ein Selbst, im Weltall eine Welt--
+Gebaut hast du ihn als ein Wunderwerk,
+Mit hoher Stirn und aufgerichtem Nacken,
+Gekleidet in der Schoenheit Feierkleid,
+Und wunderbar mit Wundern ihn umringt.
+Er hoert und sieht und fuehlt und freut sich.
+Die Speise nimmt er auf in seinen Leib,
+Da treten wirkende Gewalten auf
+Und weben fort und fort mit Fasern und Gefaess
+Und zimmern ihm sein Haus; kein Koenigsschloss
+Mag sich vergleichen mit dem Menschenleib!
+Ich aber hab sie hin zu Tausenden geworfen,
+Um einer Torheit, eines Einfalls willen,
+Wie man den Kehricht schuettet vor die Tuer.
+Und keiner war von den Gebliebnen allen,
+Den seine Mutter nicht, als sie mit Schmerz geboren,
+Mit Lust gedrueckt an ihre Naehrerbrust,
+Der Vater nicht als seinen Stolz gesegnet
+Und aufgezogen, jahrelang gehuetet.
+Wenn er am Finger sich verletzt die Haut,
+Da liefen sie herbei und banden's ein
+Und sahen zu, bis endlich es geheilt.
+Und 's war ein Finger nur, die Haut am Finger!
+Ich aber hab sie schockweis hingeschleudert
+Und starrem Eisen einen Weg gebahnt
+In ihren warmen Leib.--Hast du beschlossen,
+Zu gehen ins Gericht mit Ottokar,
+So triff mich, aber schone meines Volks!
+
+Geblendet war ich, so hab ich gefehlt,
+Mit Willen hab ich Unrecht nicht getan!
+Doch einmal, ja!--und noch einmal: O Gott,
+Ich hab mit Willen Unrecht auch getan!
+
+Es ist nicht Todesfurcht, was so mich reden laesst.
+Der du die Herzen aller kennst,
+Du weisst, ob dieses Herz die Furcht bewegt?
+Doch wenn dich eines Mannes Reu' erfreut,
+Den nicht die Strafe, den sein Unrecht schreckt;
+So sieh mich hier vor deinem Antlitz knien,
+(Er kniet.)
+Und hoer mich beten wie ich jetzo bete:
+Geh als ein Gott der Gnade zu Gericht!
+(Er senkt sein Haupt.)
+
+(Seyfried von Merenberg tritt, ganz geruestet, im Hintergrunde auf.)
+
+Seyfried.
+Ottokar!
+
+Ottokar.
+Wer ruft?
+
+Seyfried (hinten stehenbleibend).
+Wo hast du meinen Vater?
+
+Ottokar (steht auf).
+Wer bist du?--Merenberg!
+
+Seyfried.
+Wo hast du meinen Vater?
+
+Ottokar (dumpf vor sich hin).
+Als Gott den Kain fragte, sagte der:
+Mir hast du ihn zu hueten nicht gegeben!
+
+Seyfried.
+Ich gab ihn dir, ja wohl, mein eigner Unsinn!
+Und jetzt steh ich vor dir, in Stahl gekleidet,
+Und fordr' ihn wieder: gib mir meinen Vater!
+
+Ottokar.
+Du weisst wohl, wo er ist.
+
+Seyfried.
+Wohl weiss ich's: tot!
+
+Ottokar.
+Er buesste, wie Verraeter!
+
+Seyfried.
+Er, Verraeter!
+Er war dir nur zu treu, dir, mir, der ganzen Welt.
+Um meinen Dienst beim Kaiser wusst' er nicht.
+Der Brief, den er mir gab, enthielt nur Bitten
+Fuer dein verstossnes Weib.
+
+Ottokar.
+So hat ihn Gott!
+
+Seyfried.
+Er hat ihn, ja! Empfiehl ihm deine Seele!
+(Stuerzt mit dem Schwerte auf ihn los.)
+
+(Emerberg tritt auf.)
+
+Emerberg.
+Seyfried, was tust du?
+
+Seyfried.
+Sieh, er mahnt mit Recht!
+Der Kaiser hat verboten, dich zu toeten
+Mit Waffen; doch ich will, ein Basilisk,
+Versuchen, mit den Augen dich zu toeten.
+Sieh her nach mir und hoere: Merenberg!
+Der Hoelle Ruf dereinstens: Merenberg!
+
+Ottokar.
+Gebt Raum, ich muss zu meinem Heer!
+
+Seyfried.
+Du bleibst!
+Du warst mir Lehrer, warst mir Muster, Beispiel,
+Ich habe dich geehrt, wie niemand sonst;
+Der Erde Ruhm ging mir in dir zu Grabe.
+Der Erde Glueck in meines Vaters Haupt.
+Gib das Vertrauen mir auf Menschen wieder,
+Den Vater wieder, den ich selbst geliefert,
+Ich selbst in deine Hand. Vorschneller Wuerger,
+Sieh mir ins Antlitz; es ist Merenbergs.
+Komm, toet ihn noch einmal in seinen Zuegen!
+
+Ottokar.
+Schliess deinen Helm, dann sei des Kampfs gewaehrt.
+
+Seyfried.
+Nicht also! Nein! Ficht, Koenig, mit den Toten!
+Hei, tapfrer Ottokar, mit eins so feig?
+
+(Ottokars Knecht kommt zurueck.)
+
+Knecht.
+Herr Milota, zu Hilfe! Feinde! Feinde!
+
+Seyfried (zu Emerberg).
+Halt den zurueck! Er muss sich mein erwehren!
+Dass ich dem Kaiser sagen moege: Herr,
+Ich schlug ihn nicht, er selber fiel mich an;
+Den Fall der Notwehr habt Ihr ausgenommen!
+(Emerberg ficht mit demKnecht.)
+
+Knecht.
+Herr Milota!
+
+Emerberg.
+Entweich!
+
+Knecht.
+Ach Gott! ach Gott!
+(Er faellt getroffen zu des Koenigs Fuessen.)
+
+Ottokar (sein Schwert aufnehmend).
+So sei's!
+(Milota kommt.)
+He, Milota, hilf deinem Koenig!
+
+Seyfried.
+Freund oder Feind?
+
+Milota.
+Nicht euer Feind, ihr Herrn!
+Geht hier der Weg nach Maehren?
+
+Ottokar.
+Milota!
+
+Milota.
+Mein Bruder, Benesch Diedicz, laesst Euch gruessen,
+Er ist gestorben als ein Sinnberaubter,
+Und Muhme Berta rast an seinem Sarg.
+Gebt Raum, ihr Herrn! Glueck auf! ich stoer euch nicht.
+(Geht in seinen Mantel gehuellt vorueber und ab.)
+
+Ottokar.
+Verlaesst du mich, und kann ich dich nicht schelten?
+Und doch war ich dein Herr, drum Schurke du auf ewig!
+
+Seyfried.
+Gib dich!
+
+Ottokar.
+Vermeinst du Ottokarn zu fangen?
+Es gilt zu fechten! (Er tritt hart auf den verletzten Fuss.)Trage, Fuss!
+Jetzt ist nicht Zeit zu schmerzen! Ihr, gebt Raum!
+
+Emerberg.
+Du bist verloren, sieh, die Deinen fliehn!
+(Fliehende Boehmen bedecken den Hintergrund.)
+
+Ottokar.
+Du luegst, kein Boehme flieht! Zu ihnen! Fort!
+
+Beide (mit vorgehaltenen Schwertern).
+Du bleibst!
+
+(Heinrich von Lichtenstein tritt mit einer Schar verfolgend im Mittelgrunde
+auf und eilt nach hinten, das Banner von Oestreich in der Hand.)
+
+Lichtenstein.
+Die Feinde fliehn! Hoch Oesterreich!
+
+Ottokar.
+Steht, Memmen, steht!--Und ihr gebt Raum.
+
+Seyfried.
+Im Grabe.
+Sonst nicht!
+
+Ottokar (einen Hieb fuehrend).
+Hier Boehmen!
+
+Seyfried (ebenso).
+Und hier Oesterreich!
+
+Ottokar (mit einem neuen Hiebe).
+Hier Ottokar!
+
+Seyfried.
+Hier Merenberg und Gott!
+(Er haut ihn nieder.)
+
+(Ottokar stuerzt nieder, rafft sich schnell wieder auf, taumelt einige
+Schritte und faellt dann tot neben der Huegelerhoehung hin.)
+
+Emerberg.
+Was tatst du? Das Gebot verletzt des Kaisers!
+(Merenberg steht, die Haende hinabgesunken, unbeweglich da.)
+
+Heinrich von Lichtenstein (kommt zurueck).
+Sieg, Sieg! Die Feinde fliehn! Hoch, Oesterreich!
+
+(Rudolf tritt auf mit Gefolge.)
+
+Rudolf.
+Halt ein mit Toeten! Schont der Ueberwundnen!
+Was ist hier? Was hat dich zu Eis verwandelt?
+Ha, Ottokar, am Boden, blutend, tot!
+Du hast's getan! Flieh, wie der erste Moerder,
+Und lass dich nimmer sehn vor meinem Blick!
+(Merenberg entflieht.)
+Die Boehmen sollen ruhig heimwaerts ziehn,
+Fuer den sie stritten, ruft es aus!, ist tot.
+
+Frau Elisabeth (hinter der Szene).
+Gewalt, Gewalt!
+
+Rudolf.
+Wer ruft?
+
+Elisabeth (kommt und wirft sich dem Kaiser zu Fuessen).
+Ach, gnaed'ger Kaiser!
+Sie pluendern drin im Haus, sie zuenden an
+Und goennen selbst den Toten nicht die Ruh'!
+Ach, schuetzt uns, Herr!
+
+Rudolf.
+Man soll zu Hilfe sehn! Wer bist du?
+
+Elisabeth.
+Ach, der Koenigin Margrethe
+Von Oesterreich getreue Kaemmerin,
+Und die dort tragen meiner Frauen Leiche.
+
+(Vier Maenner, von schwarzgekleideten Frauen begleitet, tragen den Sarg
+herein.)
+
+Rudolf.
+Sieh dort die Leiche deines Herrn!
+
+Elisabeth.
+Ach Gott!
+So starb er! Grade da er sanft geworden!
+Du armer Herr! Setzt hin dort unsre Leiche,
+So liegen sie im Tode doch vereint.
+(Der Sarg wird auf eine Erhoehung zu Ottokars Haeupten gesetzt.)
+
+(Kunigunde kommt, hinter ihr Zawisch und Berta.)
+
+Kunigunde.
+Der Koenig ist gefangen, wird gesagt.
+
+Rudolf.
+Hier, Weib, hier liegt dein Mann!
+
+(Kunigunde sinkt mit einem Ausruf bebend in die Kniee. Zawisch steht
+mit gesenktem Haupte.)
+
+Rudolf (fortfahrend).
+Zu seines Weibes Fuessen,
+Denn dass sie's blieb, hat sie im Tod erprobt.
+
+Berta (ist hinter dem Sarge auf die Erhoehung getreten und lehnt mit
+dem Ellenbogen darauf, jetzt pocht sie an den Sarg und sagt:)
+Mach auf, Margrethe, sieh, dein Mann ist da!
+
+(Mit mehreren Gefangenen ist der Kanzler hereingebracht worden,
+er stuerzt hin.)
+
+Kanzler.
+O Herr! Du mein verirrter, wackrer Herr!
+(Er nimmt Ottokars Haupt in seinen Schoss.)
+
+Rudolf.
+So liegst du nackt und schmucklos, grosser Koenig,
+Das Haupt gelegt in deines Dieners Schoss,
+Und ist von deinem Prunk und Reichtum allen
+Nicht eine arme Decke dir geblieben,
+Als Leichentuch zu huellen deinen Leib.
+Den Kaisermantel, dem du nachgestrebt,
+Ich nehm ihn ab und breit ihn ueber dich,
+(er tut es)
+Dass als ein Kaiser du begraben werdest,
+Der du gestorben wie ein Bettler bist.
+
+Bringt ihn nach Laa und stellt ihn fuerstlich aus,
+Bis man ihn holt zur Ruhstatt seiner Ahnen.
+(Er entbloesst das Haupt und betet still, die andern tun dasselbe.
+Kunigunde verhuellt sich, Zawisch blickt starr vor sich. Pause.)
+
+Berta (noch immer auf den Sargdeckel gelehnt).
+Und vergib uns, als auch wir vergeben!
+Und fuehr uns nicht in Versuchung!
+
+Rudolf.
+Nicht fuehr' uns in Versuchung, grosser Gott!
+
+Und nun, mein Sohn, im Angesicht der Leiche,
+Vor diesem Toten, der ein Koenig war,
+Belehn ich dich mit Oestreichs weitem Erbe.
+(Auf seinen Wink knieen seine beiden Soehne nieder. Er spricht immer
+vorzugsweise zu dem aeltern.)
+Sei gross und stark, vermehre dein Geschlecht,
+Dass es sich breite in der Erde Fernen
+Und Habsburgs Name glaenze bei den Sternen!
+Du steh in allem deinem Bruder bei!
+Doch solltet ihr je uebermuetig werden,
+Mit Stolz erheben euren Herrscherblick,
+So denkt an den Gewaltigen zurueck,
+Der jetzt nur fiel in Gottes strenge Haende,
+An Ottokar, sein Glueck und an sein Ende!
+
+Steh auf! und du! Und niemals kniee wieder,
+Ich gruesse dich als dieses Landes Herrn.
+Und ihr auch gruesst ihn, lasst es laut erschallen,
+Dass weit es sich verbreite, donnergleich:
+Dem ersten Habsburg Heil in Oesterreich!
+
+Alle.
+Heil! Heil!--Hoch Oesterreich!--Habsburg fuer immer!
+
+(Indem alle unter Trompeten und Jubelgeschrei niederknieen, um die
+Huldigung zu leisten, faellt der Vorhang.)
+
+Ende.
+
+
+Ende dieses Projekt Gutenberg Etextes Koenig Ottokars Glueck und Ende,
+von Franz Grillparzer.
+
+
+
+
+
+
+
+End of the Project Gutenberg EBook of Koenig Ottokars Glueck und Ende
+by Franz Grillparzer
+
+*** END OF THE PROJECT GUTENBERG EBOOK KOENIG OTTOKARS GLUECK UND ENDE ***
+
+This file should be named 7ottk10.txt or 7ottk10.zip
+Corrected EDITIONS of our eBooks get a new NUMBER, 7ottk11.txt
+VERSIONS based on separate sources get new LETTER, 7ottk10a.txt
+
+Produced by Mike Pullen and Delphine Lettau.
+
+Project Gutenberg eBooks are often created from several printed
+editions, all of which are confirmed as Public Domain in the US
+unless a copyright notice is included.  Thus, we usually do not
+keep eBooks in compliance with any particular paper edition.
+
+We are now trying to release all our eBooks one year in advance
+of the official release dates, leaving time for better editing.
+Please be encouraged to tell us about any error or corrections,
+even years after the official publication date.
+
+Please note neither this listing nor its contents are final til
+midnight of the last day of the month of any such announcement.
+The official release date of all Project Gutenberg eBooks is at
+Midnight, Central Time, of the last day of the stated month.  A
+preliminary version may often be posted for suggestion, comment
+and editing by those who wish to do so.
+
+Most people start at our Web sites at:
+http://gutenberg.net or
+http://promo.net/pg
+
+These Web sites include award-winning information about Project
+Gutenberg, including how to donate, how to help produce our new
+eBooks, and how to subscribe to our email newsletter (free!).
+
+
+Those of you who want to download any eBook before announcement
+can get to them as follows, and just download by date.  This is
+also a good way to get them instantly upon announcement, as the
+indexes our cataloguers produce obviously take a while after an
+announcement goes out in the Project Gutenberg Newsletter.
+
+http://www.ibiblio.org/gutenberg/etext03 or
+ftp://ftp.ibiblio.org/pub/docs/books/gutenberg/etext03
+
+Or /etext02, 01, 00, 99, 98, 97, 96, 95, 94, 93, 92, 92, 91 or 90
+
+Just search by the first five letters of the filename you want,
+as it appears in our Newsletters.
+
+
+Information about Project Gutenberg (one page)
+
+We produce about two million dollars for each hour we work.  The
+time it takes us, a rather conservative estimate, is fifty hours
+to get any eBook selected, entered, proofread, edited, copyright
+searched and analyzed, the copyright letters written, etc.   Our
+projected audience is one hundred million readers.  If the value
+per text is nominally estimated at one dollar then we produce $2
+million dollars per hour in 2002 as we release over 100 new text
+files per month:  1240 more eBooks in 2001 for a total of 4000+
+We are already on our way to trying for 2000 more eBooks in 2002
+If they reach just 1-2% of the world's population then the total
+will reach over half a trillion eBooks given away by year's end.
+
+The Goal of Project Gutenberg is to Give Away 1 Trillion eBooks!
+This is ten thousand titles each to one hundred million readers,
+which is only about 4% of the present number of computer users.
+
+Here is the briefest record of our progress (* means estimated):
+
+eBooks Year Month
+
+    1  1971 July
+   10  1991 January
+  100  1994 January
+ 1000  1997 August
+ 1500  1998 October
+ 2000  1999 December
+ 2500  2000 December
+ 3000  2001 November
+ 4000  2001 October/November
+ 6000  2002 December*
+ 9000  2003 November*
+10000  2004 January*
+
+
+The Project Gutenberg Literary Archive Foundation has been created
+to secure a future for Project Gutenberg into the next millennium.
+
+We need your donations more than ever!
+
+As of February, 2002, contributions are being solicited from people
+and organizations in: Alabama, Alaska, Arkansas, Connecticut,
+Delaware, District of Columbia, Florida, Georgia, Hawaii, Illinois,
+Indiana, Iowa, Kansas, Kentucky, Louisiana, Maine, Massachusetts,
+Michigan, Mississippi, Missouri, Montana, Nebraska, Nevada, New
+Hampshire, New Jersey, New Mexico, New York, North Carolina, Ohio,
+Oklahoma, Oregon, Pennsylvania, Rhode Island, South Carolina, South
+Dakota, Tennessee, Texas, Utah, Vermont, Virginia, Washington, West
+Virginia, Wisconsin, and Wyoming.
+
+We have filed in all 50 states now, but these are the only ones
+that have responded.
+
+As the requirements for other states are met, additions to this list
+will be made and fund raising will begin in the additional states.
+Please feel free to ask to check the status of your state.
+
+In answer to various questions we have received on this:
+
+We are constantly working on finishing the paperwork to legally
+request donations in all 50 states.  If your state is not listed and
+you would like to know if we have added it since the list you have,
+just ask.
+
+While we cannot solicit donations from people in states where we are
+not yet registered, we know of no prohibition against accepting
+donations from donors in these states who approach us with an offer to
+donate.
+
+International donations are accepted, but we don't know ANYTHING about
+how to make them tax-deductible, or even if they CAN be made
+deductible, and don't have the staff to handle it even if there are
+ways.
+
+Donations by check or money order may be sent to:
+
+Project Gutenberg Literary Archive Foundation
+PMB 113
+1739 University Ave.
+Oxford, MS 38655-4109
+
+Contact us if you want to arrange for a wire transfer or payment
+method other than by check or money order.
+
+The Project Gutenberg Literary Archive Foundation has been approved by
+the US Internal Revenue Service as a 501(c)(3) organization with EIN
+[Employee Identification Number] 64-622154.  Donations are
+tax-deductible to the maximum extent permitted by law.  As fund-raising
+requirements for other states are met, additions to this list will be
+made and fund-raising will begin in the additional states.
+
+We need your donations more than ever!
+
+You can get up to date donation information online at:
+
+http://www.gutenberg.net/donation.html
+
+
+***
+
+If you can't reach Project Gutenberg,
+you can always email directly to:
+
+Michael S. Hart <hart@pobox.com>
+
+Prof. Hart will answer or forward your message.
+
+We would prefer to send you information by email.
+
+
+**The Legal Small Print**
+
+
+(Three Pages)
+
+***START**THE SMALL PRINT!**FOR PUBLIC DOMAIN EBOOKS**START***
+Why is this "Small Print!" statement here? You know: lawyers.
+They tell us you might sue us if there is something wrong with
+your copy of this eBook, even if you got it for free from
+someone other than us, and even if what's wrong is not our
+fault. So, among other things, this "Small Print!" statement
+disclaims most of our liability to you. It also tells you how
+you may distribute copies of this eBook if you want to.
+
+*BEFORE!* YOU USE OR READ THIS EBOOK
+By using or reading any part of this PROJECT GUTENBERG-tm
+eBook, you indicate that you understand, agree to and accept
+this "Small Print!" statement. If you do not, you can receive
+a refund of the money (if any) you paid for this eBook by
+sending a request within 30 days of receiving it to the person
+you got it from. If you received this eBook on a physical
+medium (such as a disk), you must return it with your request.
+
+ABOUT PROJECT GUTENBERG-TM EBOOKS
+This PROJECT GUTENBERG-tm eBook, like most PROJECT GUTENBERG-tm eBooks,
+is a "public domain" work distributed by Professor Michael S. Hart
+through the Project Gutenberg Association (the "Project").
+Among other things, this means that no one owns a United States copyright
+on or for this work, so the Project (and you!) can copy and
+distribute it in the United States without permission and
+without paying copyright royalties. Special rules, set forth
+below, apply if you wish to copy and distribute this eBook
+under the "PROJECT GUTENBERG" trademark.
+
+Please do not use the "PROJECT GUTENBERG" trademark to market
+any commercial products without permission.
+
+To create these eBooks, the Project expends considerable
+efforts to identify, transcribe and proofread public domain
+works. Despite these efforts, the Project's eBooks and any
+medium they may be on may contain "Defects". Among other
+things, Defects may take the form of incomplete, inaccurate or
+corrupt data, transcription errors, a copyright or other
+intellectual property infringement, a defective or damaged
+disk or other eBook medium, a computer virus, or computer
+codes that damage or cannot be read by your equipment.
+
+LIMITED WARRANTY; DISCLAIMER OF DAMAGES
+But for the "Right of Replacement or Refund" described below,
+[1] Michael Hart and the Foundation (and any other party you may
+receive this eBook from as a PROJECT GUTENBERG-tm eBook) disclaims
+all liability to you for damages, costs and expenses, including
+legal fees, and [2] YOU HAVE NO REMEDIES FOR NEGLIGENCE OR
+UNDER STRICT LIABILITY, OR FOR BREACH OF WARRANTY OR CONTRACT,
+INCLUDING BUT NOT LIMITED TO INDIRECT, CONSEQUENTIAL, PUNITIVE
+OR INCIDENTAL DAMAGES, EVEN IF YOU GIVE NOTICE OF THE
+POSSIBILITY OF SUCH DAMAGES.
+
+If you discover a Defect in this eBook within 90 days of
+receiving it, you can receive a refund of the money (if any)
+you paid for it by sending an explanatory note within that
+time to the person you received it from. If you received it
+on a physical medium, you must return it with your note, and
+such person may choose to alternatively give you a replacement
+copy. If you received it electronically, such person may
+choose to alternatively give you a second opportunity to
+receive it electronically.
+
+THIS EBOOK IS OTHERWISE PROVIDED TO YOU "AS-IS". NO OTHER
+WARRANTIES OF ANY KIND, EXPRESS OR IMPLIED, ARE MADE TO YOU AS
+TO THE EBOOK OR ANY MEDIUM IT MAY BE ON, INCLUDING BUT NOT
+LIMITED TO WARRANTIES OF MERCHANTABILITY OR FITNESS FOR A
+PARTICULAR PURPOSE.
+
+Some states do not allow disclaimers of implied warranties or
+the exclusion or limitation of consequential damages, so the
+above disclaimers and exclusions may not apply to you, and you
+may have other legal rights.
+
+INDEMNITY
+You will indemnify and hold Michael Hart, the Foundation,
+and its trustees and agents, and any volunteers associated
+with the production and distribution of Project Gutenberg-tm
+texts harmless, from all liability, cost and expense, including
+legal fees, that arise directly or indirectly from any of the
+following that you do or cause:  [1] distribution of this eBook,
+[2] alteration, modification, or addition to the eBook,
+or [3] any Defect.
+
+DISTRIBUTION UNDER "PROJECT GUTENBERG-tm"
+You may distribute copies of this eBook electronically, or by
+disk, book or any other medium if you either delete this
+"Small Print!" and all other references to Project Gutenberg,
+or:
+
+[1]  Only give exact copies of it.  Among other things, this
+     requires that you do not remove, alter or modify the
+     eBook or this "small print!" statement.  You may however,
+     if you wish, distribute this eBook in machine readable
+     binary, compressed, mark-up, or proprietary form,
+     including any form resulting from conversion by word
+     processing or hypertext software, but only so long as
+     *EITHER*:
+
+     [*]  The eBook, when displayed, is clearly readable, and
+          does *not* contain characters other than those
+          intended by the author of the work, although tilde
+          (~), asterisk (*) and underline (_) characters may
+          be used to convey punctuation intended by the
+          author, and additional characters may be used to
+          indicate hypertext links; OR
+
+     [*]  The eBook may be readily converted by the reader at
+          no expense into plain ASCII, EBCDIC or equivalent
+          form by the program that displays the eBook (as is
+          the case, for instance, with most word processors);
+          OR
+
+     [*]  You provide, or agree to also provide on request at
+          no additional cost, fee or expense, a copy of the
+          eBook in its original plain ASCII form (or in EBCDIC
+          or other equivalent proprietary form).
+
+[2]  Honor the eBook refund and replacement provisions of this
+     "Small Print!" statement.
+
+[3]  Pay a trademark license fee to the Foundation of 20% of the
+     gross profits you derive calculated using the method you
+     already use to calculate your applicable taxes.  If you
+     don't derive profits, no royalty is due.  Royalties are
+     payable to "Project Gutenberg Literary Archive Foundation"
+     the 60 days following each date you prepare (or were
+     legally required to prepare) your annual (or equivalent
+     periodic) tax return.  Please contact us beforehand to
+     let us know your plans and to work out the details.
+
+WHAT IF YOU *WANT* TO SEND MONEY EVEN IF YOU DON'T HAVE TO?
+Project Gutenberg is dedicated to increasing the number of
+public domain and licensed works that can be freely distributed
+in machine readable form.
+
+The Project gratefully accepts contributions of money, time,
+public domain materials, or royalty free copyright licenses.
+Money should be paid to the:
+"Project Gutenberg Literary Archive Foundation."
+
+If you are interested in contributing scanning equipment or
+software or other items, please contact Michael Hart at:
+hart@pobox.com
+
+[Portions of this eBook's header and trailer may be reprinted only
+when distributed free of all fees.  Copyright (C) 2001, 2002 by
+Michael S. Hart.  Project Gutenberg is a TradeMark and may not be
+used in any sales of Project Gutenberg eBooks or other materials be
+they hardware or software or any other related product without
+express permission.]
+
+*END THE SMALL PRINT! FOR PUBLIC DOMAIN EBOOKS*Ver.02/11/02*END*
+
