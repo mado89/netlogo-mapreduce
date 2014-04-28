@@ -9,7 +9,6 @@ import java.util.Map;
 
 import org.nlogo.api.CompilerException;
 import org.nlogo.api.ExtensionException;
-import org.nlogo.extensions.mapreduce.Manager;
 
 import at.dobiasch.mapreduce.framework.Framework;
 import at.dobiasch.mapreduce.framework.InputChecker;
@@ -91,7 +90,7 @@ public class SingleNodeRun extends MapReduceRun
 	
 	private void prepareMapper() throws IOException, CompilerException
 	{
-		world= Manager.getWorld();
+		world= fw.getWorldSem().getWorld();
 		// System.out.println("Prepare Mapper" + world);
 		this.controller.prepareMappingStage(world);
 	}
@@ -140,7 +139,7 @@ public class SingleNodeRun extends MapReduceRun
 		Map<String,IntKeyVal> intdata= this.controller.getIntermediateData();
 		// Iterator<IntKeyVal> vals= intdata.values().iterator();
 		// Iterator<String> keys= intdata.keySet().iterator();
-		System.out.println(intdata);
+		// System.out.println(intdata);
 		String[] kk= new String[intdata.size()];
 		intdata.keySet().toArray(kk);
 		// String key;

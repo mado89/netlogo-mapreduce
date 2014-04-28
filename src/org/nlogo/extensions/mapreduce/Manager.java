@@ -1,11 +1,9 @@
 package org.nlogo.extensions.mapreduce;
 
 import java.io.File;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.io.StringWriter;
 
 import org.nlogo.api.ExtensionException;
+import org.nlogo.api.ExtensionManager;
 import org.nlogo.extensions.mapreduce.commands.AcceptWorkers;
 import org.nlogo.extensions.mapreduce.commands.Emit;
 import org.nlogo.extensions.mapreduce.commands.ID;
@@ -32,6 +30,7 @@ import org.nlogo.workspace.AbstractWorkspace;
 
 import at.dobiasch.mapreduce.framework.Framework;
 import at.dobiasch.mapreduce.framework.FrameworkFactory;
+import at.dobiasch.mapreduce.framework.WorldSem;
 
 /**
  * Manager Class for the extension
@@ -45,76 +44,9 @@ public class Manager extends org.nlogo.api.DefaultClassManager
 	// private static LogoList values;
 	
 	/**
-	 * A helper class to get the world from the workspace
-	 * @see fillIn
-	 * @author Martin Dobiasch
-	 */
-	private class WorldSem
-	{
-		private String world= "";
-		private final Object sync= new Object();
-		private boolean exportRunning= false;
-		private AbstractWorkspace ws;
-		
-		/**
-		 * This method has to be called before the world can be read via getWorld
-		 * @see getWorld
-		 */
-		public void fillIn(AbstractWorkspace workspace)
-		{
-			exportRunning= true;
-			world= "";
-			this.ws= workspace;
-			org.nlogo.awt.EventQueue.invokeLater(new Runnable()
-			{
-				public void run()
-				{
-					try
-					{
-						synchronized(sync)
-						{
-							StringWriter sw = new StringWriter();
-							ws.exportWorld(new PrintWriter(sw));
-							world = sw.toString();
-							exportRunning= false;
-							// System.out.println("World exported!" + world);
-							sync.notifyAll();
-						}
-					}
-					catch(IOException io)
-					{
-						io.printStackTrace();
-					}
-				}
-			});
-		}
-		
-		/*public void fillIn()
-		{
-			fillIn(Manager.em.workspace());
-		}*/
-		
-		public String getWorld()
-		{
-			synchronized( sync )
-			{
-				while( exportRunning || world.equals("") )
-				{
-					System.out.println("Waiting for World export");
-					try {
-						sync.wait();
-					} catch (InterruptedException e) {
-						e.printStackTrace();
-					}
-				}
-			}
-			return world;
-		}
-	}
-	
-	/**
 	* Registers extension primitives.
 	*/
+	@Override
 	public void load(org.nlogo.api.PrimitiveManager manager)
 	{
 		manager.addPrimitive("node", new Node());
@@ -148,28 +80,38 @@ public class Manager extends org.nlogo.api.DefaultClassManager
 	/**
 	* Initializes this extension.
 	*/
+	@Override
 	public void runOnce(org.nlogo.api.ExtensionManager em) throws org.nlogo.api.ExtensionException
 	{
 		Manager.em= (org.nlogo.workspace.ExtensionManager) em;
 		Manager.world= new WorldSem();
 		// Manager.world.fillIn();
 		
+		/**
+		 * Setup the Framework
+		 */
 		Framework fw= FrameworkFactory.getInstance();
+		
+		// Determine where the model is
 		File model= new File(Manager.em.workspace().getModelPath());
 		String absolutePath = model.getAbsolutePath();
 		String modelPath = absolutePath.substring(0,absolutePath.lastIndexOf(File.separator));
 		fw.getConfiguration().setBaseDir(modelPath + File.separator);
+		// Set the worldsempahore
+		fw.setWorldSem(Manager.world);
 	}
 	
 	/**
 	 * When NetLogo is closing properly --> clean up
 	 * @throws ExtensionException in case the Framework can not be loaded
 	 */
-	/*public void unload() throws ExtensionException 
+	@Override
+	public void unload(ExtensionManager em) throws ExtensionException 
 	{
 		Framework fw= FrameworkFactory.getInstance();
 		fw.cleanup();
-	}*/
+		System.out.println("Manager::unload");
+	}
 	
 	/**
 	 * Request the current(!) world
@@ -181,6 +123,7 @@ public class Manager extends org.nlogo.api.DefaultClassManager
 		return Manager.world.getWorld();
 	}*/
 	
+	@Deprecated
 	public static String getWorld()
 	{
 		return Manager.world.getWorld();

@@ -23,13 +23,14 @@ public class Framework
 	private boolean        multinode;
 	private MapRedHubNetManager hubnetmgr;
 	private int job;
+	private WorldSem world;
 	
 	public Framework() throws ExtensionException
 	{
 		this.config= new Configuration();
 		this.masterp= false;
 		// TODO place the tmpdir wisely. At the moment it might end up in the NetLogo directory
-		sysfileh= new SysFileHandler("./tmpdir" + ((int)(Math.random() * 100))  + "/");
+		sysfileh= new SysFileHandler("tmpdir",((int)(Math.random() * 100)), "./");
 		
 		this.run= null;
 		this.multinode= false;
@@ -165,9 +166,21 @@ public class Framework
 	public void newJob() {
 		this.job++;
 	}
+	
+	public void setWorldSem(WorldSem world) {
+		this.world= world;
+	}
+	
+	public WorldSem getWorldSem() {
+		return this.world;
+	}
 
 	/*public String getSystemDir()
 	{
 		return sysdir; // TODO: not hardcoded is maybe better ...
 	}*/
+	
+	public void cleanup() {
+		this.sysfileh.cleanSysDir();
+	}
 }

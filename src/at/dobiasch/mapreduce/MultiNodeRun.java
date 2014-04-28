@@ -14,7 +14,6 @@ import java.util.Map;
 import org.nlogo.api.CompilerException;
 import org.nlogo.api.ExtensionException;
 import org.nlogo.api.LogoException;
-import org.nlogo.extensions.mapreduce.Manager;
 
 import at.dobiasch.mapreduce.framework.ChecksumHelper;
 import at.dobiasch.mapreduce.framework.Framework;
@@ -78,7 +77,7 @@ public class MultiNodeRun extends MapReduceRun
 		
 		fw.getHubNetManager().sendConfigToClients(fw.getConfiguration());
 		
-		world= Manager.getWorld();
+		world= fw.getWorldSem().getWorld();
 		
 		try
 		{

@@ -1,8 +1,11 @@
 package at.dobiasch.mapreduce.framework;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+
+import org.nlogo.api.ExtensionException;
 
 /**
  * Book-Keeper of all System files
@@ -16,15 +19,34 @@ public class SysFileHandler
 	private Object syncFiles= new Object();
 	private boolean syncFileswait= false;
 	
-	public SysFileHandler(String sysdir)
+	public SysFileHandler(String dirname, int jobnumber, String location) throws ExtensionException
 	{
-		this.sysdir= sysdir;
+		/*File loc= new File(location);
+		if( !loc.exists() )
+			loc.mkdirs();
+		
+		File f;
+		try {
+			f = File.createTempFile(dirname, "" + jobnumber, loc);
+			this.sysdir= f.getAbsolutePath();
+			if(!(f.mkdir()))
+		    {
+		        throw new ExtensionException("Could not create temp directory: " + f.getAbsolutePath());
+		    }
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			throw new ExtensionException("Cannot create temporary directory");
+		}*/
+		this.sysdir= location + dirname + "-" + jobnumber;
 		File f= new File(sysdir);
+		// File.createTempFile("", "", sysdir);
+		this.sysdir= f.getAbsolutePath();
 		if( !f.exists() )
 			f.mkdirs();
 		if( this.sysdir.endsWith("/") || this.sysdir.endsWith("\\"))
 			this.sysdir= this.sysdir.substring(0, this.sysdir.length() - 1);
-		f.deleteOnExit();
+		System.out.println("Temporary directory " + this.sysdir + " created");
 		this.files= new HashMap<String,String>();
 	}
 	
@@ -38,6 +60,25 @@ public class SysFileHandler
 		File f= new File(dirn);
 		if( !f.exists() )
 			f.mkdirs();
+		
+		synchronized( syncFiles ) // get Intermediate-Data access for the key 
+		{
+			while( syncFileswait )
+			{
+				try
+				{
+					syncFiles.wait();
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+			}
+			syncFileswait= true;
+			
+			files.put(dir, dirn);
+			
+			syncFileswait= false;
+			syncFiles.notifyAll();
+		}
 		
 		return dirn;
 	}
@@ -95,13 +136,17 @@ public class SysFileHandler
 		}
 	}
 	
-	/*
+	
 	public void cleanSysDir()
 	{
 		System.out.println("SysFileHandler::cleanSysDir");
+		for(String filename : files.values()) {
+			File f= new File(filename);
+			f.deleteOnExit();
+		}
 		File dir= new File(sysdir);
 		dir.deleteOnExit();
-	}*/
+	}
 
 	public String getFile(String fn) {
 		return sysdir + "/" + fn;

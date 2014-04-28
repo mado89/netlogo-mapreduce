@@ -17,6 +17,6 @@ MAPREDUCE="/media/data/netlogo-5.0.5/extensions/"
 
 cd "$NETLOGO"             # the copious quoting is for handling paths with spaces
 
-CP="$CLASSPATH:${NETLOGO}NetLogo.jar:${MAPREDUCE}mapreduce/mapreduce.jar:${MAPREDUCE}mapreduce/client-lib.jar"
+CP="$CLASSPATH:${NETLOGO}NetLogo.jar:${MAPREDUCE}mapreduce/mapreduce-framework.jar:${MAPREDUCE}mapreduce/client-lib.jar"
 java -cp $CP -Djava.library.path=./lib -Djava.ext.dirs= -XX:MaxPermSize=128m -Xmx1024m -Dfile.encoding=UTF-8 org.nlogo.app.App "$@"
 

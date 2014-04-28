@@ -52,7 +52,7 @@ to wc
   
   reset-ticks
   
-  let res mapreduce:mapreduce "read-file" "word-count" 0 "/home/martin/DA/input5"
+  let res mapreduce:mapreduce "read-file" "word-count" 0 "input5"
   print "mapreduce:mapreduce fertig"
   while [mapreduce:running?] [
    every 0.5 [
