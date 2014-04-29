@@ -27,12 +27,16 @@ public class InputChecker
 		String indir= fw.getConfiguration().getInputDirectory();
 		File inputdir = new File(indir);
 		
+		if( !inputdir.isAbsolute() )
+		{
+			indir= fw.getConfiguration().getBaseDir() + indir;
+			inputdir= new File(indir);
+		}
+		
+		// System.out.println("check: "  + inputdir + " " + inputdir.isFile() + " " + inputdir.isAbsolute());
 		if( inputdir.isFile() )
 		{
-			if( inputdir.isAbsolute() )
-				part.addFile(indir);
-			else
-				part.addFile(fw.getConfiguration().getBaseDir() + indir);
+			part.addFile(indir);
 		}
 		else
 		{
@@ -43,11 +47,6 @@ public class InputChecker
 			};
 	
 			String[] children;
-			if( !inputdir.isAbsolute() )
-			{
-				indir= fw.getConfiguration().getBaseDir() + indir;
-				inputdir= new File(indir);
-			}
 			children= inputdir.list(filter);
 			
 			if (children == null)
