@@ -1,6 +1,13 @@
 extensions [mapreduce]
 
-to-report split [ #string ] ; http://groups.yahoo.com/group/netlogo-users/message/6490
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; Splitting a string, delimiter ' '
+;;; #string input 
+;;; reports a list of words
+;;; code based on
+;;; http://groups.yahoo.com/group/netlogo-users/message/6490
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+to-report split [ #string ]
   let result [] ; return value
   loop ; exit when done
   [
@@ -12,10 +19,10 @@ to-report split [ #string ] ; http://groups.yahoo.com/group/netlogo-users/messag
   ]
 end
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;; Mapper
 ;;;; Read the line of a file, split it into words, emit word
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 to read-file [file-name line]
   ;;; Read in the line and split it into words
   foreach split line
@@ -26,13 +33,13 @@ to read-file [file-name line]
   ]
 end
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;; Reducer
 ;;;; Sum up the occurrences of a word
 ;;;;  key    the word
 ;;;;  accum  current count
 ;;;;  value  next value
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 to-report sum-occurrences [key accum value]
   report accum + read-from-string value
 end
