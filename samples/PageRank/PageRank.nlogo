@@ -2,16 +2,18 @@ extensions [mapreduce table]
 
 globals [outlinks ranks]
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;; Mapper for the pagerank computation. Inverting the graph
 ;;;; Gets a line of the input file
 ;;;; #key filename
-;;;; #values definition of a site, format : site rank outlink_11 ... outlink_n
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;; #values definition of a site, 
+;;;;           format : site rank outlink_1 ... outlink_n
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 to distributerank [#key #values]
   ;;; read site
   let site read-from-string first #values
-  ;;; do not read the rank since it changes. Use ranks table instead
+  ;;; do not read rank since it changes between iterations.
+  ;;;   Use ranks table instead
   let rank table:get ranks site
   
   ;;; now loop over all outlinks and 
@@ -24,9 +26,9 @@ to-report summer[#key #accum #value]
   report (#accum + read-from-string #value)
 end
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;; Determine the number of outlinks for a given page
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 to map-outlinks [#key #values]
   let site first #values
   
@@ -72,20 +74,16 @@ to iteration [#input]
   tick
   let ranksums mapreduce:result res
   show ranksums
-  let x []
   foreach ranksums [
     let page first ?
     let rank first bf ?
     set rank (rank / (#outlinks page ))
-    ; show page
-    ; show rank
     table:put ranks page rank
   ]
   show ranks
 end
 
 to pagerank
-  show input
   reset-ticks
   pre-process input
   repeat iterations [ 
@@ -183,39 +181,52 @@ Input
 @#$#@#$#@
 ## WHAT IS IT?
 
-(a general understanding of what the model is trying to show or explain)
+This model computes the PageRank for a given input data set. 
+For a detailed description of PageRank see [1]. 
 
 ## HOW IT WORKS
 
-(what rules the agents use to create the overall behavior of the model)
+The model gives a simplified solution to the PageRank problem by fixing the format to the input in the following way: The input to the model is a simple text file
+where every line describes one web page. Each of those lines starts with the id (a numerical value) of the web page, its initial rank (also a numerical value) followed by the ideas of the pages it links to.
+In order to efficiently keep the track of the current ranks of all pages the model uses the table extension provided with the standard installation of NetLogo. Before the PageRank-computation starts two pre-processing MapReduce-jobs are done in order to determine the number of out-links and initial rank for every web page. Then the actual PageRank computation starts. The mapper (distributerank) reads the first value of the line (i.e. the id of the web site) and then emits for all out-links the current rank of the web site. The reducer on the other hand is very simple since it just sums up all ranks for a web site. After the job has finished the new rank of every page is divided by its number of out-links according to the formula from [1] (However, no factor c is used).
 
 ## HOW TO USE IT
 
-(how to use the model, including a description of each of the items in the Interface tab)
-
-## THINGS TO NOTICE
-
-(suggested things for the user to notice while running the model)
+Select the data set and the number of iterations and click on PageRank
 
 ## THINGS TO TRY
 
-(suggested things for the user to try to do (move sliders, switches, etc.) with the model)
+Try different number of iterations. 
 
 ## EXTENDING THE MODEL
 
-(suggested things to add or change in the Code tab to make the model more complicated, detailed, accurate, etc.)
+### Algorithm
+Figure 6.7 of the Thesis shows a high level algorithm for computing the PageRank. When carefully examining the sample solution students should see that the pre-processing step does unnecessary work, since it computes the number of out-links. However, this number can also be determined by every mapper during the actual computation. 
+Changing the code in this case should be a small task,since it involves the removal of the first pre-processing MapReduce-job and changing mapper
+and reducer of the main MapReduce-job.
+
+### Convergence
+Currently, the model does not compute the convergence of the algorithm but rather runs for a fixed number of iterations. One tasks for students can be to change the algorithm to determine the convergence of the algorithm or to stop the computation after a fixed number of iterations. As described in [1], the computation convergence once the change between two iterations is below a certain threshold ε
+
+### Input Data
+At the moment the model is not ready for real word applications. This is due to the fact that is simplifies the input to the algorithm. One task for students could be to build the input to the algorithm from a real set of web pages. These web pages can be stored in a folder which serves as input directory for a MapReduce-job. The files could then be processed and every link could be extracted. However, a solution for this task also needs to solve the task of how to transfer URLs to a unique ID.
+
+## Dangling Links
+One problem of the algorithm as presented above and PageRank in general are so-called dangling links. Dangling links are pages with only in-links but no out-links. Such a page can be the result of not yet completed down load of the page. Thus, it is known which pages link to that page but now to which pages the page links.
+The problem with dangling links is that is not clear how the rank of the page should be distributed. A solution to this problem can be simple removing dangling links from the data before computing the PageRank and adding them again to the data once the computation is done. This removal can also be done using MapReduce since it involves computing the in- and out-degree of every page in the data.
 
 ## NETLOGO FEATURES
 
-(interesting or unusual features of NetLogo that the model uses, particularly in the Code tab; or where workarounds were needed for missing features)
+The model shows how to use multiple differnt MapReduce jobs in one Model. 
 
 ## RELATED MODELS
 
-(models in the NetLogo Models Library and elsewhere which are of related interest)
+Check out all other MapReduce models especially the Models for WordIndex and Shortest Path. 
 
 ## CREDITS AND REFERENCES
 
-(a reference to the model's URL on the web if it has one, as well as any other necessary credits, citations, and links)
+[1] Lawrence Page, Sergey Brin, Rajeev Motwani, and Terry Winograd. The pagerank citation
+ranking: bringing order to the web. 1999.
 @#$#@#$#@
 default
 true
