@@ -30,7 +30,7 @@ export: samples
 	rm -f $(wildcard samples/KMeans/output*.txt)
 	rm -f $(wildcard samples/PageRank/output*.txt)
 	rm -f $(wildcard samples/output*.txt)
-	tar cvfz MapReduce-xx.tar.gz --exclude="*.*~" src/ mapreduce netlogo.sh samples/ client 
+	tar cvfz MapReduce-xx.tar.gz --exclude="*.*~" src/ mapreduce netlogo.sh samples/ client doc/mapreduce.html doc/netlogo.css
 
 mapreduce/mapreduce.jar: $(SRCS) manifest.txt mapreduce/mapreduce-framework.jar
 	mkdir -p classes
