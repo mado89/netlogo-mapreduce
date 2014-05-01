@@ -491,7 +491,7 @@ public class HostController
 					if( rec[0] == null && rec[1] == null ) {}
 					else
 					{
-						System.out.println("Write: (" + h[0] + "/" + rec[0] + "): " + rec[1] + " " + i + " " + f);
+						// System.out.println("Write: (" + h[0] + "/" + rec[0] + "): " + rec[1] + " " + i + " " + f);
 						out.write(rec[0], rec[1]);
 					}
 				}
