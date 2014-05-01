@@ -1,0 +1,236 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<title>
+      MapReduce Extension
+    </title>
+    <link rel="stylesheet" href="netlogo.css" type="text/css">
+    <meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+  <h1>
+      MapReudce Extension
+    </h1>
+    <p>
+      This extension provides a MapReduce framework for NetLogo. 
+    </p>
+    <h2>
+      How to use
+    </h2>
+    <p>
+      Before using the extension it needs to be installed properly and a custom launcher needs to be used. Please read the installation instructions carefully before proceeding.
+    </p>
+    <p>
+      To use the extension in your model, add a line to the top of
+      your Code tab:
+    <pre>
+extensions [mapreduce]
+</pre>
+    <p>
+      If your model already uses other extensions, then it already has an
+      <a href="http://ccl.northwestern.edu/netlogo/5.0/docs/dictionary.html#extensions"><tt>extensions</tt></a> line in
+      it, so just add <tt>mapreduce</tt> to the list.
+    <p>
+      For more information on using NetLogo extensions, see the <a href="http://ccl.northwestern.edu/netlogo/5.0/docs/extensions.html">Extensions Guide</a>.
+    <h2>
+      Small example
+    </h2>
+    <pre>
+to read-file [file-name words]
+  foreach words
+  [
+    mapreduce:emit ? "1" ; <word, 1>
+  ]
+end
+
+to-report word-count [key acum value]
+  report acum + read-from-string value
+end
+
+let res mapreduce:mapreduce "read-file" "word-count" 0 data-set
+</pre>
+    
+    <h2>
+      Primitives
+    </h2>
+    <p>
+      <a href="#mapreduce:mapreduce">mapreduce:mapreduce</a>
+      <a href="#mapreduce:result">mapreduce:result</a>
+      <a href="#mapreduce:node">mapreduce:node</a>
+      <a href="#mapreduce:node.connect">mapreduce:node.connect</a>
+      <a href="#mapreduce:acceptworkers">mapreduce:acceptworkers</a>
+      <a href="#mapreduce:emit">mapreduce:emit</a>
+      <a href="#mapreduce:running?">mapreduce:running?</a>
+      <a href="#mapreduce:map-progress">mapreduce:map-progress</a>
+      <a href="#mapreduce:reduce-progress">mapreduce:reduce-progress</a>
+    </p>
+    <h2>
+      Configuration
+    </h2>
+    <p>
+      <a href="#mapreduce:config.output">mapreduce:config.output</a>
+      <a href="#mapreduce:config.mapper">mapreduce:config.mapper</a>
+      <a href="#mapreduce:config.reducer">mapreduce:config.reducer</a>
+      <a href="#mapreduce:config.inputformat">mapreduce:config.inputformat</a>
+      <a href="#mapreduce:config.valuesparator">mapreduce:config.valuesparator</a>
+    </p>
+    <h2>Primitives</h2>
+    <div class="dict_entry">
+      <h3>
+        <a name="mapreduce:mapreduce" id="mapreduce:mapreduce">mapreduce:mapreduce</a>
+      </h3>
+      <h4>
+        mapreduce <i>mapper</i> <i>reducer</i> <i>accumulator</i> <i>input</i>
+      </h4>
+      <p>
+        Starts a MapReduce job. The job will use <i>mapper</i> as its mapper and <i>reducer</i> its reducer. Every reducer will start with <i>accumulator</i> as initial input for the accumulator parameter. <i>input</i> can be a single file or a directory. 
+        The command will return controll back to NetLogo once the job is submitted to the framework. Use <a href="#mapreduce:running?">mapreduce:running?</a> to wait for termination. 
+        It has not been tested extensively if it is possible to run several MapReduce-jobs in parallel (However, in in theory it should be possible)<br>
+        Reports the jobnumber
+      </p>
+    </div>
+    <div class="dict_entry">
+      <h3>
+        <a name="mapreduce:result" id="mapreduce:result">mapreduce:result</a>
+      </h3>
+      <h4>
+        result <i>jobnumber</i>
+      </h4>
+      <p>
+        Reads the result file for MapReduce job <i>jobnumber</i> and reports it as a list. 
+      </p>
+    </div>
+    <div class="dict_entry">
+      <h3>
+        <a name="mapreduce:node" id="mapreduce:node">mapreduce:node</a>
+        <br>
+        <a name="mapreduce:node.connect" id="mapreduce:node.connect">mapreduce:node.connect</a>
+      </h3>
+      <h4>
+        node
+        <br>
+        node.connect <i>host</i> <i>port</i>
+      </h4>
+      <p>
+        Turns the current NetLogo instance into a node. The instance will try to connect via HubNet to a master instance of MapReduce.
+        It will then receive commands from the master during the computation.
+        If node is used the normal HubNet dialog will appear. If node.connect is used it will try to connect directly without any user interaction. 
+      </p>
+    </div>
+    <div class="dict_entry">
+      <h3>
+        <a name="mapreduce:acceptworkers" id="mapreduce:acceptworkers">mapreduce:acceptworkers</a>
+      </h3>
+      <h4>
+        acceptworkers
+      </h4>
+      <p>
+        Turns the current NetLogo instance into a master. The instance will now be open for HubNet connections. 
+        Instead of performing a single node run, this NetLogo instance will run a multi node run MapReduce when the mapreduce:mapreduce command is used.  
+      </p>
+    </div>
+    <div class="dict_entry">
+      <h3>
+        <a name="mapreduce:emit" id="mapreduce:emit">mapreduce:emit</a>
+      </h3>
+      <h4>
+        emit <i>key</i> <i>value</i>
+      </h4>
+      <p>
+        Emit a key-value pair to the MapReduce-framework. <strong>Carfull</strong>: Only to be used in a mapper. However, a mapper can emit several key-value pairs. 
+      </p>
+    </div>
+
+    <div class="dict_entry">
+      <h3>
+        <a name="mapreduce:running?" id="mapreduce:running?">running?</a>
+      </h3>
+      <h4>
+        running?
+      </h4>
+      <p>
+        Reports true if there is currently a MapReduce-job running. For various reasons mapreduce:mapreduce is not a blocking call.
+        Rather it will return right after the job has been submitted to the framework. 
+      </p>
+    </div>
+
+   <div class="dict_entry">
+      <h3>
+        <a name="mapreduce:map-progress" id="mapreduce:map-progress">mapreduce:map-progress</a>
+        <br>
+        <a name="mapreduce:reduce-progress" id="mapreduce:reduce-progress">mapreduce:reduce-progress</a>
+      </h3>
+      <h4>
+        map-progress
+        <br>
+        reduce-progress
+      </h4>
+      <p>
+        
+      </p>
+    </div>
+    <h2>
+      Configuration
+    </h2>
+    <p>
+      <a href="#mapreduce:config.output">mapreduce:config.output</a>
+      <a href="#mapreduce:config.mapper">mapreduce:config.mapper</a>
+      <a href="#mapreduce:config.reducer">mapreduce:config.reducer</a>
+      <a href="#mapreduce:config.inputformat">mapreduce:config.inputformat</a>
+      <a href="#mapreduce:config.valuesparator">mapreduce:config.valuesparator</a>
+    </p>
+    <div class="dict_entry">
+      <h3>
+        <a name="mapreduce:config.output" id="mapreduce:config.output">mapreduce:config.output</a>
+      </h3>
+      <h4>
+        config.output <i>directory</i>
+      </h4>
+      <p>
+        Tells the framework to write the output of jobs into the specified directory. 
+      </p>
+    </div>
+    <div class="dict_entry">
+      <h3>
+        <a name="mapreduce:config.mapper" id="mapreduce:config.mapper">mapreduce:config.mapper</a>
+        <br/>
+        <a name="mapreduce:config.reducer" id="mapreduce:config.reducer">mapreduce:config.reducer</a>
+      </h3>
+      <h4>
+        config.mapper <i>count</i>
+        <br>
+        config.reducers <i>count</i>
+      </h4>
+      <p>
+        Fixes the numbers of mappers or reducers. MapReduce works usually by starting a certain fixed amount of map and/or reduce tasks on every node.
+        For MapReduce for NetLogo the default values are: Mappers twice the number of processors in the computer and one reducer. 
+      </p>
+    </div>
+    <div class="dict_entry">
+      <h3>
+        <a name="mapreduce:config.inputformat" id="mapreduce:config.inputformat">mapreduce:config.inputformat</a>
+      </h3>
+      <h4>
+        config.inputformat <i>format</i>
+      </h4>
+      <p>
+        Tells the framework which inputparser should be used. Usually the TextInput-format will be used. By default the framework will give every mapper a line from the input where the key is the filename and the value is the whole line (ie the seperator is set to '\n'). 
+        Using config.inputformat the parser can be changed. Currently there are two parsers built in: TextInput (default) and KeyValue (for reading outputfiles).
+        However, one can write own input parsers and load them. When <i>format</i> starts with _ the framework will look for a java class named <i>format</i> (without the leading _)
+For example: <pre>
+mapreduce:config.inputformat "_at.dobiasch.mapreduce.framework.inputparser.TextInputFormat"
+</pre>
+will load the default parser (TextInputFormat)
+      </p>
+    </div>
+    <div class="dict_entry">
+      <h3>
+        <a name="mapreduce:config.valuesparator" id="mapreduce:config.valuesparator">mapreduce:config.valuesparator</a>
+      </h3>
+      <h4>
+        config.valuesparator <i>separator</i>
+      </h4>
+      <p>
+        Tell the framework which string/character separates values in a data chunk. The default value is '\n'. As a result of this very mapper will get a single value. This behaviour can be changed by, for example, setting the separator to ' '. That way the mapper will get a list of words as values instead of the whole line. 
+      </p>
+    </div>
+
+
+
